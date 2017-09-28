@@ -21,10 +21,10 @@ addons:
     - ubuntu-toolchain-r-test
 #    - george-edison55-precise-backports
 #    - george-edison55-cmake-3.x
-    - llvm-toolchain-trusty-4.0
+#    - llvm-toolchain-trusty-4.0
     packages:
     - g++-6
-    - clang-4.0
+#    - clang-4.0
 
 env:
  - __="link=shared" FLAGS="link=shared"
@@ -55,7 +55,9 @@ before_install:
  - rm -rf boost/*
  - if [ ! -f "boost/bootstrap.sh" ]; then
      wget -O boost.tar.bz2 https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2;
-     tar xf boost.tar.bz2;
+     tar xf boost.tar.bz2 -C boost;
+     mv boost/boost_1_65_1 .;
+     rm -rf boost;
      mv boost_1_65_1 boost;
      ls -l;
      ls -l boost;
