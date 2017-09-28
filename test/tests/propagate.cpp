@@ -29,9 +29,11 @@ DEALINGS IN THE SOFTWARE.
 
 #include "../../include/boost/outcome/outcome.hpp"
 #include "../../include/boost/outcome/try.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
-BOOST_AUTO_TEST_CASE(works / outcome / propagate, "Tests that the outcome propagates errors between different editions of itself")
+BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_propagate, "Tests that the outcome propagates errors between different editions of itself")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   {

@@ -28,8 +28,8 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef BOOST_OUTCOME_BOOST_OUTCOME_HPP
-#define BOOST_OUTCOME_BOOST_OUTCOME_HPP
+#ifndef BOOST_OUTCOME_OUTCOME_HPP
+#define BOOST_OUTCOME_OUTCOME_HPP
 
 #include "result.hpp"
 
@@ -190,7 +190,7 @@ namespace impl
 
 namespace policy
 {
-#ifdef __cpp_exceptions
+#ifndef BOOST_NO_EXCEPTIONS
   template <class R, class S, class P> struct error_code_throw_as_system_error_exception_rethrow;
   /*! Default `outcome<R, S, P>` policy selector.
   \module Error code interpretation policy
@@ -1183,7 +1183,7 @@ is not constructible to `value_type`, is not constructible to `payload_exception
                                  &&detail::is_nothrow_swappable<payload_exception_type>::value)
   {
     using std::swap;
-#ifdef __cpp_exceptions
+#ifndef BOOST_NO_EXCEPTIONS
 #ifdef _MSC_VER
 #pragma warning(push)
 #pragma warning(disable : 4297)  // use of throw in noexcept function
@@ -1315,7 +1315,7 @@ namespace hooks
 
 namespace policy
 {
-#ifdef __cpp_exceptions
+#ifndef BOOST_NO_EXCEPTIONS
   /*! Policy interpreting S as a type implementing the `std::error_code` contract, E as
   a type implementing the `std::exception_ptr` contract, and any wide attempt to access the
   successful state throws the `exception_ptr` if available, then the `error_code` wrapped
@@ -1398,9 +1398,9 @@ namespace policy
         }
         if((self->_state._status & detail::status_have_error) != 0)
         {
-          throw std::system_error(self->_error);
+          BOOST_OUTCOME_THROW_EXCEPTION(std::system_error(self->_error));
         }
-        throw bad_outcome_access("no value");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no value"));
       }
     }
     /*! Performs a wide check of state, used in the error() functions
@@ -1410,7 +1410,7 @@ namespace policy
     {
       if((self->_state._status & detail::status_have_error) == 0)
       {
-        throw bad_outcome_access("no error");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no error"));
       }
     }
 #if BOOST_OUTCOME_ENABLE_POSITIVE_STATUS
@@ -1421,7 +1421,7 @@ namespace policy
     {
       if((self->_state._status & detail::status_have_status) == 0)
       {
-        throw bad_outcome_access("no status");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no status"));
       }
     }
 #endif
@@ -1432,7 +1432,7 @@ namespace policy
     {
       if((self->_state._status & detail::status_have_payload) == 0)
       {
-        throw bad_outcome_access("no payload");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no payload"));
       }
     }
     /*! Performs a wide check of state, used in the exception() functions
@@ -1442,7 +1442,7 @@ namespace policy
     {
       if((self->_state._status & detail::status_have_exception) == 0)
       {
-        throw bad_outcome_access("no exception");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no exception"));
       }
     }
   };

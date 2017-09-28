@@ -9,12 +9,20 @@
 # See http://www.boost.org/libs/outcome for documentation.
 
 import testing ;
+import ../../config/checks/config : requires ;
+
+project
+    : requirements
+      [ requires cxx14_variable_templates ]
+      <library>../../test/build//boost_unit_test_framework
+    ;
 
 {
   test-suite outcome :
-    [ compile-fail compile-file/outcome-int-int-1.cpp ]
-    [ compile-fail compile-file/result-int-int-1.cpp ]
-    [ compile-fail compile-file/result-int-int-2.cpp ]
+
+    [ compile-fail compile-fail/outcome-int-int-1.cpp ]
+    [ compile-fail compile-fail/result-int-int-1.cpp ]
+    [ compile-fail compile-fail/result-int-int-2.cpp ]
 
     [ run tests/comparison.cpp ]
     [ run tests/constexpr.cpp ]
@@ -40,5 +48,6 @@ import testing ;
     [ run tests/udts.cpp ]
 
     [ run expected-pass.cpp ]
+
   ;
 }

@@ -29,9 +29,11 @@ DEALINGS IN THE SOFTWARE.
 
 #include "../../include/boost/outcome/outcome.hpp"
 #include "../../include/boost/outcome/try.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
-BOOST_AUTO_TEST_CASE(issues / 7, "BOOST_OUTCOME_TRYV(expr) in a function whose return outcome's type has no default constructor fails to compile")
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_7, "BOOST_OUTCOME_TRYV(expr) in a function whose return outcome's type has no default constructor fails to compile")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   struct udt  // NOLINT
@@ -44,7 +46,7 @@ BOOST_AUTO_TEST_CASE(issues / 7, "BOOST_OUTCOME_TRYV(expr) in a function whose r
   {
     auto f = []() -> result<udt> {
       auto g = [] { return result<int>(5); };
-      /* This fails because BOOST_BOOST_OUTCOME_TRYV() returns a result<void>
+      /* This fails because BOOST_OUTCOME_TRYV() returns a result<void>
       which if it were valued void, would implicitly convert into a
       default constructed udt which is not possible, hence the compile error.
       */
@@ -56,7 +58,7 @@ BOOST_AUTO_TEST_CASE(issues / 7, "BOOST_OUTCOME_TRYV(expr) in a function whose r
   {
     auto f = []() -> outcome<udt> {
       auto g = [] { return outcome<int>(5); };
-      /* This fails because BOOST_BOOST_OUTCOME_TRYV() returns a result<void>
+      /* This fails because BOOST_OUTCOME_TRYV() returns a result<void>
       which if it were valued void, would implicitly convert into a
       default constructed udt which is not possible, hence the compile error.
       */
@@ -68,7 +70,7 @@ BOOST_AUTO_TEST_CASE(issues / 7, "BOOST_OUTCOME_TRYV(expr) in a function whose r
   {
     auto f = []() -> outcome<udt> {
       auto g = [] { return result<int>(5); };
-      /* This fails because BOOST_BOOST_OUTCOME_TRYV() returns a result<void>
+      /* This fails because BOOST_OUTCOME_TRYV() returns a result<void>
       which if it were valued void, would implicitly convert into a
       default constructed udt which is not possible, hence the compile error.
       */

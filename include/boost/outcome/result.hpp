@@ -766,7 +766,7 @@ namespace impl
 //! Namespace for policies
 namespace policy
 {
-#ifdef __cpp_exceptions
+#ifndef BOOST_NO_EXCEPTIONS
   /*! Policy which throws `bad_result_access_with<EC>` or `bad_result_access` during wide checks.
   \module Error code interpretation policy
   */
@@ -814,7 +814,7 @@ namespace policy
     {
       if((self->_state._status & detail::status_have_value) == 0)
       {
-        throw bad_result_access_with<EC>(self->_error);
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access_with<EC>(self->_error));
       }
     }
     /*! Performs a wide check of state, used in the error() functions
@@ -824,7 +824,7 @@ namespace policy
     {
       if((self->_state._status & detail::status_have_error) == 0)
       {
-        throw bad_result_access("no error");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access("no error"));
       }
     }
 #if BOOST_OUTCOME_ENABLE_POSITIVE_STATUS
@@ -835,7 +835,7 @@ namespace policy
     {
       if((self->_state._status & detail::status_have_status) == 0)
       {
-        throw bad_result_access("no status");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access("no status"));
       }
     }
 #endif
@@ -891,9 +891,9 @@ namespace policy
       {
         if((self->_state._status & detail::status_have_error) != 0)
         {
-          throw std::system_error(make_error_code(self->_error));
+          BOOST_OUTCOME_THROW_EXCEPTION(std::system_error(make_error_code(self->_error)));
         }
-        throw bad_result_access("no value");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access("no value"));
       }
     }
     /*! Performs a wide check of state, used in the error() functions
@@ -903,7 +903,7 @@ namespace policy
     {
       if((self->_state._status & detail::status_have_error) == 0)
       {
-        throw bad_result_access("no error");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access("no error"));
       }
     }
 #if BOOST_OUTCOME_ENABLE_POSITIVE_STATUS
@@ -914,7 +914,7 @@ namespace policy
     {
       if((self->_state._status & detail::status_have_status) == 0)
       {
-        throw bad_result_access("no status");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access("no status"));
       }
     }
 #endif
@@ -971,9 +971,9 @@ namespace policy
       {
         if((self->_state._status & detail::status_have_error) != 0)
         {
-          throw std::system_error(self->_error);
+          BOOST_OUTCOME_THROW_EXCEPTION(std::system_error(self->_error));
         }
-        throw bad_result_access("no value");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access("no value"));
       }
     }
     /*! Performs a wide check of state, used in the error() functions
@@ -983,7 +983,7 @@ namespace policy
     {
       if((self->_state._status & detail::status_have_error) == 0)
       {
-        throw bad_result_access("no error");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access("no error"));
       }
     }
 #if BOOST_OUTCOME_ENABLE_POSITIVE_STATUS
@@ -994,7 +994,7 @@ namespace policy
     {
       if((self->_state._status & detail::status_have_status) == 0)
       {
-        throw bad_result_access("no status");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access("no status"));
       }
     }
 #endif
@@ -1052,7 +1052,7 @@ namespace policy
         {
           std::rethrow_exception(self->_error);
         }
-        throw bad_result_access("no value");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access("no value"));
       }
     }
     /*! Performs a wide check of state, used in the value() functions
@@ -1062,7 +1062,7 @@ namespace policy
     {
       if((self->_state._status & detail::status_have_error) == 0)
       {
-        throw bad_result_access("no error");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access("no error"));
       }
     }
 #if BOOST_OUTCOME_ENABLE_POSITIVE_STATUS
@@ -1073,7 +1073,7 @@ namespace policy
     {
       if((self->_state._status & detail::status_have_status) == 0)
       {
-        throw bad_result_access("no status");
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access("no status"));
       }
     }
 #endif
@@ -1195,7 +1195,7 @@ namespace policy
     }
   };
 
-#ifdef __cpp_exceptions
+#ifndef BOOST_NO_EXCEPTIONS
   /*! Default `result<R, S>` policy selector.
   \module Error code interpretation policy
   */
@@ -1784,7 +1784,7 @@ Type `U` is constructible to `status_type`, is not constructible to `value_type`
                                 &&detail::is_nothrow_swappable<status_error_type>::value)
   {
     using std::swap;
-#ifdef __cpp_exceptions
+#ifndef BOOST_NO_EXCEPTIONS
 #ifdef _MSC_VER
 #pragma warning(push)
 #pragma warning(disable : 4297)  // use of throw in noexcept function

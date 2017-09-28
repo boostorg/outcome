@@ -32,9 +32,11 @@ DEALINGS IN THE SOFTWARE.
 #endif
 
 #include "../../include/boost/outcome/outcome.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
-BOOST_AUTO_TEST_CASE(works / outcome / udts, "Tests that the outcome works as intended with user-defined types")
+BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_udts, "Tests that the outcome works as intended with user-defined types")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   // No default constructor, no copy/move, no assignment
@@ -56,7 +58,7 @@ BOOST_AUTO_TEST_CASE(works / outcome / udts, "Tests that the outcome works as in
     outcome<udt> foo(in_place_type<udt>, 5);
     BOOST_CHECK(5 == foo.value().a);
   }
-#ifdef __cpp_exceptions
+#ifndef BOOST_NO_EXCEPTIONS
   // Emplace construct, throws during move and copy
   {
     struct udt

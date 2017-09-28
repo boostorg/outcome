@@ -29,9 +29,11 @@ DEALINGS IN THE SOFTWARE.
 
 #include "../../include/boost/outcome/result.hpp"
 #include "../../include/boost/outcome/try.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
-BOOST_AUTO_TEST_CASE(issues / 59, "result<NonMovable> supported?")
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_59, "result<NonMovable> supported?")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   struct udt

@@ -30,9 +30,11 @@ DEALINGS IN THE SOFTWARE.
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "../../include/boost/outcome/outcome.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
-#ifdef __cpp_exceptions
+#ifndef BOOST_NO_EXCEPTIONS
 
 #ifdef _MSC_VER
 #define BOOST_OUTCOME_POSIX_OPEN ::_open
@@ -42,7 +44,7 @@ DEALINGS IN THE SOFTWARE.
 #include <fcntl.h>
 #endif
 
-BOOST_AUTO_TEST_CASE(works / outcome / fileopen, "Tests that the outcome semantically represents opening a file")
+BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_fileopen, "Tests that the outcome semantically represents opening a file")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
 

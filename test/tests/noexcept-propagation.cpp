@@ -28,15 +28,17 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include "../../include/boost/outcome/outcome.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4127)  // conditional expression is constant
 #endif
 
-#ifdef __cpp_exceptions
+#ifndef BOOST_NO_EXCEPTIONS
 // std nothrow traits seem to return random values if exceptions are disabled on MSVC
-BOOST_AUTO_TEST_CASE(works / outcome / noexcept, "Tests that the outcome correctly inherits noexcept from its type R")
+BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_noexcept, "Tests that the outcome correctly inherits noexcept from its type R")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   {

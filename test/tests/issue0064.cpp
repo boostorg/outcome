@@ -30,9 +30,11 @@ DEALINGS IN THE SOFTWARE.
 #include "../../include/boost/outcome/iostream_support.hpp"
 #include "../../include/boost/outcome/outcome.hpp"
 #include "../../include/boost/outcome/try.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
-BOOST_AUTO_TEST_CASE(issues / 64 / outcome, "BOOST_OUTCOME_TRY on excepted outcome is propagating a null error rather than just an exception")
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_64_outcome, "BOOST_OUTCOME_TRY on excepted outcome is propagating a null error rather than just an exception")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   auto f = []() -> outcome<int> {

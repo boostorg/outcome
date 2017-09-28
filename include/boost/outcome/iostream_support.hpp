@@ -111,7 +111,7 @@ namespace detail
     {
       if(v.has_exception())
       {
-#ifdef __cpp_exceptions
+#ifndef BOOST_NO_EXCEPTIONS
         try
         {
           std::rethrow_exception(v.exception());

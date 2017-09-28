@@ -28,13 +28,17 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include "../../include/boost/outcome/outcome.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
+
+#include <iostream>
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4702)  // unreachable code
 #endif
 
-BOOST_AUTO_TEST_CASE(works / outcome, "Tests that the outcome works as intended")
+BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome, "Tests that the outcome works as intended")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
 
@@ -71,10 +75,10 @@ BOOST_AUTO_TEST_CASE(works / outcome, "Tests that the outcome works as intended"
     BOOST_CHECK(!m.has_value());
     BOOST_CHECK(m.has_error());
     BOOST_CHECK(!m.has_exception());
-    BOOST_CHECK_THROW(m.value(), const std::system_error &);
+    BOOST_CHECK_THROW(m.value(), std::system_error);
     BOOST_CHECK_NO_THROW(m.error());
-    BOOST_CHECK_THROW(m.exception(), const bad_outcome_access &);
-    BOOST_CHECK_THROW(std::rethrow_exception(m.failure()), const std::system_error &);
+    BOOST_CHECK_THROW(m.exception(), bad_outcome_access);
+    BOOST_CHECK_THROW(std::rethrow_exception(m.failure()), std::system_error);
   }
   {  // errored void
     outcome<void> m(std::errc::bad_address);
@@ -82,10 +86,10 @@ BOOST_AUTO_TEST_CASE(works / outcome, "Tests that the outcome works as intended"
     BOOST_CHECK(!m.has_value());
     BOOST_CHECK(m.has_error());
     BOOST_CHECK(!m.has_exception());
-    BOOST_CHECK_THROW(([&m]() -> void { return m.value(); }()), const std::system_error &);
+    BOOST_CHECK_THROW(([&m]() -> void { return m.value(); }()), std::system_error);
     BOOST_CHECK_NO_THROW(m.error());
-    BOOST_CHECK_THROW(m.exception(), const bad_outcome_access &);
-    BOOST_CHECK_THROW(std::rethrow_exception(m.failure()), const std::system_error &);
+    BOOST_CHECK_THROW(m.exception(), bad_outcome_access);
+    BOOST_CHECK_THROW(std::rethrow_exception(m.failure()), std::system_error);
   }
   {  // valued int
     outcome<int> m(5);
@@ -96,8 +100,8 @@ BOOST_AUTO_TEST_CASE(works / outcome, "Tests that the outcome works as intended"
     BOOST_CHECK(m.value() == 5);
     m.value() = 6;
     BOOST_CHECK(m.value() == 6);
-    BOOST_CHECK_THROW(m.error(), const bad_outcome_access &);
-    BOOST_CHECK_THROW(m.exception(), const bad_outcome_access &);
+    BOOST_CHECK_THROW(m.error(), bad_outcome_access);
+    BOOST_CHECK_THROW(m.exception(), bad_outcome_access);
     BOOST_CHECK(!m.failure());
   }
   {  // moves do not clear state
@@ -120,8 +124,8 @@ BOOST_AUTO_TEST_CASE(works / outcome, "Tests that the outcome works as intended"
     BOOST_CHECK(!m.has_error());
     BOOST_CHECK(!m.has_exception());
     BOOST_CHECK_NO_THROW(m.value());  // works, but type returned is unusable
-    BOOST_CHECK_THROW(m.error(), const bad_outcome_access &);
-    BOOST_CHECK_THROW(m.exception(), const bad_outcome_access &);
+    BOOST_CHECK_THROW(m.error(), bad_outcome_access);
+    BOOST_CHECK_THROW(m.exception(), bad_outcome_access);
     BOOST_CHECK(!m.failure());
   }
   {  // errored
@@ -131,10 +135,10 @@ BOOST_AUTO_TEST_CASE(works / outcome, "Tests that the outcome works as intended"
     BOOST_CHECK(!m.has_value());
     BOOST_CHECK(m.has_error());
     BOOST_CHECK(!m.has_exception());
-    BOOST_CHECK_THROW(m.value(), const std::system_error &);
+    BOOST_CHECK_THROW(m.value(), std::system_error);
     BOOST_CHECK(m.error() == ec);
-    BOOST_CHECK_THROW(m.exception(), const bad_outcome_access &);
-#ifdef __cpp_exceptions
+    BOOST_CHECK_THROW(m.exception(), bad_outcome_access);
+#ifndef BOOST_NO_EXCEPTIONS
     BOOST_CHECK(m.failure());
     try
     {
@@ -155,10 +159,10 @@ BOOST_AUTO_TEST_CASE(works / outcome, "Tests that the outcome works as intended"
     BOOST_CHECK(!m.has_value());
     BOOST_CHECK(!m.has_error());
     BOOST_CHECK(m.has_exception());
-    BOOST_CHECK_THROW(m.value(), const std::system_error &);
-    BOOST_CHECK_THROW(m.error(), const bad_outcome_access &);
+    BOOST_CHECK_THROW(m.value(), std::system_error);
+    BOOST_CHECK_THROW(m.error(), bad_outcome_access);
     BOOST_CHECK(m.exception() == e);
-#ifdef __cpp_exceptions
+#ifndef BOOST_NO_EXCEPTIONS
     BOOST_CHECK(m.failure());
     try
     {
@@ -181,8 +185,8 @@ BOOST_AUTO_TEST_CASE(works / outcome, "Tests that the outcome works as intended"
     BOOST_CHECK(!m.has_value());
     BOOST_CHECK(!m.has_error());
     BOOST_CHECK(m.has_exception());
-    BOOST_CHECK_THROW(m.value(), const Foo &);
-    BOOST_CHECK_THROW(m.error(), const bad_outcome_access &);
+    BOOST_CHECK_THROW(m.value(), Foo);
+    BOOST_CHECK_THROW(m.error(), bad_outcome_access);
     BOOST_CHECK(m.exception() == e);
   }
   {  // outcome<void, void> should work

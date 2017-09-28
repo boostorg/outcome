@@ -28,9 +28,11 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include "../../include/boost/outcome/success_failure.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
-BOOST_AUTO_TEST_CASE(works / success - failure, "Tests that the success and failure type sugars work as intended")
+BOOST_OUTCOME_AUTO_TEST_CASE(works_success_failure, "Tests that the success and failure type sugars work as intended")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
 #ifdef __cpp_deduction_guides

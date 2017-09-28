@@ -33,9 +33,13 @@ DEALINGS IN THE SOFTWARE.
 #include "../../include/boost/outcome/result.h"
 #include "../../include/boost/outcome/result.hpp"
 #endif
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
-BOOST_AUTO_TEST_CASE(works / result, "Tests that the result works as intended")
+#include <iostream>
+
+BOOST_OUTCOME_AUTO_TEST_CASE(works_result, "Tests that the result works as intended")
 {
 #ifdef TESTING_WG21_EXPERIMENTAL_RESULT
   using namespace std::experimental;
@@ -76,7 +80,7 @@ BOOST_AUTO_TEST_CASE(works / result, "Tests that the result works as intended")
     BOOST_CHECK(!m.has_value());
     BOOST_CHECK(m.has_error());
     // BOOST_CHECK(!m.has_exception());
-    BOOST_CHECK_THROW(m.value(), const std::system_error &);
+    BOOST_CHECK_THROW(m.value(), std::system_error);
     BOOST_CHECK_NO_THROW(m.error());
   }
   {  // errored void
@@ -86,7 +90,7 @@ BOOST_AUTO_TEST_CASE(works / result, "Tests that the result works as intended")
     BOOST_CHECK(m.has_error());
 // BOOST_CHECK(!m.has_exception());
 #ifndef TESTING_WG21_EXPERIMENTAL_RESULT
-    BOOST_CHECK_THROW(([&m]() -> void { return m.value(); }()), const std::system_error &);
+    BOOST_CHECK_THROW(([&m]() -> void { return m.value(); }()), std::system_error);
 #endif
     BOOST_CHECK_NO_THROW(m.error());
   }
@@ -99,7 +103,7 @@ BOOST_AUTO_TEST_CASE(works / result, "Tests that the result works as intended")
     BOOST_CHECK(m.value() == 5);
     m.value() = 6;
     BOOST_CHECK(m.value() == 6);
-    BOOST_CHECK_THROW(m.error(), const bad_result_access &);
+    BOOST_CHECK_THROW(m.error(), bad_result_access);
   }
   {  // moves do not clear state
     result<std::string> m("niall");
@@ -121,7 +125,7 @@ BOOST_AUTO_TEST_CASE(works / result, "Tests that the result works as intended")
     BOOST_CHECK(!m.has_error());
     // BOOST_CHECK(!m.has_exception());
     BOOST_CHECK_NO_THROW(m.value());  // works, but type returned is unusable
-    BOOST_CHECK_THROW(m.error(), const bad_result_access &);
+    BOOST_CHECK_THROW(m.error(), bad_result_access);
   }
   {  // errored
     std::error_code ec(5, std::system_category());
@@ -130,7 +134,7 @@ BOOST_AUTO_TEST_CASE(works / result, "Tests that the result works as intended")
     BOOST_CHECK(!m.has_value());
     BOOST_CHECK(m.has_error());
     // BOOST_CHECK(!m.has_exception());
-    BOOST_CHECK_THROW(m.value(), const std::system_error &);
+    BOOST_CHECK_THROW(m.value(), std::system_error);
     BOOST_CHECK(m.error() == ec);
   }
   {  // errored, custom
@@ -141,7 +145,7 @@ BOOST_AUTO_TEST_CASE(works / result, "Tests that the result works as intended")
     BOOST_CHECK(!m.has_value());
     BOOST_CHECK(m.has_error());
     // BOOST_CHECK(!m.has_exception());
-    BOOST_CHECK_THROW(m.value(), const std::system_error &);
+    BOOST_CHECK_THROW(m.value(), std::system_error);
     BOOST_CHECK(m.error() == e);
   }
 #ifndef TESTING_WG21_EXPERIMENTAL_RESULT
@@ -154,7 +158,7 @@ BOOST_AUTO_TEST_CASE(works / result, "Tests that the result works as intended")
     BOOST_CHECK(!m.has_value());
     BOOST_CHECK(m.has_error());
     // BOOST_CHECK(!m.has_exception());
-    BOOST_CHECK_THROW(m.value(), const bad_result_access &);
+    BOOST_CHECK_THROW(m.value(), bad_result_access);
     BOOST_CHECK_NO_THROW(m.error());
   }
   if(false)  // NOLINT
@@ -310,7 +314,7 @@ BOOST_AUTO_TEST_CASE(works / result, "Tests that the result works as intended")
     constexpr result<int, std::errc> a(5), b(std::errc::invalid_argument);
     static_assert(a.value() == 5, "a is not 5");
     static_assert(b.error() == std::errc::invalid_argument, "b is not errored");
-    BOOST_CHECK_THROW(b.value(), const std::system_error &);
+    BOOST_CHECK_THROW(b.value(), std::system_error);
   }
 
   // Test C compatibility

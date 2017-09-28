@@ -28,9 +28,11 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include "../../include/boost/outcome/iostream_support.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
-BOOST_AUTO_TEST_CASE(works / outcome / serialisation, "Tests that the outcome serialises and deserialises as intended")
+BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_serialisation, "Tests that the outcome serialises and deserialises as intended")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   outcome<std::string> a("niall"), b(std::error_code(5, std::generic_category())), c(std::make_exception_ptr(std::ios_base::failure("A test failure message")));

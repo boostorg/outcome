@@ -28,9 +28,11 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include "../../include/boost/outcome/outcome.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
-BOOST_AUTO_TEST_CASE(issues / 10, "Expected's operator->(), operator*() and .error() throw exceptions when they should not")
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_10, "Expected's operator->(), operator*() and .error() throw exceptions when they should not")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   const char *a = "hi", *b = "bye";
@@ -73,7 +75,7 @@ BOOST_AUTO_TEST_CASE(issues / 10, "Expected's operator->(), operator*() and .err
   BOOST_CHECK(!n.has_value());
   // These should behave as expected (!)
   BOOST_CHECK_NO_THROW(p.value());
-  BOOST_CHECK_THROW(n.value(), const bad_result_access &);
+  BOOST_CHECK_THROW(n.value(), bad_result_access);
   // And state is not destroyed
   BOOST_CHECK(p.has_value() && *p.assume_value() == a);
   BOOST_CHECK(!n.has_value() && *n.assume_error() == b);

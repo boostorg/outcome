@@ -1,4 +1,4 @@
-/* Configure Outcome with QuickCppLib
+/* Configure Boost.Outcome with Boost
 (C) 2015-2017 Niall Douglas <http://www.nedproductions.biz/> (24 commits)
 File Created: August 2015
 
@@ -28,10 +28,8 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-TODO FIXME;
-
-#ifndef OUTCOME_V2_CONFIG_HPP
-#define OUTCOME_V2_CONFIG_HPP
+#ifndef BOOST_OUTCOME_V2_CONFIG_HPP
+#define BOOST_OUTCOME_V2_CONFIG_HPP
 
 #include "version.hpp"
 
@@ -40,137 +38,119 @@ TODO FIXME;
 #include <_mingw.h>
 #endif
 
-#include "quickcpplib/include/config.hpp"
+#include <boost/config.hpp>
 
-#ifndef __cpp_variadic_templates
-#error Outcome needs variadic template support in the compiler
+#ifdef BOOST_NO_CXX11_VARIADIC_TEMPLATES
+#error Boost.Outcome needs variadic template support in the compiler
 #endif
-#ifndef __cpp_constexpr
-#error Outcome needs constexpr (C++ 11) support in the compiler
+#if defined(BOOST_NO_CXX14_CONSTEXPR) && _MSC_FULL_VER < 191100000
+#error Boost.Outcome needs constexpr (C++ 14) support in the compiler
 #endif
-#ifndef __cpp_variable_templates
-#error Outcome needs variable template support in the compiler
+#ifdef BOOST_NO_CXX14_VARIABLE_TEMPLATES
+#error Boost.Outcome needs variable template support in the compiler
 #endif
 
-#ifndef OUTCOME_SYMBOL_VISIBLE
-#define OUTCOME_SYMBOL_VISIBLE QUICKCPPLIB_SYMBOL_VISIBLE
+#ifndef BOOST_OUTCOME_SYMBOL_VISIBLE
+#define BOOST_OUTCOME_SYMBOL_VISIBLE BOOST_SYMBOL_VISIBLE
 #endif
-#ifndef OUTCOME_NODISCARD
-#define OUTCOME_NODISCARD QUICKCPPLIB_NODISCARD
+// Weird that Boost.Config doesn't define a BOOST_NO_CXX17_NODISCARD
+#ifndef BOOST_OUTCOME_NODISCARD
+#ifdef __has_cpp_attribute
+#if __has_cpp_attribute(nodiscard)
+#define BOOST_OUTCOME_NODISCARD [[nodiscard]]
 #endif
-#ifndef OUTCOME_THREAD_LOCAL
-#define OUTCOME_THREAD_LOCAL QUICKCPPLIB_THREAD_LOCAL
-#endif
-#ifndef OUTCOME_TEMPLATE
-#define OUTCOME_TEMPLATE(...) QUICKCPPLIB_TEMPLATE(__VA_ARGS__)
-#endif
-#ifndef OUTCOME_TREQUIRES
-#define OUTCOME_TREQUIRES(...) QUICKCPPLIB_TREQUIRES(__VA_ARGS__)
-#endif
-#ifndef OUTCOME_TEXPR
-#define OUTCOME_TEXPR(...) QUICKCPPLIB_TEXPR(__VA_ARGS__)
-#endif
-#ifndef OUTCOME_TPRED
-#define OUTCOME_TPRED(...) QUICKCPPLIB_TPRED(__VA_ARGS__)
-#endif
-#ifndef OUTCOME_REQUIRES
-#define OUTCOME_REQUIRES(...) QUICKCPPLIB_REQUIRES(__VA_ARGS__)
-#endif
-#ifndef OUTCOME_MSVC_WORKAROUNDS
-// Older MSVC's constexpr isn't up to Outcome v2 and it ICEs, so don't use constexpr in those situations
-#if defined(_MSC_VER) && !defined(__clang__) && _MSC_FULL_VER <= 191025019 /* VS2017 Update 2*/
-#define OUTCOME_MSVC_WORKAROUNDS 1
+#elif defined(__clang__)
+#define BOOST_OUTCOME_NODISCARD __attribute__((warn_unused_result))
+#elif defined(_MSC_VER)
+// _Must_inspect_result_ expands into this
+#define BOOST_OUTCOME_NODISCARD                                                                                                                                                                                                                                                                                                \
+  __declspec("SAL_name"                                                                                                                                                                                                                                                                                                        \
+             "("                                                                                                                                                                                                                                                                                                               \
+             "\"_Must_inspect_result_\""                                                                                                                                                                                                                                                                                       \
+             ","                                                                                                                                                                                                                                                                                                               \
+             "\"\""                                                                                                                                                                                                                                                                                                            \
+             ","                                                                                                                                                                                                                                                                                                               \
+             "\"2\""                                                                                                                                                                                                                                                                                                           \
+             ")") __declspec("SAL_begin") __declspec("SAL_post") __declspec("SAL_mustInspect") __declspec("SAL_post") __declspec("SAL_checkReturn") __declspec("SAL_end")
 #endif
 #endif
-#ifndef OUTCOME_MSVC_CONSTEXPR
-#if OUTCOME_MSVC_WORKAROUNDS
-#define OUTCOME_MSVC_CONSTEXPR
+#ifndef BOOST_OUTCOME_NODISCARD
+#define BOOST_OUTCOME_NODISCARD
+#endif
+#ifndef BOOST_OUTCOME_THREAD_LOCAL
+#ifndef BOOST_NO_CXX11_THREAD_LOCAL
+#define BOOST_OUTCOME_THREAD_LOCAL thread_local
 #else
-#define OUTCOME_MSVC_CONSTEXPR constexpr
+#if defined(_MSC_VER)
+#define BOOST_OUTCOME_THREAD_LOCAL __declspec(thread)
+#elif defined(__GNUC__)
+#define BOOST_OUTCOME_THREAD_LOCAL __thread
+#else
+#error Unknown compiler, cannot set BOOST_OUTCOME_THREAD_LOCAL
+#endif
+#endif
+#endif
+// Can't use the QuickCppLib preprocessor metaprogrammed Concepts TS support, so ...
+#ifndef BOOST_OUTCOME_TEMPLATE
+#define BOOST_OUTCOME_TEMPLATE(...) template <__VA_ARGS__
+#endif
+#ifndef BOOST_OUTCOME_TREQUIRES
+#define BOOST_OUTCOME_TREQUIRES(...) , __VA_ARGS__ >
+#endif
+#ifndef BOOST_OUTCOME_TEXPR
+#define BOOST_OUTCOME_TEXPR(...) typename = decltype(__VA_ARGS__)
+#endif
+#ifndef BOOST_OUTCOME_TPRED
+#define BOOST_OUTCOME_TPRED(...) typename = std::enable_if_t<__VA_ARGS__>
+#endif
+#ifndef BOOST_OUTCOME_REQUIRES
+#ifdef __cpp_concepts
+#define BOOST_OUTCOME_REQUIRES(...) requires __VA_ARGS__
+#else
+#define BOOST_OUTCOME_REQUIRES(...)
 #endif
 #endif
 
-#include "quickcpplib/include/import.h"
-
-#ifdef STANDARDESE_IS_IN_THE_HOUSE
-/*! The namespace configuration of this Outcome v2. Consists of a sequence
-of bracketed tokens later fused by the preprocessor into namespace and C++ module names.
-*/
-#define OUTCOME_V2
-//! The Outcome namespace
-namespace outcome_v2_xxx
+namespace boost
 {
-}
+#define BOOST_OUTCOME_V2
+  //! The Boost.Outcome namespace
+  namespace outcome_v2
+  {
+  }
 }
 /*! The namespace of this Boost.Outcome v2.
 */
-#define OUTCOME_V2_NAMESPACE outcome_v2_xxx
-/*! Expands into the appropriate namespace markup to enter the Outcome v2 namespace.
+#define BOOST_OUTCOME_V2_NAMESPACE boost::outcome_v2
+/*! Expands into the appropriate namespace markup to enter the Boost.Outcome v2 namespace.
 */
-#define OUTCOME_V2_NAMESPACE_BEGIN                                                                                                                                                                                                                                                                                             \
-  namespace outcome_v2_xxx                                                                                                                                                                                                                                                                                                     \
-  {
+#define BOOST_OUTCOME_V2_NAMESPACE_BEGIN                                                                                                                                                                                                                                                                                       \
+  namespace boost                                                                                                                                                                                                                                                                                                              \
+  {                                                                                                                                                                                                                                                                                                                            \
+    namespace outcome_v2                                                                                                                                                                                                                                                                                                       \
+    {
 /*! Expands into the appropriate namespace markup to enter the C++ module
-exported Outcome v2 namespace.
+exported Boost.Outcome v2 namespace.
 */
-#define OUTCOME_V2_NAMESPACE_EXPORT_BEGIN                                                                                                                                                                                                                                                                                      \
-  export namespace outcome_v2_xxx                                                                                                                                                                                                                                                                                              \
-  {
-/*! \brief Expands into the appropriate namespace markup to exit the Outcome v2 namespace.
+#define BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN                                                                                                                                                                                                                                                                                \
+  namespace boost                                                                                                                                                                                                                                                                                                              \
+  {                                                                                                                                                                                                                                                                                                                            \
+    export namespace outcome_v2                                                                                                                                                                                                                                                                                                \
+    {
+/*! \brief Expands into the appropriate namespace markup to exit the Boost.Outcome v2 namespace.
 \ingroup config
 */
-#define OUTCOME_V2_NAMESPACE_END }
-#else
-
-#if defined(OUTCOME_UNSTABLE_VERSION)
-#include "revision.hpp"
-#define OUTCOME_V2 (QUICKCPPLIB_BIND_NAMESPACE_VERSION(outcome_v2, OUTCOME_PREVIOUS_COMMIT_UNIQUE))
-#else
-#define OUTCOME_V2 (QUICKCPPLIB_BIND_NAMESPACE_VERSION(outcome_v2))
-#endif
-
-#if defined(GENERATING_OUTCOME_MODULE_INTERFACE)
-#define OUTCOME_V2_NAMESPACE QUICKCPPLIB_BIND_NAMESPACE(OUTCOME_V2)
-#define OUTCOME_V2_NAMESPACE_BEGIN QUICKCPPLIB_BIND_NAMESPACE_BEGIN(OUTCOME_V2)
-#define OUTCOME_V2_NAMESPACE_EXPORT_BEGIN QUICKCPPLIB_BIND_NAMESPACE_EXPORT_BEGIN(OUTCOME_V2)
-#define OUTCOME_V2_NAMESPACE_END QUICKCPPLIB_BIND_NAMESPACE_END(OUTCOME_V2)
-#else
-#define OUTCOME_V2_NAMESPACE QUICKCPPLIB_BIND_NAMESPACE(OUTCOME_V2)
-#define OUTCOME_V2_NAMESPACE_BEGIN QUICKCPPLIB_BIND_NAMESPACE_BEGIN(OUTCOME_V2)
-#define OUTCOME_V2_NAMESPACE_EXPORT_BEGIN QUICKCPPLIB_BIND_NAMESPACE_BEGIN(OUTCOME_V2)
-#define OUTCOME_V2_NAMESPACE_END QUICKCPPLIB_BIND_NAMESPACE_END(OUTCOME_V2)
-#endif
-#endif
-
-#ifndef OUTCOME_DO_FATAL_EXIT
-#ifdef _WIN32
-#include "quickcpplib/include/execinfo_win64.h"
-#else
-#include <execinfo.h>
-#endif
-#include <stdio.h>
-#include <stdlib.h>
-OUTCOME_V2_NAMESPACE_BEGIN
-namespace detail
-{
-  QUICKCPPLIB_NORETURN inline void do_fatal_exit(const char *expr)
-  {
-    void *bt[16];
-    size_t btlen = backtrace(bt, sizeof(bt) / sizeof(bt[0]));
-    fprintf(stderr, "FATAL: Outcome throws exception %s with exceptions disabled\n", expr);
-    char **bts = backtrace_symbols(bt, btlen);
-    if(bts)
-    {
-      for(size_t n = 0; n < btlen; n++)
-        fprintf(stderr, "  %s\n", bts[n]);
-      free(bts);
-    }
-    abort();
+#define BOOST_OUTCOME_V2_NAMESPACE_END                                                                                                                                                                                                                                                                                         \
+  }                                                                                                                                                                                                                                                                                                                            \
   }
-}
-OUTCOME_V2_NAMESPACE_END
-#define OUTCOME_DO_FATAL_EXIT(expr) OUTCOME_V2_NAMESPACE::detail::do_fatal_exit(#expr)
+
+#ifndef BOOST_OUTCOME_THROW_EXCEPTION
+#include <boost/throw_exception.hpp>
+#define BOOST_OUTCOME_THROW_EXCEPTION(expr) BOOST_THROW_EXCEPTION(expr)
 #endif
 
+#ifndef BOOST_OUTCOME_AUTO_TEST_CASE
+#define BOOST_OUTCOME_AUTO_TEST_CASE(a, b) BOOST_AUTO_TEST_CASE(a)
+#endif
 
 #endif

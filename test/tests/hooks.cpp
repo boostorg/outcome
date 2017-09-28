@@ -30,7 +30,11 @@ DEALINGS IN THE SOFTWARE.
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "../../include/boost/outcome/outcome.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
+
+#include <iostream>
 
 namespace hook_test
 {
@@ -63,7 +67,7 @@ namespace hook_test
   }
 }  // namespace hook_test
 
-BOOST_AUTO_TEST_CASE(works / result / hooks, "Tests that you can hook result's construction")
+BOOST_OUTCOME_AUTO_TEST_CASE(works_result_hooks, "Tests that you can hook result's construction")
 {
   using namespace hook_test;
   result<int> a(5);
@@ -93,7 +97,7 @@ namespace hook_test
   }
 }  // namespace hook_test
 
-BOOST_AUTO_TEST_CASE(works / outcome / hooks, "Tests that you can hook outcome's conversion from a result")
+BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_hooks, "Tests that you can hook outcome's conversion from a result")
 {
   using namespace hook_test;
   outcome<int> a(result<int>(5));

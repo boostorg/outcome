@@ -28,9 +28,11 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include "../../include/boost/outcome/outcome.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
-BOOST_AUTO_TEST_CASE(works / outcome / constexpr, "Tests that outcome works as intended in a constexpr evaluation context")
+BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_constexpr, "Tests that outcome works as intended in a constexpr evaluation context")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
 

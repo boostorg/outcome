@@ -33,9 +33,11 @@ DEALINGS IN THE SOFTWARE.
 #endif
 
 #include "../../include/boost/outcome/outcome.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
-BOOST_AUTO_TEST_CASE(works / outcome / comparison, "Tests that the outcome can compare to compatible outcomes")
+BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_comparison, "Tests that the outcome can compare to compatible outcomes")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   auto p = std::make_exception_ptr(std::runtime_error("hi"));

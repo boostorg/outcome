@@ -34,6 +34,8 @@ DEALINGS IN THE SOFTWARE.
 
 #ifdef _WIN32
 #error This example can only compile on POSIX
+#else
+#include <execinfo.h>
 #endif
 
 #ifdef _MSC_VER

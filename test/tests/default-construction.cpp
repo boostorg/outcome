@@ -28,9 +28,11 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include "../../include/boost/outcome/outcome.hpp"
+#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
-BOOST_AUTO_TEST_CASE(works / outcome / default_construction, "Tests that outcome default constructs when it ought to")
+BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_default_construction, "Tests that outcome default constructs when it ought to")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   struct udt
