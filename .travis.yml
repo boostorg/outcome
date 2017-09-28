@@ -25,7 +25,6 @@ addons:
     packages:
     - g++-6
     - clang-4.0
-    - python-pygments
 
 env:
  - __="link=shared" FLAGS="link=shared"
@@ -53,7 +52,7 @@ cache:
     - boost
     
 before_install:
- - if [ ! -d "boost" ]; then
+ - if [ ! -f "boost/bootstrap.sh" ]; then
      wget -O boost.tar.bz2 https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2;
      tar xf boost.tar.bz2 -C boost;
      cd boost;
@@ -65,8 +64,8 @@ before_install:
  - ls -l boost/libs/outcome
 
 script:
- - if [ "$CXX" = "g++" ]; then export CXX=g++-6; fi;
- - if [ "$CXX" = "clang++" ]; then export CXX=clang++-4.0; fi;
+ - if [ "$CXX" = "g++" ]; then FLAGS="$FLAGS toolset=gcc-6"; fi;
+ - if [ "$CXX" = "clang++" ]; then FLAGS="$FLAGS toolset=clang-4.0 cxxflags=--std=c++14"; fi;
  - cd boost
  - rm -rf bin.v2/libs/outcome
  - ./b2 headers
