@@ -52,7 +52,7 @@ cache:
     - boost
     
 before_install:
- - rm -rf boost/*
+ - rm -rf boost
  - if [ ! -f "boost/bootstrap.sh" ]; then
      wget -O boost.tar.bz2 https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.tar.bz2;
      tar xf boost.tar.bz2 -C boost;
@@ -64,10 +64,9 @@ before_install:
      cd boost;
      ./bootstrap.sh;
      cd ..;
-     ln -s ../../.. boost/libs/outcome;
+     ln -s ../.. boost/libs/outcome;
    fi;
- - ls -l boost
- - ls -l boost/libs/outcome
+ - ls -l boost/libs/outcome/
 
 script:
  - if [ "$CXX" = "g++" ]; then FLAGS="$FLAGS toolset=gcc-6"; fi;
