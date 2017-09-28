@@ -30,7 +30,6 @@ DEALINGS IN THE SOFTWARE.
 #define _CRT_SECURE_NO_WARNINGS
 
 #include "../../include/boost/outcome/outcome.hpp"
-#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 

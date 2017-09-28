@@ -33,7 +33,6 @@ DEALINGS IN THE SOFTWARE.
 #include "../../include/boost/outcome/result.h"
 #include "../../include/boost/outcome/result.hpp"
 #endif
-#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 

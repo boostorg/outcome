@@ -28,7 +28,6 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include "../../include/boost/outcome/success_failure.hpp"
-#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 

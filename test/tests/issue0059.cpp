@@ -29,7 +29,6 @@ DEALINGS IN THE SOFTWARE.
 
 #include "../../include/boost/outcome/result.hpp"
 #include "../../include/boost/outcome/try.hpp"
-#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 

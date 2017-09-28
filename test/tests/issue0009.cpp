@@ -29,13 +29,12 @@ DEALINGS IN THE SOFTWARE.
 
 #include "../../include/boost/outcome/outcome.hpp"
 #include "../../include/boost/outcome/try.hpp"
-#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 
-#ifdef BOOST_OUTCOME_TRYX
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_9, "Alternative TRY macros?")
 {
+#ifdef BOOST_OUTCOME_TRYX
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   struct udt  // NOLINT
   {
@@ -49,5 +48,5 @@ BOOST_OUTCOME_AUTO_TEST_CASE(issues_9, "Alternative TRY macros?")
     return udt(BOOST_OUTCOME_TRYX(g()));
   };
   (void) f();
-}
 #endif
+}

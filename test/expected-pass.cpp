@@ -18,14 +18,14 @@
 
 #if !defined(__GNUC__) || defined(__clang__) || __GNUC__ >= 7
 
+#include "../include/boost/outcome/iostream_support.hpp"
 #include "../include/boost/outcome/result.hpp"
 
 #define QUICKCPPLIB_BOOST_UNIT_TEST_CUSTOM_MAIN_DEFINED
-#define BOOST_TEST_MAIN
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 
-#define JASEL_NORETURN BOOST_OUTCOME_NORETURN
+#define JASEL_NORETURN
 #ifndef BOOST_TEST
 #define BOOST_TEST(expr) BOOST_CHECK(expr)
 #endif
@@ -1027,7 +1027,11 @@ void expected_swap_function_value()
 }
 
 
+#ifdef QUICKCPPLIB_BOOST_UNIT_TEST_HPP
 int main()
+#else
+BOOST_AUTO_TEST_CASE(expected_pass)
+#endif
 {
 
   static_assert(!std::is_default_constructible<NoDefaultConstructible>::value, "");
@@ -1108,7 +1112,9 @@ int main()
   // expected_swap_exception();
   expected_swap_function_value();
 
+#ifdef QUICKCPPLIB_BOOST_UNIT_TEST_HPP
   return QUICKCPPLIB_NAMESPACE::unit_test::current_test_case()->fails != 0;
+#endif
 }
 
 #if 0
