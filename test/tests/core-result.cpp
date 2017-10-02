@@ -29,6 +29,7 @@ DEALINGS IN THE SOFTWARE.
 
 #ifdef TESTING_WG21_EXPERIMENTAL_RESULT
 #include "../../include/boost/outcome/experimental/result.hpp"
+#define BOOST_OUTCOME_AUTO_TEST_CASE(...) BOOST_AUTO_TEST_CASE(__VA_ARGS__)
 #else
 #include "../../include/boost/outcome/result.h"
 #include "../../include/boost/outcome/result.hpp"
