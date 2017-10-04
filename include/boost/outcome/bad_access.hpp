@@ -84,7 +84,7 @@ template <class S, class P> class BOOST_OUTCOME_SYMBOL_VISIBLE bad_outcome_acces
 
 public:
   bad_outcome_access_with(S x, P y)
-      : bad_result_access("no value")
+      : bad_outcome_access("no value")
       , _error(std::move(x))
       , _payload(std::move(y))
   {
