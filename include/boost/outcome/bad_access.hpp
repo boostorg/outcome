@@ -33,6 +33,8 @@ DEALINGS IN THE SOFTWARE.
 
 #include "config.hpp"
 
+#include <stdexcept>
+
 BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
 //! Thrown when you try to access state in a `result<R, S>` which isn't present.

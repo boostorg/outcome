@@ -31,7 +31,6 @@ DEALINGS IN THE SOFTWARE.
 #ifndef BOOST_OUTCOME_RESULT_FINAL_HPP
 #define BOOST_OUTCOME_RESULT_FINAL_HPP
 
-#include "../success_failure.hpp"
 #include "result_error_observers.hpp"
 #include "result_value_observers.hpp"
 
@@ -42,7 +41,13 @@ namespace detail
   template <class R, class EC, class NoValuePolicy> using select_result_impl = result_error_observers<result_value_observers<result_storage<R, EC, NoValuePolicy>, R, NoValuePolicy>, EC, NoValuePolicy>;
 
   //! The assembled implementation type of `result<R, EC, NoValuePolicy>`.
-  template <class R, class S, class NoValuePolicy> class result_final : public select_result_impl<R, S, NoValuePolicy>
+  template <class R, class S, class NoValuePolicy>
+  class result_final
+#ifdef DOXYGEN_IS_IN_THE_HOUSE
+  : public result_error_observers<result_value_observers<result_storage<R, EC, NoValuePolicy>, R, NoValuePolicy>, EC, NoValuePolicy>
+#else
+  : public select_result_impl<R, S, NoValuePolicy>
+#endif
   {
     using base = select_result_impl<R, S, NoValuePolicy>;
 
