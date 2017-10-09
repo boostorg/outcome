@@ -35,7 +35,6 @@ DEALINGS IN THE SOFTWARE.
 
 BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
-//! Namespace for policies
 namespace policy
 {
   /*! Policy which treats wide checks as narrow checks.
