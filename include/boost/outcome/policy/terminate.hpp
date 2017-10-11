@@ -38,7 +38,6 @@ BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 namespace policy
 {
   /*! Policy implementing any wide attempt to access the successful state as calling `std::terminate`
-  \module Error code interpretation policy
   */
   struct terminate
   {

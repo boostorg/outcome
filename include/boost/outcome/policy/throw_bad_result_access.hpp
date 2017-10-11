@@ -39,7 +39,6 @@ namespace policy
 {
 #ifndef BOOST_NO_EXCEPTIONS
   /*! Policy which throws `bad_result_access_with<EC>` or `bad_result_access` during wide checks.
-  \module Error code interpretation policy
   */
   template <class EC> struct throw_bad_result_access
   {

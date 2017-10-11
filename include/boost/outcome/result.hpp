@@ -57,7 +57,6 @@ namespace policy
 {
 #ifndef BOOST_NO_EXCEPTIONS
   /*! Default `result<R, S>` policy selector.
-  \module Error code interpretation policy
   */
   template <class EC>
   using default_result_policy = std::conditional_t<                                             //
@@ -199,11 +198,11 @@ namespace hooks
 
   //! Retrieves the 16 bits of spare storage in result/outcome.
   template <class R, class S, class NoValuePolicy> constexpr inline uint16_t spare_storage(const detail::result_final<R, S, NoValuePolicy> *r) noexcept { return (r->_state._status >> detail::status_2byte_shift) & 0xffff; }
+  //! Sets the 16 bits of spare storage in result/outcome.
   template <class R, class S, class NoValuePolicy> constexpr inline void set_spare_storage(detail::result_final<R, S, NoValuePolicy> *r, uint16_t v) noexcept { r->_state._status |= (v << detail::status_2byte_shift); }
 }
 
 /*! Used to return from functions either (i) a successful value (ii) a cause of failure. `constexpr` capable.
-\module result<R, S> implementation
 \tparam R The optional type of the successful result (use `void` to disable).
 Cannot be a reference, a `in_place_type_t<>`, `success<>`, `failure<>`, an array, a function or non-destructible.
 \tparam S The optional type of the failure result (use `void` to disable). Must be either `void` or `DefaultConstructible`.
@@ -441,8 +440,8 @@ public:
   */
   BOOST_OUTCOME_TEMPLATE(class... Args)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_inplace_value_constructor<Args...>))
-  constexpr explicit result(in_place_type_t<value_type_if_enabled>, Args &&... args) noexcept(std::is_nothrow_constructible<value_type, Args...>::value)
-      : base{in_place_type<value_type_if_enabled>, std::forward<Args>(args)...}
+  constexpr explicit result(in_place_type_t<value_type_if_enabled> _, Args &&... args) noexcept(std::is_nothrow_constructible<value_type, Args...>::value)
+      : base{_, std::forward<Args>(args)...}
   {
     using namespace hooks;
     hook_result_in_place_construction(in_place_type<value_type>, this);
@@ -460,8 +459,8 @@ public:
   */
   BOOST_OUTCOME_TEMPLATE(class U, class... Args)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_inplace_value_constructor<std::initializer_list<U>, Args...>))
-  constexpr explicit result(in_place_type_t<value_type_if_enabled>, std::initializer_list<U> il, Args &&... args) noexcept(std::is_nothrow_constructible<value_type, std::initializer_list<U>, Args...>::value)
-      : base{in_place_type<value_type_if_enabled>, il, std::forward<Args>(args)...}
+  constexpr explicit result(in_place_type_t<value_type_if_enabled> _, std::initializer_list<U> il, Args &&... args) noexcept(std::is_nothrow_constructible<value_type, std::initializer_list<U>, Args...>::value)
+      : base{_, il, std::forward<Args>(args)...}
   {
     using namespace hooks;
     hook_result_in_place_construction(in_place_type<value_type>, this);
@@ -478,8 +477,8 @@ public:
   */
   BOOST_OUTCOME_TEMPLATE(class... Args)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_inplace_error_constructor<Args...>))
-  constexpr explicit result(in_place_type_t<error_type_if_enabled>, Args &&... args) noexcept(std::is_nothrow_constructible<error_type, Args...>::value)
-      : base{in_place_type<error_type_if_enabled>, std::forward<Args>(args)...}
+  constexpr explicit result(in_place_type_t<error_type_if_enabled> _, Args &&... args) noexcept(std::is_nothrow_constructible<error_type, Args...>::value)
+      : base{_, std::forward<Args>(args)...}
   {
     using namespace hooks;
     hook_result_in_place_construction(in_place_type<error_type>, this);
@@ -497,8 +496,8 @@ public:
   */
   BOOST_OUTCOME_TEMPLATE(class U, class... Args)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_inplace_error_constructor<std::initializer_list<U>, Args...>))
-  constexpr explicit result(in_place_type_t<error_type_if_enabled>, std::initializer_list<U> il, Args &&... args) noexcept(std::is_nothrow_constructible<error_type, std::initializer_list<U>, Args...>::value)
-      : base{in_place_type<error_type_if_enabled>, il, std::forward<Args>(args)...}
+  constexpr explicit result(in_place_type_t<error_type_if_enabled> _, std::initializer_list<U> il, Args &&... args) noexcept(std::is_nothrow_constructible<error_type, std::initializer_list<U>, Args...>::value)
+      : base{_, il, std::forward<Args>(args)...}
   {
     using namespace hooks;
     hook_result_in_place_construction(in_place_type<error_type>, this);
