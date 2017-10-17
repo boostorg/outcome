@@ -28,13 +28,11 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef BOOST_OUTCOME_POLICY_ERROR_CODE_THROW_AS_SYSTEM_ERROR_EXCEPTION_RETHROW_HPP
-#define BOOST_OUTCOME_POLICY_ERROR_CODE_THROW_AS_SYSTEM_ERROR_EXCEPTION_RETHROW_HPP
+#ifndef BOOST_OUTCOME_POLICY_EXCEPTION_PTR_RETHROW_WITH_PAYLOAD_HPP
+#define BOOST_OUTCOME_POLICY_EXCEPTION_PTR_RETHROW_WITH_PAYLOAD_HPP
 
 #include "../bad_access.hpp"
 #include "detail/common.hpp"
-
-#include <system_error>
 
 BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
@@ -44,33 +42,30 @@ template <class R, class S, class P, class N> class outcome;
 
 namespace policy
 {
-  /*! Policy interpreting S as a type implementing the `std::error_code` contract, P as
-  a type implementing the `std::exception_ptr` contract, and any wide attempt to access the
-  successful state throws the `exception_ptr` if available, then the `error_code` wrapped
-  into a `std::system_error`.
+  /*! Policy interpreting S as a type implementing the `std::exception_ptr` contract
+  and any wide attempt to access the successful state calls an
+  ADL discovered free function `throw_exception_ptr_with_payload()`.
 
   Can be used in `outcome` only.
   */
-  template <class R, class S, class P> struct error_code_throw_as_system_error_exception_rethrow : detail::base
+  template <class R, class S, class P> struct exception_ptr_rethrow_with_payload : detail::base
   {
-    static_assert(std::is_base_of<std::error_code, S>::value, "error_type must be a base of std::error_code to be used with this policy");
-    static_assert(std::is_base_of<std::exception_ptr, P>::value, "exception_type must be a base of std::exception_ptr to be used with this policy");
-    /*! Performs a wide check of state, used in the value() functions.
-    \effects If outcome does not have a value, if it has an exception it rethrows it via `std::rethrow_exception()`,
+    static_assert(std::is_base_of<std::exception_ptr, S>::value, "error_type must be a base of a std::exception_ptr to be used with this policy");
+    /*! Performs a wide check of state, used in the value() functions
     if has an error it throws a `std::system_error(error())`, else it throws `bad_outcome_access`.
     */
     template <class Impl> static constexpr void wide_value_check(Impl *self)
     {
       if((self->_state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_value) == 0)
       {
-        if((self->_state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_exception) != 0)
+        if((self->_state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_payload) != 0)
         {
-          auto *_self = static_cast<const outcome<R, S, P, error_code_throw_as_system_error_exception_rethrow> *>(self);
-          std::rethrow_exception(_self->_ptr);
+          auto *_self = static_cast<const outcome<R, S, P, exception_ptr_rethrow_with_payload> *>(self);
+          throw_exception_ptr_with_payload(_self);
         }
         if((self->_state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_error) != 0)
         {
-          BOOST_OUTCOME_THROW_EXCEPTION(std::system_error(self->_error));
+          std::rethrow_exception(self->_error);
         }
         BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no value"));
       }

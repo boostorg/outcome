@@ -28,8 +28,8 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef BOOST_OUTCOME_POLICY_ERROR_CODE_THROW_AS_SYSTEM_ERROR_EXCEPTION_RETHROW_HPP
-#define BOOST_OUTCOME_POLICY_ERROR_CODE_THROW_AS_SYSTEM_ERROR_EXCEPTION_RETHROW_HPP
+#ifndef BOOST_OUTCOME_POLICY_ERROR_ENUM_THROW_AS_SYSTEM_ERROR_EXCEPTION_RETHROW_HPP
+#define BOOST_OUTCOME_POLICY_ERROR_ENUM_THROW_AS_SYSTEM_ERROR_EXCEPTION_RETHROW_HPP
 
 #include "../bad_access.hpp"
 #include "detail/common.hpp"
@@ -44,14 +44,14 @@ template <class R, class S, class P, class N> class outcome;
 
 namespace policy
 {
-  /*! Policy interpreting S as a type implementing the `std::error_code` contract, P as
+  /*! Policy interpreting S as an enum convertible into the `std::error_code` contract, P as
   a type implementing the `std::exception_ptr` contract, and any wide attempt to access the
   successful state throws the `exception_ptr` if available, then the `error_code` wrapped
   into a `std::system_error`.
 
   Can be used in `outcome` only.
   */
-  template <class R, class S, class P> struct error_code_throw_as_system_error_exception_rethrow : detail::base
+  template <class R, class S, class P> struct error_enum_throw_as_system_error_exception_rethrow : detail::base
   {
     static_assert(std::is_base_of<std::error_code, S>::value, "error_type must be a base of std::error_code to be used with this policy");
     static_assert(std::is_base_of<std::exception_ptr, P>::value, "exception_type must be a base of std::exception_ptr to be used with this policy");
@@ -65,12 +65,12 @@ namespace policy
       {
         if((self->_state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_exception) != 0)
         {
-          auto *_self = static_cast<const outcome<R, S, P, error_code_throw_as_system_error_exception_rethrow> *>(self);
+          auto *_self = static_cast<const outcome<R, S, P, error_enum_throw_as_system_error_exception_rethrow> *>(self);
           std::rethrow_exception(_self->_ptr);
         }
         if((self->_state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_error) != 0)
         {
-          BOOST_OUTCOME_THROW_EXCEPTION(std::system_error(self->_error));
+          BOOST_OUTCOME_THROW_EXCEPTION(std::system_error(make_error_code(self->_error)));
         }
         BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no value"));
       }

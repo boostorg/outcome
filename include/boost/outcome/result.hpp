@@ -55,28 +55,22 @@ struct no_error_type
 //! Namespace for policies
 namespace policy
 {
-#ifndef BOOST_NO_EXCEPTIONS
   /*! Default `result<R, S>` policy selector.
   */
-  template <class EC>
-  using default_result_policy = std::conditional_t<                                             //
-  std::is_void<EC>::value,                                                                      //
-  terminate,                                                                                    //
-  std::conditional_t<                                                                           //
-  std::is_error_code_enum<EC>::value || std::is_error_condition_enum<EC>::value,                //
-  error_enum_throw_as_system_error<EC>,                                                         //
-  std::conditional_t<                                                                           //
-  detail::is_same_or_constructible<std::error_code, EC>, error_code_throw_as_system_error<EC>,  //
-  std::conditional_t<                                                                           //
-  detail::is_same_or_constructible<std::exception_ptr, EC>, exception_ptr_rethrow<EC>,          //
-  throw_bad_result_access<EC>                                                                   //
+  template <class T, class EC>
+  using default_result_policy = std::conditional_t<                                                                     //
+  std::is_void<EC>::value, terminate,                                                                                   //
+  std::conditional_t<                                                                                                   //
+  std::is_error_code_enum<EC>::value || std::is_error_condition_enum<EC>::value, error_enum_throw_as_system_error<EC>,  //
+  std::conditional_t<                                                                                                   //
+  trait::is_error_code<EC>::value, error_code_throw_as_system_error<EC>,                                                //
+  std::conditional_t<                                                                                                   //
+  trait::is_exception_ptr<EC>::value, exception_ptr_rethrow<T, EC, void>,                                               //
+  all_narrow                                                                                                            //
   >>>>;
-#else
-  template <class EC> using default_result_policy = terminate;
-#endif
 }
 
-template <class R, class S = std::error_code, class NoValuePolicy = policy::default_result_policy<S>>                                                                   //
+template <class R, class S = std::error_code, class NoValuePolicy = policy::default_result_policy<R, S>>                                                                //
 BOOST_OUTCOME_REQUIRES(detail::type_can_be_used_in_result<R> &&detail::type_can_be_used_in_result<S> && (std::is_void<S>::value || std::is_default_constructible<S>::value))  //
 class result;
 
@@ -213,17 +207,15 @@ Cannot be a reference, a `in_place_type_t<>`, `success<>`, `failure<>`, an array
   1. If `.value()` called when there is no `value_type` but there is an `error_type`:
     - If `std::is_error_code_enum_v<S>` or `std::is_error_condition_enum_v<S>` is true,
     then `throw std::system_error(make_error_code(error()))` [`policy::error_enum_throw_as_system_error<S>`]
-    if C++ exceptions are enabled, else call `std::terminate()`.
-    - If `S` convertible to a `std::error_code`, then `throw std::system_error(error())` [`policy::error_code_throw_as_system_error<S>`]
-    if C++ exceptions are enabled, else call `std::terminate()`.
-    - If `S` convertible to a `std::exception_ptr`, then `std::rethrow_exception(error())` [`policy::exception_ptr_rethrow<S>`]
-    if C++ exceptions are enabled, else call `std::terminate()`.
-    - If `S` is `void`, call `std::terminate()` [`policy::terminate<S>`]
-    - If `S` is none of the above, then `throw bad_result_access_with<S>(error())` [`policy::throw_bad_result_access<S>`]
-    if C++ exceptions are enabled, else call `std::terminate`.
+    - If `trait::is_error_code<S>`, then `throw std::system_error(error())` [`policy::error_code_throw_as_system_error<S>`]
+    - If `trait::is_exception_ptr<S>`, then `std::rethrow_exception(error())` [`policy::exception_ptr_rethrow<R, S, void>`]
+    - If `S` is `void`, call `std::terminate()` [`policy::terminate`]
+    - If `S` is none of the above, then it is undefined behaviour [`policy::all_narrow`]
   2. If `.error()` called when there is no `error_type`:
-    - `throw bad_result_access()` if C++ exceptions are enabled, else call `std::terminate()`.
-
+    - If `std::is_error_code_enum_v<S>` or `std::is_error_condition_enum_v<S>` is true,
+    or if `trait::is_error_code<S>`, or if `trait::is_exception_ptr<S>`,
+    or if `S` is `void`, do `throw bad_result_access()`
+    - If `S` is none of the above, then it is undefined behaviour [`policy::all_narrow`]
 */
 template <class R, class S, class NoValuePolicy>                                                                                                                        //
 BOOST_OUTCOME_REQUIRES(detail::type_can_be_used_in_result<R> &&detail::type_can_be_used_in_result<S> && (std::is_void<S>::value || std::is_default_constructible<S>::value))  //
@@ -657,7 +649,7 @@ template <class R, class S, class P> inline void swap(result<R, S, P> &a, result
   a.swap(b);
 }
 
-#if !defined(NDEBUG) && !defined(STANDARDESE_IS_IN_THE_HOUSE)
+#if !defined(NDEBUG)
 // Check is trivial in all ways except default constructibility
 // static_assert(std::is_trivial<result<int>>::value, "result<int> is not trivial!");
 // static_assert(std::is_trivially_default_constructible<result<int>>::value, "result<int> is not trivially default constructible!");

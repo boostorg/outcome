@@ -74,7 +74,7 @@ BOOST_OUTCOME_AUTO_TEST_CASE(issues_10, "Expected's operator->(), operator*() an
   BOOST_CHECK(!n.has_value());
   // These should behave as expected (!)
   BOOST_CHECK_NO_THROW(p.value());
-  BOOST_CHECK_THROW(n.value(), bad_result_access);
+  // BOOST_CHECK_NO_THROW(n.value());
   // And state is not destroyed
   BOOST_CHECK(p.has_value() && *p.assume_value() == a);
   BOOST_CHECK(!n.has_value() && *n.assume_error() == b);
