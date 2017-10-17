@@ -34,6 +34,7 @@ DEALINGS IN THE SOFTWARE.
 
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_65_outcome, "BOOST_OUTCOME_TRY does not preserve the exception_ptr")
 {
+#ifndef BOOST_NO_EXCEPTIONS
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   auto g = []() -> outcome<int> {
     auto f = []() -> outcome<int> {
@@ -61,4 +62,5 @@ BOOST_OUTCOME_AUTO_TEST_CASE(issues_65_outcome, "BOOST_OUTCOME_TRY does not pres
   {
     BOOST_CHECK(!strcmp(e.what(), "XXX"));
   }
+#endif
 }

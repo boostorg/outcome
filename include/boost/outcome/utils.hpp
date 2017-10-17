@@ -38,6 +38,7 @@ DEALINGS IN THE SOFTWARE.
 
 BOOST_OUTCOME_V2_NAMESPACE_BEGIN
 
+#ifndef BOOST_NO_EXCEPTIONS
 /*! Utility function which tries to match the exception in the pointer provided
 to an equivalent error code. Ought to work for all standard STL types.
 \param ep The pointer to an exception to convert. If matched, on exit this is
@@ -115,6 +116,7 @@ inline std::error_code error_from_exception(std::exception_ptr &&ep = std::curre
   }
   return not_matched;
 }
+#endif
 
 BOOST_OUTCOME_V2_NAMESPACE_END
 

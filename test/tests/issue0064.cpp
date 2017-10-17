@@ -35,6 +35,7 @@ DEALINGS IN THE SOFTWARE.
 
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_64_outcome, "BOOST_OUTCOME_TRY on excepted outcome is propagating a null error rather than just an exception")
 {
+#ifndef BOOST_NO_EXCEPTIONS
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   auto f = []() -> outcome<int> {
     auto h = []() -> outcome<int> { return std::make_exception_ptr(std::runtime_error("hello")); };
@@ -45,4 +46,5 @@ BOOST_OUTCOME_AUTO_TEST_CASE(issues_64_outcome, "BOOST_OUTCOME_TRY on excepted o
   BOOST_CHECK(!f.has_value());
   BOOST_CHECK(!f.has_error());
   BOOST_CHECK(f.has_exception());
+#endif
 }
