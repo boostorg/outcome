@@ -62,7 +62,7 @@ namespace detail
       return exception_type();
     }
   };
-}
+} // namespace detail
 
 BOOST_OUTCOME_V2_NAMESPACE_END
 

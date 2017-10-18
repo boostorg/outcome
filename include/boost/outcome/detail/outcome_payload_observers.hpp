@@ -87,7 +87,7 @@ namespace detail
     */
     constexpr void payload() const { NoValuePolicy::wide_payload_check(this); }
   };
-}
+} // namespace detail
 
 BOOST_OUTCOME_V2_NAMESPACE_END
 

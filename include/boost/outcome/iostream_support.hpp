@@ -45,7 +45,7 @@ namespace detail
     s << v._status << " ";
     if((v._status & status_have_value) != 0)
     {
-      s << v._value;
+      s << v._value;  // NOLINT
     }
     return s;
   }
@@ -59,7 +59,7 @@ namespace detail
     s << v._status << " ";
     if((v._status & status_have_value) != 0)
     {
-      s << v._value;
+      s << v._value;  // NOLINT
     }
     return s;
   }
@@ -69,8 +69,8 @@ namespace detail
     s >> v._status;
     if((v._status & status_have_value) != 0)
     {
-      new(&v._value) decltype(v._value)();
-      s >> v._value;
+      new(&v._value) decltype(v._value)();  // NOLINT
+      s >> v._value;                        // NOLINT
     }
     return s;
   }
@@ -86,8 +86,8 @@ namespace detail
     s >> v._status;
     if((v._status & status_have_value) != 0)
     {
-      new(&v._value) decltype(v._value)();
-      s >> v._value;
+      new(&v._value) decltype(v._value)();  // NOLINT
+      s >> v._value;                        // NOLINT
     }
     return s;
   }
@@ -132,7 +132,7 @@ namespace detail
       }
     }
   };
-}
+}  // namespace detail
 
 //! Deserialise a result
 template <class R, class S, class P> inline std::istream &operator>>(std::istream &s, result<R, S, P> &v)

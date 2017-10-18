@@ -53,25 +53,25 @@ namespace detail
     constexpr value_type &assume_value() & noexcept
     {
       NoValuePolicy::narrow_value_check(this);
-      return this->_state._value;
+      return this->_state._value;  // NOLINT
     }
     /// \group assume_value
     constexpr const value_type &assume_value() const &noexcept
     {
       NoValuePolicy::narrow_value_check(this);
-      return this->_state._value;
+      return this->_state._value;  // NOLINT
     }
     /// \group assume_value
     constexpr value_type &&assume_value() && noexcept
     {
       NoValuePolicy::narrow_value_check(this);
-      return std::move(this->_state._value);
+      return std::move(this->_state._value);  // NOLINT
     }
     /// \group assume_value
     constexpr const value_type &&assume_value() const &&noexcept
     {
       NoValuePolicy::narrow_value_check(this);
-      return std::move(this->_state._value);
+      return std::move(this->_state._value);  // NOLINT
     }
 
     /// \output_section Wide state observers
@@ -83,25 +83,25 @@ namespace detail
     constexpr value_type &value() &
     {
       NoValuePolicy::wide_value_check(this);
-      return this->_state._value;
+      return this->_state._value;  // NOLINT
     }
     /// \group value
     constexpr const value_type &value() const &
     {
       NoValuePolicy::wide_value_check(this);
-      return this->_state._value;
+      return this->_state._value;  // NOLINT
     }
     /// \group value
     constexpr value_type &&value() &&
     {
       NoValuePolicy::wide_value_check(this);
-      return std::move(this->_state._value);
+      return std::move(this->_state._value);  // NOLINT
     }
     /// \group value
     constexpr const value_type &&value() const &&
     {
       NoValuePolicy::wide_value_check(this);
-      return std::move(this->_state._value);
+      return std::move(this->_state._value);  // NOLINT
     }
   };
   template <class Base, class NoValuePolicy> class result_value_observers<Base, void, NoValuePolicy> : public Base
@@ -119,7 +119,7 @@ namespace detail
     */
     constexpr void value() const { NoValuePolicy::wide_value_check(this); }
   };
-}
+}  // namespace detail
 
 BOOST_OUTCOME_V2_NAMESPACE_END
 

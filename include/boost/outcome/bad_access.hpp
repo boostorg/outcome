@@ -41,7 +41,7 @@ BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 class BOOST_OUTCOME_SYMBOL_VISIBLE bad_result_access : public std::logic_error
 {
 public:
-  bad_result_access(const char *what)
+  explicit bad_result_access(const char *what)
       : std::logic_error(what)
   {
   }
@@ -53,7 +53,7 @@ template <class S> class BOOST_OUTCOME_SYMBOL_VISIBLE bad_result_access_with : p
   S _error;
 
 public:
-  bad_result_access_with(S v)
+  explicit bad_result_access_with(S v)
       : bad_result_access("no value")
       , _error(std::move(v))
   {
@@ -73,7 +73,7 @@ public:
 class BOOST_OUTCOME_SYMBOL_VISIBLE bad_outcome_access : public std::logic_error
 {
 public:
-  bad_outcome_access(const char *what)
+  explicit bad_outcome_access(const char *what)
       : std::logic_error(what)
   {
   }

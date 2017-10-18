@@ -52,12 +52,12 @@ BOOST_OUTCOME_V2_NAMESPACE_END
 #define BOOST_OUTCOME_TRY_UNIQUE_NAME BOOST_OUTCOME_TRY_GLUE(__t, __COUNTER__)
 
 #define BOOST_OUTCOME_TRYV2(unique, m)                                                                                                                                                                                                                                                                                               \
-  auto &&unique = (m);                                                                                                                                                                                                                                                                                                         \
-  if(!unique.has_value())                                                                                                                                                                                                                                                                                                      \
+  auto &&(unique) = (m);                                                                                                                                                                                                                                                                                                         \
+  if(!(unique).has_value())                                                                                                                                                                                                                                                                                                      \
   return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(std::forward<decltype(unique)>(unique))
 #define BOOST_OUTCOME_TRY2(unique, v, m)                                                                                                                                                                                                                                                                                             \
   BOOST_OUTCOME_TRYV2(unique, m);                                                                                                                                                                                                                                                                                                    \
-  auto &&v = std::forward<decltype(unique)>(unique).value()
+  auto &&(v) = std::forward<decltype(unique)>(unique).value()
 
 /*! If the outcome returned by expression *m* is not valued, propagate any
 failure by immediately returning that failure state immediately

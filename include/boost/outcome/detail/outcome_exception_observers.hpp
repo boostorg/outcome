@@ -87,7 +87,7 @@ namespace detail
     */
     constexpr void exception() const { NoValuePolicy::wide_exception_check(this); }
   };
-}
+}  // namespace detail
 
 BOOST_OUTCOME_V2_NAMESPACE_END
 

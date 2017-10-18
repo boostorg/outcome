@@ -97,7 +97,7 @@ namespace detail
       {
         if(this->_state._status & detail::status_have_value)
         {
-          return detail::safe_compare_equal(this->_state._value, o._state._value) && detail::safe_compare_equal(this->_error, o._error);
+          return detail::safe_compare_equal(this->_state._value, o._state._value) && detail::safe_compare_equal(this->_error, o._error);  // NOLINT
         }
         return detail::safe_compare_equal(this->_error, o._error);
       }
@@ -113,7 +113,7 @@ namespace detail
     {
       if(this->_state._status & detail::status_have_value)
       {
-        return detail::safe_compare_equal(this->_state._value, o.value);
+        return detail::safe_compare_equal(this->_state._value, o.value);  // NOLINT
       }
       return false;
     }
@@ -126,11 +126,7 @@ namespace detail
     constexpr bool operator==(const success_type<void> &o) const noexcept
     {
       (void) o;
-      if(this->_state._status & detail::status_have_value)
-      {
-        return true;
-      }
-      return false;
+      return static_cast<bool>(this->_state._status & detail::status_have_value);
     }
     /*! True if equal to the failure type sugar.
     \param o The failure type sugar to compare to.
@@ -157,8 +153,10 @@ namespace detail
       }
       if(this->_state._status & detail::status_have_value)
       {
-        if(detail::safe_compare_notequal(this->_state._value, o._state._value))
+        if(detail::safe_compare_notequal(this->_state._value, o._state._value))  // NOLINT
+        {
           return true;
+        }
       }
       return detail::safe_compare_notequal(this->_error, o._error);
     }
@@ -172,7 +170,7 @@ namespace detail
     {
       if(this->_state._status & detail::status_have_value)
       {
-        return detail::safe_compare_notequal(this->_state._value, o.value);
+        return detail::safe_compare_notequal(this->_state._value, o.value);  // NOLINT
       }
       return true;
     }
@@ -185,11 +183,7 @@ namespace detail
     constexpr bool operator!=(const success_type<void> &o) const noexcept
     {
       (void) o;
-      if(this->_state._status & detail::status_have_value)
-      {
-        return false;
-      }
-      return true;
+      return !static_cast<bool>(this->_state._status & detail::status_have_value);
     }
     /*! True if not equal to the failure type sugar.
     \param o The failure type sugar to compare to.
@@ -207,7 +201,7 @@ namespace detail
   template <class T, class U, class V, class W> constexpr inline bool operator!=(const success_type<W> &a, const result_final<T, U, V> &b) noexcept(noexcept(b == a)) { return b != a; }
   //! Calls b != a
   template <class T, class U, class V, class W> constexpr inline bool operator!=(const failure_type<W, void> &a, const result_final<T, U, V> &b) noexcept(noexcept(b == a)) { return b != a; }
-}
+}  // namespace detail
 
 BOOST_OUTCOME_V2_NAMESPACE_END
 

@@ -101,7 +101,7 @@ namespace policy
       }
     }
   };
-}
+}  // namespace policy
 
 BOOST_OUTCOME_V2_NAMESPACE_END
 
