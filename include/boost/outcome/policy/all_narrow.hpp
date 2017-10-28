@@ -33,6 +33,8 @@ DEALINGS IN THE SOFTWARE.
 
 #include "detail/common.hpp"
 
+#include <utility>
+
 BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
 namespace policy
