@@ -28,51 +28,59 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef BOOST_OUTCOME_POLICY_TERMINATE_HPP
-#define BOOST_OUTCOME_POLICY_TERMINATE_HPP
+#ifndef BOOST_OUTCOME_POLICY_OUTCOME_EXCEPTION_PTR_RETHROW_HPP
+#define BOOST_OUTCOME_POLICY_OUTCOME_EXCEPTION_PTR_RETHROW_HPP
 
-#include "detail/common.hpp"
-
-#include <system_error>
+#include "result_exception_ptr_rethrow.hpp"
 
 BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
 namespace policy
 {
-  /*! Policy implementing any wide attempt to access the successful state as calling `std::terminate`
-
-  Can be used in both `result` and `outcome`.
+  /*! Policy interpreting `EC` or `E` as a type for which `trait::has_exception_ptr_v<EC|E>` is true.
+  Any wide attempt to access the successful state where there is none causes:
+  `std::rethrow_exception(policy::exception_ptr(.error()|.exception()))` appropriately.
   */
-  struct terminate : detail::base
+  template <class T, class EC, class E> struct exception_ptr_rethrow : detail::base
   {
-    /*! Performs a wide check of state, used in the value() functions.
-    \effects If result does not have a value, calls `std::terminate()`.
+    /*! Performs a wide check of state, used in the value() functions
+    \effects If result does not have a value, if it has an error it rethrows that error via `std::rethrow_exception()`, else it throws `bad_result_access`.
     */
     template <class Impl> static constexpr void wide_value_check(Impl &&self)
     {
       if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_value) == 0)
       {
-        std::terminate();
+        if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_exception) != 0)
+        {
+          using Outcome = BOOST_OUTCOME_V2_NAMESPACE::detail::rebind_type<outcome<T, EC, E, exception_ptr_rethrow>, decltype(self)>;
+          Outcome _self = static_cast<Outcome>(self);  // NOLINT
+          detail::rethrow_exception<trait::has_exception_ptr_v<E>>{policy::exception_ptr(std::forward<Outcome>(_self)._ptr)};
+        }
+        if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_error) != 0)
+        {
+          detail::rethrow_exception<trait::has_exception_ptr_v<EC>>{policy::exception_ptr(std::forward<Impl>(self)._error)};
+        }
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no value"));
       }
     }
-    /*! Performs a wide check of state, used in the error() functions
-    \effects If result does not have an error, calls `std::terminate()`.
+    /*! Performs a wide check of state, used in the value() functions
+    \effects If result does not have a value, if it has an error it throws that error, else it throws `bad_result_access`.
     */
-    template <class Impl> static constexpr void wide_error_check(Impl &&self) noexcept
+    template <class Impl> static constexpr void wide_error_check(Impl &&self)
     {
       if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_error) == 0)
       {
-        std::terminate();
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no error"));
       }
     }
     /*! Performs a wide check of state, used in the exception() functions
-    \effects If outcome does not have an exception, calls `std::terminate()`.
+    \effects If result does not have an exception, it throws `bad_outcome_access`.
     */
     template <class Impl> static constexpr void wide_exception_check(Impl &&self)
     {
       if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_exception) == 0)
       {
-        std::terminate();
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no exception"));
       }
     }
   };

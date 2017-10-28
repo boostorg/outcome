@@ -52,25 +52,25 @@ namespace detail
     */
     constexpr error_type &assume_error() & noexcept
     {
-      NoValuePolicy::narrow_error_check(this);
+      NoValuePolicy::narrow_error_check(static_cast<result_error_observers &>(*this));
       return this->_error;
     }
     /// \group assume_error
     constexpr const error_type &assume_error() const &noexcept
     {
-      NoValuePolicy::narrow_error_check(this);
+      NoValuePolicy::narrow_error_check(static_cast<const result_error_observers &>(*this));
       return this->_error;
     }
     /// \group assume_error
     constexpr error_type &&assume_error() && noexcept
     {
-      NoValuePolicy::narrow_error_check(this);
+      NoValuePolicy::narrow_error_check(static_cast<result_error_observers &&>(*this));
       return std::move(this->_error);
     }
     /// \group assume_error
     constexpr const error_type &&assume_error() const &&noexcept
     {
-      NoValuePolicy::narrow_error_check(this);
+      NoValuePolicy::narrow_error_check(static_cast<const result_error_observers &&>(*this));
       return std::move(this->_error);
     }
 
@@ -82,25 +82,25 @@ namespace detail
     */
     constexpr error_type &error() &
     {
-      NoValuePolicy::wide_error_check(this);
+      NoValuePolicy::wide_error_check(static_cast<result_error_observers &>(*this));
       return this->_error;
     }
     /// \group error
     constexpr const error_type &error() const &
     {
-      NoValuePolicy::wide_error_check(this);
+      NoValuePolicy::wide_error_check(static_cast<const result_error_observers &>(*this));
       return this->_error;
     }
     /// \group error
     constexpr error_type &&error() &&
     {
-      NoValuePolicy::wide_error_check(this);
+      NoValuePolicy::wide_error_check(static_cast<result_error_observers &&>(*this));
       return std::move(this->_error);
     }
     /// \group error
     constexpr const error_type &&error() const &&
     {
-      NoValuePolicy::wide_error_check(this);
+      NoValuePolicy::wide_error_check(static_cast<const result_error_observers &&>(*this));
       return std::move(this->_error);
     }
   };
@@ -111,14 +111,14 @@ namespace detail
     /// \output_section Narrow state observers
     /*! Access error without runtime checks.
     */
-    constexpr void assume_error() const noexcept { NoValuePolicy::narrow_error_check(this); }
+    constexpr void assume_error() const noexcept { NoValuePolicy::narrow_error_check(*this); }
     /// \output_section Wide state observers
     /*! Access error with runtime checks.
     \requires The result to have a failed state, else whatever `NoValuePolicy` says ought to happen.
     */
-    constexpr void error() const { NoValuePolicy::wide_error_check(this); }
+    constexpr void error() const { NoValuePolicy::wide_error_check(*this); }
   };
-} // namespace detail
+}  // namespace detail
 BOOST_OUTCOME_V2_NAMESPACE_END
 
 #endif

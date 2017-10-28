@@ -39,6 +39,36 @@ DEALINGS IN THE SOFTWARE.
 
 #include <iostream>
 
+#ifndef BOOST_NO_EXCEPTIONS
+// Custom error type with payload
+struct payload
+{
+  std::error_code ec;
+  const char *str{nullptr};
+  payload() = default;
+  payload(std::errc _ec, const char *_str)
+      : ec(make_error_code(_ec))
+      , str(_str)
+  {
+  }
+};
+struct payload_exception : std::runtime_error
+{
+  explicit payload_exception(const char *what)
+      : std::runtime_error(what)
+  {
+  }
+};
+inline const std::error_code &make_error_code(const payload &p)
+{
+  return p.ec;
+}
+inline void throw_as_system_error_with_payload(const payload &p)
+{
+  throw payload_exception(p.str);
+}
+#endif
+
 BOOST_OUTCOME_AUTO_TEST_CASE(works_result, "Tests that the result works as intended")
 {
 #ifdef TESTING_WG21_EXPERIMENTAL_RESULT
@@ -327,4 +357,27 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_result, "Tests that the result works as inten
 #endif
     BOOST_CHECK(b.c.error.code == EINVAL);  // NOLINT
   }
+
+#ifndef TESTING_WG21_EXPERIMENTAL_RESULT
+#ifndef BOOST_NO_EXCEPTIONS
+  // Test payload facility
+  {
+    const char *niall = "niall";
+    result<int, payload> b{std::errc::invalid_argument, niall};
+    try
+    {
+      b.value();
+      BOOST_CHECK(false);
+    }
+    catch(const payload_exception &e)
+    {
+      BOOST_CHECK(!strcmp(e.what(), niall));
+    }
+    catch(...)
+    {
+      BOOST_CHECK(false);
+    }
+  }
+#endif
+#endif
 }

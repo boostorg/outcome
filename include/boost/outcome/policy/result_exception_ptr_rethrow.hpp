@@ -28,46 +28,43 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef BOOST_OUTCOME_POLICY_ERROR_CODE_THROW_AS_SYSTEM_ERROR_HPP
-#define BOOST_OUTCOME_POLICY_ERROR_CODE_THROW_AS_SYSTEM_ERROR_HPP
+#ifndef BOOST_OUTCOME_POLICY_RESULT_EXCEPTION_PTR_RETHROW_HPP
+#define BOOST_OUTCOME_POLICY_RESULT_EXCEPTION_PTR_RETHROW_HPP
 
 #include "../bad_access.hpp"
 #include "detail/common.hpp"
-
-#include <system_error>
 
 BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
 namespace policy
 {
-  /*! Policy interpreting EC as a type implementing the `std::error_code` contract
-  and any wide attempt to access the successful state throws the `error_code` wrapped into
-  a `std::system_error`
-
-  Can be used in `result` only.
+  /*! Policy interpreting `EC` or `E` as a type for which `trait::has_exception_ptr_v<EC|E>` is true.
+  Any wide attempt to access the successful state where there is none causes:
+  `std::rethrow_exception(policy::exception_ptr(.error()|.exception()))` appropriately.
   */
-  template <class EC> struct error_code_throw_as_system_error : detail::base
+  template <class T, class EC, class E> struct exception_ptr_rethrow;
+  template <class T, class EC> struct exception_ptr_rethrow<T, EC, void> : detail::base
   {
-    /*! Performs a wide check of state, used in the value() functions.
-    \effects If result does not have a value, if it has an error it throws a `std::system_error(error())`, else it throws `bad_result_access`.
+    /*! Performs a wide check of state, used in the value() functions
+    \effects If result does not have a value, if it has an error it rethrows that error via `std::rethrow_exception()`, else it throws `bad_result_access`.
     */
-    template <class Impl> static constexpr void wide_value_check(Impl *self)
+    template <class Impl> static constexpr void wide_value_check(Impl &&self)
     {
-      if((self->_state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_value) == 0)
+      if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_value) == 0)
       {
-        if((self->_state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_error) != 0)
+        if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_error) != 0)
         {
-          BOOST_OUTCOME_THROW_EXCEPTION(std::system_error(self->_error));
+          std::rethrow_exception(policy::exception_ptr(std::forward<Impl>(self)._error));
         }
         BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access("no value"));
       }
     }
-    /*! Performs a wide check of state, used in the error() functions
-    \effects If result does not have an error, it throws `bad_result_access`.
+    /*! Performs a wide check of state, used in the value() functions
+    \effects If result does not have a value, if it has an error it throws that error, else it throws `bad_result_access`.
     */
-    template <class Impl> static constexpr void wide_error_check(Impl *self)
+    template <class Impl> static constexpr void wide_error_check(Impl &&self)
     {
-      if((self->_state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_error) == 0)
+      if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_error) == 0)
       {
         BOOST_OUTCOME_THROW_EXCEPTION(bad_result_access("no error"));
       }

@@ -28,51 +28,75 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef BOOST_OUTCOME_POLICY_TERMINATE_HPP
-#define BOOST_OUTCOME_POLICY_TERMINATE_HPP
+#ifndef BOOST_OUTCOME_POLICY_OUTCOME_ERROR_CODE_THROW_AS_SYSTEM_ERROR_HPP
+#define BOOST_OUTCOME_POLICY_OUTCOME_ERROR_CODE_THROW_AS_SYSTEM_ERROR_HPP
 
-#include "detail/common.hpp"
-
-#include <system_error>
+#include "result_error_code_throw_as_system_error.hpp"
 
 BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
 namespace policy
 {
-  /*! Policy implementing any wide attempt to access the successful state as calling `std::terminate`
+  namespace detail
+  {
+    template <bool has_error_payload> struct rethrow_exception;
+    template <> struct rethrow_exception<true>
+    {
+      template <class Exception> explicit rethrow_exception(Exception &&excpt)  // NOLINT
+      {
+        std::rethrow_exception(std::forward<Exception>(excpt));
+      }
+    };
+  }  // namespace detail
 
-  Can be used in both `result` and `outcome`.
+  /*! Policy interpreting `EC` as a type for which `trait::has_error_code_v<EC>` is true.
+  Any wide attempt to access the successful state where there is none causes
+  an attempt to rethrow `E` if `trait::has_exception_ptr_v<E>` is true, else:
+
+  1. If `trait::has_error_payload_v<EC>` is true, it calls an
+  ADL discovered free function `throw_as_system_error_with_payload(.error())`.
+  2. If `trait::has_error_payload_v<EC>` is false, it calls `BOOST_OUTCOME_THROW_EXCEPTION(std::system_error(policy::error_code(.error())))`
   */
-  struct terminate : detail::base
+  template <class T, class EC, class E> struct error_code_throw_as_system_error : detail::base
   {
     /*! Performs a wide check of state, used in the value() functions.
-    \effects If result does not have a value, calls `std::terminate()`.
+    \effects See description of class for effects.
     */
     template <class Impl> static constexpr void wide_value_check(Impl &&self)
     {
       if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_value) == 0)
       {
-        std::terminate();
+        if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_exception) != 0)
+        {
+          using Outcome = BOOST_OUTCOME_V2_NAMESPACE::detail::rebind_type<outcome<T, EC, E, error_code_throw_as_system_error>, decltype(self)>;
+          Outcome _self = static_cast<Outcome>(self);  // NOLINT
+          detail::rethrow_exception<trait::has_exception_ptr_v<E>>{policy::exception_ptr(std::forward<Outcome>(_self)._ptr)};
+        }
+        if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_error) != 0)
+        {
+          detail::throw_result_as_system_error<trait::has_error_payload_v<EC>>{std::forward<Impl>(self)._error};
+        }
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no value"));
       }
     }
     /*! Performs a wide check of state, used in the error() functions
-    \effects If result does not have an error, calls `std::terminate()`.
+    \effects If result does not have an error, it throws `bad_outcome_access`.
     */
-    template <class Impl> static constexpr void wide_error_check(Impl &&self) noexcept
+    template <class Impl> static constexpr void wide_error_check(Impl &&self)
     {
       if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_error) == 0)
       {
-        std::terminate();
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no error"));
       }
     }
     /*! Performs a wide check of state, used in the exception() functions
-    \effects If outcome does not have an exception, calls `std::terminate()`.
+    \effects If result does not have an exception, it throws `bad_outcome_access`.
     */
     template <class Impl> static constexpr void wide_exception_check(Impl &&self)
     {
       if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_exception) == 0)
       {
-        std::terminate();
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no exception"));
       }
     }
   };
