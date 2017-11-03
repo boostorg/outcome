@@ -131,32 +131,37 @@ namespace hooks
 {
   /*! The default instantiation hook implementation called when a `outcome` is first created
   by conversion from one of its possible types. Does nothing.
-  \tparam T One of `value_type`, `error_type`, or `exception_type`.
+  \param 1 Some `outcome<...>` being constructed.
+  \param 2 The source data.
 
   WARNING: The compiler is permitted to elide calls to constructors, and thus this hook may not get called when you think it should!
   */
-  template <class T, class U> constexpr inline void hook_outcome_construction(in_place_type_t<T> /*unused*/, U * /*unused*/) noexcept {}
+  template <class T, class U> constexpr inline void hook_outcome_construction(T * /*unused*/, U && /*unused*/) noexcept {}
   /*! The default instantiation hook implementation called when a `outcome` is created by copying
   from another `outcome` or `result`. Does nothing.
-  \tparam T The type of the source.
+  \param 1 Some `outcome<...>` being constructed.
+  \param 2 The source data.
 
   WARNING: The compiler is permitted to elide calls to constructors, and thus this hook may not get called when you think it should!
   */
-  template <class T, class U> constexpr inline void hook_outcome_copy_construction(in_place_type_t<T> /*unused*/, U * /*unused*/) noexcept {}
+  template <class T, class U> constexpr inline void hook_outcome_copy_construction(T * /*unused*/, U && /*unused*/) noexcept {}
   /*! The default instantiation hook implementation called when a `outcome` is created by moving
   from another `outcome` or `result`. Does nothing.
-  \tparam T The type of the source.
+  \param 1 Some `outcome<...>` being constructed.
+  \param 2 The source data.
 
   WARNING: The compiler is permitted to elide calls to constructors, and thus this hook may not get called when you think it should!
   */
-  template <class T, class U> constexpr inline void hook_outcome_move_construction(in_place_type_t<T> /*unused*/, U * /*unused*/) noexcept {}
+  template <class T, class U> constexpr inline void hook_outcome_move_construction(T * /*unused*/, U && /*unused*/) noexcept {}
   /*! The default instantiation hook implementation called when a `outcome` is created by in place
   construction. Does nothing.
-  \tparam T One of `value_type`, `error_type`, or `exception_type`.
+  \param 1 Some `outcome<...>` being constructed.
+  \param 2 The type of in place construction occurring.
+  \param 3 The source data.
 
   WARNING: The compiler is permitted to elide calls to constructors, and thus this hook may not get called when you think it should!
   */
-  template <class T, class U> constexpr inline void hook_outcome_in_place_construction(in_place_type_t<T> /*unused*/, U * /*unused*/) noexcept {}
+  template <class T, class U, class... Args> constexpr inline void hook_outcome_in_place_construction(T * /*unused*/, in_place_type_t<U> /*unused*/, Args &&... /*unused*/) noexcept {}
 
   //! Used in hook implementations to override the payload/exception to something other than what was constructed.
   template <class R, class S, class P, class NoValuePolicy, class U> constexpr inline void override_outcome_exception(outcome<R, S, P, NoValuePolicy> *o, U &&v) noexcept;
@@ -347,7 +352,7 @@ public:
     _ptr()
   {
     using namespace hooks;
-    hook_outcome_construction(in_place_type<value_type>, this);
+    hook_outcome_construction(this, std::forward<T>(t));
   }
   /*! Converting constructor to an errored outcome.
   \tparam enable_error_converting_constructor
@@ -368,7 +373,7 @@ public:
     _ptr()
   {
     using namespace hooks;
-    hook_outcome_construction(in_place_type<error_type>, this);
+    hook_outcome_construction(this, std::forward<T>(t));
   }
   /*! Special error condition converting constructor to an errored outcome.
   \tparam enable_error_condition_converting_constructor
@@ -390,7 +395,7 @@ public:
   : base{in_place_type<typename base::_error_type>, make_error_code(t)}
   {
     using namespace hooks;
-    hook_outcome_construction(in_place_type<error_type>, this);
+    hook_outcome_construction(this, std::forward<ErrorCondEnum>(t));
   }
   /*! Converting constructor to an excepted outcome.
   \tparam enable_exception_converting_constructor
@@ -412,7 +417,7 @@ public:
   {
     using namespace hooks;
     this->_state._status |= detail::status_have_exception;
-    hook_outcome_construction(in_place_type<exception_type>, this);
+    hook_outcome_construction(this, std::forward<T>(t));
   }
 
   /*! Explicit converting copy constructor from a compatible outcome type.
@@ -431,7 +436,7 @@ public:
       , _ptr(o._ptr)
   {
     using namespace hooks;
-    hook_outcome_copy_construction(in_place_type<decltype(o)>, this);
+    hook_outcome_copy_construction(this, o);
   }
   /*! Explicit converting move constructor from a compatible outcome type.
   \tparam 4
@@ -449,7 +454,7 @@ public:
       , _ptr(std::move(o._ptr))
   {
     using namespace hooks;
-    hook_outcome_move_construction(in_place_type<decltype(o)>, this);
+    hook_outcome_move_construction(this, std::move(o));
   }
   /*! Explicit converting copy constructor from a compatible result type.
   \tparam 3
@@ -467,7 +472,7 @@ public:
       , _ptr()
   {
     using namespace hooks;
-    hook_outcome_copy_construction(in_place_type<decltype(o)>, this);
+    hook_outcome_copy_construction(this, o);
   }
   /*! Explicit converting move constructor from a compatible result type.
   \tparam 3
@@ -485,7 +490,7 @@ public:
       , _ptr()
   {
     using namespace hooks;
-    hook_outcome_move_construction(in_place_type<decltype(o)>, this);
+    hook_outcome_move_construction(this, std::move(o));
   }
 
 
@@ -507,7 +512,7 @@ public:
       , _ptr()
   {
     using namespace hooks;
-    hook_outcome_in_place_construction(in_place_type<value_type>, this);
+    hook_outcome_in_place_construction(this, in_place_type<value_type>, std::forward<Args>(args)...);
   }
   /*! Inplace constructor to a successful value.
   \tparam 2
@@ -527,7 +532,7 @@ public:
       , _ptr()
   {
     using namespace hooks;
-    hook_outcome_in_place_construction(in_place_type<value_type>, this);
+    hook_outcome_in_place_construction(this, in_place_type<value_type>, il, std::forward<Args>(args)...);
   }
   /*! Inplace constructor to an unsuccessful error.
   \tparam 1
@@ -546,7 +551,7 @@ public:
       , _ptr()
   {
     using namespace hooks;
-    hook_outcome_in_place_construction(in_place_type<error_type>, this);
+    hook_outcome_in_place_construction(this, in_place_type<error_type>, std::forward<Args>(args)...);
   }
   /*! Inplace constructor to an unsuccessful error.
   \tparam 2
@@ -566,7 +571,7 @@ public:
       , _ptr()
   {
     using namespace hooks;
-    hook_outcome_in_place_construction(in_place_type<error_type>, this);
+    hook_outcome_in_place_construction(this, in_place_type<error_type>, il, std::forward<Args>(args)...);
   }
   /*! Inplace constructor to an unsuccessful exception.
   \tparam 1
@@ -586,7 +591,7 @@ public:
   {
     using namespace hooks;
     this->_state._status |= detail::status_have_exception;
-    hook_outcome_in_place_construction(in_place_type<exception_type>, this);
+    hook_outcome_in_place_construction(this, in_place_type<exception_type>, std::forward<Args>(args)...);
   }
   /*! Inplace constructor to an unsuccessful exception.
   \tparam 2
@@ -607,7 +612,7 @@ public:
   {
     using namespace hooks;
     this->_state._status |= detail::status_have_exception;
-    hook_outcome_in_place_construction(in_place_type<exception_type>, this);
+    hook_outcome_in_place_construction(this, in_place_type<exception_type>, il, std::forward<Args>(args)...);
   }
   /*! Implicit inplace constructor to successful value, or unsuccessful error, or unsuccessful exception.
   \tparam 3
@@ -637,7 +642,7 @@ public:
   : base{in_place_type<typename base::_value_type>}
   {
     using namespace hooks;
-    hook_outcome_copy_construction(in_place_type<decltype(o)>, this);
+    hook_outcome_copy_construction(this, o);
   }
   /*! Implicit tagged constructor of a successful outcome.
   \tparam 1
@@ -654,7 +659,7 @@ public:
   : base{in_place_type<typename base::_value_type>, detail::extract_value_from_success<value_type>(o)}
   {
     using namespace hooks;
-    hook_outcome_copy_construction(in_place_type<decltype(o)>, this);
+    hook_outcome_copy_construction(this, o);
   }
   /*! Implicit tagged constructor of a successful outcome.
   \tparam 1
@@ -671,7 +676,7 @@ public:
   : base{in_place_type<typename base::_value_type>, std::move(detail::extract_value_from_success<value_type>(std::move(o)))}
   {
     using namespace hooks;
-    hook_outcome_move_construction(in_place_type<decltype(o)>, this);
+    hook_outcome_move_construction(this, std::move(o));
   }
   /*! Implicit tagged constructor of a failure outcome.
   \tparam 2
@@ -697,7 +702,7 @@ public:
       this->_state._status |= detail::status_have_exception;
     }
     using namespace hooks;
-    hook_outcome_copy_construction(in_place_type<decltype(o)>, this);
+    hook_outcome_copy_construction(this, o);
   }
   /*! Implicit tagged constructor of a failure outcome.
   \tparam 2
@@ -723,7 +728,7 @@ public:
       this->_state._status |= detail::status_have_exception;
     }
     using namespace hooks;
-    hook_outcome_move_construction(in_place_type<decltype(o)>, this);
+    hook_outcome_move_construction(this, std::move(o));
   }
 
   /// \output_section Comparison operators
