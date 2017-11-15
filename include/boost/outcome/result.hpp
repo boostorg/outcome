@@ -31,6 +31,7 @@ DEALINGS IN THE SOFTWARE.
 #ifndef BOOST_OUTCOME_RESULT_HPP
 #define BOOST_OUTCOME_RESULT_HPP
 
+#include "convert.hpp"
 #include "detail/result_final.hpp"
 
 #include "policy/all_narrow.hpp"
@@ -135,12 +136,12 @@ namespace detail
                                                                    && !std::is_same<choose_inplace_value_error_constructor<Args...>, disable_inplace_value_error_constructor>::value;
   };
 
-  template <class T, class U> constexpr inline const U &extract_value_from_success(const success_type<U> &v) { return v.value; }
-  template <class T, class U> constexpr inline U &&extract_value_from_success(success_type<U> &&v) { return std::move(v.value); }
+  template <class T, class U> constexpr inline const U &extract_value_from_success(const success_type<U> &v) { return v._value; }
+  template <class T, class U> constexpr inline U &&extract_value_from_success(success_type<U> &&v) { return std::move(v._value); }
   template <class T> constexpr inline T extract_value_from_success(const success_type<void> & /*unused*/) { return T{}; }
 
-  template <class T, class U, class V> constexpr inline const U &extract_error_from_failure(const failure_type<U, V> &v) { return v.error; }
-  template <class T, class U, class V> constexpr inline U &&extract_error_from_failure(failure_type<U, V> &&v) { return std::move(v.error); }
+  template <class T, class U, class V> constexpr inline const U &extract_error_from_failure(const failure_type<U, V> &v) { return v._error; }
+  template <class T, class U, class V> constexpr inline U &&extract_error_from_failure(failure_type<U, V> &&v) { return std::move(v._error); }
   template <class T, class V> constexpr inline T extract_error_from_failure(const failure_type<void, V> & /*unused*/) { return T{}; }
 
   template <class T> struct is_result : std::false_type
@@ -183,6 +184,14 @@ namespace hooks
   WARNING: The compiler is permitted to elide calls to constructors, and thus this hook may not get called when you think it should!
   */
   template <class T, class U> constexpr inline void hook_result_move_construction(T * /*unused*/, U && /*unused*/) noexcept {}
+  /*! The default instantiation hook implementation called when a `result` is created by conversion
+  from a type matching the `ValueOrError` concept. Does nothing.
+  \param 1 Some `result<...>` being constructed.
+  \param 2 The source data.
+
+  WARNING: The compiler is permitted to elide calls to constructors, and thus this hook may not get called when you think it should!
+  */
+  template <class T, class U> constexpr inline void hook_result_converting_construction(T * /*unused*/, U && /*unused*/) noexcept {}
   /*! The default instantiation hook implementation called when a `result` is created by in place
   construction. Does nothing.
   \param 1 Some `result<...>` being constructed.
@@ -239,6 +248,12 @@ class BOOST_OUTCOME_NODISCARD result : public detail::result_final<R, S, NoValue
   {
   };
   struct error_condition_converting_constructor_tag
+  {
+  };
+  struct explicit_valueornone_converting_constructor_tag
+  {
+  };
+  struct explicit_valueorerror_converting_constructor_tag
   {
   };
 
@@ -385,6 +400,23 @@ public:
     hook_result_construction(this, std::forward<ErrorCondEnum>(t));
   }
 
+  /*! Explicit converting constructor from a compatible `ValueOrError` type.
+  \tparam 1
+  \exclude
+  \param o The compatible `ValueOrError` concept type. `ValueOrError` concept matches any type with a `value_type`,
+  an `error_type`, a `.value()`, an `.error()` and a `.has_value()`.
+
+  \effects Initialises the result with the contents the compatible input.
+  \requires That `convert::value_or_error<result, is_result_v<T>>(std::forward<T>(o))` be available.
+  */
+  BOOST_OUTCOME_TEMPLATE(class T)
+  BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(convert::value_or_error<result, is_result_v<T>>(std::declval<T>())))
+  constexpr explicit result(T &&o, explicit_valueorerror_converting_constructor_tag /*unused*/ = explicit_valueorerror_converting_constructor_tag())  // NOLINT
+  : base{typename base::compatible_conversion_tag(), convert::value_or_error<result, is_result_v<T>>(std::forward<T>(o))}
+  {
+    using namespace hooks;
+    hook_result_converting_construction(this, std::forward<T>(o));
+  }
   /*! Explicit converting copy constructor from a compatible result type.
   \tparam 3
   \exclude
