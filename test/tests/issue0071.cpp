@@ -28,33 +28,18 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include "../../include/boost/outcome/result.hpp"
-#include "../../include/boost/outcome/try.hpp"
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 
-BOOST_OUTCOME_AUTO_TEST_CASE(issues_59, "result<NonMovable> supported?")
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_71_outcome, "Implicit construction is over eager")
 {
-#if defined(_MSC_VER) || __cplusplus >= 201700
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   struct udt
   {
-    const char *_v{nullptr};
-    udt() = delete;
-    constexpr udt(const char *v) noexcept : _v(v) {}  // NOLINT
-    udt(udt &&o) = delete;
-    udt(const udt &) = delete;
-    udt &operator=(udt &&o) = delete;
-    udt &operator=(const udt &) = delete;
-    ~udt() = default;
-    constexpr const char *operator*() const noexcept { return _v; }
+    int v;
+    explicit udt(int a)
+        : v(a){};
   };
-  const char *niall = "niall";
-  auto f = [niall]() -> result<void> {
-    auto g = [niall]() -> result<udt> { return {niall}; };
-    BOOST_OUTCOME_TRY(v, g());  // this must never copy nor move
-    BOOST_CHECK(*v == niall);
-    return success();
-  };
-  (void) f();
-#endif
+  result<udt> m = udt{5};
+  BOOST_CHECK(m.value().v == 5);
 }
