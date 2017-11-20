@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="generator" content="Hugo 0.29" />
+    <meta name="description" content="">
+
+
+    <title>History :: Boost.Outcome documentation</title>
+    <link rel="shortcut icon" href="/doc/libs/1_65_1/libs/outcome/doc/html/images/favicon.png" type="image/x-icon" />
+    <link href="/doc/libs/1_65_1/libs/outcome/doc/html/css/nucleus.css" rel="stylesheet">
+    <link href="/doc/libs/1_65_1/libs/outcome/doc/html/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/doc/libs/1_65_1/libs/outcome/doc/html/css/hybrid.css" rel="stylesheet">
+    <link href="/doc/libs/1_65_1/libs/outcome/doc/html/css/featherlight.min.css" rel="stylesheet">
+    <link href="/doc/libs/1_65_1/libs/outcome/doc/html/css/horsey.css" rel="stylesheet">
+    
+    <link href="/doc/libs/1_65_1/libs/outcome/doc/html/css/theme.css" rel="stylesheet">
+    
+    
+    <link rel="stylesheet" href="/doc/libs/1_65_1/libs/outcome/doc/html/css/bootstrap.min.css">
+    <script src="/doc/libs/1_65_1/libs/outcome/doc/html/js/jquery-2.x.min.js"></script>
+    <style type="text/css">
+      :root #header + #content > #left > #rlblock_left {
+        display:none !important;
+      }
+    </style>
+
+    
+
+    <link href="/doc/libs/1_65_1/libs/outcome/doc/html/css/local.css" rel="stylesheet">
+
+  </head>
+  <body class="" data-url="/doc/libs/1_65_1/libs/outcome/doc/html/history/">
+    <nav id="sidebar" class=""><div class="highlightable">
+  <div id="header-wrapper">
+    <div id="header"> 
+	<p>Outcome 2.0 library documentation</p>
+ 
+
+
+    </div><div class="searchbox">
+    <label for="search-by"><i class="fa fa-search"></i></label>
+    <input data-search-input id="search-by" type="text" placeholder="Search...">
+    <span data-search-clear=""><i class="fa fa-close"></i></span>
+</div>
+<script type="text/javascript" src="/doc/libs/1_65_1/libs/outcome/doc/html/js/lunr.min.js"></script>
+<script type="text/javascript" src="/doc/libs/1_65_1/libs/outcome/doc/html/js/horsey.js"></script>
+<script type="text/javascript">
+    var baseurl = "http:\/\/www.boost.org\/doc\/libs\/1_65_1\/libs\/outcome\/doc\/html";
+</script>
+<script type="text/javascript" src="/doc/libs/1_65_1/libs/outcome/doc/html/js/search.js"></script>
+
+  </div>
+
+
+    <ul class="topics">
+            <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/" class="dd-item">
+            <a href="/doc/libs/1_65_1/libs/outcome/doc/html/"><i class="fa fa-fw fa-home"></i></a>
+            </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/requirements/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/requirements/">
+        <span>Prerequisites</span>
+      </a>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/build/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/build/">
+        <span>Build and install</span>
+      </a>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/use-matrix/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/use-matrix/">
+        <span>Decision matrix</span>
+      </a>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/">
+        <span>Tutorial</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/result/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/result/">
+        <span>result&lt;T, EC&gt;</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/result/inspecting/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/result/inspecting/">
+          <span>Inspecting result&lt;T, EC&gt;</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/result/try/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/result/try/">
+          <span>TRY operations</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/outcome/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/outcome/">
+        <span>outcome&lt;T, EC, EP&gt;</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/outcome/inspecting/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/outcome/inspecting/">
+          <span>Inspecting outcome&lt;T, EC, EP&gt;</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/payload/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/payload/">
+        <span>Custom payloads</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/payload/copy_file/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/payload/copy_file/">
+          <span>The Filesystem TS</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/payload/copy_file2/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/payload/copy_file2/">
+          <span>Upgrading the Filesystem TS</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/payload/copy_file3/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/payload/copy_file3/">
+          <span>Auto-throwing filesystem_error</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/">
+        <span>Default actions</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/udt-err/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/udt-err/">
+          <span>User defined error types</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/happens1/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/happens1/">
+          <span>-- What happens?</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/enums/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/enums/">
+          <span>Error code enums</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/happens2/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/happens2/">
+          <span>-- What happens?</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/happens3/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/happens3/">
+          <span>-- Now what happens?</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/error-codes/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/error-codes/">
+          <span>error_code</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/exception-ptr/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/exception-ptr/">
+          <span>exception_ptr</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/void/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/void/">
+          <span>void</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/unchecked/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/default-actions/unchecked/">
+          <span>unchecked&lt;T, E&gt; and checked&lt;T, E&gt;</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/">
+        <span>Result returning constructors</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/two-phase-init/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/two-phase-init/">
+          <span>Two phase construction</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/file_handle/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/file_handle/">
+          <span>A file handle</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/static-constructor/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/static-constructor/">
+          <span>Phase 2 construction</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/metaprogrammg1/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/metaprogrammg1/">
+          <span>Phase 3</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/metaprogrammg2/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/metaprogrammg2/">
+          <span>construct&lt;T&gt;</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/metaprogrammg3/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/constructors/metaprogrammg3/">
+          <span>Alternatives</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/hooks/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/hooks/">
+        <span>Hooking events</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/hooks/keeping_state/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/hooks/keeping_state/">
+          <span>Keeping state</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/hooks/adl_bridging/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/hooks/adl_bridging/">
+          <span>ADL bridging</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/hooks/hook_result/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/hooks/hook_result/">
+          <span>Hook result</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/hooks/poke_exception/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/hooks/poke_exception/">
+          <span>Custom exception ptr</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/hooks/hook_outcome/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/hooks/hook_outcome/">
+          <span>Hook outcome</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/policies/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/policies/">
+        <span>Policies</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/policies/anatomy/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/policies/anatomy/">
+          <span>Anatomy of a policy</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/policies/cast/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/policies/cast/">
+          <span>Casting workaround</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/policies/builtin/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/policies/builtin/">
+          <span>Built-in policies</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/c-api/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/c-api/">
+        <span>Using result&lt;T&gt; from C code</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/c-api/limitations/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/c-api/limitations/">
+          <span>Limitations</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/c-api/example/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/c-api/example/">
+          <span>Example C&#43;&#43; function</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/c-api/example2/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/c-api/example2/">
+          <span>Calling it from C</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/c-api/variations/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/c-api/variations/">
+          <span>Variations</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/">
+        <span>Interoperation</span><i class="fa fa-angle-right fa-lg category-icon"></i>
+      </a>
+        <ul>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/problem/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/problem/">
+          <span>Incommensurate E types</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/value-or-error/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/value-or-error/">
+          <span>ValueOrError Concept</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/httplib/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/httplib/">
+          <span>The HTTP library</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/tidylib/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/tidylib/">
+          <span>The HTMLTidy library</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/filelib/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/filelib/">
+          <span>The File I/O library</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/app/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/app/">
+          <span>The Application</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/app-map-httplib1/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/app-map-httplib1/">
+          <span>Mapping the HTTP library into the Application 1/2</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/app-map-httplib2/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/app-map-httplib2/">
+          <span>Mapping the HTTP library into the Application 2/2</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/app-map-filelib/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/app-map-filelib/">
+          <span>Mapping the File I/O library into the Application</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/app-map-tidylib/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/app-map-tidylib/">
+          <span>Mapping the HTMLTidy library into the Application</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/app-go/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/app-go/">
+          <span>In use</span>
+        </a>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/conclusion/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/interop/conclusion/">
+          <span>Conclusion</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+      <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/error_code/" class="dd-item">
+        <a href="/doc/libs/1_65_1/libs/outcome/doc/html/tutorial/error_code/">
+          <span>Custom error codes</span>
+        </a>
+    </li>
+        </ul>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/faq/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/faq/">
+        <span>Frequently asked questions</span>
+      </a>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/videos/" class="dd-item">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/videos/">
+        <span>Videos</span>
+      </a>
+    </li>
+    <li data-nav-id="/doc/libs/1_65_1/libs/outcome/doc/html/history/" class="dd-item parent active">
+      <a href="/doc/libs/1_65_1/libs/outcome/doc/html/history/">
+        <span>History</span>
+      </a>
+    </li>
+        <section id="shortcuts">
+                <li class="" role=""><a href="/doc/libs/1_65_1/libs/outcome/doc/html/standardese/standardese_entities.html" target="_blank" rel="noopener">API reference (standardese)</a></li>
+                <li class="" role=""><a href="/doc/libs/1_65_1/libs/outcome/doc/html/doxygen/namespaceoutcome__v2__xxx.html" target="_blank" rel="noopener">API reference (doxygen)</a></li>
+                <li class="" role=""><h3>More</h3><a href="https://github.com/ned14/outcome" target="_blank" rel="noopener"><i class='fa fa-github'></i> Standalone Outcome 2.0 github repo</a></li>
+                <li class="" role=""><a href="/doc/libs/1_65_1/libs/outcome/doc/html/credits" target="_blank" rel="noopener"><i class='fa fa-bullhorn'></i> Acknowledgements</a></li>
+        </section>
+    </ul>
+
+
+    <section id="footer"><center>
+
+<a class="github-button" href="https://dedi4.nedprod.com/static/files/outcome-v2.0-source-latest.tar.xz" data-icon="octicon-cloud-download" aria-label="Download Outcome">Download</a>
+
+
+<a class="github-button" href="https://github.com/ned14/outcome" data-icon="octicon-star" data-show-count="false" aria-label="Star Outcome on GitHub">Star</a>
+
+
+<a class="github-button" href="https://github.com/ned14/outcome/fork" data-icon="octicon-repo-forked" data-show-count="true" aria-label="Fork Outcome on GitHub">Fork</a>
+
+</center>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+    </section>
+  </div>
+</nav>
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+        
+          <div id="top-bar">
+            
+              
+              
+              
+            <div id="top-github-link">
+              <a class="github-link" href="https://github.com/ned14/boost-outcome/edit/develop/doc/src/content/history/_index.md" target="blank">
+                <i class="fa fa-code-fork"></i>
+                Edit page
+              </a>
+            </div><div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                <span id="sidebar-toggle-span">
+                  <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                    <i class="fa fa-bars"></i>
+                  </a>
+                </span>
+                <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
+                <span class="links">
+                
+
+
+
+
+ <a href='/doc/libs/1_65_1/libs/outcome/doc/html/'>Home</a> > History
+
+ 
+
+   
+                </span>
+            </div>
+            <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#the-genesis-of-outcome-v1">The genesis of Outcome v1</a></li>
+<li><a href="#outcome-v2">Outcome v2</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+          </div>
+        
+        
+        <div id="body-inner">
+          
+            <h1>History</h1>
+          
+
+
+
+
+
+
+<p>Outcome has had an interesting history, and it is worth summarising it here to show how a
+Boost library comes to life. The following recollections are by Niall Douglas, and may be
+faulty due to his aging memory.</p>
+
+<div class="mermaid" align="center" >
+gantt
+  dateFormat YYYY-MM
+  title History of the Outcome library
+  Outcome v1: done, des1, 2014-06,2017-05
+  Boost peer review of v1: done, des2, after des1, 30d
+  Outcome v2: active, des3, after des2, 365d
+  section Events
+  Separated from AFIO v1: crit, done, 2014-06,2d
+  Boost.Expected added: crit, done, 2014-10,2d
+  Boost.Expected replaced with feature complete basic_monad: crit, done, 2015-08,2d
+  Non-allocating future-promise implementation dropped: crit, done, 2016-05,2d
+  C++ 11 support dropped: crit, done, 2016-06,2d
+  Implemented LEWG expected&lt;T, E&gt; using basic_monad: crit, done, 2017-02,2d
+  Outcome v1 replaced with prototype v2 in git repo: crit, done, 2017-07,2d
+  Boost.Outcome generated by script from Outcome repo: crit, done, 2017-10,2d
+</div>
+
+<h2 id="the-genesis-of-outcome-v1">The genesis of Outcome v1</h2>
+
+<p>The git repo began life as a &ldquo;Boost.Spinlock&rdquo; in June 2014 hived out of Boost.AFIO v1 where it had existed
+for some time as an internal library. In October 2014 I added in the original prototype
+Boost.Expected reference library as a git submodule, and began developing a non-allocating
+<code>future&lt;T&gt;</code>/<code>promise&lt;T&gt;</code> as an extension of <code>expected&lt;T, std::exception_ptr&gt;</code> as a faster,
+monadic future-promise was something which AFIO v1 sorely needed.</p>
+
+<p>The original prototype Boost.Expected library was a large and very complex beastie.
+I was fortunate to be employed on a contract in late 2014 early 2015 where I saw it deployed at
+scale into an existing large C++ codebase. Expected was really great and powerful, but it absolutely
+murdered compile times in a large C++ codebase, and made LTO effectively infeasible.
+I also found its implementation non-conducive to implementing
+future-promise with it, and so I resolved to implement a much more powerful policy driven
+monad factory which could stamp out everything from an <code>option&lt;T&gt;</code> right through to a
+future-promise pair, all using the exact same <code>basic_monad&lt;&gt;</code> and therefore all with a full
+monadic programming API, C++ 17 continuations/monadic bind and intelligently convertible into one another.
+Moreover, all this needed to have an absolute minimum impact on compile times and runtime
+overheads, neither of which were strengths of the original prototype Boost.Expected library.</p>
+
+<p>By August 2015 &ldquo;Boost.Monad&rdquo; was delivering on all those requirements and then some, but it lacked
+maturity through use in other code. Summer 2015 saw the Boost peer review of AFIO v1 which
+was roundly rejected. After considering the ample review feedback, it was realised that
+AFIO v2 would be a very different design, one no longer using futures, memory allocation
+nor C++ exceptions. As AFIO v2 was started from scratch and using Outcome heavily from the
+very beginning (every AFIO v2 API returns a <code>result&lt;T&gt;</code>), Outcome began to gain bug fixes and
+shed features, with the non-allocating future-promise implementation being dropped in May
+2016 and a large chunk of metaprogramming being replaced with cleaner variable templates
+in June. After CppCon 2016 in September, then began the long process of getting Outcome
+ready for Boost peer review in Q1 2017 which involved a repeated sequence of complete rewrites
+of the tutorial in response to multiple rounds of feedback from the C++ community, with
+at least four complete rewrites currently at the time of writing.</p>
+
+<p>In parallel to all this development on Outcome, Expected went before the LEWG and entered
+the C++ standards track. As the WG21 meetings went by, Expected experienced a period
+of being stripped back and much of the complexity which had so murdered compile and
+link times in 2014-2015 fell away, thus the Expected proposed in P0323R1 ended up landing
+so close to Outcome that in January 2017 it was just a few hours work to implement
+Expected using the core <code>basic_monad</code> infrastructure in Outcome. That highly flexible
+policy based design which made monadic future-promise possible made it similarly easy
+to implement a highly conforming Expected, indeed in early 2017 Outcome&rsquo;s Expected was much
+closer to P0323R1 than any other implementation including the LEWG reference implementation.
+And unlike the LEWG reference implementation, Outcome has had eighteen months of that
+finely tuned patina you only get when a library is in use by other code bases.</p>
+
+<p>In February 2017 it became realised that the userbase really wanted a high quality <code>expected&lt;T, E&gt;</code>
+implementation rather than anything similar but not the same which Outcome had invented.
+The only just implemented Expected implementation based on <code>basic_monad</code> therefore took
+primacy. The final rewrite of the documentation before peer review submission was one
+which made it look like Outcome was primarily an <code>expected&lt;T, E&gt;</code> implementation with a
+few useful extensions like <code>outcome&lt;T&gt;</code> and <code>result&lt;T&gt;</code>. I was sad to so pivot, but it
+was obvious that Outcome would see far wider popularity and usage as primarily an Expected
+implementation.</p>
+
+<p>Almost three years after its beginning, Outcome v1 finally went before Boost peer review
+in May 2017 which turned into one of the longest and most detailed peer reviews Boost has
+done in recent years, with over 800 pieces of review feedback submitted. It was by consensus
+rejected, <a href="https://lists.boost.org/boost-announce/2017/06/0510.php">with substantial feedback on what to do instead</a>.</p>
+
+<h2 id="outcome-v2">Outcome v2</h2>
+
+<p>During the very lengthy peer review, roughly three groups of opinion emerged as to what
+a <code>value|error</code> transporting class ought to look like:</p>
+
+<dl>
+<dt><b>1. Lightweight</b></dt>
+<dd>A simple-as-possible <code>T</code> and/or <code>E</code> transport without any
+implementation complexity.</dd>
+<dt><b>2. Medium</b></dt>
+<dd>A variant stored <code>T</code> or <code>E1</code> ... <code>E<i>n</i></code>
+where <code>T</code> is the expected value and <code>E1 ...</code>
+are the potential unexpected values. This implemention really ought to be implemented
+using C++ 17's <code>std::variant<...></code> except with stronger never-empty guarantees.
+</dd>
+<dt><b>3. Heavy</b></dt>
+<dd>A full fat Either monad participating fully in a wider monadic programming framework for C++.</dd>
+</dl>
+
+<p>Peter Dimov was very quickly able to implement an <code>expected&lt;T, E1, ...&gt;</code> using his
+<a href="https://github.com/pdimov/variant2">variant2</a> library, and thus there seemed little
+point in replicating his work in an Outcome v2. The lightweight choice seemed to be the
+best path forwards, so in June 2017 the bare minimum <code>result&lt;T, E&gt;</code> and <code>outcome&lt;T, EC, P&gt;</code>
+as presented in this library was built, using the same constructor design as <code>std::variant&lt;...&gt;</code>.</p>
+
+<p>A period of maturation then followed by porting a large existing codebase using Outcome v1
+to v2, and writing a significant amount of new code using v2 to test it for unanticipated
+surprises and bugs. Quite a few corner cases were found and fixed. At the end of September
+2017, Outcome v2 was deemed to be &ldquo;mature&rdquo; and a script generated &ldquo;Boost edition&rdquo; made
+available. All that remained before it was ready for a second Boost peer review was the
+documentation.</p>
+
+
+<footer class=" footline" >
+	
+</footer>
+
+
+
+
+
+
+        
+
+      </div>
+    </div>
+
+    
+ 
+    
+
+    <div id="navigation">
+        <a class="nav nav-prev" href="/doc/libs/1_65_1/libs/outcome/doc/html/videos/" title="Videos"> <i class="fa fa-chevron-left"></i></a>
+        <a class="nav nav-next" href="/doc/libs/1_65_1/libs/outcome/doc/html/requirements/" title="Prerequisites" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+    </div>
+
+    </section>
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>    
+
+    <script src="/doc/libs/1_65_1/libs/outcome/doc/html/js/clipboard.min.js"></script>
+<script src="/doc/libs/1_65_1/libs/outcome/doc/html/js/featherlight.min.js"></script>
+<script src="/doc/libs/1_65_1/libs/outcome/doc/html/js/html5shiv-printshiv.min.js"></script>
+
+
+<script src="/doc/libs/1_65_1/libs/outcome/doc/html/js/modernizr.custom.71422.js"></script>
+<script src="/doc/libs/1_65_1/libs/outcome/doc/html/js/learn.js"></script>
+<script src="/doc/libs/1_65_1/libs/outcome/doc/html/js/hugo-learn.js"></script>
+
+
+<link href="/doc/libs/1_65_1/libs/outcome/doc/html/mermaid/mermaid.css" type="text/css" rel="stylesheet"/>
+<script src="/doc/libs/1_65_1/libs/outcome/doc/html/mermaid/mermaid.js"></script>
+<script>mermaid.initialize({startOnLoad:true});</script>
+    
+
+  </body>
+</html>
