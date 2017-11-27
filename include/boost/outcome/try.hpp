@@ -51,22 +51,22 @@ BOOST_OUTCOME_V2_NAMESPACE_END
 #define BOOST_OUTCOME_TRY_GLUE(x, y) BOOST_OUTCOME_TRY_GLUE2(x, y)
 #define BOOST_OUTCOME_TRY_UNIQUE_NAME BOOST_OUTCOME_TRY_GLUE(__t, __COUNTER__)
 
-#define BOOST_OUTCOME_TRYV2(unique, m)                                                                                                                                                                                                                                                                                               \
-  auto &&(unique) = (m);                                                                                                                                                                                                                                                                                                         \
-  if(!(unique).has_value())                                                                                                                                                                                                                                                                                                      \
+#define BOOST_OUTCOME_TRYV2(unique, ...)                                                                                                                                                                                                                                                                                             \
+  auto && (unique) = (__VA_ARGS__);                                                                                                                                                                                                                                                                                            \
+  if(!(unique).has_value())                                                                                                                                                                                                                                                                                                    \
   return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(std::forward<decltype(unique)>(unique))
-#define BOOST_OUTCOME_TRY2(unique, v, m)                                                                                                                                                                                                                                                                                             \
-  BOOST_OUTCOME_TRYV2(unique, m);                                                                                                                                                                                                                                                                                                    \
-  auto &&(v) = std::forward<decltype(unique)>(unique).value()
+#define BOOST_OUTCOME_TRY2(unique, v, ...)                                                                                                                                                                                                                                                                                           \
+  BOOST_OUTCOME_TRYV2(unique, __VA_ARGS__);                                                                                                                                                                                                                                                                                          \
+  auto && (v) = std::forward<decltype(unique)>(unique).value()
 
-/*! If the outcome returned by expression *m* is not valued, propagate any
+/*! If the outcome returned by expression ... is not valued, propagate any
 failure by immediately returning that failure state immediately
 */
-#define BOOST_OUTCOME_TRYV(m) BOOST_OUTCOME_TRYV2(BOOST_OUTCOME_TRY_UNIQUE_NAME, m)
+#define BOOST_OUTCOME_TRYV(...) BOOST_OUTCOME_TRYV2(BOOST_OUTCOME_TRY_UNIQUE_NAME, __VA_ARGS__)
 
 #if defined(__GNUC__) || defined(__clang__)
 
-/*! If the outcome returned by expression *m* is not valued, propagate any
+/*! If the outcome returned by expression ... is not valued, propagate any
 failure by immediately returning that failure state immediately, else become the
 unwrapped value as an expression. This makes `BOOST_OUTCOME_TRYX(expr)` an expression
 which can be used exactly like the `try` operator in other languages.
@@ -75,9 +75,9 @@ which can be used exactly like the `try` operator in other languages.
 portable. The macro is not made available on unsupported compilers,
 so you can test for its presence using `#ifdef BOOST_OUTCOME_TRYX`.
 */
-#define BOOST_OUTCOME_TRYX(m)                                                                                                                                                                                                                                                                                                        \
+#define BOOST_OUTCOME_TRYX(...)                                                                                                                                                                                                                                                                                                      \
   ({                                                                                                                                                                                                                                                                                                                           \
-    auto &&res = (m);                                                                                                                                                                                                                                                                                                          \
+    auto &&res = (__VA_ARGS__);                                                                                                                                                                                                                                                                                                \
     if(!res.has_value())                                                                                                                                                                                                                                                                                                       \
       return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(std::forward<decltype(res)>(res));                                                                                                                                                                                                                                  \
     std::forward<decltype(res)>(res).value();                                                                                                                                                                                                                                                                                  \
@@ -85,9 +85,9 @@ so you can test for its presence using `#ifdef BOOST_OUTCOME_TRYX`.
 })
 #endif
 
-/*! If the outcome returned by expression *m* is not valued, propagate any
+/*! If the outcome returned by expression ... is not valued, propagate any
 failure by immediately returning that failure immediately, else set *v* to the unwrapped value.
 */
-#define BOOST_OUTCOME_TRY(v, m) BOOST_OUTCOME_TRY2(BOOST_OUTCOME_TRY_UNIQUE_NAME, v, m)
+#define BOOST_OUTCOME_TRY(v, ...) BOOST_OUTCOME_TRY2(BOOST_OUTCOME_TRY_UNIQUE_NAME, v, __VA_ARGS__)
 
 #endif

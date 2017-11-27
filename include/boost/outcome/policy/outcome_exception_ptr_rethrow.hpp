@@ -55,11 +55,11 @@ namespace policy
         {
           using Outcome = BOOST_OUTCOME_V2_NAMESPACE::detail::rebind_type<outcome<T, EC, E, exception_ptr_rethrow>, decltype(self)>;
           Outcome _self = static_cast<Outcome>(self);  // NOLINT
-          detail::rethrow_exception<trait::has_exception_ptr_v<E>>{policy::exception_ptr(std::forward<Outcome>(_self)._ptr)};
+          detail::rethrow_exception<trait::has_exception_ptr_v<E>>{std::forward<Outcome>(_self)._ptr};
         }
         if((self._state._status & BOOST_OUTCOME_V2_NAMESPACE::detail::status_have_error) != 0)
         {
-          detail::rethrow_exception<trait::has_exception_ptr_v<EC>>{policy::exception_ptr(std::forward<Impl>(self)._error)};
+          detail::rethrow_exception<trait::has_exception_ptr_v<EC>>{std::forward<Impl>(self)._error};
         }
         BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no value"));
       }
