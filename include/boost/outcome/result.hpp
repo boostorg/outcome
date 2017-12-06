@@ -40,6 +40,11 @@ DEALINGS IN THE SOFTWARE.
 #include "policy/terminate.hpp"
 #include "policy/throw_bad_result_access.hpp"
 
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdocumentation"  // Standardese markup confuses clang
+#endif
+
 BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
 //! Placeholder type to indicate there is no value type
@@ -706,5 +711,9 @@ template <class R, class S = std::error_code> using checked = result<R, S, polic
 
 
 BOOST_OUTCOME_V2_NAMESPACE_END
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 
 #endif

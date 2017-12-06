@@ -37,7 +37,12 @@ DEALINGS IN THE SOFTWARE.
 
 #include <memory>
 
-BOOST_OUTCOME_V2_NAMESPACE_BEGIN
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdocumentation"  // Standardese markup confuses clang
+#endif
+
+BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
 //! Placeholder type to indicate there is no exception type
 struct no_exception_type
@@ -1015,6 +1020,10 @@ namespace hooks
 }  // namespace hooks
 
 BOOST_OUTCOME_V2_NAMESPACE_END
+
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
 
 #include "detail/outcome_exception_observers_impl.hpp"
 
