@@ -31,6 +31,8 @@ DEALINGS IN THE SOFTWARE.
 #ifndef BOOST_OUTCOME_RESULT_H
 #define BOOST_OUTCOME_RESULT_H
 
+/// \output_name result_c
+
 //! A C struct representation of `std::error_code`.
 struct cxx_error_code
 {
