@@ -31,6 +31,7 @@ DEALINGS IN THE SOFTWARE.
 #ifndef BOOST_OUTCOME_RESULT_H
 #define BOOST_OUTCOME_RESULT_H
 
+/// \file
 /// \output_name result_c
 
 //! A C struct representation of `std::error_code`.
@@ -41,6 +42,7 @@ struct cxx_error_code
 };
 
 /*! Declares a C struct representation of `result<R, S>`.
+
 \param R The unique postfix for `struct result_##R##_##S`.
 \param RD The declaration for the `R` type.
 \param S The unique postfix for
@@ -54,6 +56,7 @@ struct cxx_error_code
     SD error;                                                                                                                                                                                                                                                                                                                  \
   }
 /*! Declares a C struct representation of `result<R, std::error_code>`.
+
 \param R The unique postfix for `struct result_##R##_##S`.
 \param RD The declaration for the `R` type.
 */
