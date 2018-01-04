@@ -1,5 +1,5 @@
 /* Value observers for a very simple result type
-(C) 2017 Niall Douglas <http://www.nedproductions.biz/> (59 commits)
+(C) 2017-2018 Niall Douglas <http://www.nedproductions.biz/> (59 commits)
 File Created: Oct 2017
 
 
