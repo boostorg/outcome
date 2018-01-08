@@ -47,14 +47,19 @@ template <class T> BOOST_OUTCOME_REQUIRES(requires(T &&v){{v.as_failure()}}) dec
 
 BOOST_OUTCOME_V2_NAMESPACE_END
 
+//! \exclude
 #define BOOST_OUTCOME_TRY_GLUE2(x, y) x##y
+//! \exclude
 #define BOOST_OUTCOME_TRY_GLUE(x, y) BOOST_OUTCOME_TRY_GLUE2(x, y)
+//! \exclude
 #define BOOST_OUTCOME_TRY_UNIQUE_NAME BOOST_OUTCOME_TRY_GLUE(__t, __COUNTER__)
 
+//! \exclude
 #define BOOST_OUTCOME_TRYV2(unique, ...)                                                                                                                                                                                                                                                                                             \
   auto && (unique) = (__VA_ARGS__);                                                                                                                                                                                                                                                                                            \
   if(!(unique).has_value())                                                                                                                                                                                                                                                                                                    \
   return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(std::forward<decltype(unique)>(unique))
+//! \exclude
 #define BOOST_OUTCOME_TRY2(unique, v, ...)                                                                                                                                                                                                                                                                                           \
   BOOST_OUTCOME_TRYV2(unique, __VA_ARGS__);                                                                                                                                                                                                                                                                                          \
   auto && (v) = std::forward<decltype(unique)>(unique).value()
