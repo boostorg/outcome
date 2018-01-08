@@ -355,7 +355,7 @@ protected:
 public:
   /// \output_section Converting constructors
   /*! Converting constructor to a successful outcome.
-  \tparam enable_value_converting_constructor
+  \tparam 1
   \exclude
   \param 1
   \exclude
@@ -375,7 +375,7 @@ public:
     hook_outcome_construction(this, std::forward<T>(t));
   }
   /*! Converting constructor to an errored outcome.
-  \tparam enable_error_converting_constructor
+  \tparam 1
   \exclude
   \param 1
   \exclude
@@ -396,7 +396,9 @@ public:
     hook_outcome_construction(this, std::forward<T>(t));
   }
   /*! Special error condition converting constructor to an errored outcome.
-  \tparam enable_error_condition_converting_constructor
+  \tparam 1
+  \exclude
+  \tparam 2
   \exclude
   \param 1
   \exclude
@@ -418,7 +420,7 @@ public:
     hook_outcome_construction(this, std::forward<ErrorCondEnum>(t));
   }
   /*! Converting constructor to an excepted outcome.
-  \tparam enable_exception_converting_constructor
+  \tparam 1
   \exclude
   \param 1
   \exclude
@@ -442,6 +444,12 @@ public:
 
   /*! Explicit converting constructor from a compatible `ValueOrError` type.
   \tparam 1
+  \exclude
+  \tparam 2
+  \exclude
+  \tparam 3
+  \exclude
+  \param 1
   \exclude
   \param o The input for which a `convert::value_or_error<outcome, std::decay_t<T>>{}(std::forward<T>(o))` is available.
 
@@ -1010,7 +1018,7 @@ namespace hooks
   /*! Used to set/override an exception during a construction hook implementation.
   \param o The outcome you wish to change.
   \param v Exception to be set.
-  
+
   \effects Sets the exception of the outcome to the given value.
   */
   template <class R, class S, class P, class NoValuePolicy, class U> constexpr inline void override_outcome_exception(outcome<R, S, P, NoValuePolicy> *o, U &&v) noexcept

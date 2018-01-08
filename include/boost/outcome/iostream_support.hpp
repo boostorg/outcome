@@ -97,7 +97,7 @@ namespace detail
   inline std::string safe_message(const std::error_code &ec) { return " (" + ec.message() + ")"; }
 }  // namespace detail
 
-//! Deserialise a result
+//! Deserialise a result. Format is `(unsigned) status; " "; value if value present; error if error present"`. Spare storage is preserved.
 template <class R, class S, class P> inline std::istream &operator>>(std::istream &s, result<R, S, P> &v)
 {
   s >> v._state;
@@ -107,7 +107,9 @@ template <class R, class S, class P> inline std::istream &operator>>(std::istrea
   }
   return s;
 }
-//! Serialise a result
+/*! Serialise a result. Format is `(unsigned) status; " "; value if value present; error if error present"`. Spare storage is preserved.
+If you are printing to a human readable destination, use `print()` instead.
+*/
 template <class R, class S, class P> inline std::ostream &operator<<(std::ostream &s, const result<R, S, P> &v)
 {
   s << v._state;
@@ -117,7 +119,9 @@ template <class R, class S, class P> inline std::ostream &operator<<(std::ostrea
   }
   return s;
 }
-//! Debug print a result
+/*! Debug print a result into a form suitable for human reading. Format is `value|error`. If the
+error type is `error_code`, appends `" (ec.message())"` afterwards.
+*/
 template <class R, class S, class P> inline std::string print(const detail::result_final<R, S, P> &v)
 {
   std::stringstream s;
@@ -131,7 +135,9 @@ template <class R, class S, class P> inline std::string print(const detail::resu
   }
   return s.str();
 }
-//! Debug print a result
+/*! Debug print a result into a form suitable for human reading. Format is `(+void)|error`. If the
+error type is `error_code`, appends `" (ec.message())"` afterwards.
+*/
 template <class S, class P> inline std::string print(const detail::result_final<void, S, P> &v)
 {
   std::stringstream s;
@@ -145,7 +151,8 @@ template <class S, class P> inline std::string print(const detail::result_final<
   }
   return s.str();
 }
-//! Debug print a result
+/*! Debug print a result into a form suitable for human reading. Format is `value|(-void)`.
+*/
 template <class R, class P> inline std::string print(const detail::result_final<R, void, P> &v)
 {
   std::stringstream s;
@@ -159,7 +166,8 @@ template <class R, class P> inline std::string print(const detail::result_final<
   }
   return s.str();
 }
-//! Debug print a result
+/*! Debug print a result into a form suitable for human reading. Format is `(+void)|(-void)`.
+*/
 template <class P> inline std::string print(const detail::result_final<void, void, P> &v)
 {
   std::stringstream s;
@@ -174,7 +182,9 @@ template <class P> inline std::string print(const detail::result_final<void, voi
   return s.str();
 }
 
-//! Deserialise an outcome
+/*! Deserialise an outcome. Format is `(unsigned) status; " "; value if value present; error if error present; exception if exception present"` Spare storage is preserved.
+\requires That `trait::has_exception_ptr_v<P>` is false.
+*/
 template <class R, class S, class P, class N> inline std::istream &operator>>(std::istream &s, outcome<R, S, P, N> &v)
 {
   static_assert(!trait::has_exception_ptr_v<P>, "Cannot call operator>> on an outcome with an exception_ptr in it");
@@ -189,7 +199,10 @@ template <class R, class S, class P, class N> inline std::istream &operator>>(st
   }
   return s;
 }
-//! Serialise an outcome
+/*! Serialise an outcome. Format is `(unsigned) status; " "; value if value present; error if error present; exception if exception present"` Spare storage is preserved.
+If you are printing to a human readable destination, use `print()` instead.
+\requires That `trait::has_exception_ptr_v<P>` is false.
+*/
 template <class R, class S, class P, class N> inline std::ostream &operator<<(std::ostream &s, const outcome<R, S, P, N> &v)
 {
   static_assert(!trait::has_exception_ptr_v<P>, "Cannot call operator<< on an outcome with an exception_ptr in it");
@@ -204,7 +217,18 @@ template <class R, class S, class P, class N> inline std::ostream &operator<<(st
   }
   return s;
 }
-//! Debug print an outcome
+/*! Debug print an outcome into a form suitable for human reading. Format is one of:
+
+1. `value|error|exception`
+2. `{ error, exception }`
+
+If the error type is `error_code`, appends `" (ec.message())"` after the error.
+Exception type is printed as one of:
+
+1. `std::system_error code code(): what()`
+2. `std::exception: what()`
+3. `unknown exception`
+*/
 template <class R, class S, class P, class N> inline std::string print(const outcome<R, S, P, N> &v)
 {
   std::stringstream s;
