@@ -135,6 +135,6 @@ result<udt> boo()
 result<udt> foo()
 {
   BOOST_OUTCOME_TRY(v, boo());
-  return {5};  // emplace construct udt with 5
+  return udt{5};  // emplace construct udt with 5
 }
 //! [usage3]

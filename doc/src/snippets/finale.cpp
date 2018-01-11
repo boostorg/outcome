@@ -33,6 +33,7 @@ DEALINGS IN THE SOFTWARE.
 #else
 #include "../../../include/boost/outcome/quickcpplib/include/string_view.hpp"
 #endif
+#include <cstring>  // for memcpy
 #include <experimental/filesystem>
 
 //! [httplib]
