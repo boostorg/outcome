@@ -108,7 +108,7 @@ namespace detail
 \requires That `R` and `S` implement `operator>>`.
 */
 BOOST_OUTCOME_TEMPLATE(class R, class S, class P)
-BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(std::declval<std::istream>() >> detail::lvalueref<R>()), BOOST_OUTCOME_TEXPR(std::declval<std::istream>() >> detail::lvalueref<S>()))
+BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(detail::lvalueref<std::istream>() >> detail::lvalueref<R>()), BOOST_OUTCOME_TEXPR(detail::lvalueref<std::istream>() >> detail::lvalueref<S>()))
 inline std::istream &operator>>(std::istream &s, result<R, S, P> &v)
 {
   s >> v.__state();
@@ -128,7 +128,7 @@ If you are printing to a human readable destination, use `print()` instead.
 \requires That `R` and `S` implement `operator<<`.
 */
 BOOST_OUTCOME_TEMPLATE(class R, class S, class P)
-BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(std::declval<std::ostream>() << detail::lvalueref<R>()), BOOST_OUTCOME_TEXPR(std::declval<std::ostream>() << detail::lvalueref<S>()))
+BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(detail::lvalueref<std::ostream>() << detail::lvalueref<R>()), BOOST_OUTCOME_TEXPR(detail::lvalueref<std::ostream>() << detail::lvalueref<S>()))
 inline std::ostream &operator<<(std::ostream &s, const result<R, S, P> &v)
 {
   s << v.__state();
@@ -212,7 +212,7 @@ template <class P> inline std::string print(const detail::result_final<void, voi
 \requires That `R`, `S` and `P` implement `operator>>`.
 */
 BOOST_OUTCOME_TEMPLATE(class R, class S, class P, class N)
-BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(std::declval<std::istream>() >> detail::lvalueref<R>()), BOOST_OUTCOME_TEXPR(std::declval<std::istream>() >> detail::lvalueref<S>()), BOOST_OUTCOME_TEXPR(std::declval<std::istream>() >> detail::lvalueref<P>()))
+BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(detail::lvalueref<std::istream>() >> detail::lvalueref<R>()), BOOST_OUTCOME_TEXPR(detail::lvalueref<std::istream>() >> detail::lvalueref<S>()), BOOST_OUTCOME_TEXPR(detail::lvalueref<std::istream>() >> detail::lvalueref<P>()))
 inline std::istream &operator>>(std::istream &s, outcome<R, S, P, N> &v)
 {
   s >> v.__state();
@@ -238,7 +238,7 @@ If you are printing to a human readable destination, use `print()` instead.
 \requires That `R`, `S` and `P` implement `operator<<`.
 */
 BOOST_OUTCOME_TEMPLATE(class R, class S, class P, class N)
-BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(std::declval<std::ostream>() << detail::lvalueref<R>()), BOOST_OUTCOME_TEXPR(std::declval<std::ostream>() << detail::lvalueref<S>()), BOOST_OUTCOME_TEXPR(std::declval<std::ostream>() << detail::lvalueref<P>()))
+BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(detail::lvalueref<std::ostream>() << detail::lvalueref<R>()), BOOST_OUTCOME_TEXPR(detail::lvalueref<std::ostream>() << detail::lvalueref<S>()), BOOST_OUTCOME_TEXPR(detail::lvalueref<std::ostream>() << detail::lvalueref<P>()))
 inline std::ostream &operator<<(std::ostream &s, const outcome<R, S, P, N> &v)
 {
   s << v.__state();
