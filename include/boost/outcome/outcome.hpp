@@ -967,7 +967,7 @@ public:
 \param a The result to compare.
 \param b The outcome to compare.
 
-\effects Calls `b == a`.
+\remarks Implemented as `b == a`.
 \requires That the expression `b == a` is a valid expression.
 \throws Any exception that `b == a` might throw.
 */
@@ -985,7 +985,7 @@ noexcept(std::declval<outcome<R, S, P, N>>() == std::declval<result<T, U, V>>())
 \param a The result to compare.
 \param b The outcome to compare.
 
-\effects Calls `b != a`.
+\remarks Implemented as `b != a`.
 \requires That the expression `b != a` is a valid expression.
 \throws Any exception that `b != a` might throw.
 */
