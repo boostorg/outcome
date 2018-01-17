@@ -76,7 +76,7 @@ failure by immediately returning that failure state immediately, else become the
 unwrapped value as an expression. This makes `BOOST_OUTCOME_TRYX(expr)` an expression
 which can be used exactly like the `try` operator in other languages.
 
-**Note:** This macro makes use of a proprietary extension in GCC and clang and is not
+\remarks This macro makes use of a proprietary extension in GCC and clang and is not
 portable. The macro is not made available on unsupported compilers,
 so you can test for its presence using `#ifdef BOOST_OUTCOME_TRYX`.
 */

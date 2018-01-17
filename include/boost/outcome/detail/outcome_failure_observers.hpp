@@ -46,6 +46,7 @@ namespace detail
 
     /// \output_section Synthesising state observers
     /*! Synthesise exception where possible.
+    \requires `trait::has_error_code_v<S>` and `trait::has_exception_ptr_v<P>` to be true, else it does not appear.
     \returns A synthesised exception type: if excepted, `exception()`; if errored, `std::make_exception_ptr(std::system_error(error()))`;
     otherwise a default constructed exception type.
     */
@@ -62,7 +63,7 @@ namespace detail
       return exception_type();
     }
   };
-} // namespace detail
+}  // namespace detail
 
 BOOST_OUTCOME_V2_NAMESPACE_END
 

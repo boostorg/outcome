@@ -183,6 +183,7 @@ private:
   value_type _value;
 
 public:
+  /// \output_section Default, copy/move constructors and assignment
   //! Default constructor
   success_type() = default;
   //! Copy constructor
@@ -206,16 +207,17 @@ public:
   {
   }
 
+  /// \output_section Observers
   /*! Access value.
   \returns Reference to the held `value_type` according to overload.
-  \group value
+  \group success_type_value
   */
   constexpr value_type &value() & { return _value; }
-  /// \group value
+  /// \group success_type_value
   constexpr const value_type &value() const & { return _value; }
-  /// \group value
+  /// \group success_type_value
   constexpr value_type &&value() && { return std::move(_value); }
-  /// \group value
+  /// \group success_type_value
   constexpr const value_type &&value() const && { return std::move(_value); }
 };
 /*! Type sugar for implicitly constructing a `result<>` with a successful state.
@@ -256,6 +258,7 @@ private:
   exception_type _exception;
 
 public:
+  /// \output_section Default, copy/move constructors and assignment
   //! Default constructor
   failure_type() = default;
   //! Copy constructor
@@ -276,28 +279,29 @@ public:
   {
   }
 
+  /// \output_section Observers
   /*! Access error.
   \returns Reference to the held `error_type` according to overload.
-  \group error
+  \group failure_type_error
   */
   constexpr error_type &error() & { return _error; }
-  /// \group error
+  /// \group failure_type_error
   constexpr const error_type &error() const & { return _error; }
-  /// \group error
+  /// \group failure_type_error
   constexpr error_type &&error() && { return std::move(_error); }
-  /// \group error
+  /// \group failure_type_error
   constexpr const error_type &&error() const && { return std::move(_error); }
 
   /*! Access exception.
   \returns Reference to the held `exception_type` according to overload.
-  \group exception
+  \group failure_type_exception
   */
   constexpr exception_type &exception() & { return _exception; }
-  /// \group exception
+  /// \group failure_type_exception
   constexpr const exception_type &exception() const & { return _exception; }
-  /// \group exception
+  /// \group failure_type_exception
   constexpr exception_type &&exception() && { return std::move(_exception); }
-  /// \group exception
+  /// \group failure_type_exception
   constexpr const exception_type &&exception() const && { return std::move(_exception); }
 };
 /*! Type sugar for implicitly constructing a `result<>` with a failure state of error code.
@@ -314,6 +318,7 @@ private:
   error_type _error;
 
 public:
+  /// \output_section Default, copy/move constructors and assignment
   //! Default constructor
   failure_type() = default;
   //! Copy constructor
@@ -328,8 +333,8 @@ public:
   ~failure_type() = default;
   /*! Initialising constructor
 
- \requires That `U` is not `failure_type`.
- */
+  \requires That `U` is not `failure_type`.
+  */
   BOOST_OUTCOME_TEMPLATE(class U)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(!std::is_same<failure_type, std::decay_t<U>>::value))
   constexpr explicit failure_type(U &&u)
@@ -337,16 +342,17 @@ public:
   {
   }
 
+  /// \output_section Observers
   /*! Access error.
   \returns Reference to the held `error_type` according to overload.
-  \group error2
+  \group failure_type_error2
   */
   constexpr error_type &error() & { return _error; }
-  /// \group error2
+  /// \group failure_type_error2
   constexpr const error_type &error() const & { return _error; }
-  /// \group error2
+  /// \group failure_type_error2
   constexpr error_type &&error() && { return std::move(_error); }
-  /// \group error2
+  /// \group failure_type_error2
   constexpr const error_type &&error() const && { return std::move(_error); }
 };
 /*! Type sugar for implicitly constructing a `result<>` with a failure state of exception.
@@ -363,6 +369,7 @@ private:
   exception_type _exception;
 
 public:
+  /// \output_section Default, copy/move constructors and assignment
   //! Default constructor
   failure_type() = default;
   //! Copy constructor
@@ -386,16 +393,17 @@ public:
   {
   }
 
+  /// \output_section Observers
   /*! Access exception.
   \returns Reference to the held `exception_type` according to overload.
-  \group exception2
+  \group failure_type_exception2
   */
   constexpr exception_type &exception() & { return _exception; }
-  /// \group exception2
+  /// \group failure_type_exception2
   constexpr const exception_type &exception() const & { return _exception; }
-  /// \group exception2
+  /// \group failure_type_exception2
   constexpr exception_type &&exception() && { return std::move(_exception); }
-  /// \group exception2
+  /// \group failure_type_exception2
   constexpr const exception_type &&exception() const && { return std::move(_exception); }
 };
 /*! Returns type sugar for implicitly constructing a `result<T>` with a failure state.
