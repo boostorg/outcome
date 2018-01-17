@@ -47,7 +47,7 @@ public:
   }
 };
 
-//! Thrown when you try to access a vlue in a `result<R, S>` which isn't present.
+//! Thrown when you try to access a value in a `result<R, S>` which isn't present.
 template <class S> class BOOST_OUTCOME_SYMBOL_VISIBLE bad_result_access_with : public bad_result_access
 {
   S _error;
