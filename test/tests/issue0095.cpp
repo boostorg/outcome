@@ -42,7 +42,7 @@ namespace issue0095
   // struct F : E {};
   struct F
   {
-    operator E() const { return E{}; }
+    operator E() const { return E{}; }  // NOLINT
   };
 
   out::result<int, F> f() { return F{}; }
@@ -51,7 +51,7 @@ namespace issue0095
     BOOST_OUTCOME_TRY(i, f());
     return i;
   }
-}
+}  // namespace issue0095
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_95_outcome, "operator conversions on E type cause TRY to fail")
 {
   BOOST_CHECK(issue0095::e().has_error());
