@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Hook result - Boost.Outcome documentation</title>
+<link rel="stylesheet" href="/boost-outcome/css/boost.css" type="text/css">
+<meta name="generator" content="Hugo with Boostdoc theme">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<link rel="icon" href="/boost-outcome/images/favicon.ico" type="image/ico"/>
+<body><div id="content">
+    <p>We now tell Outcome that for every instance of our localised <code>result&lt;T&gt;</code>, that
+on failure construction only, we want custom code to be run which increments the current
+slot in TLS storage and writes the current stack backtrace into it.</p>
+
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
+<span class="k">namespace</span> <span class="n">error_code_extended</span>
+<span class="p">{</span>
+  <span class="c1">// Specialise the result construction hook for our localised result
+</span><span class="c1"></span>  <span class="c1">// We hook any non-copy, non-move, non-inplace construction, capturing a stack backtrace
+</span><span class="c1"></span>  <span class="c1">// if the result is errored.
+</span><span class="c1"></span>  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span><span class="err"> </span><span class="nc">T</span><span class="p">,</span> <span class="k">class</span><span class="err"> </span><span class="nc">U</span><span class="o">&gt;</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="n">hook_result_construction</span><span class="p">(</span><span class="n">result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">res</span><span class="p">,</span> <span class="n">U</span> <span class="o">&amp;&amp;</span> <span class="cm">/*unused*/</span><span class="p">)</span> <span class="k">noexcept</span>
+  <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">res</span><span class="o">-&gt;</span><span class="n">has_error</span><span class="p">())</span>
+    <span class="p">{</span>
+      <span class="c1">// Grab the next extended info slot in the TLS
+</span><span class="c1"></span>      <span class="n">extended_error_info</span> <span class="o">&amp;</span><span class="n">eei</span> <span class="o">=</span> <span class="n">mythreadlocaldata</span><span class="p">().</span><span class="n">next</span><span class="p">();</span>
+
+      <span class="c1">// Write the index just grabbed into the spare uint16_t
+</span><span class="c1"></span>      <span class="n">BOOST_OUTCOME_V2_NAMESPACE</span><span class="o">::</span><span class="n">hooks</span><span class="o">::</span><span class="n">set_spare_storage</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">mythreadlocaldata</span><span class="p">().</span><span class="n">current</span> <span class="o">-</span> <span class="mi">1</span><span class="p">);</span>
+
+      <span class="c1">// Capture a backtrace into my claimed extended info slot in the TLS
+</span><span class="c1"></span>      <span class="n">eei</span><span class="p">.</span><span class="n">items</span> <span class="o">=</span> <span class="o">::</span><span class="n">backtrace</span><span class="p">(</span><span class="n">eei</span><span class="p">.</span><span class="n">backtrace</span><span class="p">.</span><span class="n">data</span><span class="p">(),</span> <span class="n">eei</span><span class="p">.</span><span class="n">backtrace</span><span class="p">.</span><span class="n">size</span><span class="p">());</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><a href="https://github.com/ned14/boost-outcome/tree/master/doc/src/snippets/error_code_extended.cpp#L119" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+
+
+<p>The only non-obvious part above is the call to <a href="https://ned14.github.io/boost-outcome/reference/result/#standardese-outcome_v2_xxx__hooks__set_spare_storage-R-S-NoValuePolicy--result_or_outcome-R-S-NoValuePolicy---uint16_t-" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> hooks::set_spare_storage()</a>
+.
+Both <code>result</code> and <code>outcome</code> keep their internal state metadata in a <code>uint32_t</code>,
+half of which is not used by Outcome. As it can be very useful to keep a small
+unique number attached to any particular <code>result</code> or <code>outcome</code> instance, we
+permit user code to set those sixteen bits to anything they feel like.
+The corresponding function to retrieve those sixteen bits is <a href="https://ned14.github.io/boost-outcome/reference/result/#standardese-outcome_v2_xxx__hooks__spare_storage-R-S-NoValuePolicy--result_or_outcome-R-S-NoValuePolicy-const--" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> hooks::spare_storage()</a>
+.</p>
+
+
+        </div></body>
+</html>

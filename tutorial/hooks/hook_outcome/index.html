@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Hook outcome - Boost.Outcome documentation</title>
+<link rel="stylesheet" href="/boost-outcome/css/boost.css" type="text/css">
+<meta name="generator" content="Hugo with Boostdoc theme">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<link rel="icon" href="/boost-outcome/images/favicon.ico" type="image/ico"/>
+<body><div id="content">
+    <p>The final step is to add ADL discovered event hooks for the very specific case of
+when our localised <code>outcome</code> is copy or move constructed from our localised <code>result</code>.
+There isn&rsquo;t really much to say about these, just be careful to mark them <code>noexcept</code>
+or not based on whether the types <code>T</code>, <code>EC</code> or <code>EP</code> could throw during copy or move
+construction. As <code>poke_exception()</code> creates a <code>std::string</code> and appends to it,
+it could indeed throw an exception and thus with the <code>noexcept</code> hooks below, the
+process would be terminated.</p>
+
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
+<span class="k">namespace</span> <span class="n">error_code_extended</span>
+<span class="p">{</span>
+  <span class="c1">// Specialise the outcome copy and move conversion hook for when our localised result
+</span><span class="c1"></span>  <span class="c1">// is used as the source for copy construction our localised outcome
+</span><span class="c1"></span>  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span><span class="err"> </span><span class="nc">T</span><span class="p">,</span> <span class="k">class</span><span class="err"> </span><span class="nc">U</span><span class="o">&gt;</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="n">hook_outcome_copy_construction</span><span class="p">(</span><span class="n">outcome</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">res</span><span class="p">,</span> <span class="k">const</span> <span class="n">result</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="o">&amp;</span> <span class="cm">/*unused*/</span><span class="p">)</span> <span class="k">noexcept</span>
+  <span class="p">{</span>
+    <span class="c1">// when copy constructing from a result&lt;T&gt;, poke in an exception
+</span><span class="c1"></span>    <span class="n">poke_exception</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+  <span class="p">}</span>
+  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span><span class="err"> </span><span class="nc">T</span><span class="p">,</span> <span class="k">class</span><span class="err"> </span><span class="nc">U</span><span class="o">&gt;</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="n">hook_outcome_move_construction</span><span class="p">(</span><span class="n">outcome</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">res</span><span class="p">,</span> <span class="n">result</span><span class="o">&lt;</span><span class="n">U</span><span class="o">&gt;</span> <span class="o">&amp;&amp;</span> <span class="cm">/*unused*/</span><span class="p">)</span> <span class="k">noexcept</span>
+  <span class="p">{</span>
+    <span class="c1">// when move constructing from a result&lt;T&gt;, poke in an exception
+</span><span class="c1"></span>    <span class="n">poke_exception</span><span class="p">(</span><span class="n">res</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div><a href="https://github.com/ned14/boost-outcome/tree/master/doc/src/snippets/error_code_extended.cpp#L179" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+
+
+
+        </div></body>
+</html>

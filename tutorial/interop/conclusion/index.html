@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Conclusion - Boost.Outcome documentation</title>
+<link rel="stylesheet" href="/boost-outcome/css/boost.css" type="text/css">
+<meta name="generator" content="Hugo with Boostdoc theme">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<link rel="icon" href="/boost-outcome/images/favicon.ico" type="image/ico"/>
+<body><div id="content">
+    <p>This worked example was in fact excessively complex: a quicker route
+to achieving the same thing would be to add explicit converting constructors
+to <code>app::error_code</code> for each of the third party library <code>E</code> types.
+One then could have saved oneself with having to bother injecting
+custom converters into the <code>BOOST_OUTCOME_V2_NAMESPACE::convert</code> namespace.</p>
+
+<p>However there are occasions when you don&rsquo;t have control over the
+implementation of the destination <code>E</code> type e.g. in callbacks. Outcome&rsquo;s <code>ValueOrError</code>
+infrastructure lets you inject custom interop code for any pair
+of incommensurate third party <code>E</code> types, without needing to modify either&rsquo;s
+source code. This is without doubt a &ldquo;power users&rdquo; feature, but
+one which will prove useful as <code>T|E</code> based C++ code proliferates.</p>
+
+
+        </div></body>
+</html>

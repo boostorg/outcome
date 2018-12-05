@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>No-value policies - Boost.Outcome documentation</title>
+<link rel="stylesheet" href="/boost-outcome/css/boost.css" type="text/css">
+<meta name="generator" content="Hugo with Boostdoc theme">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<link rel="icon" href="/boost-outcome/images/favicon.ico" type="image/ico"/>
+<body><div id="content">
+
+<p>In the previous section we have seen that calling member function <code>.value()</code> on
+object of type <code>outcome&lt;T&gt;</code> that did not contain a value caused an exception to
+be thrown. This is only part of the story. The full semantics of member function
+<code>.value()</code> are a bit more complex.</p>
+
+<p>Let&rsquo;s consider <code>result&lt;T&gt;</code> first. It is an alias on <code>basic_result&lt;T, EC, NVP&gt;</code>,
+where <code>EC</code> is the type storing error information and defaulted to
+<code>std::error_code</code> and <code>NVP</code> is a <em>no-value policy</em> and defaulted to
+<code>policy::default_policy&lt;T, EC, void&gt;</code>.</p>
+
+<p>The semantics of <code>basic_result::value()</code> are:</p>
+
+<ol>
+<li>Calls <code>NVP::wide_value_check(*this)</code>.</li>
+<li>If <code>this-&gt;has_value() == true</code> then returns a reference to the contained value,
+otherwise the behavior is undefined.</li>
+</ol>
+
+<p>Thus, the semantics of function <code>.value()</code> depend on the no-value policy. The
+default policy (<code>policy::default_policy&lt;T, EC, void&gt;</code>) for <code>EC</code> of type
+<code>std::error_code</code> does the following:</p>
+
+<ul>
+<li>If <code>r.has_value() == false</code> throws exception <code>std::system_error{r.error()}</code>,</li>
+<li>otherwise no effect.</li>
+</ul>
+
+<div class="notices note" ><p>Class templates <code>basic_result&lt;T, EC, NVP&gt;</code> and <code>basic_outcome&lt;T, EC, EP, NVP&gt;</code>
+never use exceptions. Any exception-related logic is provided through no-value
+policies.</p>
+</div>
+
+
+<p>When designing your own success-or-failure type using templates
+<code>basic_result&lt;&gt;</code> or <code>basic_outcome&lt;&gt;</code> you have to decide what no-value policy
+you want to use. Either create your own, or use one of the predefined policies.</p>
+
+<p>You can also use two predefined aliases for <code>basic_result&lt;&gt;</code>:</p>
+
+<ul>
+<li><a href="https://ned14.github.io/boost-outcome/reference/result/#standardese-outcome_v2_xxx__unchecked-R-S-" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> unchecked&lt;T, EC&gt;</a>
+: it uses policy <a href="https://ned14.github.io/boost-outcome/reference/policies/all_narrow" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> all_narrow</a>
+, where any observation of a missing value or error is undefined behavior;</li>
+<li><a href="https://ned14.github.io/boost-outcome/reference/result/#standardese-outcome_v2_xxx__checked-R-S-" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> checked&lt;T, EC&gt;</a>
+:
+it uses policy <a href="https://ned14.github.io/boost-outcome/reference/policies/throw_bad_result_access" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> throw_bad_result_access&lt;EC&gt;</a>
+, where any observation of a missing value or error throws <a href="https://ned14.github.io/boost-outcome/reference/bad_access/#standardese-outcome_v2_xxx__bad_result_access_with-S-" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> bad_result_access_with&lt;EC&gt;</a>
+ or <a href="https://ned14.github.io/boost-outcome/reference/bad_access/#standardese-outcome_v2_xxx__bad_result_access" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> bad_result_access</a>
+
+respectively.</li>
+</ul>
+
+
+
+        </div></body>
+</html>

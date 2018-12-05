@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Result on Boost.Outcome documentation</title>
+    <link>https://ned14.github.io/boost-outcome/tags/result/</link>
+    <description>Recent content in Result on Boost.Outcome documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://ned14.github.io/boost-outcome/tags/result/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>result&lt;&gt;</title>
+      <link>https://ned14.github.io/boost-outcome/tutorial/result/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/tutorial/result/</guid>
+      <description>Outcome 2.0 namespace It is recommended that you refer to entities from this Outcome 2.0 via the following namespace alias:
+namespace outcome = BOOST_OUTCOME_V2_NAMESPACE; View this code on Github As patches and modifications are applied to this library, namespaces get permuted in order not to break any backward compatibility. At some point namespace outcome::v2 will be defined, and this will be the prefered namespace. Until then BOOST_OUTCOME_V2_NAMESPACE denotes the most recently updated version, getting closer to outcome::v2.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>C API - Boost.Outcome documentation</title>
+<link rel="stylesheet" href="/boost-outcome/css/boost.css" type="text/css">
+<meta name="generator" content="Hugo with Boostdoc theme">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<link rel="icon" href="/boost-outcome/images/favicon.ico" type="image/ico"/>
+<body><div id="content">
+    
+
+<h1 id="header-file-result-c">Header file <code>result_c</code></h1>
+
+<p><span id="standardese-result-h"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">struct</span> <a href="#standardese-cxx_error_code"><span class="typ dec var fun">cxx_error_code</span></a><span class="pun">;</span>
+
+<span class="pre">#define</span> <a href="#standardese-CXX_DECLARE_RESULT"><span class="typ dec var fun">CXX_DECLARE_RESULT</span></a><span class="pre">(</span><span class="pre">R,RD,S,SD</span><span class="pre">)</span>
+
+<span class="pre">#define</span> <a href="#standardese-CXX_DECLARE_RESULT_EC"><span class="typ dec var fun">CXX_DECLARE_RESULT_EC</span></a><span class="pre">(</span><span class="pre">R,RD</span><span class="pre">)</span>
+
+<span class="pre">#define</span> <a href="#standardese-CXX_RESULT"><span class="typ dec var fun">CXX_RESULT</span></a><span class="pre">(</span><span class="pre">R,S</span><span class="pre">)</span>
+
+<span class="pre">#define</span> <a href="#standardese-CXX_RESULT_EC"><span class="typ dec var fun">CXX_RESULT_EC</span></a><span class="pre">(</span><span class="pre">R</span><span class="pre">)</span>
+
+<span class="pre">#define</span> <a href="#standardese-CXX_RESULT_HAS_VALUE"><span class="typ dec var fun">CXX_RESULT_HAS_VALUE</span></a><span class="pre">(</span><span class="pre">r</span><span class="pre">)</span>
+
+<span class="pre">#define</span> <a href="#standardese-CXX_RESULT_HAS_ERROR"><span class="typ dec var fun">CXX_RESULT_HAS_ERROR</span></a><span class="pre">(</span><span class="pre">r</span><span class="pre">)</span>
+
+<span class="pre">#define</span> <a href="#standardese-CXX_RESULT_ERROR_IS_ERRNO"><span class="typ dec var fun">CXX_RESULT_ERROR_IS_ERRNO</span></a><span class="pre">(</span><span class="pre">r</span><span class="pre">)</span>
+
+<span class="pre">#define</span> <a href="#standardese-CXX_RESULT_ERROR"><span class="typ dec var fun">CXX_RESULT_ERROR</span></a><span class="pre">(</span><span class="pre">r</span><span class="pre">)</span>
+
+<span class="pre">#define</span> <a href="#standardese-CXX_RESULT_SET_ERRNO"><span class="typ dec var fun">CXX_RESULT_SET_ERRNO</span></a><span class="pre">(</span><span class="pre">r</span><span class="pre">)</span>
+</code></pre>
+
+<h2 id="struct-cxx-error-code">Struct <code>cxx_error_code</code></h2>
+
+<p><span id="standardese-cxx_error_code"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">struct</span>&nbsp;<span class="typ dec var fun">cxx_error_code</span>
+<span class="pun">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">int</span>&nbsp;<span class="typ dec var fun">code</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">void</span><span class="pun">*</span>&nbsp;<span class="typ dec var fun">category</span><span class="pun">;</span>
+<span class="pun">};</span>
+</code></pre>
+
+<p>A C struct representation of <code>std::error_code</code>.</p>
+
+<hr />
+
+<h2 id="macro-cxx-declare-result">Macro <code>CXX_DECLARE_RESULT</code></h2>
+
+<p><span id="standardese-CXX_DECLARE_RESULT"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="pre">#define</span>&nbsp;<span class="typ dec var fun">CXX_DECLARE_RESULT</span><span class="pre">(</span><span class="pre">R,RD,S,SD</span><span class="pre">)</span>&nbsp;<span class="pre">struct result_##R##_##S { RD value; unsigned flags; SD error; }</span>
+</code></pre>
+
+<p>Declares a C struct representation of <code>result&lt;R, S&gt;</code>.</p>
+
+<hr />
+
+<h2 id="macro-cxx-declare-result-ec">Macro <code>CXX_DECLARE_RESULT_EC</code></h2>
+
+<p><span id="standardese-CXX_DECLARE_RESULT_EC"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="pre">#define</span>&nbsp;<span class="typ dec var fun">CXX_DECLARE_RESULT_EC</span><span class="pre">(</span><span class="pre">R,RD</span><span class="pre">)</span>&nbsp;<span class="pre">CXX_DECLARE_RESULT(R, RD, errorcode, struct cxx_error_code)</span>
+</code></pre>
+
+<p>Declares a C struct representation of <code>result&lt;R, std::error_code&gt;</code>.</p>
+
+<hr />
+
+<h2 id="macro-cxx-result">Macro <code>CXX_RESULT</code></h2>
+
+<p><span id="standardese-CXX_RESULT"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="pre">#define</span>&nbsp;<span class="typ dec var fun">CXX_RESULT</span><span class="pre">(</span><span class="pre">R,S</span><span class="pre">)</span>&nbsp;<span class="pre">struct result_##R##_##S</span>
+</code></pre>
+
+<p>A reference to a previously declared struct by <code>CXX_DECLARE_RESULT(R, RD, S, SD)</code></p>
+
+<hr />
+
+<h2 id="macro-cxx-result-ec">Macro <code>CXX_RESULT_EC</code></h2>
+
+<p><span id="standardese-CXX_RESULT_EC"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="pre">#define</span>&nbsp;<span class="typ dec var fun">CXX_RESULT_EC</span><span class="pre">(</span><span class="pre">R</span><span class="pre">)</span>&nbsp;<span class="pre">struct result_##R##_errorcode</span>
+</code></pre>
+
+<p>A reference to a previously declared struct by <code>CXX_DECLARE_RESULT_EC(R, RD)</code></p>
+
+<hr />
+
+<h2 id="macro-cxx-result-has-value">Macro <code>CXX_RESULT_HAS_VALUE</code></h2>
+
+<p><span id="standardese-CXX_RESULT_HAS_VALUE"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="pre">#define</span>&nbsp;<span class="typ dec var fun">CXX_RESULT_HAS_VALUE</span><span class="pre">(</span><span class="pre">r</span><span class="pre">)</span>&nbsp;<span class="pre">(((r).flags &amp; 1U) == 1U)</span>
+</code></pre>
+
+<p>True if a result struct has a valid value</p>
+
+<hr />
+
+<h2 id="macro-cxx-result-has-error">Macro <code>CXX_RESULT_HAS_ERROR</code></h2>
+
+<p><span id="standardese-CXX_RESULT_HAS_ERROR"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="pre">#define</span>&nbsp;<span class="typ dec var fun">CXX_RESULT_HAS_ERROR</span><span class="pre">(</span><span class="pre">r</span><span class="pre">)</span>&nbsp;<span class="pre">(((r).flags &amp; 2U) == 2U)</span>
+</code></pre>
+
+<p>True if a result struct has a valid error</p>
+
+<hr />
+
+<h2 id="macro-cxx-result-error-is-errno">Macro <code>CXX_RESULT_ERROR_IS_ERRNO</code></h2>
+
+<p><span id="standardese-CXX_RESULT_ERROR_IS_ERRNO"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="pre">#define</span>&nbsp;<span class="typ dec var fun">CXX_RESULT_ERROR_IS_ERRNO</span><span class="pre">(</span><span class="pre">r</span><span class="pre">)</span>&nbsp;<span class="pre">(((r).flags &amp; (1U &lt;&lt; 4U)) == (1U &lt;&lt; 4U))</span>
+</code></pre>
+
+<p>True if a result struct’s <code>error</code> or <code>code</code> is an <code>errno</code> domain code suitable for setting <code>errno</code> with.</p>
+
+<hr />
+
+<h2 id="macro-cxx-result-error">Macro <code>CXX_RESULT_ERROR</code></h2>
+
+<p><span id="standardese-CXX_RESULT_ERROR"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="pre">#define</span>&nbsp;<span class="typ dec var fun">CXX_RESULT_ERROR</span><span class="pre">(</span><span class="pre">r</span><span class="pre">)</span>&nbsp;<span class="pre">_Generic((r).error, struct cxx_error_code : ((struct cxx_error_code *) &amp;(r).error)-&gt;code, default : (r).error)</span>
+</code></pre>
+
+<p>C11 generic selecting a result struct’s <code>error</code> or <code>code</code> integer member.</p>
+
+<hr />
+
+<h2 id="macro-cxx-result-set-errno">Macro <code>CXX_RESULT_SET_ERRNO</code></h2>
+
+<p><span id="standardese-CXX_RESULT_SET_ERRNO"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="pre">#define</span>&nbsp;<span class="typ dec var fun">CXX_RESULT_SET_ERRNO</span><span class="pre">(</span><span class="pre">r</span><span class="pre">)</span>&nbsp;<span class="pre">(errno = CXX_RESULT_HAS_ERROR(r) ? (CXX_RESULT_ERROR_IS_ERRNO(r) ? CXX_RESULT_ERROR(r) : EAGAIN) : 0)</span>
+</code></pre>
+
+<p>Convenience macro setting <code>errno</code> to a result struct’s <code>errno</code> compatible error if present, or <code>EAGAIN</code> if errored but incompatible.</p>
+
+<hr />
+
+
+        </div></body>
+</html>

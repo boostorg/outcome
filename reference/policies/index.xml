@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Policies on Boost.Outcome documentation</title>
+    <link>https://ned14.github.io/boost-outcome/reference/policies/</link>
+    <description>Recent content in Policies on Boost.Outcome documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://ned14.github.io/boost-outcome/reference/policies/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>All narrow (hard UB)</title>
+      <link>https://ned14.github.io/boost-outcome/reference/policies/all_narrow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/reference/policies/all_narrow/</guid>
+      <description>Header file all_narrow.hpp 
+#include&amp;nbsp;&amp;quot;detail&amp;#x2F;common.hpp&amp;quot; namespace&amp;nbsp;outcome_v2_xxx { &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;namespace&amp;nbsp;policy &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{ &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;struct all_narrow; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;} }  
+
+Struct outcome_v2_xxx::policy::all_narrow 
+struct&amp;nbsp;all_narrow { &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_error_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_exception_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_error_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_exception_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; };  Policy which treats wide checks as narrow checks.
+Can be used in both result and outcome.
+Function outcome_v2_xxx::policy::throw_bad_result_access::narrow_value_check 
+template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; static&amp;nbsp;constexpr&amp;nbsp;void&amp;nbsp;narrow_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept;  Performs a narrow check of state, used in the assume_value() functions.</description>
+    </item>
+    
+    <item>
+      <title>error_code throw as system_error (Outcome)</title>
+      <link>https://ned14.github.io/boost-outcome/reference/policies/outcome_error_code_throw_as_system_error/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/reference/policies/outcome_error_code_throw_as_system_error/</guid>
+      <description>Header file outcome_error_code_throw_as_system_error.hpp 
+#include&amp;nbsp;&amp;quot;result_error_code_throw_as_system_error.hpp&amp;quot; namespace&amp;nbsp;outcome_v2_xxx { &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;namespace&amp;nbsp;policy &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{ &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;T,&amp;nbsp;class&amp;nbsp;EC,&amp;nbsp;class&amp;nbsp;E&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;struct error_code_throw_as_system_error; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;} }  
+
+Struct outcome_v2_xxx::policy::error_code_throw_as_system_error 
+template&amp;nbsp;&amp;lt;class&amp;nbsp;T,&amp;nbsp;class&amp;nbsp;EC,&amp;nbsp;class&amp;nbsp;E&amp;gt; struct&amp;nbsp;error_code_throw_as_system_error { &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_error_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_exception_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_error_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_exception_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; };  Policy interpreting EC as a type for which trait::has_error_code_v&amp;lt;EC&amp;gt; is true.
+Any wide attempt to access the successful state where there is none causes an attempt to rethrow E if trait::has_exception_ptr_v&amp;lt;E&amp;gt; is true, else:</description>
+    </item>
+    
+    <item>
+      <title>error_code throw as system_error (Result)</title>
+      <link>https://ned14.github.io/boost-outcome/reference/policies/result_error_code_throw_as_system_error/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/reference/policies/result_error_code_throw_as_system_error/</guid>
+      <description>Header file result_error_code_throw_as_system_error.hpp 
+#include&amp;nbsp;&amp;quot;detail&amp;#x2F;common.hpp&amp;quot; namespace&amp;nbsp;outcome_v2_xxx { &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;namespace&amp;nbsp;policy &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{ &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;T,&amp;nbsp;class&amp;nbsp;EC&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;struct error_code_throw_as_system_error&amp;lt;T,&amp;nbsp;EC,&amp;nbsp;void&amp;gt;; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;} }  
+
+Struct outcome_v2_xxx::policy::error_code_throw_as_system_error 
+template&amp;nbsp;&amp;lt;class&amp;nbsp;T,&amp;nbsp;class&amp;nbsp;EC&amp;gt; struct error_code_throw_as_system_error&amp;lt;T,&amp;nbsp;EC,&amp;nbsp;void&amp;gt; { &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_error_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_error_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_exception_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; };  Policy interpreting EC as a type for which trait::has_error_code_v&amp;lt;EC&amp;gt; is true.
+Any wide attempt to access the successful state where there is none causes:
+ If trait::has_error_payload_v&amp;lt;EC&amp;gt; is true, it calls an ADL discovered free function throw_as_system_error_with_payload(.</description>
+    </item>
+    
+    <item>
+      <title>exception_ptr rethrow (Outcome)</title>
+      <link>https://ned14.github.io/boost-outcome/reference/policies/outcome_exception_ptr_rethrow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/reference/policies/outcome_exception_ptr_rethrow/</guid>
+      <description>Header file outcome_exception_ptr_rethrow.hpp 
+#include&amp;nbsp;&amp;quot;result_exception_ptr_rethrow.hpp&amp;quot; namespace&amp;nbsp;outcome_v2_xxx { &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;namespace&amp;nbsp;policy &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{ &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;T,&amp;nbsp;class&amp;nbsp;EC,&amp;nbsp;class&amp;nbsp;E&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;struct exception_ptr_rethrow; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;} }  
+
+Struct outcome_v2_xxx::policy::exception_ptr_rethrow 
+template&amp;nbsp;&amp;lt;class&amp;nbsp;T,&amp;nbsp;class&amp;nbsp;EC,&amp;nbsp;class&amp;nbsp;E&amp;gt; struct&amp;nbsp;exception_ptr_rethrow { &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_error_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_exception_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_error_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_exception_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; };  Policy interpreting EC or E as a type for which trait::has_exception_ptr_v&amp;lt;EC|E&amp;gt; is true.
+Any wide attempt to access the successful state where there is none causes: std::rethrow_exception(policy::exception_ptr(.</description>
+    </item>
+    
+    <item>
+      <title>exception_ptr rethrow (Result)</title>
+      <link>https://ned14.github.io/boost-outcome/reference/policies/result_exception_ptr_rethrow/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/reference/policies/result_exception_ptr_rethrow/</guid>
+      <description>Header file result_exception_ptr_rethrow.hpp 
+#include&amp;nbsp;&amp;quot;detail&amp;#x2F;common.hpp&amp;quot; namespace&amp;nbsp;outcome_v2_xxx { &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;namespace&amp;nbsp;policy &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{ &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;T,&amp;nbsp;class&amp;nbsp;EC,&amp;nbsp;class&amp;nbsp;E&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;struct exception_ptr_rethrow; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;T,&amp;nbsp;class&amp;nbsp;EC&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;struct exception_ptr_rethrow&amp;lt;T,&amp;nbsp;EC,&amp;nbsp;void&amp;gt;; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;} }  
+
+Struct outcome_v2_xxx::policy::exception_ptr_rethrow 
+template&amp;nbsp;&amp;lt;class&amp;nbsp;T,&amp;nbsp;class&amp;nbsp;EC,&amp;nbsp;class&amp;nbsp;E&amp;gt; struct&amp;nbsp;exception_ptr_rethrow;  Policy interpreting EC or E as a type for which trait::has_exception_ptr_v&amp;lt;EC|E&amp;gt; is true.
+Any wide attempt to access the successful state where there is none causes: std::rethrow_exception(policy::exception_ptr(.error()|.exception())) appropriately.</description>
+    </item>
+    
+    <item>
+      <title>Termimate</title>
+      <link>https://ned14.github.io/boost-outcome/reference/policies/terminate/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/reference/policies/terminate/</guid>
+      <description>Header file terminate.hpp 
+#include&amp;nbsp;&amp;quot;detail&amp;#x2F;common.hpp&amp;quot; namespace&amp;nbsp;outcome_v2_xxx { &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;namespace&amp;nbsp;policy &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{ &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;struct terminate; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;} }  
+
+Struct outcome_v2_xxx::policy::terminate 
+struct&amp;nbsp;terminate { &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_error_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_exception_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_error_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_exception_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; };  Policy implementing any wide attempt to access the successful state as calling std::terminate
+Can be used in both result and outcome.
+Function outcome_v2_xxx::policy::throw_bad_result_access::narrow_value_check 
+template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; static&amp;nbsp;constexpr&amp;nbsp;void&amp;nbsp;narrow_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept;  Performs a narrow check of state, used in the assume_value() functions.</description>
+    </item>
+    
+    <item>
+      <title>Throw bad_result_access</title>
+      <link>https://ned14.github.io/boost-outcome/reference/policies/throw_bad_result_access/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/reference/policies/throw_bad_result_access/</guid>
+      <description>Header file throw_bad_result_access.hpp 
+#include&amp;nbsp;&amp;quot;detail&amp;#x2F;common.hpp&amp;quot; namespace&amp;nbsp;outcome_v2_xxx { &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;namespace&amp;nbsp;policy &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{ &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;EC&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;struct throw_bad_result_access; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;} }  
+
+Struct outcome_v2_xxx::policy::throw_bad_result_access 
+template&amp;nbsp;&amp;lt;class&amp;nbsp;EC&amp;gt; struct&amp;nbsp;throw_bad_result_access { &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_error_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void wide_exception_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self); &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_error_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;static&amp;nbsp;constexpr&amp;nbsp;void narrow_exception_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept; };  Policy which throws bad_result_access_with&amp;lt;EC&amp;gt; or bad_result_access during wide checks.
+Can be used in result only.
+Function outcome_v2_xxx::policy::throw_bad_result_access::narrow_value_check 
+template&amp;nbsp;&amp;lt;class&amp;nbsp;Impl&amp;gt; static&amp;nbsp;constexpr&amp;nbsp;void&amp;nbsp;narrow_value_check(Impl&amp;amp;&amp;amp;&amp;nbsp;self)&amp;nbsp;noexcept;  Performs a narrow check of state, used in the assume_value() functions.</description>
+    </item>
+    
+  </channel>
+</rss>

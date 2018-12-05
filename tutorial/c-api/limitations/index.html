@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Limitations - Boost.Outcome documentation</title>
+<link rel="stylesheet" href="/boost-outcome/css/boost.css" type="text/css">
+<meta name="generator" content="Hugo with Boostdoc theme">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<link rel="icon" href="/boost-outcome/images/favicon.ico" type="image/ico"/>
+<body><div id="content">
+    <p>C++ has excellent two-way compatibility with the C ABI, but there are some
+limitations you must observe to write C++ code which C code can call without
+marshalling at the ABI boundary:</p>
+
+<ol>
+<li>A C++ function may not throw exceptions if it is safe to call from C, and
+so should always be marked <code>noexcept</code>.</li>
+<li>A C++ function should be annotated with <code>extern &quot;C&quot;</code> to prevent its symbol
+being mangled, and thus give it the C rather than C++ ABI.</li>
+<li>You cannot use overloading in your <code>extern &quot;C&quot;</code> functions.</li>
+<li>You may only use types in your C++ function for which these traits are both true:
+
+<ul>
+<li><a href="http://en.cppreference.com/w/cpp/types/is_standard_layout"><code>std::is_standard_layout_v&lt;T&gt;</code></a></li>
+<li><a href="http://en.cppreference.com/w/cpp/types/is_trivially_copyable"><code>std::is_trivially_copyable_v&lt;T&gt;</code></a></li>
+<li>Note that <code>std::is_trivially_copyable_v&lt;T&gt;</code> also requires trivial destruction, but NOT trivial construction.
+This means that C++ can do non-trivial construction of otherwise trivial types.</li>
+</ul></li>
+<li>Your C++ function should return either a <code>result&lt;T, E&gt;</code> or a <code>result&lt;T&gt;</code> i.e. with the <code>EC</code> defaulted
+to <code>std::error_code</code> or something with equal layout. Note that <code>std::error_code</code>
+has standard layout, and is trivially copyable, and thus is a legal type in C.</li>
+</ol>
+
+<p>These type limitations might seem to be showstoppers to C++ programmers, but with a bit of
+care during library design, you can actually express a lot of
+complex C++ and still meet these requirements. For example, more than 80%
+of the APIs in my C++ 17 <a href="https://ned14.github.io/afio/">AFIO</a> library (which I hope to propose
+in 2018 to become the File I/O TS for C++ 24) meets the above restrictions,
+and thus can be called directly from C code or any programming language which
+speaks the C ABI.</p>
+
+<p>A useful tip is to sprinkle <code>static_assert()</code> testing the two traits above around your header files for any types which
+can traverse the C ABI boundary, and add <code>extern &quot;C&quot;</code> free function thunks for your class
+member functions<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>. You should be ready to go from the C++ side at least.</p>
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">Or simply write a script to do this for you. A starter script can be found at <a href="https://github.com/ned14/afio/blob/master/scripts/make_free_functions.py">https://github.com/ned14/afio/blob/master/scripts/make_free_functions.py</a>.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
+
+
+        </div></body>
+</html>

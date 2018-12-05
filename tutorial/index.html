@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Tutorial - Boost.Outcome documentation</title>
+<link rel="stylesheet" href="/boost-outcome/css/boost.css" type="text/css">
+<meta name="generator" content="Hugo with Boostdoc theme">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<link rel="icon" href="/boost-outcome/images/favicon.ico" type="image/ico"/>
+<body><div id="content">
+
+
+
+<ol class="children children-li"><li>
+	<a href="/boost-outcome/tutorial/result/" >result&lt;&gt;</a></li>
+<p>Gentle introduction to writing code with simple success-or-failure return types.</p>
+<ol><li>
+	<a href="/boost-outcome/tutorial/result/inspecting/" >Inspecting result&lt;T, EC&gt;</a></li><li>
+	<a href="/boost-outcome/tutorial/result/try/" >TRY operations</a></li>
+</ol><li>
+	<a href="/boost-outcome/tutorial/outcome/" >outcome&lt;&gt;</a></li>
+<p>Success-or-failure return types where failure can take two forms, expected/handled failure and unexpected/abort failure.</p>
+<ol><li>
+	<a href="/boost-outcome/tutorial/outcome/inspecting/" >Inspecting outcome&lt;T, EC, EP&gt;</a></li>
+</ol><li>
+	<a href="/boost-outcome/tutorial/no-value/" >No-value policies</a></li>
+<p>Describes the concept of NoValuePolicy and how to use no-value policies.</p>
+<ol><li>
+	<a href="/boost-outcome/tutorial/no-value/custom/" >A custom no-value policy</a></li><li>
+	<a href="/boost-outcome/tutorial/no-value/builtin/" >Built-in policies</a></li>
+</ol><li>
+	<a href="/boost-outcome/tutorial/payload/" >Custom payloads</a></li>
+<p>Success-or-failure return types where extra information in addition to the error code accompanies failure.</p>
+<ol><li>
+	<a href="/boost-outcome/tutorial/payload/copy_file/" >The Filesystem TS</a></li><li>
+	<a href="/boost-outcome/tutorial/payload/copy_file2/" >Upgrading the Filesystem TS</a></li><li>
+	<a href="/boost-outcome/tutorial/payload/copy_file3/" >Auto-throwing filesystem_error</a></li>
+</ol><li>
+	<a href="/boost-outcome/tutorial/constructors/" >Result returning constructors</a></li>
+<p>How to metaprogram construction of objects which use result&lt;T, EC&gt; to return failure instead of throwing a C&#43;&#43; exception.</p>
+<ol><li>
+	<a href="/boost-outcome/tutorial/constructors/two-phase-init/" >Two phase construction</a></li><li>
+	<a href="/boost-outcome/tutorial/constructors/file_handle/" >A file handle</a></li><li>
+	<a href="/boost-outcome/tutorial/constructors/static-constructor/" >Phase 2 construction</a></li><li>
+	<a href="/boost-outcome/tutorial/constructors/metaprogrammg1/" >Phase 3</a></li><li>
+	<a href="/boost-outcome/tutorial/constructors/metaprogrammg2/" >construct&lt;T&gt;</a></li><li>
+	<a href="/boost-outcome/tutorial/constructors/metaprogrammg3/" >Alternatives</a></li>
+</ol><li>
+	<a href="/boost-outcome/tutorial/hooks/" >Hooking events</a></li>
+<p>Intercepting useful events such as initial construction, copies and moves so you can capture backtraces, fire debug breakpoints etc.</p>
+<ol><li>
+	<a href="/boost-outcome/tutorial/hooks/keeping_state/" >Keeping state</a></li><li>
+	<a href="/boost-outcome/tutorial/hooks/adl_bridging/" >ADL bridging</a></li><li>
+	<a href="/boost-outcome/tutorial/hooks/hook_result/" >Hook result</a></li><li>
+	<a href="/boost-outcome/tutorial/hooks/poke_exception/" >Custom exception ptr</a></li><li>
+	<a href="/boost-outcome/tutorial/hooks/hook_outcome/" >Hook outcome</a></li>
+</ol><li>
+	<a href="/boost-outcome/tutorial/c-api/" >Using result&lt;T&gt; from C code</a></li>
+<p>Interacting with result&lt;T, EC&gt; returning C&#43;&#43; functions from C code.</p>
+<ol><li>
+	<a href="/boost-outcome/tutorial/c-api/limitations/" >Limitations</a></li><li>
+	<a href="/boost-outcome/tutorial/c-api/example/" >Example C&#43;&#43; function</a></li><li>
+	<a href="/boost-outcome/tutorial/c-api/example2/" >Calling it from C</a></li><li>
+	<a href="/boost-outcome/tutorial/c-api/variations/" >Variations</a></li>
+</ol><li>
+	<a href="/boost-outcome/tutorial/interop/" >Interoperation</a></li>
+<p>Interoperating with std::expected&lt;T, E&gt; and other ValueOrError concept matching types.</p>
+<ol><li>
+	<a href="/boost-outcome/tutorial/interop/problem/" >Incommensurate E types</a></li><li>
+	<a href="/boost-outcome/tutorial/interop/value-or-error/" >ValueOrError Concept</a></li><li>
+	<a href="/boost-outcome/tutorial/interop/httplib/" >The HTTP library</a></li><li>
+	<a href="/boost-outcome/tutorial/interop/tidylib/" >The HTMLTidy library</a></li><li>
+	<a href="/boost-outcome/tutorial/interop/filelib/" >The File I/O library</a></li><li>
+	<a href="/boost-outcome/tutorial/interop/app/" >The Application</a></li><li>
+	<a href="/boost-outcome/tutorial/interop/app-map-httplib1/" >Mapping the HTTP library into the Application 1/2</a></li><li>
+	<a href="/boost-outcome/tutorial/interop/app-map-httplib2/" >Mapping the HTTP library into the Application 2/2</a></li><li>
+	<a href="/boost-outcome/tutorial/interop/app-map-filelib/" >Mapping the File I/O library into the Application</a></li><li>
+	<a href="/boost-outcome/tutorial/interop/app-map-tidylib/" >Mapping the HTMLTidy library into the Application</a></li><li>
+	<a href="/boost-outcome/tutorial/interop/app-go/" >In use</a></li><li>
+	<a href="/boost-outcome/tutorial/interop/conclusion/" >Conclusion</a></li>
+</ol>
+</ol>
+
+
+
+
+
+
+
+
+        </div></body>
+</html>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Policies on Boost.Outcome documentation</title>
+    <link>https://ned14.github.io/boost-outcome/tags/policies/</link>
+    <description>Recent content in Policies on Boost.Outcome documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://ned14.github.io/boost-outcome/tags/policies/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>No-value policies</title>
+      <link>https://ned14.github.io/boost-outcome/tutorial/no-value/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/tutorial/no-value/</guid>
+      <description>In the previous section we have seen that calling member function .value() on object of type outcome&amp;lt;T&amp;gt; that did not contain a value caused an exception to be thrown. This is only part of the story. The full semantics of member function .value() are a bit more complex.
+Let&amp;rsquo;s consider result&amp;lt;T&amp;gt; first. It is an alias on basic_result&amp;lt;T, EC, NVP&amp;gt;, where EC is the type storing error information and defaulted to std::error_code and NVP is a no-value policy and defaulted to policy::default_policy&amp;lt;T, EC, void&amp;gt;.</description>
+    </item>
+    
+  </channel>
+</rss>

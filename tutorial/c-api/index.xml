@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Using result&lt;T&gt; from C code on Boost.Outcome documentation</title>
+    <link>https://ned14.github.io/boost-outcome/tutorial/c-api/</link>
+    <description>Recent content in Using result&lt;T&gt; from C code on Boost.Outcome documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://ned14.github.io/boost-outcome/tutorial/c-api/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Limitations</title>
+      <link>https://ned14.github.io/boost-outcome/tutorial/c-api/limitations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/tutorial/c-api/limitations/</guid>
+      <description>C++ has excellent two-way compatibility with the C ABI, but there are some limitations you must observe to write C++ code which C code can call without marshalling at the ABI boundary:
+ A C++ function may not throw exceptions if it is safe to call from C, and so should always be marked noexcept. A C++ function should be annotated with extern &amp;quot;C&amp;quot; to prevent its symbol being mangled, and thus give it the C rather than C++ ABI.</description>
+    </item>
+    
+    <item>
+      <title>Example C&#43;&#43; function</title>
+      <link>https://ned14.github.io/boost-outcome/tutorial/c-api/example/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/tutorial/c-api/example/</guid>
+      <description>Let us start with a simple C++ function which we wish to make available to C code:
+// Fill the supplied buffer with the integer v converted to a string, returning // length of string minus null terminator extern &amp;#34;C&amp;#34; outcome::result&amp;lt;size_t&amp;gt; to_string(char *buffer, size_t bufferlen, int v) noexcept { try { // Could throw an exception!  std::string temp(std::to_string(v)); // Will this string exceed the supplied buffer?  if(temp.size() + 1 &amp;gt; bufferlen) return std::errc::no_buffer_space; // Copy the string into the supplied buffer, and return length of string  memcpy(buffer, temp.</description>
+    </item>
+    
+    <item>
+      <title>Calling it from C</title>
+      <link>https://ned14.github.io/boost-outcome/tutorial/c-api/example2/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/tutorial/c-api/example2/</guid>
+      <description>Now let us call our result returning C++ function from C:
+#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;string.h&amp;gt; // for strerror// This header in Outcome is pure C, it provides a suite of C helper macros #include &amp;#34;../../../include/outcome/result.h&amp;#34; // Declare our C++ function&amp;#39;s returning result type. Only needs to be done once. CXX_DECLARE_RESULT_EC(size_t, size_t); // Tell C about our C++ function extern CXX_RESULT_EC(size_t) to_string(char *buffer, size_t bufferlen, int v); void print(int v) { char buffer[4]; CXX_RESULT_EC(size_t) res; res = to_string(buffer, sizeof(buffer), v); if(CXX_RESULT_HAS_VALUE(res)) { printf(&amp;#34;to_string(%d) fills buffer with &amp;#39;%s&amp;#39; of %zu characters\n&amp;#34;, v, buffer, res.</description>
+    </item>
+    
+    <item>
+      <title>Variations</title>
+      <link>https://ned14.github.io/boost-outcome/tutorial/c-api/variations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/tutorial/c-api/variations/</guid>
+      <description>You can of course choose your own E type so long as it has standard layout and is trivially copyable. You would declare that with  CXX_DECLARE_RESULT(t_ident, t_decl, e_ident, e_decl) , refer to it with  CXX_RESULT(t_ident, e_ident) and need to do your own decoding of errors from your E type. By using the _EC postfixed macros, you are in fact using E =
+struct cxx_error_code { int code; void *category; }; &amp;hellip; which is declared for you by result.</description>
+    </item>
+    
+  </channel>
+</rss>

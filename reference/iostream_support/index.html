@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>iostream support - Boost.Outcome documentation</title>
+<link rel="stylesheet" href="/boost-outcome/css/boost.css" type="text/css">
+<meta name="generator" content="Hugo with Boostdoc theme">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<link rel="icon" href="/boost-outcome/images/favicon.ico" type="image/ico"/>
+<body><div id="content">
+    
+
+<h1 id="header-file-iostream-support-hpp">Header file <code>iostream_support.hpp</code></h1>
+
+<p><span id="standardese-iostream_support-hpp"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">namespace</span>&nbsp;<span class="typ dec var fun">outcome_v2_xxx</span>
+<span class="pun">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">std::istream</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__operator---R-S-P----std__istream--result-R-S-P---"><span class="typ dec var fun">operator&gt;&gt;</span></a><span class="pun">(</span><span class="typ dec var fun">std::istream</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">s</span><span class="pun">,</span> <a href="../result#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>R, S, P<span class="pun">&gt;</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">std::ostream</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__operator---R-S-P----std__ostream--result-R-S-P-const--"><span class="typ dec var fun">operator&lt;&lt;</span></a><span class="pun">(</span><span class="typ dec var fun">std::ostream</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">s</span><span class="pun">,</span> <a href="../result#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>R, S, P<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">std::string</span> <a href="#standardese-outcome_v2_xxx__print-R-S-P--detail__result_final-R-S-P-const--"><span class="typ dec var fun">print</span></a><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">std::string</span> <a href="#standardese-outcome_v2_xxx__print-S-P--detail__result_final-void-S-P-const--"><span class="typ dec var fun">print</span></a><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">std::string</span> <a href="#standardese-outcome_v2_xxx__print-R-P--detail__result_final-R-void-P-const--"><span class="typ dec var fun">print</span></a><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">std::string</span> <a href="#standardese-outcome_v2_xxx__print-P--detail__result_final-void-void-P-const--"><span class="typ dec var fun">print</span></a><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">N</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">std::istream</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__operator---R-S-P-N-----std__istream--outcome-R-S-P-N---"><span class="typ dec var fun">operator&gt;&gt;</span></a><span class="pun">(</span><span class="typ dec var fun">std::istream</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">s</span><span class="pun">,</span> <a href="../outcome#standardese-outcome_v2_xxx__outcome-R-S-P-NoValuePolicy-"><span class="typ dec var fun">outcome</span></a><span class="pun">&lt;</span>R, S, P, N<span class="pun">&gt;</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">N</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">std::ostream</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__operator---R-S-P-N-----std__ostream--outcome-R-S-P-N-const--"><span class="typ dec var fun">operator&lt;&lt;</span></a><span class="pun">(</span><span class="typ dec var fun">std::ostream</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">s</span><span class="pun">,</span> <a href="../outcome#standardese-outcome_v2_xxx__outcome-R-S-P-NoValuePolicy-"><span class="typ dec var fun">outcome</span></a><span class="pun">&lt;</span>R, S, P, N<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">N</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">std::string</span> <a href="#standardese-outcome_v2_xxx__print-R-S-P-N--outcome-R-S-P-N-const--"><span class="typ dec var fun">print</span></a><span class="pun">(</span><a href="../outcome#standardese-outcome_v2_xxx__outcome-R-S-P-NoValuePolicy-"><span class="typ dec var fun">outcome</span></a><span class="pun">&lt;</span>R, S, P, N<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+<span class="pun">}</span>
+</code></pre>
+
+<p><span id="standardese-outcome_v2_xxx"></span></p>
+
+<h3 id="function-outcome-v2-xxx-operator">Function <code>outcome_v2_xxx::operator&gt;&gt;</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__operator---R-S-P----std__istream--result-R-S-P---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+<span class="typ dec var fun">std::istream</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">operator&gt;&gt;</span><span class="pun">(</span><span class="typ dec var fun">std::istream</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">s</span><span class="pun">,</span> <a href="../result#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>R, S, P<span class="pun">&gt;</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Deserialise a result. Format is <code>status_unsigned [value][error]</code>. Spare storage is preserved.</p>
+
+<p><em>Requires:</em> That <code>R</code> and <code>S</code> implement <code>operator&gt;&gt;</code>.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-operator-1">Function <code>outcome_v2_xxx::operator&lt;&lt;</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__operator---R-S-P----std__ostream--result-R-S-P-const--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+<span class="typ dec var fun">std::ostream</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">operator&lt;&lt;</span><span class="pun">(</span><span class="typ dec var fun">std::ostream</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">s</span><span class="pun">,</span> <a href="../result#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>R, S, P<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Serialise a result. Format is <code>status_unsigned [value][error]</code>. Spare storage is preserved.</p>
+
+<p><em>Requires:</em> That <code>R</code> and <code>S</code> implement <code>operator&lt;&lt;</code>.</p>
+
+<p>If you are printing to a human readable destination, use <code>print()</code> instead.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-print">Function <code>outcome_v2_xxx::print</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__print-R-S-P--detail__result_final-R-S-P-const--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+<span class="typ dec var fun">std::string</span>&nbsp;<span class="typ dec var fun">print</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Debug print a result into a form suitable for human reading. Format is <code>value|error</code>. If the error type is <code>error_code</code>, appends <code>&quot; (ec.message())&quot;</code> afterwards.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-print-1">Function <code>outcome_v2_xxx::print</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__print-S-P--detail__result_final-void-S-P-const--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+<span class="typ dec var fun">std::string</span>&nbsp;<span class="typ dec var fun">print</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Debug print a result into a form suitable for human reading. Format is <code>(+void)|error</code>. If the error type is <code>error_code</code>, appends <code>&quot; (ec.message())&quot;</code> afterwards.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-print-2">Function <code>outcome_v2_xxx::print</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__print-R-P--detail__result_final-R-void-P-const--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+<span class="typ dec var fun">std::string</span>&nbsp;<span class="typ dec var fun">print</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Debug print a result into a form suitable for human reading. Format is <code>value|(-void)</code>.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-print-3">Function <code>outcome_v2_xxx::print</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__print-P--detail__result_final-void-void-P-const--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+<span class="typ dec var fun">std::string</span>&nbsp;<span class="typ dec var fun">print</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Debug print a result into a form suitable for human reading. Format is <code>(+void)|(-void)</code>.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-operator-2">Function <code>outcome_v2_xxx::operator&gt;&gt;</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__operator---R-S-P-N-----std__istream--outcome-R-S-P-N---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">N</span><span class="pun">&gt;</span>
+<span class="typ dec var fun">std::istream</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">operator&gt;&gt;</span><span class="pun">(</span><span class="typ dec var fun">std::istream</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">s</span><span class="pun">,</span> <a href="../outcome#standardese-outcome_v2_xxx__outcome-R-S-P-NoValuePolicy-"><span class="typ dec var fun">outcome</span></a><span class="pun">&lt;</span>R, S, P, N<span class="pun">&gt;</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Deserialise an outcome. Format is <code>status_unsigned [value][error][exception]</code>. Spare storage is preserved.</p>
+
+<p><em>Requires:</em> That <code>R</code>, <code>S</code> and <code>P</code> implement <code>operator&gt;&gt;</code>.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-operator-3">Function <code>outcome_v2_xxx::operator&lt;&lt;</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__operator---R-S-P-N-----std__ostream--outcome-R-S-P-N-const--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">N</span><span class="pun">&gt;</span>
+<span class="typ dec var fun">std::ostream</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">operator&lt;&lt;</span><span class="pun">(</span><span class="typ dec var fun">std::ostream</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">s</span><span class="pun">,</span> <a href="../outcome#standardese-outcome_v2_xxx__outcome-R-S-P-NoValuePolicy-"><span class="typ dec var fun">outcome</span></a><span class="pun">&lt;</span>R, S, P, N<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Serialise an outcome. Format is <code>status_unsigned [value][error][exception]</code>. Spare storage is preserved.</p>
+
+<p><em>Requires:</em> That <code>R</code>, <code>S</code> and <code>P</code> implement <code>operator&lt;&lt;</code>.</p>
+
+<p>If you are printing to a human readable destination, use <code>print()</code> instead.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-print-4">Function <code>outcome_v2_xxx::print</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__print-R-S-P-N--outcome-R-S-P-N-const--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">N</span><span class="pun">&gt;</span>
+<span class="typ dec var fun">std::string</span>&nbsp;<span class="typ dec var fun">print</span><span class="pun">(</span><a href="../outcome#standardese-outcome_v2_xxx__outcome-R-S-P-NoValuePolicy-"><span class="typ dec var fun">outcome</span></a><span class="pun">&lt;</span>R, S, P, N<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Debug print an outcome into a form suitable for human reading. Format is one of:</p>
+
+<ol>
+<li><p><code>value|error|exception</code></p></li>
+
+<li><p><code>{ error, exception }</code></p></li>
+</ol>
+
+<p>If the error type is <code>error_code</code>, appends <code>&quot; (ec.message())&quot;</code> after the error. Exception type is printed as one of:</p>
+
+<ol>
+<li><p><code>std::system_error code code(): what()</code></p></li>
+
+<li><p><code>std::exception: what()</code></p></li>
+
+<li><p><code>unknown exception</code></p></li>
+</ol>
+
+<hr />
+
+
+        </div></body>
+</html>

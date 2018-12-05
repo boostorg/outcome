@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Try on Boost.Outcome documentation</title>
+    <link>https://ned14.github.io/boost-outcome/tags/try/</link>
+    <description>Recent content in Try on Boost.Outcome documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    
+	<atom:link href="https://ned14.github.io/boost-outcome/tags/try/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Inspecting result&lt;T, EC&gt;</title>
+      <link>https://ned14.github.io/boost-outcome/tutorial/result/inspecting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/tutorial/result/inspecting/</guid>
+      <description>Suppose we will be writing a function print_half that takes an integer number (however big) represented as an std::string and outputs a number which is twice smaller:
+outcome::result&amp;lt;void&amp;gt; print_half(const std::string&amp;amp; text); View this code on Github The type result&amp;lt;void&amp;gt; means that there is no value to be retuned upon success, but that the operation might still fail, and we may be interested in inspecting the cause of the failure. The class template result&amp;lt;&amp;gt; is declared with the attribute [[nodiscard]], which means the compiler will warn you if you forget to inspect the returned object (in C++ 17 or later).</description>
+    </item>
+    
+    <item>
+      <title>TRY operations</title>
+      <link>https://ned14.github.io/boost-outcome/tutorial/result/try/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/tutorial/result/try/</guid>
+      <description>In the implementation of function print_half we have seen the usage of the macro  BOOST_OUTCOME_TRY :
+BOOST_OUTCOME_TRY (i, BigInt::fromString(text));  The BOOST_OUTCOME_TRY macro uses C macro overloading to select between two implementations based on the number of input parameters. If there is exactly one input parameter i.e. without the i,, the control statement is roughly equivalent to:
+auto&amp;amp;&amp;amp; __result = BigInt::fromString(text); if (!__result) return __result.as_failure();  Where __result is a compile time generated unique name.</description>
+    </item>
+    
+    <item>
+      <title>result&lt;&gt;</title>
+      <link>https://ned14.github.io/boost-outcome/tutorial/result/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://ned14.github.io/boost-outcome/tutorial/result/</guid>
+      <description>Outcome 2.0 namespace It is recommended that you refer to entities from this Outcome 2.0 via the following namespace alias:
+namespace outcome = BOOST_OUTCOME_V2_NAMESPACE; View this code on Github As patches and modifications are applied to this library, namespaces get permuted in order not to break any backward compatibility. At some point namespace outcome::v2 will be defined, and this will be the prefered namespace. Until then BOOST_OUTCOME_V2_NAMESPACE denotes the most recently updated version, getting closer to outcome::v2.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Result returning constructors - Boost.Outcome documentation</title>
+<link rel="stylesheet" href="/boost-outcome/css/boost.css" type="text/css">
+<meta name="generator" content="Hugo with Boostdoc theme">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<link rel="icon" href="/boost-outcome/images/favicon.ico" type="image/ico"/>
+<body><div id="content">
+
+<p>An oft asked question during conference talks on Expected/Outcome is how to
+exclusively use <code>result</code> to implement constructor failure. This is asked because
+whilst almost every member function in a class can return a <code>result</code>, constructors
+do not return values and thus cannot return a <code>result</code>. The implication is
+that one cannot avoid throwing C++ exceptions to abort a construction.</p>
+
+<p>As with most things in C++, one can achieve zero-exception-throw object
+construction using a lot of
+extra typing of boilerplate, and a little bit of simple C++ metaprogramming. This section
+shows you how to implement these for those who are absolutely adverse to ever throwing an exception,
+or cannot because C++ exceptions have been globally disabled.</p>
+
+<p>The technique described here is not suitable for non-copyable and non-movable
+types. There is also an assumption that moving your type is cheap.</p>
+
+
+
+        </div></body>
+</html>

@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/requirements/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/build/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/use-matrix/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/interop/problem/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/interop/value-or-error/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/motivation/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/no-value/custom/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/policies/all_narrow/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/motivation/exceptions/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/hooks/keeping_state/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/c-api/limitations/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/payload/copy_file/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/interop/httplib/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/two-phase-init/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/outcome/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/result/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/interop/tidylib/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/file_handle/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/hooks/adl_bridging/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/no-value/builtin/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/c-api/example/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/result/inspecting/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/interop/filelib/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/payload/copy_file2/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/motivation/errno/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/policies/outcome_error_code_throw_as_system_error/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/outcome/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/result/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/no-value/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/interop/app/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/payload/copy_file3/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/c-api/example2/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/payload/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/motivation/error_codes/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/faq/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/hooks/hook_result/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/outcome/inspecting/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/interop/app-map-httplib1/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/static-constructor/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/result/try/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/try/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/policies/result_error_code_throw_as_system_error/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/interop/app-map-httplib2/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/hooks/poke_exception/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/interop/app-map-filelib/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/metaprogrammg1/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/success_failure/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/c-api/variations/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/videos/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/policies/outcome_exception_ptr_rethrow/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/motivation/std_error_code/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/interop/app-map-tidylib/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/hooks/hook_outcome/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/hooks/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/interop/app-go/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/motivation/plug_error_code/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/utils/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/metaprogrammg2/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/policies/result_exception_ptr_rethrow/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/interop/conclusion/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/metaprogrammg3/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/convert/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/motivation/narrow_contract/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/policies/terminate/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/bad_access/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/policies/throw_bad_result_access/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/c-api/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/changelog/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tutorial/interop/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/iostream_support/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/result_c/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/history/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/reference/policies/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/_header/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/credits/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/adl-bridging/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/backtrace/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/constructors/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/default-actions/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/dual-api/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/error/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/exception/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/has_error_code/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/</loc>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/hooks/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/make_error_code/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/namespace/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/nodiscard/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/outcome/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/payload/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/policies/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/result/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/try/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/value/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://ned14.github.io/boost-outcome/tags/value-or-error/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
