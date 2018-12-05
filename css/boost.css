@@ -787,3 +787,33 @@ span.purple { color: purple; }
 span.gold { color: gold; }
 span.silver { color: silver; } /* lighter gray */
 span.gray { color: #808080; } /* light gray */
+
+
+
+
+
+/* Overrides to handle differences between BoostBook output and Hugo's.
+*/
+li p:first-of-type {
+  display: inline;
+  text-align: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+pre.chroma {
+  margin: 0;
+  position: relative;
+  margin-top: -1em;
+}
+
+/* Bits ported over from local.css for the DockDoc theme.
+*/
+div.code-snippet {
+  position: relative;
+}
+div.code-snippet a.code-snippet-url {
+  font-size: 7pt;
+  position: absolute;
+  right: 6em;
+  top: 0.7em;
+}
