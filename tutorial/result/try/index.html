@@ -65,9 +65,12 @@ it is possible to use an alternative macro: <code>BOOST_OUTCOME_TRYX</code>, whi
 <p>or in as a subexpression of a bigger full expression:</p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="n">BOOST_OUTCOME_TRYX</span><span class="p">(</span><span class="n">BigInt</span><span class="o">::</span><span class="n">fromString</span><span class="p">(</span><span class="s">&#34;1&#34;</span><span class="p">))</span> <span class="o">+</span> <span class="n">BOOST_OUTCOME_TRYX</span><span class="p">(</span><span class="n">BigInt</span><span class="o">::</span><span class="n">fromString</span><span class="p">(</span><span class="s">&#34;2&#34;</span><span class="p">));</span>
 </code></pre></div>
-<div class="notices note" ><p>This macro makes use of a proprietary extension in GCC and clang and is not
+<div class="notices note" style="background: url(/boost-outcome/images/note.png) top left no-repeat padding-box padding-box;">
+<div class="notices heading">note</div>
+<div class="notices message"><p>This macro makes use of a proprietary extension in GCC and clang and is not
 portable. The macro is not made available on unsupported compilers,
 so you can test for its presence using <code>#ifdef BOOST_OUTCOME_TRYX</code>.</p>
+</div>
 </div>
 
 
@@ -80,8 +83,7 @@ so you can test for its presence using <code>#ifdef BOOST_OUTCOME_TRYX</code>.</
 
 <p>When you are calling functions that return <code>result&lt;void&gt;</code> the first of the two things does not make sense. You then have to use macro <code>BOOST_OUTCOME_TRYV</code> instead. Let&rsquo;s use our function <code>print_half</code>:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">test</span><span class="p">()</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">test</span><span class="p">()</span>
 <span class="p">{</span>
   <span class="n">BOOST_OUTCOME_TRY</span> <span class="p">((</span><span class="n">print_half</span><span class="p">(</span><span class="s">&#34;2&#34;</span><span class="p">)));</span>
   <span class="n">BOOST_OUTCOME_TRY</span> <span class="p">((</span><span class="n">print_half</span><span class="p">(</span><span class="s">&#34;X&#34;</span><span class="p">)));</span>

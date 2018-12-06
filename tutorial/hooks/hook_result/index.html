@@ -35,8 +35,7 @@
 on failure construction only, we want custom code to be run which increments the current
 slot in TLS storage and writes the current stack backtrace into it.</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">namespace</span> <span class="n">error_code_extended</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">namespace</span> <span class="n">error_code_extended</span>
 <span class="p">{</span>
   <span class="c1">// Specialise the result construction hook for our localised result
 </span><span class="c1"></span>  <span class="c1">// We hook any non-copy, non-move, non-inplace construction, capturing a stack backtrace

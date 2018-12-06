@@ -33,8 +33,7 @@
 <div id="content">
     <p>First, we need a base definition for <code>construct&lt;T&gt;</code>:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span><span class="err"> </span><span class="nc">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">construct</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span><span class="err"> </span><span class="nc">T</span><span class="o">&gt;</span> <span class="k">struct</span> <span class="n">construct</span>
 <span class="p">{</span>
   <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="k">operator</span><span class="p">()()</span> <span class="k">const</span> <span class="k">noexcept</span>
   <span class="p">{</span>  <span class="c1">//
@@ -48,8 +47,7 @@
 
 <p>We then specialise for <code>construct&lt;file_handle&gt;</code>:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">template</span> <span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">construct</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span> <span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">construct</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span>
 <span class="p">{</span>
   <span class="n">file_handle</span><span class="o">::</span><span class="n">path_type</span> <span class="n">_path</span><span class="p">;</span>
   <span class="n">file_handle</span><span class="o">::</span><span class="n">mode</span> <span class="n">_mode</span><span class="p">{</span><span class="n">file_handle</span><span class="o">::</span><span class="n">mode</span><span class="o">::</span><span class="n">read</span><span class="p">};</span>

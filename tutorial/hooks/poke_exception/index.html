@@ -41,8 +41,7 @@ stored backtrace and using it to synthesise an exception ptr with a message text
 including the backtrace. Firstly let us look at the function which synthesises
 the exception ptr:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">namespace</span> <span class="n">error_code_extended</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">namespace</span> <span class="n">error_code_extended</span>
 <span class="p">{</span>
   <span class="c1">// Synthesise a custom exception_ptr from the TLS slot and write it into the outcome
 </span><span class="c1"></span>  <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span><span class="err"> </span><span class="nc">R</span><span class="o">&gt;</span> <span class="kr">inline</span> <span class="kt">void</span> <span class="n">poke_exception</span><span class="p">(</span><span class="n">outcome</span><span class="o">&lt;</span><span class="n">R</span><span class="o">&gt;</span> <span class="o">*</span><span class="n">o</span><span class="p">)</span>

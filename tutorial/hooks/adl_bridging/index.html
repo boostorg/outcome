@@ -40,8 +40,7 @@ function was to be found.</p>
 into the local namespace. This ensures that this namespace will be searched by the
 compiler when discovering the event hooks.</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">namespace</span> <span class="n">error_code_extended</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">namespace</span> <span class="n">error_code_extended</span>
 <span class="p">{</span>
   <span class="c1">// Use the error_code type as the ADL bridge for the hooks by creating a type here
 </span><span class="c1"></span>  <span class="c1">// It can be any type that your localised result uses, including the value type but

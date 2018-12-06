@@ -1036,11 +1036,32 @@ li p:first-of-type {
 }
 pre.chroma {
   margin: 0;
-  position: relative;
-  margin-top: -1em;
+}
+dl {
+  text-align: left;
+  font-size: 10pt;
+  line-height: 1.15;
 }
 div.toc dl.children dt dl {
   margin-inline-start: 40px;
+}
+
+div.note,
+div.tip,
+div.important,
+div.caution,
+div.warning,
+div.blurb {
+  position: relative;
+}
+div.notices div.heading {
+  margin-left: 40px;
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: larger;
+}
+div.notices div.message {
+  margin-left: 40px;
 }
 
 /* Bits ported over from local.css for the DockDoc theme.

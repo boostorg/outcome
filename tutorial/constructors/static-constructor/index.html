@@ -33,8 +33,7 @@
 <div id="content">
     <p>Its phase 2 constructor:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="c1">// Phase 2 static member constructor function, which cannot throw
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// Phase 2 static member constructor function, which cannot throw
 </span><span class="c1"></span><span class="kr">inline</span> <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span> <span class="n">file_handle</span><span class="o">::</span><span class="n">file</span><span class="p">(</span><span class="n">file_handle</span><span class="o">::</span><span class="n">path_type</span> <span class="n">path</span><span class="p">,</span> <span class="n">file_handle</span><span class="o">::</span><span class="n">mode</span> <span class="n">mode</span><span class="p">)</span> <span class="k">noexcept</span>
 <span class="p">{</span>
   <span class="c1">// Perform phase 1 of object construction
@@ -82,7 +81,10 @@ which puts the object into a legally destructible state. We then
 proceed to implement phase 2 of construction, filling in the various
 parts as we go, reporting via <code>result</code> any failures.</p>
 
-<div class="notices note" ><p>Remember that <code>operator new</code> has a non-throwing form, <code>new(std::nothrow)</code>.</p>
+<div class="notices note" style="background: url(/boost-outcome/images/note.png) top left no-repeat padding-box padding-box;">
+<div class="notices heading">note</div>
+<div class="notices message"><p>Remember that <code>operator new</code> has a non-throwing form, <code>new(std::nothrow)</code>.</p>
+</div>
 </div>
 
 

@@ -35,8 +35,7 @@
 from the HTMLTidy library. We also create an <code>app</code> namespace wrapper
 for the C <code>tidy_html()</code> function which is more C++ friendly.</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">namespace</span> <span class="n">app</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">namespace</span> <span class="n">app</span>
 <span class="p">{</span>
   <span class="c1">// Specialise an exception type for tidylib errors
 </span><span class="c1"></span>  <span class="k">struct</span> <span class="nl">tidylib_error</span> <span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">system_error</span>

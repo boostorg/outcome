@@ -33,8 +33,7 @@
 <div id="content">
     <p>Let us start with a simple C++ function which we wish to make available to C code:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="c1">// Fill the supplied buffer with the integer v converted to a string, returning
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// Fill the supplied buffer with the integer v converted to a string, returning
 </span><span class="c1">// length of string minus null terminator
 </span><span class="c1"></span><span class="k">extern</span> <span class="s">&#34;C&#34;</span> <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">size_t</span><span class="o">&gt;</span> <span class="n">to_string</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">bufferlen</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">)</span> <span class="k">noexcept</span>
 <span class="p">{</span>

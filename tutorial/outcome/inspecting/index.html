@@ -36,8 +36,7 @@ It will call function <code>h</code> from <code>Layer2_old</code> which returns 
 The goal is to unpack it to either the successful return value <code>int</code> or to throw an appropriate exception: if we are storing an <code>std::exception_ptr</code> just rethrow it.
 If we are storing an <code>std::error_code</code> throw it as <code>std::system_error</code>, which is designed to store <code>std::error_code</code>&rsquo;s:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">auto</span> <span class="nf">z</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="c1">// throws on failure
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">auto</span> <span class="nf">z</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">int</span> <span class="c1">// throws on failure
 </span><span class="c1"></span><span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">outcome</span><span class="o">::</span><span class="n">outcome</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">o</span> <span class="o">=</span> <span class="n">old</span><span class="o">::</span><span class="n">h</span><span class="p">())</span>
     <span class="k">return</span> <span class="n">o</span><span class="p">.</span><span class="n">value</span><span class="p">();</span>

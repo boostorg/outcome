@@ -34,8 +34,7 @@
     <p>Borrowing from <a href="https://ned14.github.io/afio/classafio__v2__xxx_1_1file__handle.html"><code>afio::file_handle</code></a>
 which uses this design pattern, here is a simplified <code>file_handle</code> implementation:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">class</span><span class="err"> </span><span class="nc">file_handle</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">class</span><span class="err"> </span><span class="nc">file_handle</span>
 <span class="p">{</span>
   <span class="kt">int</span> <span class="n">_fd</span><span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">};</span>  <span class="c1">// file descriptor
 </span><span class="c1"></span>  <span class="k">struct</span> <span class="n">stat</span> <span class="n">_stat</span>

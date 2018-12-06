@@ -35,8 +35,7 @@
 STL exception type before we can type erase it into an <code>exception_ptr</code>
 instance. Please note that this code is defined in the <code>app</code> namespace:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">namespace</span> <span class="n">app</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">namespace</span> <span class="n">app</span>
 <span class="p">{</span>
   <span class="c1">// Specialise an exception type for httplib errors
 </span><span class="c1"></span>  <span class="k">struct</span> <span class="nl">httplib_error</span> <span class="p">:</span> <span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span>

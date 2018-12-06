@@ -39,8 +39,7 @@ construction. As <code>poke_exception()</code> creates a <code>std::string</code
 it could indeed throw an exception and thus with the <code>noexcept</code> hooks below, the
 process would be terminated.</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">namespace</span> <span class="n">error_code_extended</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">namespace</span> <span class="n">error_code_extended</span>
 <span class="p">{</span>
   <span class="c1">// Specialise the outcome copy and move conversion hook for when our localised result
 </span><span class="c1"></span>  <span class="c1">// is used as the source for copy construction our localised outcome

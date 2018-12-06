@@ -173,16 +173,14 @@ to not use exceptions to propagate failure reports across thread, tasks, fibers;
 
 <p>One of the tools in the Outcome library is <code>result&lt;T&gt;</code>: it represents either a successfully computed value of type <code>T</code> or an <code>std::error_code</code> representing the reason for failure. You use it in the function&rsquo;s return type:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">auto</span> <span class="nf">read_data_from_file</span><span class="p">(</span><span class="n">string_view</span> <span class="n">path</span><span class="p">)</span> <span class="k">noexcept</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">auto</span> <span class="nf">read_data_from_file</span><span class="p">(</span><span class="n">string_view</span> <span class="n">path</span><span class="p">)</span> <span class="k">noexcept</span>
   <span class="o">-&gt;</span> <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div><a href="https://github.com/ned14/boost-outcome/tree/master/doc/src/snippets/intro_example.cpp#L20" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 <p>It is possible to inspect the state manually:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">rslt</span> <span class="o">=</span> <span class="n">read_data_from_file</span><span class="p">(</span><span class="s">&#34;config.cfg&#34;</span><span class="p">))</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">if</span> <span class="p">(</span><span class="k">auto</span> <span class="n">rslt</span> <span class="o">=</span> <span class="n">read_data_from_file</span><span class="p">(</span><span class="s">&#34;config.cfg&#34;</span><span class="p">))</span>
   <span class="n">use_string</span><span class="p">(</span><span class="n">rslt</span><span class="p">.</span><span class="n">value</span><span class="p">());</span>                   <span class="c1">// returns string
 </span><span class="c1"></span><span class="k">else</span>
   <span class="k">throw</span> <span class="n">LibError</span><span class="p">{</span><span class="n">rslt</span><span class="p">.</span><span class="n">error</span><span class="p">(),</span> <span class="s">&#34;config.cfg&#34;</span><span class="p">};</span> <span class="c1">// returns error_code
@@ -191,8 +189,7 @@ to not use exceptions to propagate failure reports across thread, tasks, fibers;
 
 <p>Or, if this function is called in another function that also returns <code>result&lt;T&gt;</code> you can use a dedicated control statement:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">auto</span> <span class="nf">process</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">content</span><span class="p">)</span> <span class="k">noexcept</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">auto</span> <span class="nf">process</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">content</span><span class="p">)</span> <span class="k">noexcept</span>
   <span class="o">-&gt;</span> <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
 
 <span class="k">auto</span> <span class="nf">get_int_from_file</span><span class="p">(</span><span class="n">string_view</span> <span class="n">path</span><span class="p">)</span> <span class="k">noexcept</span>
@@ -208,8 +205,11 @@ to not use exceptions to propagate failure reports across thread, tasks, fibers;
 <p><code>BOOST_OUTCOME_TRY</code> is a control statement. If the returned <code>result&lt;T&gt;</code> object contains an error information, the enclosing function is immediately returned with <code>result&lt;U&gt;</code> containing the same failure information; otherwise an automatic object of type <code>T</code>
 is available in scope.</p>
 
-<div class="notices note" ><p>This is the v2 Outcome designed in response to feedback from a <a href="https://lists.boost.org/boost-announce/2017/06/0510.php">Boost peer review held in
+<div class="notices note" style="background: url(/boost-outcome/images/note.png) top left no-repeat padding-box padding-box;">
+<div class="notices heading">note</div>
+<div class="notices message"><p>This is the v2 Outcome designed in response to feedback from a <a href="https://lists.boost.org/boost-announce/2017/06/0510.php">Boost peer review held in
 May 2017</a>. This library has successfully passed the second Boost peer review, and is currently expected to become part of the Boost official release distribution before the 1.70 release (Spring 2019).</p>
+</div>
 </div>
 
 

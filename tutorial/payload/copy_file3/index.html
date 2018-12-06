@@ -44,8 +44,7 @@ threw the exact same <code>filesystem_error</code> as the Filesystem TS does.</p
 <p>Telling Outcome how to throw a <code>filesystem_error</code> with payload of the
 failing paths is easy:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">namespace</span> <span class="n">filesystem2</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">namespace</span> <span class="n">filesystem2</span>
 <span class="p">{</span>
   <span class="c1">// If we would like Outcome to do something other than the default action (see next
 </span><span class="c1"></span>  <span class="c1">// section), we can declare this ADL discovered free function to customise what
@@ -69,8 +68,7 @@ failing paths is easy:</p>
 
 <p>Usage of our new &ldquo;upgraded&rdquo; Filesystem <code>copy_file()</code> might now be as follows:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-  <span class="c1">// Non-throwing use case
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">  <span class="c1">// Non-throwing use case
 </span><span class="c1"></span>  <span class="k">auto</span> <span class="n">o</span> <span class="o">=</span> <span class="n">filesystem2</span><span class="o">::</span><span class="n">copy_file</span><span class="p">(</span><span class="s">&#34;dontexist&#34;</span><span class="p">,</span> <span class="s">&#34;alsodontexist&#34;</span><span class="p">);</span>
   <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">o</span><span class="p">)</span>
   <span class="p">{</span>

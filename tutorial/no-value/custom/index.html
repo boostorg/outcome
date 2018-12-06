@@ -34,8 +34,7 @@
     <p>If you want your <code>basic_outcome&lt;&gt;</code> or <code>basic_result&lt;&gt;</code> instances to call
 <code>std::abort()</code> whenever <code>.value()</code> is called on an object that does not contain a value, or <code>.error()</code> is called on an object that does not contain an error, you will need to define your own no-value policy as follows:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">struct</span> <span class="nl">abort_policy</span> <span class="p">:</span> <span class="n">outcome</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">base</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">struct</span> <span class="nl">abort_policy</span> <span class="p">:</span> <span class="n">outcome</span><span class="o">::</span><span class="n">policy</span><span class="o">::</span><span class="n">base</span>
 <span class="p">{</span>
   <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span><span class="err"> </span><span class="nc">Impl</span><span class="o">&gt;</span> <span class="k">static</span> <span class="k">constexpr</span> <span class="kt">void</span> <span class="n">wide_value_check</span><span class="p">(</span><span class="k">const</span> <span class="n">Impl</span><span class="o">&amp;</span> <span class="n">self</span><span class="p">)</span>
   <span class="p">{</span>
@@ -61,8 +60,7 @@
 <p>Once the policy is defined, you have to use it when providing your own
 <code>basic_outcome</code> specialization:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">strictOutcome</span>
   <span class="o">=</span> <span class="n">outcome</span><span class="o">::</span><span class="n">basic_outcome</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">error_code</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">exception_ptr</span><span class="p">,</span> <span class="n">abort_policy</span><span class="o">&gt;</span><span class="p">;</span>
 </code></pre></div><a href="https://github.com/ned14/boost-outcome/tree/master/doc/src/snippets/policies.cpp#L65" class="code-snippet-url" target="_blank">View this code on Github</a></div>

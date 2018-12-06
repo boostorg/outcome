@@ -34,8 +34,7 @@
     <p>We have built our first two phases of construction for <code>file_handle</code>,
 and for some users they might be happy writing:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-  <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span> <span class="n">fh1</span> <span class="o">=</span> <span class="n">file_handle</span><span class="o">::</span><span class="n">file</span><span class="p">(</span><span class="s">&#34;hello&#34;</span> <span class="cm">/*, file_handle::mode::read */</span><span class="p">);</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">  <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span> <span class="n">fh1</span> <span class="o">=</span> <span class="n">file_handle</span><span class="o">::</span><span class="n">file</span><span class="p">(</span><span class="s">&#34;hello&#34;</span> <span class="cm">/*, file_handle::mode::read */</span><span class="p">);</span>
   <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">fh1</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Opening file &#39;hello&#39; failed with &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">fh1</span><span class="p">.</span><span class="n">error</span><span class="p">().</span><span class="n">message</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
@@ -48,8 +47,7 @@ and for some users they might be happy writing:</p>
 
 <p>But wouldn&rsquo;t it be nicer if we could instead write:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-  <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span> <span class="n">fh2</span> <span class="o">=</span> <span class="n">construct</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span><span class="p">{</span><span class="s">&#34;hello&#34;</span> <span class="cm">/*, file_handle::mode::read */</span><span class="p">}();</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">  <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span> <span class="n">fh2</span> <span class="o">=</span> <span class="n">construct</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span><span class="p">{</span><span class="s">&#34;hello&#34;</span> <span class="cm">/*, file_handle::mode::read */</span><span class="p">}();</span>
   <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">fh2</span><span class="p">)</span>
   <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Opening file &#39;hello&#39; failed with &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">fh2</span><span class="p">.</span><span class="n">error</span><span class="p">().</span><span class="n">message</span><span class="p">()</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>

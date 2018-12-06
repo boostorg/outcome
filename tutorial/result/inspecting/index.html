@@ -33,8 +33,7 @@
 <div id="content">
     <p>Suppose we will be writing a function <code>print_half</code> that takes an integer number (however big) represented as an <code>std::string</code> and outputs a number which is twice smaller:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">print_half</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">text</span><span class="p">);</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">print_half</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">text</span><span class="p">);</span>
 </code></pre></div><a href="https://github.com/ned14/boost-outcome/tree/master/doc/src/snippets/using_result.cpp#L114" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
@@ -42,8 +41,7 @@
 
 <p>The implementation will do the following: if the integral number can be represented by an <code>int</code>, we will convert to <code>int</code> and use its arithmetical operations. If the number is too large, we will fall back to using a custom <code>BigInt</code> implementation that needs to allocate memory. In the implementation we will use the function <code>convert</code> defined in the previous section.</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">print_half</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">text</span><span class="p">)</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span> <span class="n">print_half</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">text</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">if</span> <span class="p">(</span><span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">convert</span><span class="p">(</span><span class="n">text</span><span class="p">))</span>     <span class="c1">// #1
 </span><span class="c1"></span>  <span class="p">{</span>
@@ -74,8 +72,7 @@
 
 <p>#4. Macro <code>BOOST_OUTCOME_TRY</code> represents a control statement. It implies that the expression in the second argument returns a <code>result&lt;&gt;</code>. The function is defined as:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
-<span class="cm">/*static*/</span> <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">BigInt</span><span class="o">&gt;</span> <span class="n">BigInt</span><span class="o">::</span><span class="n">fromString</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">)</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cm">/*static*/</span> <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">BigInt</span><span class="o">&gt;</span> <span class="n">BigInt</span><span class="o">::</span><span class="n">fromString</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">s</span><span class="p">)</span>
 </code></pre></div><a href="https://github.com/ned14/boost-outcome/tree/master/doc/src/snippets/using_result.cpp#L107" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
