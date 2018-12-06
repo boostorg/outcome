@@ -792,6 +792,240 @@ span.gray { color: #808080; } /* light gray */
 
 
 
+
+/* section-basic.css */
+/*
+  Copyright 2005-2008 Redshift Software, Inc.
+  Distributed under the Boost Software License, Version 1.0.
+  (See accompanying file LICENSE_1_0.txt or https://www.boost.org/LICENSE_1_0.txt)
+*/
+/*@import url(css_0/header.css);*/
+/*
+  Copyright 2005-2008 Redshift Software, Inc.
+  Distributed under the Boost Software License, Version 1.0.
+  (See accompanying file LICENSE_1_0.txt or https://www.boost.org/LICENSE_1_0.txt)
+*/
+/* Heading, title and logo. */
+
+/* Position the common heading. This appears on pages which have their own
+ * markup. Since the body might have a margin this has to be absolutely
+ * positioned. The spacer then pushes the page content down so that it
+ * doesn't fall underneath the heading. */
+#boost-common-heading-doc {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+body.boost-asciidoctor #boost-common-heading-doc {
+    position: static;
+}
+
+#boost-common-heading-doc-spacer {
+  height: 100px;
+}
+body.boost-asciidoctor #boost-common-heading-doc-spacer {
+  display: none;
+}
+
+#boost-common-heading-doc,
+#heading {
+  margin: 0em;
+  border-bottom: #000000 solid 1px;
+  width: 100%;
+  font-family: sans-serif;
+  font-size: 9.5pt;
+}
+#boost-common-heading-doc .heading-inner,
+#heading .heading-inner {
+  height: 100px;
+  overflow: hidden;
+}
+
+#boost-common-heading-doc *,
+#heading * {
+  font-size: 100%;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}
+#boost-common-heading-doc .heading-placard,
+#heading .heading-placard {
+  display: none;
+}
+#boost-common-heading-doc .heading-title .heading-boost,
+#boost-common-heading-doc .heading-title .heading-cpplibraries,
+#heading .heading-title .heading-boost,
+#heading .heading-title .heading-cpplibraries {
+  display: none;
+}
+#boost-common-heading-doc .heading-title,
+#heading .heading-title {
+  float: left;
+}
+#boost-common-heading-doc .heading-title a,
+#heading .heading-title a {
+}
+#boost-common-heading-doc .heading-logo,
+#heading .heading-logo {
+  width: 270px;
+  height: 90px;
+  border: none;
+  vertical-align: bottom;
+  margin: 0px 0px 0px 1.5em;
+}
+#boost-common-heading-doc .heading-quote,
+#heading .heading-quote {
+  text-align: right;
+  padding: 25px 1.5em 10px 0em;
+}
+#boost-common-heading-doc .heading-quote q,
+#heading .heading-quote q {
+  font-size: 90%;
+  display: block;
+}
+#boost-common-heading-doc .heading-quote .heading-attribution,
+#heading .heading-quote .heading-attribution {
+  font-size: 85%;
+  display: block;
+}
+@media (max-device-width: 480px) {
+  .heading-quote {
+    display: none;
+  }
+}
+#boost-common-heading-doc .heading-sections,
+#heading .heading-sections {
+  display: none;
+}
+#boost-common-heading-doc .heading-search,
+#heading .heading-search {
+  display: none;
+  text-align: right;
+  padding: 0em 1.5em 0em 0em;
+}
+#boost-common-heading-doc .heading-search #search-text .q,
+#heading .heading-search #search-text .q {
+  background: transparent;
+  border: none;
+  border-bottom: 1px #BBBBBB solid;
+  margin-right: 0.25em;
+  font-size: 90%;
+}
+#boost-common-heading-doc .heading-search #search-text #q:hover,
+#heading .heading-search #search-text #q:hover {
+  border-bottom: 1px #FFFFFF solid;
+}
+
+.boost-common-header-notice {
+    font-family: sans-serif;
+    font-size: 13px;
+    border: 1px solid #aa5;
+    background: #ffc;
+    color: #000;
+}
+
+a.boost-common-header-inner,
+span.boost-common-header-inner,
+div.boost-common-header-inner {
+    display: block;
+    padding: 10px 13px;
+    text-decoration: none;
+    color: #000;
+}
+
+a.boost-common-header-inner:hover {
+    text-decoration: underline;
+}
+
+@media all and (min-width: 550px) {
+    .boost-common-header-notice {
+        position: absolute;
+        top: 10px;
+        max-width: 400px;
+        max-height: 80px;
+        overflow: hidden;
+        box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
+        margin-left: 300px;
+    }
+}
+
+
+/*@import url(css_0/theme_grape/header.css);*/
+/*
+  Copyright 2005-2006 Redshift Software, Inc.
+  Distributed under the Boost Software License, Version 1.0.
+  (See accompanying file LICENSE_1_0.txt or https://www.boost.org/LICENSE_1_0.txt)
+*/
+
+/* Heading, title and logo. */
+#heading,
+#boost-common-heading-doc {
+  /*background: #574D74 url(/images/header-bg.png) repeat-x top left;*/
+}
+#heading *,
+#boost-common-heading-doc * {
+  color: #FFFFFF;
+}
+#heading .heading-inner,
+#boost-common-heading-doc .heading-inner {
+  /*background: url(/images/header-fg.png) no-repeat top left;*/
+  border: none;
+  border-bottom: #000000 solid 1px;
+}
+#boost-common-heading-doc .heading-logo,
+#heading .heading-logo {
+  width: 236px;
+  height: 55px;
+  margin: 18px 0px 0px 24px;
+}
+
+/* Links in the header. */
+#boost-common-heading-doc .heading-quote a,
+#heading .heading-quote a {
+  border-bottom: 1px solid #BBBBBB;
+}
+#boost-common-heading-doc .heading-quote a:hover,
+#heading .heading-quote a:hover {
+  border-bottom: 1px solid #FFFFFF;
+}
+#boost-common-heading-doc .heading-quote a:visited,
+#heading .heading-quote a:visited {
+  border-bottom: 1px dotted #BBBBBB;
+}
+#boost-common-heading-doc .heading-quote a:visited:hover,
+#heading .heading-quote a:visited:hover {
+  border-bottom: 1px dotted #FFFFFF;
+}
+
+
+pre, div.toc
+{
+    overflow: auto;
+}
+
+div.note table,
+div.tip table,
+div.important table,
+div.caution table,
+div.warning table,
+div.blurb table
+{
+    table-layout: fixed;
+    width: 100%;
+    overflow-wrap: break-word;
+}
+
+span.inlinemediaobject img
+{
+    max-width: 100%;
+}
+
+
+
+
+
+
 /* Overrides to handle differences between BoostBook output and Hugo's.
 */
 li p:first-of-type {
@@ -805,6 +1039,9 @@ pre.chroma {
   position: relative;
   margin-top: -1em;
 }
+div.toc dl.children dt dl {
+  margin-inline-start: 40px;
+}
 
 /* Bits ported over from local.css for the DockDoc theme.
 */
@@ -814,6 +1051,7 @@ div.code-snippet {
 div.code-snippet a.code-snippet-url {
   font-size: 7pt;
   position: absolute;
-  right: 6em;
+  right: 4%;
   top: 0.7em;
+  padding-right: 1em;
 }

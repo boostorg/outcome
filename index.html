@@ -6,11 +6,144 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
 <link rel="icon" href="/boost-outcome/images/favicon.ico" type="image/ico"/>
-<body><div id="content">
+<body><div id="boost-common-heading-doc" style="background: #574D74 url(/boost-outcome/images/header-bg.png) repeat-x top left;">
+  <div class="heading-inner" style="background: url(/boost-outcome/images/header-fg.png) no-repeat top left;">
+  <div class="heading-placard"></div>
+
+  <h1 class="heading-title">
+    <a href="/">
+      <img src="/boost-outcome/images/space.png" alt="Boost C++ Libraries" class="heading-logo" />
+      <span class="heading-boost">Boost</span>
+      <span class="heading-cpplibraries">C++ Libraries</span>
+    </a>
+  </h1>
+
+  <p class="heading-quote">
+    <q>...one of the most highly
+    regarded and expertly designed C++ library projects in the
+    world.</q> <span class="heading-attribution">&mdash; <a href=
+    "http://www.gotw.ca/" class="external">Herb Sutter</a> and <a href=
+    "http://en.wikipedia.org/wiki/Andrei_Alexandrescu" class="external">Andrei
+    Alexandrescu</a>, <a href=
+    "http://safari.awprofessional.com/?XmlId=0321113586" class="external">C++
+    Coding Standards</a></span></p>
+  </div>
+</div>
+<div id="boost-common-heading-doc-spacer"></div>
+<div id="content">
 
 
 
 <h1 id="outcome-2-0-library">Outcome 2.0 library</h1>
+
+<div>
+  <div class="author">
+    <h3 class="author"><span class="firstname">Niall</span> <span class="surname">Douglas</span></h3>
+  </div>
+</div>
+<div><p class="copyright">Copyright &#169; 2014-2019 Niall Douglas <a href="/boost-outcome/credits">and others</a></p></div>
+<div><div class="legalnotice">
+<a name="outcome.legal"></a><p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="/LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></div>
+<div class="toc"><dl class="children children-dt"><dt>
+    <a href="/boost-outcome/requirements/" >Prerequisites</a><dt>
+    <a href="/boost-outcome/build/" >Build and install</a><dt>
+    <a href="/boost-outcome/use-matrix/" >Decision matrix</a><dt>
+    <a href="/boost-outcome/tutorial/interop/problem/" >Incommensurate E types</a><dt>
+    <a href="/boost-outcome/tutorial/interop/value-or-error/" >ValueOrError Concept</a><dt>
+    <a href="/boost-outcome/motivation/" >Motivation</a><dl><dt>
+    <a href="/boost-outcome/motivation/exceptions/" >Exceptions</a><dt>
+    <a href="/boost-outcome/motivation/errno/" >errno</a><dt>
+    <a href="/boost-outcome/motivation/error_codes/" >Error codes</a><dt>
+    <a href="/boost-outcome/motivation/std_error_code/" >std::error_code</a><dt>
+    <a href="/boost-outcome/motivation/plug_error_code/" >Plugging a library into std::error_code</a><dt>
+    <a href="/boost-outcome/motivation/narrow_contract/" >Narrow contracts</a></dt></dl><dt>
+    <a href="/boost-outcome/tutorial/no-value/custom/" >A custom no-value policy</a><dt>
+    <a href="/boost-outcome/reference/policies/all_narrow/" >All narrow (hard UB)</a><dt>
+    <a href="/boost-outcome/motivation/exceptions/" >Exceptions</a><dt>
+    <a href="/boost-outcome/tutorial/hooks/keeping_state/" >Keeping state</a><dt>
+    <a href="/boost-outcome/tutorial/c-api/limitations/" >Limitations</a><dt>
+    <a href="/boost-outcome/tutorial/payload/copy_file/" >The Filesystem TS</a><dt>
+    <a href="/boost-outcome/tutorial/interop/httplib/" >The HTTP library</a><dt>
+    <a href="/boost-outcome/tutorial/" >Tutorial</a><dl><dt>
+    <a href="/boost-outcome/tutorial/result/" >result&lt;&gt;</a><dt>
+    <a href="/boost-outcome/tutorial/outcome/" >outcome&lt;&gt;</a><dt>
+    <a href="/boost-outcome/tutorial/no-value/" >No-value policies</a><dt>
+    <a href="/boost-outcome/tutorial/payload/" >Custom payloads</a><dt>
+    <a href="/boost-outcome/tutorial/constructors/" >Result returning constructors</a><dt>
+    <a href="/boost-outcome/tutorial/hooks/" >Hooking events</a><dt>
+    <a href="/boost-outcome/tutorial/c-api/" >Using result&lt;T&gt; from C code</a><dt>
+    <a href="/boost-outcome/tutorial/interop/" >Interoperation</a></dt></dl><dt>
+    <a href="/boost-outcome/tutorial/constructors/two-phase-init/" >Two phase construction</a><dt>
+    <a href="/boost-outcome/reference/outcome/" >outcome&lt;R, S, P&gt;</a><dt>
+    <a href="/boost-outcome/tutorial/interop/tidylib/" >The HTMLTidy library</a><dt>
+    <a href="/boost-outcome/tutorial/constructors/file_handle/" >A file handle</a><dt>
+    <a href="/boost-outcome/tutorial/hooks/adl_bridging/" >ADL bridging</a><dt>
+    <a href="/boost-outcome/reference/" >API reference</a><dl><dt>
+    <a href="/boost-outcome/reference/outcome/" >outcome&lt;R, S, P&gt;</a><dt>
+    <a href="/boost-outcome/reference/result/" >result&lt;R, S&gt;</a><dt>
+    <a href="/boost-outcome/reference/try/" >Try operations</a><dt>
+    <a href="/boost-outcome/reference/success_failure/" >Success/Failure</a><dt>
+    <a href="/boost-outcome/reference/utils/" >Utilities</a><dt>
+    <a href="/boost-outcome/reference/convert/" >Interoperation</a><dt>
+    <a href="/boost-outcome/reference/bad_access/" >Exceptions</a><dt>
+    <a href="/boost-outcome/reference/iostream_support/" >iostream support</a><dt>
+    <a href="/boost-outcome/reference/result_c/" >C API</a><dt>
+    <a href="/boost-outcome/reference/policies/" >Policies</a></dt></dl><dt>
+    <a href="/boost-outcome/tutorial/no-value/builtin/" >Built-in policies</a><dt>
+    <a href="/boost-outcome/tutorial/c-api/example/" >Example C&#43;&#43; function</a><dt>
+    <a href="/boost-outcome/tutorial/result/inspecting/" >Inspecting result&lt;T, EC&gt;</a><dt>
+    <a href="/boost-outcome/tutorial/interop/filelib/" >The File I/O library</a><dt>
+    <a href="/boost-outcome/tutorial/payload/copy_file2/" >Upgrading the Filesystem TS</a><dt>
+    <a href="/boost-outcome/motivation/errno/" >errno</a><dt>
+    <a href="/boost-outcome/reference/policies/outcome_error_code_throw_as_system_error/" >error_code throw as system_error (Outcome)</a><dt>
+    <a href="/boost-outcome/reference/result/" >result&lt;R, S&gt;</a><dt>
+    <a href="/boost-outcome/tutorial/interop/app/" >The Application</a><dt>
+    <a href="/boost-outcome/tutorial/payload/copy_file3/" >Auto-throwing filesystem_error</a><dt>
+    <a href="/boost-outcome/tutorial/c-api/example2/" >Calling it from C</a><dt>
+    <a href="/boost-outcome/motivation/error_codes/" >Error codes</a><dt>
+    <a href="/boost-outcome/faq/" >Frequently asked questions</a><dt>
+    <a href="/boost-outcome/tutorial/hooks/hook_result/" >Hook result</a><dt>
+    <a href="/boost-outcome/tutorial/outcome/inspecting/" >Inspecting outcome&lt;T, EC, EP&gt;</a><dt>
+    <a href="/boost-outcome/tutorial/interop/app-map-httplib1/" >Mapping the HTTP library into the Application 1/2</a><dt>
+    <a href="/boost-outcome/tutorial/constructors/static-constructor/" >Phase 2 construction</a><dt>
+    <a href="/boost-outcome/tutorial/result/try/" >TRY operations</a><dt>
+    <a href="/boost-outcome/reference/try/" >Try operations</a><dt>
+    <a href="/boost-outcome/reference/policies/result_error_code_throw_as_system_error/" >error_code throw as system_error (Result)</a><dt>
+    <a href="/boost-outcome/tutorial/interop/app-map-httplib2/" >Mapping the HTTP library into the Application 2/2</a><dt>
+    <a href="/boost-outcome/tutorial/hooks/poke_exception/" >Custom exception ptr</a><dt>
+    <a href="/boost-outcome/tutorial/interop/app-map-filelib/" >Mapping the File I/O library into the Application</a><dt>
+    <a href="/boost-outcome/tutorial/constructors/metaprogrammg1/" >Phase 3</a><dt>
+    <a href="/boost-outcome/reference/success_failure/" >Success/Failure</a><dt>
+    <a href="/boost-outcome/tutorial/c-api/variations/" >Variations</a><dt>
+    <a href="/boost-outcome/videos/" >Videos</a><dt>
+    <a href="/boost-outcome/reference/policies/outcome_exception_ptr_rethrow/" >exception_ptr rethrow (Outcome)</a><dt>
+    <a href="/boost-outcome/motivation/std_error_code/" >std::error_code</a><dt>
+    <a href="/boost-outcome/tutorial/interop/app-map-tidylib/" >Mapping the HTMLTidy library into the Application</a><dt>
+    <a href="/boost-outcome/tutorial/hooks/hook_outcome/" >Hook outcome</a><dt>
+    <a href="/boost-outcome/tutorial/interop/app-go/" >In use</a><dt>
+    <a href="/boost-outcome/motivation/plug_error_code/" >Plugging a library into std::error_code</a><dt>
+    <a href="/boost-outcome/reference/utils/" >Utilities</a><dt>
+    <a href="/boost-outcome/tutorial/constructors/metaprogrammg2/" >construct&lt;T&gt;</a><dt>
+    <a href="/boost-outcome/reference/policies/result_exception_ptr_rethrow/" >exception_ptr rethrow (Result)</a><dt>
+    <a href="/boost-outcome/tutorial/interop/conclusion/" >Conclusion</a><dt>
+    <a href="/boost-outcome/tutorial/constructors/metaprogrammg3/" >Alternatives</a><dt>
+    <a href="/boost-outcome/reference/convert/" >Interoperation</a><dt>
+    <a href="/boost-outcome/motivation/narrow_contract/" >Narrow contracts</a><dt>
+    <a href="/boost-outcome/reference/policies/terminate/" >Termimate</a><dt>
+    <a href="/boost-outcome/reference/bad_access/" >Exceptions</a><dt>
+    <a href="/boost-outcome/reference/policies/throw_bad_result_access/" >Throw bad_result_access</a><dt>
+    <a href="/boost-outcome/changelog/" >Changelog</a><dt>
+    <a href="/boost-outcome/reference/iostream_support/" >iostream support</a><dt>
+    <a href="/boost-outcome/reference/result_c/" >C API</a><dt>
+    <a href="/boost-outcome/history/" >History</a><dt>
+    <a href="/boost-outcome/_header/" ></a><dt>
+    <a href="/boost-outcome/credits/" >Acknowledgements</a></dt></dl>
+</div>
+<h2 class="title">Introduction</h2>
 
 <p>Outcome is a set of tools for reporting and handling function failures in contexts where using C++ exception handling is unsuitable. Such contexts include:</p>
 

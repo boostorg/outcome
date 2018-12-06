@@ -6,7 +6,31 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 
 <link rel="icon" href="/boost-outcome/images/favicon.ico" type="image/ico"/>
-<body><div id="content">
+<body><div id="boost-common-heading-doc" style="background: #574D74 url(/boost-outcome/images/header-bg.png) repeat-x top left;">
+  <div class="heading-inner" style="background: url(/boost-outcome/images/header-fg.png) no-repeat top left;">
+  <div class="heading-placard"></div>
+
+  <h1 class="heading-title">
+    <a href="/">
+      <img src="/boost-outcome/images/space.png" alt="Boost C++ Libraries" class="heading-logo" />
+      <span class="heading-boost">Boost</span>
+      <span class="heading-cpplibraries">C++ Libraries</span>
+    </a>
+  </h1>
+
+  <p class="heading-quote">
+    <q>...one of the most highly
+    regarded and expertly designed C++ library projects in the
+    world.</q> <span class="heading-attribution">&mdash; <a href=
+    "http://www.gotw.ca/" class="external">Herb Sutter</a> and <a href=
+    "http://en.wikipedia.org/wiki/Andrei_Alexandrescu" class="external">Andrei
+    Alexandrescu</a>, <a href=
+    "http://safari.awprofessional.com/?XmlId=0321113586" class="external">C++
+    Coding Standards</a></span></p>
+  </div>
+</div>
+<div id="boost-common-heading-doc-spacer"></div>
+<div id="content">
 
 <p>This section describes techniques currently used to report and handle failures
 in functions, it also shows why this techniques might be insufficient.</p>
@@ -18,22 +42,19 @@ section</a>.</p>
 </div>
 
 
-
-
 <ol class="children children-li"><li>
-	<a href="/boost-outcome/motivation/exceptions/" >Exceptions</a></li>
+	<a href="/boost-outcome/motivation/exceptions/" >Exceptions</a>
 <p>Exceptions with their good and bad sides.</p><li>
-	<a href="/boost-outcome/motivation/errno/" >errno</a></li>
+	<a href="/boost-outcome/motivation/errno/" >errno</a>
 <p>errno with their good and bad sides.</p><li>
-	<a href="/boost-outcome/motivation/error_codes/" >Error codes</a></li>
+	<a href="/boost-outcome/motivation/error_codes/" >Error codes</a>
 <p>Error codes with their good and bad sides.</p><li>
-	<a href="/boost-outcome/motivation/std_error_code/" >std::error_code</a></li>
+	<a href="/boost-outcome/motivation/std_error_code/" >std::error_code</a>
 <p>Overview of std::error_code</p><li>
-	<a href="/boost-outcome/motivation/plug_error_code/" >Plugging a library into std::error_code</a></li>
+	<a href="/boost-outcome/motivation/plug_error_code/" >Plugging a library into std::error_code</a>
 <p>Illustrates how you can hook into the std::error_code system from the Standard Library in order to work with your own set of error codes.</p><li>
-	<a href="/boost-outcome/motivation/narrow_contract/" >Narrow contracts</a></li>
-<p>Describes narrow-contract functions that do not work for all input values, and advantage of using them.</p>
-</ol>
+	<a href="/boost-outcome/motivation/narrow_contract/" >Narrow contracts</a>
+<p>Describes narrow-contract functions that do not work for all input values, and advantage of using them.</p></li></ol>
 
 
 
