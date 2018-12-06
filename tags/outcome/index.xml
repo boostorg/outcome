@@ -5,6 +5,7 @@
     <link>https://ned14.github.io/boost-outcome/tags/outcome/</link>
     <description>Recent content in Outcome on Boost.Outcome documentation</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 05 Dec 2018 14:18:52 +0000</lastBuildDate>
     
 	<atom:link href="https://ned14.github.io/boost-outcome/tags/outcome/index.xml" rel="self" type="application/rss+xml" />
     
@@ -21,7 +22,7 @@
     <item>
       <title>outcome&lt;&gt;</title>
       <link>https://ned14.github.io/boost-outcome/tutorial/outcome/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 Dec 2018 14:18:52 +0000</pubDate>
       
       <guid>https://ned14.github.io/boost-outcome/tutorial/outcome/</guid>
       <description>outcome&amp;lt;&amp;gt; Type  outcome&amp;lt;T, EC, EP, NVP&amp;gt; represets either a successfully computed value of type T or a reason for failure. Failure can be represented by EC or EP or both. Although usually it will either be an EC or an EP. EC defaults to std::error_code and EP defaults to std::exception_ptr. The distinction is made into two types, EC and EP:

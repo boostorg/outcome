@@ -5,6 +5,7 @@
     <link>https://ned14.github.io/boost-outcome/tags/namespace/</link>
     <description>Recent content in Namespace on Boost.Outcome documentation</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 05 Dec 2018 14:18:52 +0000</lastBuildDate>
     
 	<atom:link href="https://ned14.github.io/boost-outcome/tags/namespace/index.xml" rel="self" type="application/rss+xml" />
     
@@ -12,7 +13,7 @@
     <item>
       <title>result&lt;&gt;</title>
       <link>https://ned14.github.io/boost-outcome/tutorial/result/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 Dec 2018 14:18:52 +0000</pubDate>
       
       <guid>https://ned14.github.io/boost-outcome/tutorial/result/</guid>
       <description>Outcome 2.0 namespace It is recommended that you refer to entities from this Outcome 2.0 via the following namespace alias:

@@ -4,306 +4,382 @@
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/requirements/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/build/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/use-matrix/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/interop/problem/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/interop/value-or-error/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/motivation/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/no-value/custom/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/policies/all_narrow/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/motivation/exceptions/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/hooks/keeping_state/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/c-api/limitations/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/payload/copy_file/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/interop/httplib/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/two-phase-init/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/outcome/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/result/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/interop/tidylib/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/file_handle/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/hooks/adl_bridging/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/no-value/builtin/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/c-api/example/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/result/inspecting/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/interop/filelib/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/payload/copy_file2/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/motivation/errno/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/policies/outcome_error_code_throw_as_system_error/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/outcome/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/result/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/no-value/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/interop/app/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/payload/copy_file3/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/c-api/example2/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/payload/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/motivation/error_codes/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/faq/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/hooks/hook_result/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/outcome/inspecting/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/interop/app-map-httplib1/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/static-constructor/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/result/try/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/try/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/policies/result_error_code_throw_as_system_error/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/interop/app-map-httplib2/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/hooks/poke_exception/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/interop/app-map-filelib/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/metaprogrammg1/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/success_failure/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/c-api/variations/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/videos/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/policies/outcome_exception_ptr_rethrow/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/motivation/std_error_code/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/interop/app-map-tidylib/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/hooks/hook_outcome/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/hooks/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/interop/app-go/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/motivation/plug_error_code/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/utils/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/metaprogrammg2/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/policies/result_exception_ptr_rethrow/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/interop/conclusion/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/constructors/metaprogrammg3/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/convert/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/motivation/narrow_contract/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/policies/terminate/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/bad_access/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/policies/throw_bad_result_access/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/c-api/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/changelog/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tutorial/interop/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/iostream_support/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/result_c/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/history/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/reference/policies/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
@@ -312,15 +388,18 @@
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/credits/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/adl-bridging/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/backtrace/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -331,95 +410,114 @@
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/constructors/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/default-actions/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/dual-api/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/error/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/exception/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/has_error_code/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/</loc>
+    <lastmod>2018-12-06T00:22:17+00:00</lastmod>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/hooks/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/make_error_code/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/namespace/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/nodiscard/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/outcome/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/payload/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/policies/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/result/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/try/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/value/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://ned14.github.io/boost-outcome/tags/value-or-error/</loc>
+    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
   </url>
   

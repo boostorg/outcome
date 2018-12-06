@@ -5,6 +5,7 @@
     <link>https://ned14.github.io/boost-outcome/tags/has_error_code/</link>
     <description>Recent content in Has_error_code on Boost.Outcome documentation</description>
     <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Wed, 05 Dec 2018 14:18:52 +0000</lastBuildDate>
     
 	<atom:link href="https://ned14.github.io/boost-outcome/tags/has_error_code/index.xml" rel="self" type="application/rss+xml" />
     
@@ -12,7 +13,7 @@
     <item>
       <title>Custom payloads</title>
       <link>https://ned14.github.io/boost-outcome/tutorial/payload/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 05 Dec 2018 14:18:52 +0000</pubDate>
       
       <guid>https://ned14.github.io/boost-outcome/tutorial/payload/</guid>
       <description>So far in this tutorial, type EC in result&amp;lt;T, EC&amp;gt; has always been a std::error_code (though it can be of any type you wish instead). EC needs in fact to merely satisfy  trait::has_error_code_v&amp;lt;EC&amp;gt; for EC to be treated as if an std::error_code.

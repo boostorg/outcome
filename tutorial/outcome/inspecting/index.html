@@ -30,7 +30,16 @@
   </div>
 </div>
 <div id="boost-common-heading-doc-spacer"></div>
-<div id="content">
+<div class="spirit-nav">
+  
+  <a accesskey="p" href="Page%28/tutorial/interop/app-map-httplib1.md%29"><img src="/boost-outcome/images/prev.png" alt="Prev"></a>
+  
+  <a accesskey="u" href="/"><img src="/boost-outcome/images/up.png" alt="Up"></a>
+  <a accesskey="h" href="/boost-outcome/"><img src="/boost-outcome/images/home.png" alt="Home"></a>
+  
+  <a accesskey="n" href="Page%28/tutorial/hooks/hook_result.md%29"><img src="/boost-outcome/images/next.png" alt="Next"></a>
+  
+</div><div id="content">
     <p>Continuing with the previous example, in <code>Layer3</code> we have function <code>z</code> which again reports failures via exceptions.
 It will call function <code>h</code> from <code>Layer2_old</code> which returns <code>outcome&lt;int&gt;</code> (which may store a <code>double</code> or an <code>std::error_code</code> or an <code>std::exception_ptr</code>).
 The goal is to unpack it to either the successful return value <code>int</code> or to throw an appropriate exception: if we are storing an <code>std::exception_ptr</code> just rethrow it.
@@ -54,5 +63,16 @@ is so common that it has been implemented inside function <code>.value()</code>,
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">return</span> <span class="n">old</span><span class="o">::</span><span class="n">h</span><span class="p">().</span><span class="n">value</span><span class="p">();</span>
 </code></pre></div>
 
-        </div></body>
+        </div><p><small>Last revised: December 05, 2018 at 14:18:52 UTC</small></p>
+<hr>
+<div class="spirit-nav">
+  
+  <a accesskey="p" href="Page%28/tutorial/interop/app-map-httplib1.md%29"><img src="/boost-outcome/images/prev.png" alt="Prev"></a>
+  
+  <a accesskey="u" href="/"><img src="/boost-outcome/images/up.png" alt="Up"></a>
+  <a accesskey="h" href="/boost-outcome/"><img src="/boost-outcome/images/home.png" alt="Home"></a>
+  
+  <a accesskey="n" href="Page%28/tutorial/hooks/hook_result.md%29"><img src="/boost-outcome/images/next.png" alt="Next"></a>
+  
+</div></body>
 </html>
