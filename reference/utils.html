@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Utilities - Boost.Outcome documentation</title>
+<link rel="stylesheet" href="../css/boost.css" type="text/css">
+<meta name="generator" content="Hugo 0.52 with Boostdoc theme">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<link rel="icon" href="../images/favicon.ico" type="image/ico"/>
+<body><div id="boost-common-heading-doc" style="background: #574D74 url('../images/header-bg.png') repeat-x top left;">
+  <div class="heading-inner" style="background: url('../images/header-fg.png') no-repeat top left;">
+  <div class="heading-placard"></div>
+
+  <h1 class="heading-title">
+    <a href="../">
+      <img src="../images/space.png" alt="Boost C++ Libraries" class="heading-logo" />
+      <span class="heading-boost">Boost</span>
+      <span class="heading-cpplibraries">C++ Libraries</span>
+    </a>
+  </h1>
+
+  <p class="heading-quote">
+    <q>...one of the most highly
+    regarded and expertly designed C++ library projects in the
+    world.</q> <span class="heading-attribution">&mdash; <a href=
+    "http://www.gotw.ca/" class="external">Herb Sutter</a> and <a href=
+    "http://en.wikipedia.org/wiki/Andrei_Alexandrescu" class="external">Andrei
+    Alexandrescu</a>, <a href=
+    "http://safari.awprofessional.com/?XmlId=0321113586" class="external">C++
+    Coding Standards</a></span></p>
+  </div>
+</div>
+<div id="boost-common-heading-doc-spacer"></div>
+<div class="spirit-nav">
+<a accesskey="p" href="../reference/success_failure.html"><img src="../images/prev.png" alt="Prev"></a>
+    <a accesskey="u" href="../reference.html"><img src="../images/up.png" alt="Up"></a>
+    <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../reference/convert.html"><img src="../images/next.png" alt="Next"></a></div><div id="content">
+  <div class="titlepage"><div><div><h2 class="title" style="clear: both">Utilities</h2></div></div></div>
+  
+
+<h1 id="header-file-utils-hpp">Header file <code>utils.hpp</code></h1>
+
+<p><span id="standardese-utils-hpp"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">namespace</span>&nbsp;<span class="typ dec var fun">outcome_v2_xxx</span>
+<span class="pun">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">std::error_code</span> <a href="#standardese-outcome_v2_xxx__error_from_exception-std__exception_ptr---std__error_code-"><span class="typ dec var fun">error_from_exception</span></a><span class="pun">(</span><span class="typ dec var fun">std::exception_ptr</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__error_from_exception-std__exception_ptr---std__error_code--ep"><span class="typ dec var fun">ep</span></a>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">current_exception</span><span class="pun">(</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">std::error_code</span> <a href="#standardese-outcome_v2_xxx__error_from_exception-std__exception_ptr---std__error_code--not_matched"><span class="typ dec var fun">not_matched</span></a>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">make_error_code</span><span class="pun">(</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">errc</span><span class="pun">::</span><span class="kwd">resource_unavailable_try_again</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">void</span> <a href="#standardese-outcome_v2_xxx__try_throw_std_exception_from_error-std__error_code-std__stringconst--"><span class="typ dec var fun">try_throw_std_exception_from_error</span></a><span class="pun">(</span><span class="typ dec var fun">std::error_code</span> <a href="#standardese-outcome_v2_xxx__try_throw_std_exception_from_error-std__error_code-std__stringconst---ec"><span class="typ dec var fun">ec</span></a><span class="pun">,</span>&nbsp;<span class="typ dec var fun">std::string</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__try_throw_std_exception_from_error-std__error_code-std__stringconst---msg"><span class="typ dec var fun">msg</span></a>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">string</span><span class="pun">{</span><span class="pun">)</span><span class="pun">;</span>
+<span class="pun">}</span>
+</code></pre>
+
+<p><span id="standardese-outcome_v2_xxx"></span></p>
+
+<h3 id="function-outcome-v2-xxx-error-from-exception">Function <code>outcome_v2_xxx::error_from_exception</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__error_from_exception-std__exception_ptr---std__error_code-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="typ dec var fun">std::error_code</span>&nbsp;<span class="typ dec var fun">error_from_exception</span><span class="pun">(</span><span class="typ dec var fun">std::exception_ptr</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__error_from_exception-std__exception_ptr---std__error_code--ep"><span class="typ dec var fun">ep</span></a>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">current_exception</span><span class="pun">(</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">std::error_code</span> <a href="#standardese-outcome_v2_xxx__error_from_exception-std__exception_ptr---std__error_code--not_matched"><span class="typ dec var fun">not_matched</span></a>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">make_error_code</span><span class="pun">(</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">errc</span><span class="pun">::</span><span class="kwd">resource_unavailable_try_again</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>Utility function which tries to match the exception in the pointer provided to an equivalent error code. Ought to work for all standard STL types.</p>
+
+<p><em>Effects:</em> Rethrows the exception in the pointer, and via a long sequence of <code>catch</code> clauses attempts to match the equivalent error code. If a match is found, the pointer is reset to null. If a match is not found, <em>not_matched</em> is returned instead and the pointer is left unmodified.</p>
+
+<h4 id="parameters">Parameters</h4>
+
+<ul>
+<li><code>ep</code> &mdash; The pointer to an exception to convert. If matched, on exit this is reset to a null pointer.</li>
+</ul>
+
+<h3 id="parameter-outcome-v2-xxx-not-matched">Parameter <code>outcome_v2_xxx::not_matched</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__error_from_exception-std__exception_ptr---std__error_code--not_matched"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="typ dec var fun">std::error_code</span>&nbsp;<span class="typ dec var fun">not_matched</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">make_error_code</span><span class="pun">(</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">errc</span><span class="pun">::</span><span class="kwd">resource_unavailable_try_again</span></code></pre>
+
+<p>The error code to return if we could not match the exception.</p>
+
+<p>Note that a null pointer in returns a null error code.</p>
+
+<hr />
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-try-throw-std-exception-from-error">Function <code>outcome_v2_xxx::try_throw_std_exception_from_error</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__try_throw_std_exception_from_error-std__error_code-std__stringconst--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">void</span>&nbsp;<span class="typ dec var fun">try_throw_std_exception_from_error</span><span class="pun">(</span><span class="typ dec var fun">std::error_code</span> <a href="#standardese-outcome_v2_xxx__try_throw_std_exception_from_error-std__error_code-std__stringconst---ec"><span class="typ dec var fun">ec</span></a><span class="pun">,</span>&nbsp;<span class="typ dec var fun">std::string</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__try_throw_std_exception_from_error-std__error_code-std__stringconst---msg"><span class="typ dec var fun">msg</span></a>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">string</span><span class="pun">{</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Utility function which tries to throw the equivalent STL exception type for some given error code, not including <code>system_error</code>.</p>
+
+<p><em>Effects:</em> If the input error code has a category of <code>generic_category()</code> (all platforms) or <code>system_category()</code> (POSIX only), throw the STL exception type matching the <code>errno</code> domained code if one is available. For example, <code>ENOMEM</code> would cause <code>std::bad_alloc()</code> to be thrown.</p>
+
+<h4 id="parameters-1">Parameters</h4>
+
+<ul>
+<li><code>ec</code> &mdash; The error code to try to convert into a STL exception throw.</li>
+<li><code>msg</code> &mdash; Optional custom message for the STL exception type.</li>
+</ul>
+
+<hr />
+
+
+        </div><p><small>Last revised: December 05, 2018 at 14:18:52 UTC</small></p>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../reference/success_failure.html"><img src="../images/prev.png" alt="Prev"></a>
+    <a accesskey="u" href="../reference.html"><img src="../images/up.png" alt="Up"></a>
+    <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../reference/convert.html"><img src="../images/next.png" alt="Next"></a></div></body>
+</html>

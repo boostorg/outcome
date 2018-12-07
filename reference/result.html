@@ -1,0 +1,1550 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>result&lt;R, S&gt; - Boost.Outcome documentation</title>
+<link rel="stylesheet" href="../css/boost.css" type="text/css">
+<meta name="generator" content="Hugo 0.52 with Boostdoc theme">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<link rel="icon" href="../images/favicon.ico" type="image/ico"/>
+<body><div id="boost-common-heading-doc" style="background: #574D74 url('../images/header-bg.png') repeat-x top left;">
+  <div class="heading-inner" style="background: url('../images/header-fg.png') no-repeat top left;">
+  <div class="heading-placard"></div>
+
+  <h1 class="heading-title">
+    <a href="../">
+      <img src="../images/space.png" alt="Boost C++ Libraries" class="heading-logo" />
+      <span class="heading-boost">Boost</span>
+      <span class="heading-cpplibraries">C++ Libraries</span>
+    </a>
+  </h1>
+
+  <p class="heading-quote">
+    <q>...one of the most highly
+    regarded and expertly designed C++ library projects in the
+    world.</q> <span class="heading-attribution">&mdash; <a href=
+    "http://www.gotw.ca/" class="external">Herb Sutter</a> and <a href=
+    "http://en.wikipedia.org/wiki/Andrei_Alexandrescu" class="external">Andrei
+    Alexandrescu</a>, <a href=
+    "http://safari.awprofessional.com/?XmlId=0321113586" class="external">C++
+    Coding Standards</a></span></p>
+  </div>
+</div>
+<div id="boost-common-heading-doc-spacer"></div>
+<div class="spirit-nav">
+<a accesskey="p" href="../reference/outcome.html"><img src="../images/prev.png" alt="Prev"></a>
+    <a accesskey="u" href="../reference.html"><img src="../images/up.png" alt="Up"></a>
+    <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../reference/try.html"><img src="../images/next.png" alt="Next"></a></div><div id="content">
+  <div class="titlepage"><div><div><h2 class="title" style="clear: both">result&lt;R, S&gt;</h2></div></div></div>
+  <div class="toc"><dl class="toc">
+<dt><a href="#header-file-result-hpp">Header file <code>result.hpp</code></a>
+<dd><dl>
+<dt>
+<dd><dl>
+<dt><a href="#alias-template-outcome-v2-xxx-policy-default-policy">Alias template <code>outcome_v2_xxx::policy::default_policy</code></a></dt>
+<dt><a href="#alias-template-outcome-v2-xxx-is-result">Alias template <code>outcome_v2_xxx::is_result</code></a></dt>
+<dt><a href="#unexposed-entity-outcome-v2-xxx-is-result-v">Unexposed entity <code>outcome_v2_xxx::is_result_v</code></a></dt>
+<dt><a href="#function-outcome-v2-xxx-hooks-hook-result-construction">Function <code>outcome_v2_xxx::hooks::hook_result_construction</code></a>
+<dd><dl>
+<dt><a href="#parameters">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#function-outcome-v2-xxx-hooks-hook-result-copy-construction">Function <code>outcome_v2_xxx::hooks::hook_result_copy_construction</code></a>
+<dd><dl>
+<dt><a href="#parameters-1">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#function-outcome-v2-xxx-hooks-hook-result-move-construction">Function <code>outcome_v2_xxx::hooks::hook_result_move_construction</code></a>
+<dd><dl>
+<dt><a href="#parameters-2">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#function-outcome-v2-xxx-hooks-hook-result-in-place-construction">Function <code>outcome_v2_xxx::hooks::hook_result_in_place_construction</code></a>
+<dd><dl>
+<dt><a href="#parameters-3">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#function-outcome-v2-xxx-hooks-spare-storage">Function <code>outcome_v2_xxx::hooks::spare_storage</code></a></dt>
+<dt><a href="#function-outcome-v2-xxx-hooks-set-spare-storage">Function <code>outcome_v2_xxx::hooks::set_spare_storage</code></a></dt>
+<dt><a href="#class-outcome-v2-xxx-result">Class <code>outcome_v2_xxx::result</code></a>
+<dd><dl>
+<dt><a href="#template-parameters">Template parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-assume-error">Function <code>outcome_v2_xxx::outcome::assume_error</code></a></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-error">Function <code>outcome_v2_xxx::outcome::error</code></a></dt>
+<dt><a href="#conversion-operator-outcome-v2-xxx-outcome-operator-bool">Conversion operator <code>outcome_v2_xxx::outcome::operator bool</code></a></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-has-value">Function <code>outcome_v2_xxx::outcome::has_value</code></a></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-has-error">Function <code>outcome_v2_xxx::outcome::has_error</code></a></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-has-exception">Function <code>outcome_v2_xxx::outcome::has_exception</code></a></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-has-failure">Function <code>outcome_v2_xxx::outcome::has_failure</code></a></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-operator">Function <code>outcome_v2_xxx::outcome::operator==</code></a>
+<dd><dl>
+<dt><a href="#parameters-4">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-operator-1">Function <code>outcome_v2_xxx::outcome::operator==</code></a>
+<dd><dl>
+<dt><a href="#parameters-5">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-operator-2">Function <code>outcome_v2_xxx::outcome::operator==</code></a>
+<dd><dl>
+<dt><a href="#parameters-6">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-operator-3">Function <code>outcome_v2_xxx::outcome::operator==</code></a>
+<dd><dl>
+<dt><a href="#parameters-7">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-operator-4">Function <code>outcome_v2_xxx::outcome::operator!=</code></a>
+<dd><dl>
+<dt><a href="#parameters-8">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-operator-5">Function <code>outcome_v2_xxx::outcome::operator!=</code></a>
+<dd><dl>
+<dt><a href="#parameters-9">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-operator-6">Function <code>outcome_v2_xxx::outcome::operator!=</code></a>
+<dd><dl>
+<dt><a href="#parameters-10">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#function-outcome-v2-xxx-outcome-operator-7">Function <code>outcome_v2_xxx::outcome::operator!=</code></a>
+<dd><dl>
+<dt><a href="#parameters-11">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#type-alias-outcome-v2-xxx-result-value-type">Type alias <code>outcome_v2_xxx::result::value_type</code></a></dt>
+<dt><a href="#type-alias-outcome-v2-xxx-result-error-type">Type alias <code>outcome_v2_xxx::result::error_type</code></a></dt>
+<dt><a href="#type-alias-outcome-v2-xxx-result-value-type-if-enabled">Type alias <code>outcome_v2_xxx::result::value_type_if_enabled</code></a></dt>
+<dt><a href="#type-alias-outcome-v2-xxx-result-error-type-if-enabled">Type alias <code>outcome_v2_xxx::result::error_type_if_enabled</code></a></dt>
+<dt><a href="#alias-template-outcome-v2-xxx-result-rebind">Alias template <code>outcome_v2_xxx::result::rebind</code></a></dt>
+<dt><a href="#struct-outcome-v2-xxx-result-predicate">Struct <code>outcome_v2_xxx::result::predicate</code></a></dt>
+<dt><a href="#unexposed-entity-outcome-v2-xxx-result-predicate-enable-value-converting-constructor">Unexposed entity <code>outcome_v2_xxx::result::predicate::enable_value_converting_constructor</code></a></dt>
+<dt><a href="#unexposed-entity-outcome-v2-xxx-result-predicate-enable-error-converting-constructor">Unexposed entity <code>outcome_v2_xxx::result::predicate::enable_error_converting_constructor</code></a></dt>
+<dt><a href="#unexposed-entity-outcome-v2-xxx-result-predicate-enable-error-condition-converting-constructor">Unexposed entity <code>outcome_v2_xxx::result::predicate::enable_error_condition_converting_constructor</code></a></dt>
+<dt><a href="#unexposed-entity-outcome-v2-xxx-result-predicate-enable-compatible-conversion">Unexposed entity <code>outcome_v2_xxx::result::predicate::enable_compatible_conversion</code></a></dt>
+<dt><a href="#unexposed-entity-outcome-v2-xxx-result-predicate-enable-inplace-value-constructor">Unexposed entity <code>outcome_v2_xxx::result::predicate::enable_inplace_value_constructor</code></a></dt>
+<dt><a href="#unexposed-entity-outcome-v2-xxx-result-predicate-enable-inplace-error-constructor">Unexposed entity <code>outcome_v2_xxx::result::predicate::enable_inplace_error_constructor</code></a></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result">Constructor <code>outcome_v2_xxx::result::result</code></a></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-1">Constructor <code>outcome_v2_xxx::result::result</code></a></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-2">Constructor <code>outcome_v2_xxx::result::result</code></a></dt>
+<dt><a href="#function-outcome-v2-xxx-result-operator">Function <code>outcome_v2_xxx::result::operator=</code></a></dt>
+<dt><a href="#function-outcome-v2-xxx-result-operator-1">Function <code>outcome_v2_xxx::result::operator=</code></a></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-3">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-12">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-4">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-13">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-5">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-14">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-6">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-15">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-7">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-16">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-8">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-17">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-9">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-18">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-10">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-19">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-11">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-20">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-12">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-21">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-13">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-22">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-14">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-23">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-15">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-24">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-16">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-25">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-17">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-26">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#constructor-outcome-v2-xxx-result-result-18">Constructor <code>outcome_v2_xxx::result::result</code></a>
+<dd><dl>
+<dt><a href="#parameters-27">Parameters</a></dt>
+</dl></dd></dt>
+<dt><a href="#function-outcome-v2-xxx-result-swap">Function <code>outcome_v2_xxx::result::swap</code></a></dt>
+<dt><a href="#function-outcome-v2-xxx-result-as-failure">Function <code>outcome_v2_xxx::result::as_failure</code></a></dt>
+<dt><a href="#function-outcome-v2-xxx-result-as-failure-1">Function <code>outcome_v2_xxx::result::as_failure</code></a></dt>
+<dt><a href="#function-outcome-v2-xxx-swap">Function <code>outcome_v2_xxx::swap</code></a></dt>
+<dt><a href="#alias-template-outcome-v2-xxx-unchecked">Alias template <code>outcome_v2_xxx::unchecked</code></a></dt>
+<dt><a href="#alias-template-outcome-v2-xxx-checked">Alias template <code>outcome_v2_xxx::checked</code></a></dt>
+</dl></dd></dt>
+</dl></dd></dt>
+</dl>
+  </div>
+  
+
+<h1 id="header-file-result-hpp">Header file <code>result.hpp</code></h1>
+
+<p><span id="standardese-result-hpp"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">namespace</span>&nbsp;<span class="typ dec var fun">outcome_v2_xxx</span>
+<span class="pun">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">namespace</span> <span class="typ dec var fun">policy</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pun">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">EC</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">E</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">using</span> <a href="#standardese-outcome_v2_xxx__policy__default_policy-T-EC-E-"><span class="typ dec var fun">default_policy</span></a>&nbsp;<span class="pun">=</span>&nbsp;<span class="typ dec var fun">std::conditional_t</span><span class="pun">&lt;</span>std::is_void&lt;EC&gt;::value &amp;&amp; std::is_void&lt;E&gt;::value, terminate, std::conditional_t&lt;trait::has_error_code_v&lt;EC&gt;, error_code_throw_as_system_error&lt;T, EC, E&gt;, std::conditional_t&lt;trait::has_exception_ptr_v&lt;EC&gt; || trait::has_exception_ptr_v&lt;E&gt;, exception_ptr_rethrow&lt;T, EC, E&gt;, all_narrow&gt; &gt;<span class="pun">&gt;</span><span class="pun">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pun">}</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">using</span> <a href="#standardese-outcome_v2_xxx__is_result-T-"><span class="typ dec var fun">is_result</span></a>&nbsp;<span class="pun">=</span>&nbsp;<span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span>&nbsp;<span class="kwd">T</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">is_result_v</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">detail</span><span class="pun">::</span><span class="kwd">is_result</span><span class="pun">&lt;</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">decay_t</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">&gt;&gt;</span><span class="pun">::</span><span class="kwd">value</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">namespace</span> <span class="typ dec var fun">hooks</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pun">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span> <a href="#standardese-outcome_v2_xxx__hooks__hook_result_construction-T-U--T--U---"><span class="typ dec var fun">hook_result_construction</span></a><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">*</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">&amp;&amp;</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span> <a href="#standardese-outcome_v2_xxx__hooks__hook_result_copy_construction-T-U--T--U---"><span class="typ dec var fun">hook_result_copy_construction</span></a><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">*</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">&amp;&amp;</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span> <a href="#standardese-outcome_v2_xxx__hooks__hook_result_move_construction-T-U--T--U---"><span class="typ dec var fun">hook_result_move_construction</span></a><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">*</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">&amp;&amp;</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="pun">...</span>&nbsp;<span class="typ dec var fun">Args</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span> <a href="#standardese-outcome_v2_xxx__hooks__hook_result_in_place_construction-T-U-Args--T--in_place_type_t-U--Args------"><span class="typ dec var fun">hook_result_in_place_construction</span></a><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">*</span><span class="pun">,</span> <span class="typ dec var fun">in_place_type_t</span><span class="pun">&lt;</span>U<span class="pun">&gt;</span><span class="pun">,</span> Args &amp;&amp;...<span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">NoValuePolicy</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">uint16_t</span> <a href="#standardese-outcome_v2_xxx__hooks__spare_storage-R-S-NoValuePolicy--detail__result_final-R-S-NoValuePolicy-const--"><span class="typ dec var fun">spare_storage</span></a><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">*</span>&nbsp;<span class="typ dec var fun">r</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">NoValuePolicy</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span> <a href="#standardese-outcome_v2_xxx__hooks__set_spare_storage-R-S-NoValuePolicy--detail__result_final-R-S-NoValuePolicy---uint16_t-"><span class="typ dec var fun">set_spare_storage</span></a><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">*</span>&nbsp;<span class="typ dec var fun">r</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">uint16_t</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pun">}</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy--R"><span class="typ dec var fun">R</span></a><span class="pun">,</span>&nbsp;<span class="kwd">class</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy--S"><span class="typ dec var fun">S</span></a><span class="pun">,</span>&nbsp;<span class="kwd">class</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy--NoValuePolicy"><span class="typ dec var fun">NoValuePolicy</span></a><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">class</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">void</span> <a href="#standardese-outcome_v2_xxx__swap-R-S-P--result-R-S-P---result-R-S-P---"><span class="typ dec var fun">swap</span></a><span class="pun">(</span><a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>R, S, P<span class="pun">&gt;</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">a</span><span class="pun">,</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>R, S, P<span class="pun">&gt;</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">b</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">is_result_v</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">detail</span><span class="pun">::</span><span class="kwd">is_result</span><span class="pun">&lt;</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">decay_t</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">&gt;&gt;</span><span class="pun">::</span><span class="kwd">value</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">is_result_v</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">detail</span><span class="pun">::</span><span class="kwd">is_result</span><span class="pun">&lt;</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">decay_t</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">&gt;&gt;</span><span class="pun">::</span><span class="kwd">value</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span>&nbsp;<span class="pun">=</span> std::error_code<span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">using</span> <a href="#standardese-outcome_v2_xxx__unchecked-R-S-"><span class="typ dec var fun">unchecked</span></a>&nbsp;<span class="pun">=</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>R, S, policy::all_narrow<span class="pun">&gt;</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span>&nbsp;<span class="pun">=</span> std::error_code<span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">using</span> <a href="#standardese-outcome_v2_xxx__checked-R-S-"><span class="typ dec var fun">checked</span></a>&nbsp;<span class="pun">=</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>R, S, policy::throw_bad_result_access&lt;S&gt;<span class="pun">&gt;</span><span class="pun">;</span>
+<span class="pun">}</span>
+</code></pre>
+
+<p><span id="standardese-outcome_v2_xxx"></span></p>
+
+<p><span id="standardese-outcome_v2_xxx__policy"></span></p>
+
+<h3 id="alias-template-outcome-v2-xxx-policy-default-policy">Alias template <code>outcome_v2_xxx::policy::default_policy</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__policy__default_policy-T-EC-E-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">EC</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">E</span><span class="pun">&gt;</span>
+<span class="kwd">using</span>&nbsp;<span class="typ dec var fun">default_policy</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="typ dec var fun">std::conditional_t</span><span class="pun">&lt;</span>std::is_void&lt;EC&gt;::value &amp;&amp; std::is_void&lt;E&gt;::value, terminate, std::conditional_t&lt;trait::has_error_code_v&lt;EC&gt;, error_code_throw_as_system_error&lt;T, EC, E&gt;, std::conditional_t&lt;trait::has_exception_ptr_v&lt;EC&gt; || trait::has_exception_ptr_v&lt;E&gt;, exception_ptr_rethrow&lt;T, EC, E&gt;, all_narrow&gt; &gt;<span class="pun">&gt;</span><span class="pun">;</span>
+</code></pre>
+
+<p>Default policy selector.</p>
+
+<hr />
+
+<h3 id="alias-template-outcome-v2-xxx-is-result">Alias template <code>outcome_v2_xxx::is_result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__is_result-T-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+<span class="kwd">using</span>&nbsp;<span class="typ dec var fun">is_result</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">;</span>
+</code></pre>
+
+<p>True if a result</p>
+
+<hr />
+
+<h3 id="unexposed-entity-outcome-v2-xxx-is-result-v">Unexposed entity <code>outcome_v2_xxx::is_result_v</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__is_result_v"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span>&nbsp;<span class="kwd">T</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">is_result_v</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">detail</span><span class="pun">::</span><span class="kwd">is_result</span><span class="pun">&lt;</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">decay_t</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">&gt;&gt;</span><span class="pun">::</span><span class="kwd">value</span><span class="pun">;</span>
+</code></pre>
+
+<p>True if a result</p>
+
+<hr />
+
+<p><span id="standardese-outcome_v2_xxx__hooks"></span></p>
+
+<h3 id="function-outcome-v2-xxx-hooks-hook-result-construction">Function <code>outcome_v2_xxx::hooks::hook_result_construction</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__hooks__hook_result_construction-T-U--T--U---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span>&nbsp;<span class="typ dec var fun">hook_result_construction</span><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">*</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">&amp;&amp;</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>The default instantiation hook implementation called when a <code>result</code> is first created by conversion from one of its possible types. Does nothing.</p>
+
+<p>WARNING: The compiler is permitted to elide calls to constructors, and thus this hook may not get called when you think it should!</p>
+
+<h4 id="parameters">Parameters</h4>
+
+<ul>
+<li> &mdash; Some <code>result&lt;...&gt;</code> being constructed.</li>
+</ul>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-hooks-hook-result-copy-construction">Function <code>outcome_v2_xxx::hooks::hook_result_copy_construction</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__hooks__hook_result_copy_construction-T-U--T--U---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span>&nbsp;<span class="typ dec var fun">hook_result_copy_construction</span><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">*</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">&amp;&amp;</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>The default instantiation hook implementation called when a <code>result</code> is created by copying from another <code>result</code>. Does nothing.</p>
+
+<p>WARNING: The compiler is permitted to elide calls to constructors, and thus this hook may not get called when you think it should!</p>
+
+<h4 id="parameters-1">Parameters</h4>
+
+<ul>
+<li> &mdash; Some <code>result&lt;...&gt;</code> being constructed.</li>
+</ul>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-hooks-hook-result-move-construction">Function <code>outcome_v2_xxx::hooks::hook_result_move_construction</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__hooks__hook_result_move_construction-T-U--T--U---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span>&nbsp;<span class="typ dec var fun">hook_result_move_construction</span><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">*</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">&amp;&amp;</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>The default instantiation hook implementation called when a <code>result</code> is created by moving from another <code>result</code>. Does nothing.</p>
+
+<p>WARNING: The compiler is permitted to elide calls to constructors, and thus this hook may not get called when you think it should!</p>
+
+<h4 id="parameters-2">Parameters</h4>
+
+<ul>
+<li> &mdash; Some <code>result&lt;...&gt;</code> being constructed.</li>
+</ul>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-hooks-hook-result-in-place-construction">Function <code>outcome_v2_xxx::hooks::hook_result_in_place_construction</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__hooks__hook_result_in_place_construction-T-U-Args--T--in_place_type_t-U--Args------"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="pun">...</span>&nbsp;<span class="typ dec var fun">Args</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span>&nbsp;<span class="typ dec var fun">hook_result_in_place_construction</span><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">*</span><span class="pun">,</span> <span class="typ dec var fun">in_place_type_t</span><span class="pun">&lt;</span>U<span class="pun">&gt;</span><span class="pun">,</span> Args &amp;&amp;...<span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>The default instantiation hook implementation called when a <code>result</code> is created by in place construction. Does nothing.</p>
+
+<p>WARNING: The compiler is permitted to elide calls to constructors, and thus this hook may not get called when you think it should!</p>
+
+<h4 id="parameters-3">Parameters</h4>
+
+<ul>
+<li> &mdash; Some <code>result&lt;...&gt;</code> being constructed.</li>
+<li> &mdash; The type of in place construction occurring.</li>
+</ul>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-hooks-spare-storage">Function <code>outcome_v2_xxx::hooks::spare_storage</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__hooks__spare_storage-R-S-NoValuePolicy--detail__result_final-R-S-NoValuePolicy-const--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">NoValuePolicy</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">uint16_t</span>&nbsp;<span class="typ dec var fun">spare_storage</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">*</span>&nbsp;<span class="typ dec var fun">r</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>Retrieves the 16 bits of spare storage in result/outcome.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-hooks-set-spare-storage">Function <code>outcome_v2_xxx::hooks::set_spare_storage</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__hooks__set_spare_storage-R-S-NoValuePolicy--detail__result_final-R-S-NoValuePolicy---uint16_t-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">NoValuePolicy</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span>&nbsp;<span class="typ dec var fun">set_spare_storage</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">*</span>&nbsp;<span class="typ dec var fun">r</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">uint16_t</span>&nbsp;<span class="typ dec var fun">v</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>Sets the 16 bits of spare storage in result/outcome.</p>
+
+<hr />
+
+<h3 id="class-outcome-v2-xxx-result">Class <code>outcome_v2_xxx::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy--R"><span class="typ dec var fun">R</span></a><span class="pun">,</span>&nbsp;<span class="kwd">class</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy--S"><span class="typ dec var fun">S</span></a><span class="pun">,</span>&nbsp;<span class="kwd">class</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy--NoValuePolicy"><span class="typ dec var fun">NoValuePolicy</span></a><span class="pun">&gt;</span>
+<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">result</span>
+<span class="pun">{</span>
+<span class="kwd">public</span><span class="pun">:</span>
+    &#x2F;&#x2F;=== Member types ===&#x2F;&#x2F;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">using</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__value_type"><span class="typ dec var fun">value_type</span></a>&nbsp;<span class="pun">=</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy--R"><span class="typ dec var fun">R</span></a><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">using</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__error_type"><span class="typ dec var fun">error_type</span></a>&nbsp;<span class="pun">=</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy--S"><span class="typ dec var fun">S</span></a><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">using</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__value_type_if_enabled"><span class="typ dec var fun">value_type_if_enabled</span></a>&nbsp;<span class="pun">=</span> typename base::_value_type<span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">using</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__error_type_if_enabled"><span class="typ dec var fun">error_type_if_enabled</span></a>&nbsp;<span class="pun">=</span> typename base::_error_type<span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span>&nbsp;<span class="pun">=</span> S<span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">V</span>&nbsp;<span class="pun">=</span> policy::default_policy&lt;T,U,void&gt;<span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">using</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__rebind-T-U-V-"><span class="typ dec var fun">rebind</span></a>&nbsp;<span class="pun">=</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">&lt;</span>T, U, V<span class="pun">&gt;</span><span class="pun">;</span>
+
+<span class="kwd">protected</span><span class="pun">:</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">struct</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__predicate"><span class="typ dec var fun">predicate</span></a><span class="pun">;</span>
+
+<span class="kwd">public</span><span class="pun">:</span>
+    &#x2F;&#x2F;=== Default, copy&#x2F;move constructors and assignment ===&#x2F;&#x2F;
+    <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result--"><span class="typ dec var fun">result</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">delete</span><span class="pun">;</span>
+
+    <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-result-R-S-NoValuePolicy----"><span class="typ dec var fun">result</span></a><span class="pun">(</span>result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;&amp;</span><span class="pun">)</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">default</span><span class="pun">;</span>
+
+    <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-constresult-R-S-NoValuePolicy---"><span class="typ dec var fun">result</span></a><span class="pun">(</span>const result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;</span><span class="pun">)</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">default</span><span class="pun">;</span>
+
+    result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__operator--result-R-S-NoValuePolicy----"><span class="typ dec var fun">operator=</span></a><span class="pun">(</span>result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;&amp;</span><span class="pun">)</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">default</span><span class="pun">;</span>
+
+    result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__operator--constresult-R-S-NoValuePolicy---"><span class="typ dec var fun">operator=</span></a><span class="pun">(</span>const result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;</span><span class="pun">)</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">default</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">~result</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">default</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---T---outcome_v2_xxx__result__value_converting_constructor_tag-"><span class="typ dec var fun">result</span></a><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---T---outcome_v2_xxx__result__value_converting_constructor_tag--t"><span class="typ dec var fun">t</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---T---outcome_v2_xxx__result__error_converting_constructor_tag-"><span class="typ dec var fun">result</span></a><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---T---outcome_v2_xxx__result__error_converting_constructor_tag--t"><span class="typ dec var fun">t</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">ErrorCondEnum</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-ErrorCondEnum----ErrorCondEnum---outcome_v2_xxx__result__error_condition_converting_constructor_tag-"><span class="typ dec var fun">result</span></a><span class="pun">(</span><span class="typ dec var fun">ErrorCondEnum</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-ErrorCondEnum----ErrorCondEnum---outcome_v2_xxx__result__error_condition_converting_constructor_tag--t"><span class="typ dec var fun">t</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T----T---outcome_v2_xxx__result__explicit_valueorerror_converting_constructor_tag-"><span class="typ dec var fun">result</span></a><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T----T---outcome_v2_xxx__result__explicit_valueorerror_converting_constructor_tag--o"><span class="typ dec var fun">o</span></a><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">V</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T-U-V---result-T-U-V-const--"><span class="typ dec var fun">result</span></a><span class="pun">(</span><span class="typ dec var fun">result</span><span class="pun">&lt;</span>T, U, V<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T-U-V---result-T-U-V-const---o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">V</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T-U-V---result-T-U-V----"><span class="typ dec var fun">result</span></a><span class="pun">(</span><span class="typ dec var fun">result</span><span class="pun">&lt;</span>T, U, V<span class="pun">&gt;</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T-U-V---result-T-U-V-----o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="pun">...</span>&nbsp;<span class="typ dec var fun">Args</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--Args------"><span class="typ dec var fun">result</span></a><span class="pun">(</span><span class="typ dec var fun">in_place_type_t</span><span class="pun">&lt;</span>outcome_v2_xxx::result::value_type_if_enabled<span class="pun">&gt;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--Args-------_"><span class="typ dec var fun">_</span></a><span class="pun">,</span> Args &amp;&amp;... <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--Args-------args"><span class="typ dec var fun">args</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="pun">...</span>&nbsp;<span class="typ dec var fun">Args</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--std__initializer_list-U--Args------"><span class="typ dec var fun">result</span></a><span class="pun">(</span><span class="typ dec var fun">in_place_type_t</span><span class="pun">&lt;</span>outcome_v2_xxx::result::value_type_if_enabled<span class="pun">&gt;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--std__initializer_list-U--Args-------_"><span class="typ dec var fun">_</span></a><span class="pun">,</span>&nbsp;<span class="typ dec var fun">std::initializer_list</span><span class="pun">&lt;</span>U<span class="pun">&gt;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--std__initializer_list-U--Args-------il"><span class="typ dec var fun">il</span></a><span class="pun">,</span> Args &amp;&amp;... <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--std__initializer_list-U--Args-------args"><span class="typ dec var fun">args</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="pun">...</span>&nbsp;<span class="typ dec var fun">Args</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--Args------"><span class="typ dec var fun">result</span></a><span class="pun">(</span><span class="typ dec var fun">in_place_type_t</span><span class="pun">&lt;</span>outcome_v2_xxx::result::error_type_if_enabled<span class="pun">&gt;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--Args-------_"><span class="typ dec var fun">_</span></a><span class="pun">,</span> Args &amp;&amp;... <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--Args-------args"><span class="typ dec var fun">args</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="pun">...</span>&nbsp;<span class="typ dec var fun">Args</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--std__initializer_list-U--Args------"><span class="typ dec var fun">result</span></a><span class="pun">(</span><span class="typ dec var fun">in_place_type_t</span><span class="pun">&lt;</span>outcome_v2_xxx::result::error_type_if_enabled<span class="pun">&gt;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--std__initializer_list-U--Args-------_"><span class="typ dec var fun">_</span></a><span class="pun">,</span>&nbsp;<span class="typ dec var fun">std::initializer_list</span><span class="pun">&lt;</span>U<span class="pun">&gt;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--std__initializer_list-U--Args-------il"><span class="typ dec var fun">il</span></a><span class="pun">,</span> Args &amp;&amp;... <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--std__initializer_list-U--Args-------args"><span class="typ dec var fun">args</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">A1</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">A2</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="pun">...</span>&nbsp;<span class="typ dec var fun">Args</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-A1-A2-Args---A1---A2---Args------"><span class="typ dec var fun">result</span></a><span class="pun">(</span><span class="typ dec var fun">A1</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">a1</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">A2</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">a2</span><span class="pun">,</span> Args &amp;&amp;... <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-A1-A2-Args---A1---A2---Args-------args"><span class="typ dec var fun">args</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-success_type-void-const--"><span class="typ dec var fun">result</span></a><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>void<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-success_type-void-const---o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---success_type-T-const--"><span class="typ dec var fun">result</span></a><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>T<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---success_type-T-const---o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---success_type-T----"><span class="typ dec var fun">result</span></a><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>T<span class="pun">&gt;</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---success_type-T-----o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---failure_type-T-const--"><span class="typ dec var fun">result</span></a><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__failure_type-EC-E-"><span class="typ dec var fun">failure_type</span></a><span class="pun">&lt;</span>T<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---failure_type-T-const---o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---failure_type-T----"><span class="typ dec var fun">result</span></a><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__failure_type-EC-E-"><span class="typ dec var fun">failure_type</span></a><span class="pun">&lt;</span>T<span class="pun">&gt;</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---failure_type-T-----o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">void</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__swap-result-R-S-NoValuePolicy---"><span class="typ dec var fun">swap</span></a><span class="pun">(</span>result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">auto</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__as_failure--const-"><span class="typ dec var fun">as_failure</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="pun">&amp;</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">auto</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__as_failure----"><span class="typ dec var fun">as_failure</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="pun">&amp;&amp;</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">using</span>&nbsp;<span class="typ dec var fun">error_type</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">;</span>
+
+    &#x2F;&#x2F;=== assume_error ===&#x2F;&#x2F;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_error_observers-Base-EC-NoValuePolicy-__assume_error---"><span class="typ dec var fun">assume_error</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="pun">&amp;</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_error_observers-Base-EC-NoValuePolicy-__assume_error---"><span class="typ dec var fun">assume_error</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="pun">&amp;</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;&amp;</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_error_observers-Base-EC-NoValuePolicy-__assume_error---"><span class="typ dec var fun">assume_error</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="pun">&amp;&amp;</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;&amp;</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_error_observers-Base-EC-NoValuePolicy-__assume_error---"><span class="typ dec var fun">assume_error</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="pun">&amp;&amp;</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+    &#x2F;&#x2F;=== error ===&#x2F;&#x2F;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_error_observers-Base-EC-NoValuePolicy-__error---"><span class="typ dec var fun">error</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="pun">&amp;</span><span class="pun">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_error_observers-Base-EC-NoValuePolicy-__error---"><span class="typ dec var fun">error</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="pun">&amp;</span><span class="pun">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;&amp;</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_error_observers-Base-EC-NoValuePolicy-__error---"><span class="typ dec var fun">error</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="pun">&amp;&amp;</span><span class="pun">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;&amp;</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_error_observers-Base-EC-NoValuePolicy-__error---"><span class="typ dec var fun">error</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="pun">&amp;&amp;</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">explicit</span>&nbsp;<span class="kwd">operator</span>&nbsp;<span class="kwd">bool</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__has_value--const"><span class="typ dec var fun">has_value</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__has_error--const"><span class="typ dec var fun">has_error</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__has_exception--const"><span class="typ dec var fun">has_exception</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__has_failure--const"><span class="typ dec var fun">has_failure</span></a><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">V</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---T-U-V--result_final-T-U-V-const--const"><span class="typ dec var fun">operator==</span></a><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---T--success_type-T-const--const"><span class="typ dec var fun">operator==</span></a><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>T<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---success_type-void-const--const"><span class="typ dec var fun">operator==</span></a><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>void<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---T--failure_type-T-void-const--const"><span class="typ dec var fun">operator==</span></a><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__failure_type-EC-E-"><span class="typ dec var fun">failure_type</span></a><span class="pun">&lt;</span>T, void<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">V</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---T-U-V--result_final-T-U-V-const--const"><span class="typ dec var fun">operator!=</span></a><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---T--success_type-T-const--const"><span class="typ dec var fun">operator!=</span></a><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>T<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---success_type-void-const--const"><span class="typ dec var fun">operator!=</span></a><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>void<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span> <a href="../outcome#standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---T--failure_type-T-void-const--const"><span class="typ dec var fun">operator!=</span></a><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__failure_type-EC-E-"><span class="typ dec var fun">failure_type</span></a><span class="pun">&lt;</span>T, void<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+<span class="pun">};</span>
+</code></pre>
+
+<p>Used to return from functions either (i) a successful value (ii) a cause of failure. <code>constexpr</code> capable.</p>
+
+<p>Any <code>R</code> (<code>value_type</code>) state can be observed using the member functions <code>.value()</code> and <code>.assume_value()</code>. Any <code>S</code> (<code>error_type</code>) state can be observed using the member functions <code>.error()</code> and <code>.assume_error()</code>.</p>
+
+<p><code>NoValuePolicy</code> defaults to a policy selected according to the characteristics of type <code>S</code>:</p>
+
+<ol>
+<li><p>If <code>.value()</code> called when there is no <code>value_type</code> but there is an <code>error_type</code>:</p>
+
+<ul>
+<li><p>If <a href="reference/success_failure/#unexposed-entity-outcome-v2-xxx-trait-has-error-code-v" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> trait::has_error_code_v&lt;S&gt;</a>
+ is true, then <code>throw std::system_error(error()|make_error_code(error()))</code> [<a href="reference/policies/result_error_code_throw_as_system_error" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> policy::error_code_throw_as_system_error&lt;S&gt;</a>
+]</p></li>
+
+<li><p>If <a href="reference/success_failure/#unexposed-entity-outcome-v2-xxx-trait-has-exception-ptr-v" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> trait::has_exception_ptr_v&lt;S&gt;</a>
+ is true, then <code>std::rethrow_exception(error()|make_exception_ptr(error()))</code> [<a href="reference/policies/result_exception_ptr_rethrow/" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> policy::exception_ptr_rethrow&lt;R, S, void&gt;</a>
+]</p></li>
+
+<li><p>If <code>S</code> is <code>void</code>, call <code>std::terminate()</code> [<a href="reference/policies/terminate/" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> policy::terminate</a>
+]</p></li>
+
+<li><p>If <code>S</code> is none of the above, then it is undefined behaviour [<a href="reference/policies/all_narrow/" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> policy::all_narrow</a>
+]</p></li>
+</ul></li>
+
+<li><p>If <code>.error()</code> called when there is no <code>error_type</code>:</p>
+
+<ul>
+<li><p>If <code>trait::has_error_code_v&lt;S&gt;</code>, or if <code>trait::has_exception_ptr_v&lt;S&gt;</code>, or if <code>S</code> is <code>void</code>, do <code>throw bad_result_access()</code></p></li>
+
+<li><p>If <code>S</code> is none of the above, then it is undefined behaviour [<code>policy::all_narrow</code>]</p></li>
+</ul></li>
+</ol>
+
+<h4 id="template-parameters">Template parameters</h4>
+
+<ul>
+<li><code>R</code> &mdash; The optional type of the successful result (use <code>void</code> to disable). Cannot be a reference, a <code>in_place_type_t&lt;&gt;</code>, <code>success&lt;&gt;</code>, <code>failure&lt;&gt;</code>, an array, a function or non-destructible.</li>
+<li><code>S</code> &mdash; The optional type of the failure result (use <code>void</code> to disable). Must be either <code>void</code> or <code>DefaultConstructible</code>. Cannot be a reference, a <code>in_place_type_t&lt;&gt;</code>, <code>success&lt;&gt;</code>, <code>failure&lt;&gt;</code>, an array, a function or non-destructible.</li>
+<li><code>NoValuePolicy</code> &mdash; Policy on how to interpret type <code>S</code> when a wide observation of a not present value occurs.</li>
+</ul>
+
+<h3 id="function-outcome-v2-xxx-outcome-assume-error">Function <code>outcome_v2_xxx::outcome::assume_error</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_error_observers-Base-EC-NoValuePolicy-__assume_error---"></span></p>
+
+<pre><code class="standardese-language-cpp">(1)&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">assume_error</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="pun">&amp;</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+(2)&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">assume_error</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="pun">&amp;</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+(3)&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">assume_error</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="pun">&amp;&amp;</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+(4)&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">assume_error</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="pun">&amp;&amp;</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>Access error without runtime checks.</p>
+
+<p><em>Preconditions:</em> The result to have a failed state, otherwise it is undefined behaviour.</p>
+
+<p><em>Returns:</em> Reference to the held <code>error_type</code> according to overload.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-outcome-error">Function <code>outcome_v2_xxx::outcome::error</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_error_observers-Base-EC-NoValuePolicy-__error---"></span></p>
+
+<pre><code class="standardese-language-cpp">(1)&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">error</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="pun">&amp;</span><span class="pun">;</span>
+
+(2)&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">error</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="pun">&amp;</span><span class="pun">;</span>
+
+(3)&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">error</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="pun">&amp;&amp;</span><span class="pun">;</span>
+
+(4)&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">error_type</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">error</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="pun">&amp;&amp;</span><span class="pun">;</span>
+</code></pre>
+
+<p>Access error with runtime checks.</p>
+
+<p><em>Returns:</em> Reference to the held <code>error_type</code> according to overload.</p>
+
+<p><em>Requires:</em> The result to have a failed state, else whatever <code>NoValuePolicy</code> says ought to happen.</p>
+
+<hr />
+
+<h3 id="conversion-operator-outcome-v2-xxx-outcome-operator-bool">Conversion operator <code>outcome_v2_xxx::outcome::operator bool</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operatorbool--const"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">explicit</span>&nbsp;<span class="kwd">operator</span>&nbsp;<span class="kwd">bool</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>Checks if has value.</p>
+
+<p><em>Returns:</em> True if has value.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-outcome-has-value">Function <code>outcome_v2_xxx::outcome::has_value</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__has_value--const"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span>&nbsp;<span class="typ dec var fun">has_value</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>Checks if has value.</p>
+
+<p><em>Returns:</em> True if has value.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-outcome-has-error">Function <code>outcome_v2_xxx::outcome::has_error</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__has_error--const"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span>&nbsp;<span class="typ dec var fun">has_error</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>Checks if has error.</p>
+
+<p><em>Returns:</em> True if has error.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-outcome-has-exception">Function <code>outcome_v2_xxx::outcome::has_exception</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__has_exception--const"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span>&nbsp;<span class="typ dec var fun">has_exception</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>Checks if has exception.</p>
+
+<p><em>Returns:</em> True if has exception.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-outcome-has-failure">Function <code>outcome_v2_xxx::outcome::has_failure</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__has_failure--const"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span>&nbsp;<span class="typ dec var fun">has_failure</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>Checks if has error or exception.</p>
+
+<p><em>Returns:</em> True if has error or exception.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-outcome-operator">Function <code>outcome_v2_xxx::outcome::operator==</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---T-U-V--result_final-T-U-V-const--const"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">V</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span>&nbsp;<span class="typ dec var fun">operator==</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>True if equal to the other result.</p>
+
+<p><em>Effects:</em> If a valid expression to do so, calls the <code>operator==</code> operation on each of the two stored items returning true if both are true. Otherwise returns false.</p>
+
+<p><em>Throws:</em> Any exception the individual <code>operator==</code> operations might throw.</p>
+
+<h4 id="parameters-4">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The other result to compare to.</li>
+</ul>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-outcome-operator-1">Function <code>outcome_v2_xxx::outcome::operator==</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---T--success_type-T-const--const"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span>&nbsp;<span class="typ dec var fun">operator==</span><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>T<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>True if equal to the success type sugar.</p>
+
+<p><em>Effects:</em> If a valid expression to do so, calls the <code>operator==</code> operation on the successful item returning true if equal. Otherwise returns false.</p>
+
+<p><em>Throws:</em> Any exception the <code>operator==</code> operation might throw.</p>
+
+<h4 id="parameters-5">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The success type sugar to compare to.</li>
+</ul>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-outcome-operator-2">Function <code>outcome_v2_xxx::outcome::operator==</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---success_type-void-const--const"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span>&nbsp;<span class="typ dec var fun">operator==</span><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>void<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>True if equal to the success type sugar.</p>
+
+<p><em>Effects:</em> If a valid expression to do so, calls the <code>operator==</code> operation on the successful item returning true if equal. Otherwise returns false.</p>
+
+<p><em>Throws:</em> Any exception the <code>operator==</code> operation might throw.</p>
+
+<h4 id="parameters-6">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The success type sugar to compare to.</li>
+</ul>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-outcome-operator-3">Function <code>outcome_v2_xxx::outcome::operator==</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---T--failure_type-T-void-const--const"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span>&nbsp;<span class="typ dec var fun">operator==</span><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__failure_type-EC-E-"><span class="typ dec var fun">failure_type</span></a><span class="pun">&lt;</span>T, void<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>True if equal to the failure type sugar.</p>
+
+<p><em>Effects:</em> If a valid expression to do so, calls the <code>operator==</code> operation on the failure item returning true if equal. Otherwise returns false.</p>
+
+<p><em>Throws:</em> Any exception the <code>operator==</code> operation might throw.</p>
+
+<h4 id="parameters-7">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The failure type sugar to compare to.</li>
+</ul>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-outcome-operator-4">Function <code>outcome_v2_xxx::outcome::operator!=</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---T-U-V--result_final-T-U-V-const--const"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">V</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span>&nbsp;<span class="typ dec var fun">operator!=</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>True if not equal to the other result.</p>
+
+<p><em>Effects:</em> If a valid expression to do so, calls the <code>operator!=</code> operation on each of the two stored items, returning true if any are not equal. Otherwise returns true.</p>
+
+<p><em>Throws:</em> Any exception the individual <code>operator!=</code> operations might throw.</p>
+
+<h4 id="parameters-8">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The other result to compare to.</li>
+</ul>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-outcome-operator-5">Function <code>outcome_v2_xxx::outcome::operator!=</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---T--success_type-T-const--const"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span>&nbsp;<span class="typ dec var fun">operator!=</span><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>T<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>True if not equal to the success type sugar.</p>
+
+<p><em>Effects:</em> If a valid expression to do so, calls the <code>operator!=</code> operation on the successful item returning true if not equal. Otherwise returns false.</p>
+
+<p><em>Throws:</em> Any exception the <code>operator!=</code> operation might throw.</p>
+
+<h4 id="parameters-9">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The success type sugar to compare to.</li>
+</ul>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-outcome-operator-6">Function <code>outcome_v2_xxx::outcome::operator!=</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---success_type-void-const--const"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span>&nbsp;<span class="typ dec var fun">operator!=</span><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>void<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>True if not equal to the success type sugar.</p>
+
+<p><em>Effects:</em> If a valid expression to do so, calls the <code>operator!=</code> operation on the successful item returning true if not equal. Otherwise returns false.</p>
+
+<p><em>Throws:</em> Any exception the <code>operator!=</code> operation might throw.</p>
+
+<h4 id="parameters-10">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The success type sugar to compare to.</li>
+</ul>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-outcome-operator-7">Function <code>outcome_v2_xxx::outcome::operator!=</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__detail__result_final-R-S-NoValuePolicy-__operator---T--failure_type-T-void-const--const"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="kwd">bool</span>&nbsp;<span class="typ dec var fun">operator!=</span><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__failure_type-EC-E-"><span class="typ dec var fun">failure_type</span></a><span class="pun">&lt;</span>T, void<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>True if not equal to the failure type sugar.</p>
+
+<p><em>Effects:</em> If a valid expression to do so, calls the <code>operator!=</code> operation on the failure item returning true if not equal. Otherwise returns false.</p>
+
+<p><em>Throws:</em> Any exception the <code>operator!=</code> operation might throw.</p>
+
+<h4 id="parameters-11">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The failure type sugar to compare to.</li>
+</ul>
+
+<hr />
+
+<h3 id="type-alias-outcome-v2-xxx-result-value-type">Type alias <code>outcome_v2_xxx::result::value_type</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__value_type"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">using</span>&nbsp;<span class="typ dec var fun">value_type</span>&nbsp;<span class="pun">=</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy--R"><span class="typ dec var fun">R</span></a><span class="pun">;</span>
+</code></pre>
+
+<p>The success type.</p>
+
+<hr />
+
+<h3 id="type-alias-outcome-v2-xxx-result-error-type">Type alias <code>outcome_v2_xxx::result::error_type</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__error_type"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">using</span>&nbsp;<span class="typ dec var fun">error_type</span>&nbsp;<span class="pun">=</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy--S"><span class="typ dec var fun">S</span></a><span class="pun">;</span>
+</code></pre>
+
+<p>The failure type.</p>
+
+<hr />
+
+<h3 id="type-alias-outcome-v2-xxx-result-value-type-if-enabled">Type alias <code>outcome_v2_xxx::result::value_type_if_enabled</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__value_type_if_enabled"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">using</span>&nbsp;<span class="typ dec var fun">value_type_if_enabled</span>&nbsp;<span class="pun">=</span> typename base::_value_type<span class="pun">;</span>
+</code></pre>
+
+<p>Used to disable in place type construction when <code>value_type</code> and <code>error_type</code> are ambiguous.</p>
+
+<hr />
+
+<h3 id="type-alias-outcome-v2-xxx-result-error-type-if-enabled">Type alias <code>outcome_v2_xxx::result::error_type_if_enabled</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__error_type_if_enabled"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">using</span>&nbsp;<span class="typ dec var fun">error_type_if_enabled</span>&nbsp;<span class="pun">=</span> typename base::_error_type<span class="pun">;</span>
+</code></pre>
+
+<p>Used to disable in place type construction when <code>value_type</code> and <code>error_type</code> are ambiguous.</p>
+
+<hr />
+
+<h3 id="alias-template-outcome-v2-xxx-result-rebind">Alias template <code>outcome_v2_xxx::result::rebind</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__rebind-T-U-V-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span>&nbsp;<span class="pun">=</span> S<span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">V</span>&nbsp;<span class="pun">=</span> policy::default_policy&lt;T,U,void&gt;<span class="pun">&gt;</span>
+<span class="kwd">using</span>&nbsp;<span class="typ dec var fun">rebind</span>&nbsp;<span class="pun">=</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>T, U, V<span class="pun">&gt;</span><span class="pun">;</span>
+</code></pre>
+
+<p>Used to rebind this result to a different result type.</p>
+
+<hr />
+
+<h3 id="struct-outcome-v2-xxx-result-predicate">Struct <code>outcome_v2_xxx::result::predicate</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__predicate"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">struct</span>&nbsp;<span class="typ dec var fun">predicate</span>
+<span class="pun">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">using</span>&nbsp;<span class="typ dec var fun">base</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span>&nbsp;<span class="kwd">T</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">enable_value_converting_constructor</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="pun">!</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_same</span><span class="pun">&lt;</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">decay_t</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">&gt;</span><span class="pun">,</span>&nbsp;<span class="kwd">result</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span>&nbsp;<span class="pun">&amp;&amp;</span>&nbsp;<span class="kwd">base</span><span class="pun">::</span><span class="typ dec var fun">template</span>&nbsp;&nbsp;<span class="kwd">enable_value_converting_constructor</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">&gt;</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span>&nbsp;<span class="kwd">T</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">enable_error_converting_constructor</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="pun">!</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_same</span><span class="pun">&lt;</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">decay_t</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">&gt;</span><span class="pun">,</span>&nbsp;<span class="kwd">result</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span>&nbsp;<span class="pun">&amp;&amp;</span>&nbsp;<span class="kwd">base</span><span class="pun">::</span><span class="typ dec var fun">template</span>&nbsp;&nbsp;<span class="kwd">enable_error_converting_constructor</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">&gt;</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span>&nbsp;<span class="kwd">ErrorCondEnum</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">enable_error_condition_converting_constructor</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="pun">!</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_same</span><span class="pun">&lt;</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">decay_t</span><span class="pun">&lt;</span><span class="kwd">ErrorCondEnum</span><span class="pun">&gt;</span><span class="pun">,</span>&nbsp;<span class="kwd">result</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span>&nbsp;<span class="pun">&amp;&amp;</span>&nbsp;<span class="kwd">base</span><span class="pun">::</span><span class="typ dec var fun">template</span>&nbsp;&nbsp;<span class="kwd">enable_error_condition_converting_constructor</span><span class="pun">&lt;</span><span class="kwd">ErrorCondEnum</span><span class="pun">&gt;</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span>&nbsp;<span class="kwd">T</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">class</span>&nbsp;<span class="kwd">U</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">class</span>&nbsp;<span class="kwd">V</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">enable_compatible_conversion</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="pun">!</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_same</span><span class="pun">&lt;</span><span class="kwd">result</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">,</span>&nbsp;<span class="kwd">U</span><span class="pun">,</span>&nbsp;<span class="kwd">V</span><span class="pun">&gt;</span><span class="pun">,</span>&nbsp;<span class="kwd">result</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span>&nbsp;<span class="pun">&amp;&amp;</span>&nbsp;<span class="kwd">base</span><span class="pun">::</span><span class="typ dec var fun">template</span>&nbsp;&nbsp;<span class="kwd">enable_compatible_conversion</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">,</span>&nbsp;<span class="kwd">U</span><span class="pun">,</span>&nbsp;<span class="kwd">V</span><span class="pun">&gt;</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span><span class="pun">...</span><span class="kwd">Args</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">enable_inplace_value_constructor</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_void</span><span class="pun">&lt;</span><span class="kwd">value_type</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span>&nbsp;<span class="pun">||</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_constructible</span><span class="pun">&lt;</span><span class="kwd">value_type</span><span class="pun">,</span>&nbsp;<span class="kwd">Args</span><span class="pun">...</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span><span class="pun">...</span><span class="kwd">Args</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">enable_inplace_error_constructor</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_void</span><span class="pun">&lt;</span><span class="kwd">error_type</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span>&nbsp;<span class="pun">||</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_constructible</span><span class="pun">&lt;</span><span class="kwd">error_type</span><span class="pun">,</span>&nbsp;<span class="kwd">Args</span><span class="pun">...</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span><span class="pun">...</span><span class="kwd">Args</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">enable_inplace_value_error_constructor</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">base</span><span class="pun">::</span><span class="typ dec var fun">template</span>&nbsp;&nbsp;<span class="kwd">enable_inplace_value_error_constructor</span><span class="pun">&lt;</span><span class="kwd">Args</span><span class="pun">...</span><span class="pun">&gt;</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="pun">...</span>&nbsp;<span class="typ dec var fun">Args</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">using</span>&nbsp;<span class="typ dec var fun">choose_inplace_value_error_constructor</span>&nbsp;<span class="pun">=</span> typename base::choose_inplace_value_error_constructor&lt;Args...&gt;<span class="pun">;</span>
+<span class="pun">};</span>
+</code></pre>
+
+<p>Requirement predicates for result.</p>
+
+<h3 id="unexposed-entity-outcome-v2-xxx-result-predicate-enable-value-converting-constructor">Unexposed entity <code>outcome_v2_xxx::result::predicate::enable_value_converting_constructor</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__predicate__enable_value_converting_constructor"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span>&nbsp;<span class="kwd">T</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">enable_value_converting_constructor</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="pun">!</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_same</span><span class="pun">&lt;</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">decay_t</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">&gt;</span><span class="pun">,</span>&nbsp;<span class="kwd">result</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span>&nbsp;<span class="pun">&amp;&amp;</span>&nbsp;<span class="kwd">base</span><span class="pun">::</span><span class="typ dec var fun">template</span>&nbsp;&nbsp;<span class="kwd">enable_value_converting_constructor</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">&gt;</span><span class="pun">;</span>
+</code></pre>
+
+<p>Predicate for the value converting constructor to be available.</p>
+
+<hr />
+
+<h3 id="unexposed-entity-outcome-v2-xxx-result-predicate-enable-error-converting-constructor">Unexposed entity <code>outcome_v2_xxx::result::predicate::enable_error_converting_constructor</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__predicate__enable_error_converting_constructor"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span>&nbsp;<span class="kwd">T</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">enable_error_converting_constructor</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="pun">!</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_same</span><span class="pun">&lt;</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">decay_t</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">&gt;</span><span class="pun">,</span>&nbsp;<span class="kwd">result</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span>&nbsp;<span class="pun">&amp;&amp;</span>&nbsp;<span class="kwd">base</span><span class="pun">::</span><span class="typ dec var fun">template</span>&nbsp;&nbsp;<span class="kwd">enable_error_converting_constructor</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">&gt;</span><span class="pun">;</span>
+</code></pre>
+
+<p>Predicate for the error converting constructor to be available.</p>
+
+<hr />
+
+<h3 id="unexposed-entity-outcome-v2-xxx-result-predicate-enable-error-condition-converting-constructor">Unexposed entity <code>outcome_v2_xxx::result::predicate::enable_error_condition_converting_constructor</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__predicate__enable_error_condition_converting_constructor"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span>&nbsp;<span class="kwd">ErrorCondEnum</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">enable_error_condition_converting_constructor</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="pun">!</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_same</span><span class="pun">&lt;</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">decay_t</span><span class="pun">&lt;</span><span class="kwd">ErrorCondEnum</span><span class="pun">&gt;</span><span class="pun">,</span>&nbsp;<span class="kwd">result</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span>&nbsp;<span class="pun">&amp;&amp;</span>&nbsp;<span class="kwd">base</span><span class="pun">::</span><span class="typ dec var fun">template</span>&nbsp;&nbsp;<span class="kwd">enable_error_condition_converting_constructor</span><span class="pun">&lt;</span><span class="kwd">ErrorCondEnum</span><span class="pun">&gt;</span><span class="pun">;</span>
+</code></pre>
+
+<p>Predicate for the error condition converting constructor to be available.</p>
+
+<hr />
+
+<h3 id="unexposed-entity-outcome-v2-xxx-result-predicate-enable-compatible-conversion">Unexposed entity <code>outcome_v2_xxx::result::predicate::enable_compatible_conversion</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__predicate__enable_compatible_conversion"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span>&nbsp;<span class="kwd">T</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">class</span>&nbsp;<span class="kwd">U</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">class</span>&nbsp;<span class="kwd">V</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">enable_compatible_conversion</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="pun">!</span><span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_same</span><span class="pun">&lt;</span><span class="kwd">result</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">,</span>&nbsp;<span class="kwd">U</span><span class="pun">,</span>&nbsp;<span class="kwd">V</span><span class="pun">&gt;</span><span class="pun">,</span>&nbsp;<span class="kwd">result</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span>&nbsp;<span class="pun">&amp;&amp;</span>&nbsp;<span class="kwd">base</span><span class="pun">::</span><span class="typ dec var fun">template</span>&nbsp;&nbsp;<span class="kwd">enable_compatible_conversion</span><span class="pun">&lt;</span><span class="kwd">T</span><span class="pun">,</span>&nbsp;<span class="kwd">U</span><span class="pun">,</span>&nbsp;<span class="kwd">V</span><span class="pun">&gt;</span><span class="pun">;</span>
+</code></pre>
+
+<p>Predicate for the converting copy constructor from a compatible input to be available.</p>
+
+<hr />
+
+<h3 id="unexposed-entity-outcome-v2-xxx-result-predicate-enable-inplace-value-constructor">Unexposed entity <code>outcome_v2_xxx::result::predicate::enable_inplace_value_constructor</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__predicate__enable_inplace_value_constructor"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span><span class="pun">...</span><span class="kwd">Args</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">enable_inplace_value_constructor</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_void</span><span class="pun">&lt;</span><span class="kwd">value_type</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span>&nbsp;<span class="pun">||</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_constructible</span><span class="pun">&lt;</span><span class="kwd">value_type</span><span class="pun">,</span>&nbsp;<span class="kwd">Args</span><span class="pun">...</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span><span class="pun">;</span>
+</code></pre>
+
+<p>Predicate for the inplace construction of value to be available.</p>
+
+<hr />
+
+<h3 id="unexposed-entity-outcome-v2-xxx-result-predicate-enable-inplace-error-constructor">Unexposed entity <code>outcome_v2_xxx::result::predicate::enable_inplace_error_constructor</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__predicate__enable_inplace_error_constructor"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="typ dec var fun">template</span>&nbsp;<span class="pun">&lt;</span><span class="typ dec var fun">class</span><span class="pun">...</span><span class="kwd">Args</span><span class="pun">&gt;</span><span class="typ dec var fun">static</span>&nbsp;<span class="typ dec var fun">constexpr</span>&nbsp;<span class="typ dec var fun">bool</span>&nbsp;<span class="kwd">enable_inplace_error_constructor</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_void</span><span class="pun">&lt;</span><span class="kwd">error_type</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span>&nbsp;<span class="pun">||</span>&nbsp;<span class="kwd">std</span><span class="pun">::</span><span class="kwd">is_constructible</span><span class="pun">&lt;</span><span class="kwd">error_type</span><span class="pun">,</span>&nbsp;<span class="kwd">Args</span><span class="pun">...</span><span class="pun">&gt;</span><span class="pun">::</span><span class="kwd">value</span><span class="pun">;</span>
+</code></pre>
+
+<p>Predicate for the inplace construction of error to be available.</p>
+
+<hr />
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="typ dec var fun">result</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">delete</span><span class="pun">;</span>
+</code></pre>
+
+<p>Default construction is not permitted.</p>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-1">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-result-R-S-NoValuePolicy----"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="typ dec var fun">result</span><span class="pun">(</span>result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;&amp;</span><span class="pun">)</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">default</span><span class="pun">;</span>
+</code></pre>
+
+<p>Move construction available if <code>value_type</code> and <code>error_type</code> implement it.</p>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-2">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-constresult-R-S-NoValuePolicy---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="typ dec var fun">result</span><span class="pun">(</span>const result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;</span><span class="pun">)</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">default</span><span class="pun">;</span>
+</code></pre>
+
+<p>Copy construction available if <code>value_type</code> and <code>error_type</code> implement it.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-result-operator">Function <code>outcome_v2_xxx::result::operator=</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__operator--result-R-S-NoValuePolicy----"></span></p>
+
+<pre><code class="standardese-language-cpp">result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">operator=</span><span class="pun">(</span>result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;&amp;</span><span class="pun">)</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">default</span><span class="pun">;</span>
+</code></pre>
+
+<p>Move assignment available if <code>value_type</code> and <code>error_type</code> implement it.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-result-operator-1">Function <code>outcome_v2_xxx::result::operator=</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__operator--constresult-R-S-NoValuePolicy---"></span></p>
+
+<pre><code class="standardese-language-cpp">result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">operator=</span><span class="pun">(</span>const result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;</span><span class="pun">)</span>&nbsp;<span class="pun">=</span>&nbsp;<span class="kwd">default</span><span class="pun">;</span>
+</code></pre>
+
+<p>Copy assignment available if <code>value_type</code> and <code>error_type</code> implement it.</p>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-3">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---T---outcome_v2_xxx__result__value_converting_constructor_tag-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---T---outcome_v2_xxx__result__value_converting_constructor_tag--t"><span class="typ dec var fun">t</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Implicit converting constructor to a successful result.</p>
+
+<p><em>Effects:</em> Initialises the result with a <code>value_type</code>.</p>
+
+<p><em>Requires:</em> Type T is implicitly constructible to <code>value_type</code>, is not implicitly constructible to <code>error_type</code>, and is not <code>result&lt;R, S&gt;</code> and not <code>in_place_type&lt;&gt;</code>.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>value_type(T)</code> might throw.</p>
+
+<h4 id="parameters-12">Parameters</h4>
+
+<ul>
+<li><code>t</code> &mdash; The value from which to initialise the <code>value_type</code>.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-4">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---T---outcome_v2_xxx__result__error_converting_constructor_tag-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---T---outcome_v2_xxx__result__error_converting_constructor_tag--t"><span class="typ dec var fun">t</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Implicit converting constructor to a failure result.</p>
+
+<p><em>Effects:</em> Initialises the result with a <code>error_type</code>.</p>
+
+<p><em>Requires:</em> Type T is implicitly constructible to <code>error_type</code>, is not implicitly constructible to <code>value_type</code>, and is not <code>result&lt;R, S&gt;</code> and not <code>in_place_type&lt;&gt;</code>.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>error_type(T)</code> might throw.</p>
+
+<h4 id="parameters-13">Parameters</h4>
+
+<ul>
+<li><code>t</code> &mdash; The value from which to initialise the <code>error_type</code>.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-5">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-ErrorCondEnum----ErrorCondEnum---outcome_v2_xxx__result__error_condition_converting_constructor_tag-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">ErrorCondEnum</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><span class="typ dec var fun">ErrorCondEnum</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-ErrorCondEnum----ErrorCondEnum---outcome_v2_xxx__result__error_condition_converting_constructor_tag--t"><span class="typ dec var fun">t</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Implicit special error condition converting constructor to a failure result.</p>
+
+<p><em>Effects:</em> Initialises the result with a <code>error_type</code> constructed via <code>make_error_code(t)</code>.</p>
+
+<p><em>Requires:</em> <code>std::is_error_condition_enum&lt;ErrorCondEnum&gt;</code> must be true, <code>ErrorCondEnum</code> is not implicitly constructible to <code>value_type</code> nor <code>error_type</code>, and is not <code>result&lt;R, S&gt;</code> and not <code>in_place_type&lt;&gt;</code>; Finally, the expression <code>error_type(make_error_code(ErrorCondEnum()))</code> must be valid.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>error_type(make_error_code(t))</code> might throw.</p>
+
+<h4 id="parameters-14">Parameters</h4>
+
+<ul>
+<li><code>t</code> &mdash; The error condition from which to initialise the <code>error_type</code>.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-6">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T----T---outcome_v2_xxx__result__explicit_valueorerror_converting_constructor_tag-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><span class="typ dec var fun">T</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T----T---outcome_v2_xxx__result__explicit_valueorerror_converting_constructor_tag--o"><span class="typ dec var fun">o</span></a><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Explicit converting constructor from a compatible <code>ValueOrError</code> type.</p>
+
+<p><em>Effects:</em> Initialises the result with the contents of the compatible input.</p>
+
+<p><em>Requires:</em> That <code>convert::value_or_error&lt;result, std::decay_t&lt;T&gt;&gt;{}(std::forward&lt;T&gt;(o))</code> be available. The default implementation will consume <code>T</code>’s matching the <code>ValueOrError</code> concept type. <code>ValueOrError</code> concept matches any type with a <code>value_type</code>, an <code>error_type</code>, a <code>.value()</code>, an <code>.error()</code> and a <code>.has_value()</code>.</p>
+
+<h4 id="parameters-15">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The input for which a <code>convert::value_or_error&lt;result, std::decay_t&lt;T&gt;&gt;{}(std::forward&lt;T&gt;(o))</code> is available.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-7">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T-U-V---result-T-U-V-const--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">V</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>T, U, V<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T-U-V---result-T-U-V-const---o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Explicit converting copy constructor from a compatible result type.</p>
+
+<p><em>Effects:</em> Initialises the result with a copy of the compatible result.</p>
+
+<p><em>Requires:</em> Both result’s <code>value_type</code> and <code>error_type</code> need to be constructible, or the source can be <code>void</code>.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>value_type(T)</code> and <code>error_type(U)</code> might throw.</p>
+
+<h4 id="parameters-16">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The compatible result.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-8">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T-U-V---result-T-U-V----"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">V</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>T, U, V<span class="pun">&gt;</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T-U-V---result-T-U-V-----o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Explicit converting move constructor from a compatible result type.</p>
+
+<p><em>Effects:</em> Initialises the result with a move of the compatible result.</p>
+
+<p><em>Requires:</em> Both result’s <code>value_type</code> and <code>error_type</code> need to be constructible, or the source can be <code>void</code>.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>value_type(T)</code> and <code>error_type(U)</code> might throw.</p>
+
+<h4 id="parameters-17">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The compatible result.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-9">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--Args------"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="pun">...</span>&nbsp;<span class="typ dec var fun">Args</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><span class="typ dec var fun">in_place_type_t</span><span class="pun">&lt;</span>outcome_v2_xxx::result::value_type_if_enabled<span class="pun">&gt;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--Args-------_"><span class="typ dec var fun">_</span></a><span class="pun">,</span> Args &amp;&amp;... <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--Args-------args"><span class="typ dec var fun">args</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Explicit inplace constructor to a successful result.</p>
+
+<p><em>Effects:</em> Initialises the result with a <code>value_type</code>.</p>
+
+<p><em>Requires:</em> <code>value_type</code> is void or <code>Args...</code> are constructible to <code>value_type</code>.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>value_type(Args...)</code> might throw.</p>
+
+<h4 id="parameters-18">Parameters</h4>
+
+<ul>
+<li><code>_</code> &mdash; Tag type to indicate we are doing in place construction of <code>value_type</code>.</li>
+<li><code>args</code> &mdash; Arguments with which to in place construct.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-10">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--std__initializer_list-U--Args------"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="pun">...</span>&nbsp;<span class="typ dec var fun">Args</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><span class="typ dec var fun">in_place_type_t</span><span class="pun">&lt;</span>outcome_v2_xxx::result::value_type_if_enabled<span class="pun">&gt;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--std__initializer_list-U--Args-------_"><span class="typ dec var fun">_</span></a><span class="pun">,</span>&nbsp;<span class="typ dec var fun">std::initializer_list</span><span class="pun">&lt;</span>U<span class="pun">&gt;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--std__initializer_list-U--Args-------il"><span class="typ dec var fun">il</span></a><span class="pun">,</span> Args &amp;&amp;... <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__value_type_if_enabled--std__initializer_list-U--Args-------args"><span class="typ dec var fun">args</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Explicit inplace constructor to a successful result.</p>
+
+<p><em>Effects:</em> Initialises the result with a <code>value_type</code>.</p>
+
+<p><em>Requires:</em> The initializer list + <code>Args...</code> are constructible to <code>value_type</code>.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>value_type(il, Args...)</code> might throw.</p>
+
+<h4 id="parameters-19">Parameters</h4>
+
+<ul>
+<li><code>_</code> &mdash; Tag type to indicate we are doing in place construction of <code>value_type</code>.</li>
+<li><code>il</code> &mdash; An initializer list with which to in place construct.</li>
+<li><code>args</code> &mdash; Arguments with which to in place construct.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-11">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--Args------"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="pun">...</span>&nbsp;<span class="typ dec var fun">Args</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><span class="typ dec var fun">in_place_type_t</span><span class="pun">&lt;</span>outcome_v2_xxx::result::error_type_if_enabled<span class="pun">&gt;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--Args-------_"><span class="typ dec var fun">_</span></a><span class="pun">,</span> Args &amp;&amp;... <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--Args-------args"><span class="typ dec var fun">args</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Explicit inplace constructor to a failure result.</p>
+
+<p><em>Effects:</em> Initialises the result with a <code>error_type</code>.</p>
+
+<p><em>Requires:</em> <code>error_type</code> is void or <code>Args...</code> are constructible to <code>error_type</code>.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>error_type(Args...)</code> might throw.</p>
+
+<h4 id="parameters-20">Parameters</h4>
+
+<ul>
+<li><code>_</code> &mdash; Tag type to indicate we are doing in place construction of <code>error_type</code>.</li>
+<li><code>args</code> &mdash; Arguments with which to in place construct.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-12">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--std__initializer_list-U--Args------"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">U</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="pun">...</span>&nbsp;<span class="typ dec var fun">Args</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><span class="typ dec var fun">in_place_type_t</span><span class="pun">&lt;</span>outcome_v2_xxx::result::error_type_if_enabled<span class="pun">&gt;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--std__initializer_list-U--Args-------_"><span class="typ dec var fun">_</span></a><span class="pun">,</span>&nbsp;<span class="typ dec var fun">std::initializer_list</span><span class="pun">&lt;</span>U<span class="pun">&gt;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--std__initializer_list-U--Args-------il"><span class="typ dec var fun">il</span></a><span class="pun">,</span> Args &amp;&amp;... <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-U-Args---in_place_type_t-outcome_v2_xxx__result__error_type_if_enabled--std__initializer_list-U--Args-------args"><span class="typ dec var fun">args</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Explicit inplace constructor to a failure result.</p>
+
+<p><em>Effects:</em> Initialises the result with a <code>error_type</code>.</p>
+
+<p><em>Requires:</em> The initializer list + <code>Args...</code> are constructible to <code>error_type</code>.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>error_type(il, Args...)</code> might throw.</p>
+
+<h4 id="parameters-21">Parameters</h4>
+
+<ul>
+<li><code>_</code> &mdash; Tag type to indicate we are doing in place construction of <code>error_type</code>.</li>
+<li><code>il</code> &mdash; An initializer list with which to in place construct.</li>
+<li><code>args</code> &mdash; Arguments with which to in place construct.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-13">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-A1-A2-Args---A1---A2---Args------"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">A1</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">A2</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="pun">...</span>&nbsp;<span class="typ dec var fun">Args</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><span class="typ dec var fun">A1</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">a1</span><span class="pun">,</span>&nbsp;<span class="typ dec var fun">A2</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">a2</span><span class="pun">,</span> Args &amp;&amp;... <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-A1-A2-Args---A1---A2---Args-------args"><span class="typ dec var fun">args</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Implicit inplace constructor to successful or failure result.</p>
+
+<p><em>Effects:</em> Calls the appropriate <code>in_place_type_t&lt;...&gt;</code> constructor depending on constructibility of args.</p>
+
+<p><em>Requires:</em> That the args can construct exactly one of <code>value_type</code> or <code>error_type</code>.</p>
+
+<p><em>Throws:</em> Any exception the <code>in_place_type_t&lt;...&gt;</code> constructor might throw.</p>
+
+<h4 id="parameters-22">Parameters</h4>
+
+<ul>
+<li><code>args</code> &mdash; Arguments with which to in place construct.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-14">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-success_type-void-const--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>void<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-success_type-void-const---o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Implicit tagged constructor of a successful result.</p>
+
+<p><em>Effects:</em> Initialises the result with a default constructed success type.</p>
+
+<p><em>Requires:</em> <code>value_type</code> to be default constructible, or <code>void</code>.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>value_type()</code> might throw.</p>
+
+<h4 id="parameters-23">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The compatible success type sugar.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-15">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---success_type-T-const--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>T<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---success_type-T-const---o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Implicit tagged constructor of a successful result.</p>
+
+<p><em>Effects:</em> Initialises the result with a copy of the value in the type sugar.</p>
+
+<p><em>Requires:</em> Both result and success’ <code>value_type</code> need to be constructible, or the source can be <code>void</code>.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>value_type(T)</code> might throw.</p>
+
+<h4 id="parameters-24">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The compatible success type sugar.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-16">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---success_type-T----"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__success_type-T-"><span class="typ dec var fun">success_type</span></a><span class="pun">&lt;</span>T<span class="pun">&gt;</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---success_type-T-----o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Implicit tagged constructor of a successful result.</p>
+
+<p><em>Effects:</em> Initialises the result with a move of the value in the type sugar.</p>
+
+<p><em>Requires:</em> Both result and success’ <code>value_type</code> need to be constructible. The source cannot be <code>void</code>.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>value_type(T)</code> might throw.</p>
+
+<h4 id="parameters-25">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The compatible success type sugar.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-17">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---failure_type-T-const--"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__failure_type-EC-E-"><span class="typ dec var fun">failure_type</span></a><span class="pun">&lt;</span>T<span class="pun">&gt;</span>&nbsp;<span class="kwd">const</span><span class="pun">&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---failure_type-T-const---o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Implicit tagged constructor of a failure result.</p>
+
+<p><em>Effects:</em> Initialises the result with a copy of the error in the type sugar.</p>
+
+<p><em>Requires:</em> Both result and failure’s <code>error_type</code> need to be constructible, or the source can be <code>void</code>.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>error_type(T)</code> might throw.</p>
+
+<h4 id="parameters-26">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The compatible failure type sugar.</li>
+</ul>
+
+<hr />
+
+<h3 id="constructor-outcome-v2-xxx-result-result-18">Constructor <code>outcome_v2_xxx::result::result</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---failure_type-T----"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">T</span><span class="pun">&gt;</span>
+<span class="kwd">constexpr</span>&nbsp;<span class="typ dec var fun">result</span><span class="pun">(</span><a href="../success_failure#standardese-outcome_v2_xxx__failure_type-EC-E-"><span class="typ dec var fun">failure_type</span></a><span class="pun">&lt;</span>T<span class="pun">&gt;</span><span class="pun">&amp;&amp;</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__result-T---failure_type-T-----o"><span class="typ dec var fun">o</span></a><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Implicit tagged constructor of a failure result.</p>
+
+<p><em>Effects:</em> Initialises the result with a move of the error in the type sugar.</p>
+
+<p><em>Requires:</em> Both result and failure’s <code>error_type</code> need to be constructible, or the source can be <code>void</code>.</p>
+
+<p><em>Throws:</em> Any exception the construction of <code>error_type(T)</code> might throw.</p>
+
+<h4 id="parameters-27">Parameters</h4>
+
+<ul>
+<li><code>o</code> &mdash; The compatible failure type sugar.</li>
+</ul>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-result-swap">Function <code>outcome_v2_xxx::result::swap</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__swap-result-R-S-NoValuePolicy---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">void</span>&nbsp;<span class="typ dec var fun">swap</span><span class="pun">(</span>result&lt;R, S, NoValuePolicy&gt;<span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">o</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Swaps this result with another result</p>
+
+<p><em>Effects:</em> Any <code>R</code> and/or <code>S</code> is swapped along with the metadata tracking them.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-result-as-failure">Function <code>outcome_v2_xxx::result::as_failure</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__as_failure--const-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">auto</span>&nbsp;<span class="typ dec var fun">as_failure</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="kwd">const</span>&nbsp;<span class="pun">&amp;</span><span class="pun">;</span>
+</code></pre>
+
+<p>Returns this result as a <code>failure_type</code> with any errored state copied.</p>
+
+<p><em>Requires:</em> This result to have a failed state, else whatever <code>assume_error()</code> would do.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-result-as-failure-1">Function <code>outcome_v2_xxx::result::as_failure</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-__as_failure----"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">auto</span>&nbsp;<span class="typ dec var fun">as_failure</span><span class="pun">(</span><span class="pun">)</span>&nbsp;<span class="pun">&amp;&amp;</span><span class="pun">;</span>
+</code></pre>
+
+<p>Returns this result as a <code>failure_type</code> with any errored state moved.</p>
+
+<p><em>Requires:</em> This result to have a failed state, else whatever <code>assume_error()</code> would do.</p>
+
+<hr />
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-swap">Function <code>outcome_v2_xxx::swap</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__swap-R-S-P--result-R-S-P---result-R-S-P---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">P</span><span class="pun">&gt;</span>
+<span class="kwd">void</span>&nbsp;<span class="typ dec var fun">swap</span><span class="pun">(</span><a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>R, S, P<span class="pun">&gt;</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">a</span><span class="pun">,</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>R, S, P<span class="pun">&gt;</span><span class="pun">&amp;</span>&nbsp;<span class="typ dec var fun">b</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">(</span><span class="typ dec var fun">&#x27;hidden&#x27;</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Specialise swap for result.</p>
+
+<p><em>Effects:</em> Calls <code>a.swap(b)</code>.</p>
+
+<hr />
+
+<h3 id="alias-template-outcome-v2-xxx-unchecked">Alias template <code>outcome_v2_xxx::unchecked</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__unchecked-R-S-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span>&nbsp;<span class="pun">=</span> std::error_code<span class="pun">&gt;</span>
+<span class="kwd">using</span>&nbsp;<span class="typ dec var fun">unchecked</span>&nbsp;<span class="pun">=</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>R, S, policy::all_narrow<span class="pun">&gt;</span><span class="pun">;</span>
+</code></pre>
+
+<p>An “unchecked” edition of <code>result&lt;T, E&gt;</code> which does no special handling of specific <code>E</code> types at all.</p>
+
+<p>Attempting to access <code>T</code> when there is an <code>E</code> results in nothing happening at all, it is treated with a narrow contract (i.e. undefined behaviour).</p>
+
+<hr />
+
+<h3 id="alias-template-outcome-v2-xxx-checked">Alias template <code>outcome_v2_xxx::checked</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__checked-R-S-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">R</span><span class="pun">,</span>&nbsp;<span class="kwd">class</span>&nbsp;<span class="typ dec var fun">S</span>&nbsp;<span class="pun">=</span> std::error_code<span class="pun">&gt;</span>
+<span class="kwd">using</span>&nbsp;<span class="typ dec var fun">checked</span>&nbsp;<span class="pun">=</span> <a href="#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-"><span class="typ dec var fun">result</span></a><span class="pun">&lt;</span>R, S, policy::throw_bad_result_access&lt;S&gt;<span class="pun">&gt;</span><span class="pun">;</span>
+</code></pre>
+
+<p>A “checked” edition of <code>result&lt;T, E&gt;</code> which resembles fairly closely a <code>std::expected&lt;T, E&gt;</code>.</p>
+
+<p>Attempting to access <code>T</code> when there is an <code>E</code> results in <code>bad_result_access&lt;E&gt;</code> being thrown. Nothing else.</p>
+
+<p>Note that this approximates the proposed <code>expected&lt;T, E&gt;</code> up for standardisation, see the FAQ for more detail.</p>
+
+<hr />
+
+
+        </div><p><small>Last revised: December 05, 2018 at 14:18:52 UTC</small></p>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../reference/outcome.html"><img src="../images/prev.png" alt="Prev"></a>
+    <a accesskey="u" href="../reference.html"><img src="../images/up.png" alt="Up"></a>
+    <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../reference/try.html"><img src="../images/next.png" alt="Next"></a></div></body>
+</html>

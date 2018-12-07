@@ -1,0 +1,184 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Throw bad_result_access - Boost.Outcome documentation</title>
+<link rel="stylesheet" href="../../css/boost.css" type="text/css">
+<meta name="generator" content="Hugo 0.52 with Boostdoc theme">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<link rel="icon" href="../../images/favicon.ico" type="image/ico"/>
+<body><div id="boost-common-heading-doc" style="background: #574D74 url('../../images/header-bg.png') repeat-x top left;">
+  <div class="heading-inner" style="background: url('../../images/header-fg.png') no-repeat top left;">
+  <div class="heading-placard"></div>
+
+  <h1 class="heading-title">
+    <a href="../../">
+      <img src="../../images/space.png" alt="Boost C++ Libraries" class="heading-logo" />
+      <span class="heading-boost">Boost</span>
+      <span class="heading-cpplibraries">C++ Libraries</span>
+    </a>
+  </h1>
+
+  <p class="heading-quote">
+    <q>...one of the most highly
+    regarded and expertly designed C++ library projects in the
+    world.</q> <span class="heading-attribution">&mdash; <a href=
+    "http://www.gotw.ca/" class="external">Herb Sutter</a> and <a href=
+    "http://en.wikipedia.org/wiki/Andrei_Alexandrescu" class="external">Andrei
+    Alexandrescu</a>, <a href=
+    "http://safari.awprofessional.com/?XmlId=0321113586" class="external">C++
+    Coding Standards</a></span></p>
+  </div>
+</div>
+<div id="boost-common-heading-doc-spacer"></div>
+<div class="spirit-nav">
+<a accesskey="p" href="../../reference/policies/terminate.html"><img src="../../images/prev.png" alt="Prev"></a>
+    <a accesskey="u" href="../../reference/policies.html"><img src="../../images/up.png" alt="Up"></a>
+    <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../faq.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
+  <div class="titlepage"><div><div><h2 class="title" style="clear: both">Throw bad_result_access</h2></div></div></div>
+  
+
+<h1 id="header-file-throw-bad-result-access-hpp">Header file <code>throw_bad_result_access.hpp</code></h1>
+
+<p><span id="standardese-throw_bad_result_access-hpp"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="pre">#include</span>&nbsp;<span class="pre">&quot;</span><span class="typ dec var fun">detail&#x2F;common.hpp</span><span class="pre">&quot;</span>
+
+<span class="kwd">namespace</span>&nbsp;<span class="typ dec var fun">outcome_v2_xxx</span>
+<span class="pun">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">namespace</span>&nbsp;<span class="typ dec var fun">policy</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pun">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">EC</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">struct</span> <a href="#standardese-outcome_v2_xxx__policy__throw_bad_result_access-EC-"><span class="typ dec var fun">throw_bad_result_access</span></a><span class="pun">;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="pun">}</span>
+<span class="pun">}</span>
+</code></pre>
+
+<p><span id="standardese-outcome_v2_xxx"></span></p>
+
+<p><span id="standardese-outcome_v2_xxx__policy"></span></p>
+
+<h3 id="struct-outcome-v2-xxx-policy-throw-bad-result-access">Struct <code>outcome_v2_xxx::policy::throw_bad_result_access</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__policy__throw_bad_result_access-EC-"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">EC</span><span class="pun">&gt;</span>
+<span class="kwd">struct</span>&nbsp;<span class="typ dec var fun">throw_bad_result_access</span>
+<span class="pun">{</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">Impl</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">static</span>&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span> <a href="#standardese-outcome_v2_xxx__policy__throw_bad_result_access-EC-__wide_value_check-Impl--Impl---"><span class="typ dec var fun">wide_value_check</span></a><span class="pun">(</span><span class="typ dec var fun">Impl</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">self</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">Impl</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">static</span>&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span> <a href="#standardese-outcome_v2_xxx__policy__throw_bad_result_access-EC-__wide_error_check-Impl--Impl---"><span class="typ dec var fun">wide_error_check</span></a><span class="pun">(</span><span class="typ dec var fun">Impl</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">self</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">Impl</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">static</span>&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span> <a href="#standardese-outcome_v2_xxx__policy__throw_bad_result_access-EC-__wide_exception_check-Impl--Impl---"><span class="typ dec var fun">wide_exception_check</span></a><span class="pun">(</span><span class="typ dec var fun">Impl</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">self</span><span class="pun">)</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">Impl</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">static</span>&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span> <a href="../result_exception_ptr_rethrow#standardese-outcome_v2_xxx__policy__detail__base__narrow_value_check-Impl--Impl---"><span class="typ dec var fun">narrow_value_check</span></a><span class="pun">(</span><span class="typ dec var fun">Impl</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">self</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">Impl</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">static</span>&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span> <a href="../result_exception_ptr_rethrow#standardese-outcome_v2_xxx__policy__detail__base__narrow_error_check-Impl--Impl---"><span class="typ dec var fun">narrow_error_check</span></a><span class="pun">(</span><span class="typ dec var fun">Impl</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">self</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">Impl</span><span class="pun">&gt;</span>
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="kwd">static</span>&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span> <a href="../result_exception_ptr_rethrow#standardese-outcome_v2_xxx__policy__detail__base__narrow_exception_check-Impl--Impl---"><span class="typ dec var fun">narrow_exception_check</span></a><span class="pun">(</span><span class="typ dec var fun">Impl</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">self</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+<span class="pun">};</span>
+</code></pre>
+
+<p>Policy which throws <code>bad_result_access_with&lt;EC&gt;</code> or <code>bad_result_access</code> during wide checks.</p>
+
+<p>Can be used in <code>result</code> only.</p>
+
+<h3 id="function-outcome-v2-xxx-policy-throw-bad-result-access-narrow-value-check">Function <code>outcome_v2_xxx::policy::throw_bad_result_access::narrow_value_check</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__policy__detail__base__narrow_value_check-Impl--Impl---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">Impl</span><span class="pun">&gt;</span>
+<span class="kwd">static</span>&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span>&nbsp;<span class="typ dec var fun">narrow_value_check</span><span class="pun">(</span><span class="typ dec var fun">Impl</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">self</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>Performs a narrow check of state, used in the assume_value() functions.</p>
+
+<p><em>Effects:</em> None.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-policy-throw-bad-result-access-narrow-error-check">Function <code>outcome_v2_xxx::policy::throw_bad_result_access::narrow_error_check</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__policy__detail__base__narrow_error_check-Impl--Impl---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">Impl</span><span class="pun">&gt;</span>
+<span class="kwd">static</span>&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span>&nbsp;<span class="typ dec var fun">narrow_error_check</span><span class="pun">(</span><span class="typ dec var fun">Impl</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">self</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>Performs a narrow check of state, used in the assume_error() functions</p>
+
+<p><em>Effects:</em> None.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-policy-throw-bad-result-access-narrow-exception-check">Function <code>outcome_v2_xxx::policy::throw_bad_result_access::narrow_exception_check</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__policy__detail__base__narrow_exception_check-Impl--Impl---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">Impl</span><span class="pun">&gt;</span>
+<span class="kwd">static</span>&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span>&nbsp;<span class="typ dec var fun">narrow_exception_check</span><span class="pun">(</span><span class="typ dec var fun">Impl</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">self</span><span class="pun">)</span>&nbsp;<span class="kwd">noexcept</span><span class="pun">;</span>
+</code></pre>
+
+<p>Performs a narrow check of state, used in the assume_exception() functions</p>
+
+<p><em>Effects:</em> None.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-policy-throw-bad-result-access-wide-value-check">Function <code>outcome_v2_xxx::policy::throw_bad_result_access::wide_value_check</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__policy__throw_bad_result_access-EC-__wide_value_check-Impl--Impl---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">Impl</span><span class="pun">&gt;</span>
+<span class="kwd">static</span>&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span>&nbsp;<span class="typ dec var fun">wide_value_check</span><span class="pun">(</span><span class="typ dec var fun">Impl</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">self</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Performs a wide check of state, used in the value() functions.</p>
+
+<p><em>Effects:</em> If result does not have a value, it throws <code>bad_result_access_with&lt;EC&gt;</code>.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-policy-throw-bad-result-access-wide-error-check">Function <code>outcome_v2_xxx::policy::throw_bad_result_access::wide_error_check</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__policy__throw_bad_result_access-EC-__wide_error_check-Impl--Impl---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">Impl</span><span class="pun">&gt;</span>
+<span class="kwd">static</span>&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span>&nbsp;<span class="typ dec var fun">wide_error_check</span><span class="pun">(</span><span class="typ dec var fun">Impl</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">self</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Performs a wide check of state, used in the error() functions</p>
+
+<p><em>Effects:</em> If result does not have an error, it throws <code>bad_result_access</code>.</p>
+
+<hr />
+
+<h3 id="function-outcome-v2-xxx-policy-throw-bad-result-access-wide-exception-check">Function <code>outcome_v2_xxx::policy::throw_bad_result_access::wide_exception_check</code></h3>
+
+<p><span id="standardese-outcome_v2_xxx__policy__throw_bad_result_access-EC-__wide_exception_check-Impl--Impl---"></span></p>
+
+<pre><code class="standardese-language-cpp"><span class="kwd">template</span>&nbsp;<span class="pun">&lt;</span><span class="kwd">class</span>&nbsp;<span class="typ dec var fun">Impl</span><span class="pun">&gt;</span>
+<span class="kwd">static</span>&nbsp;<span class="kwd">constexpr</span>&nbsp;<span class="kwd">void</span>&nbsp;<span class="typ dec var fun">wide_exception_check</span><span class="pun">(</span><span class="typ dec var fun">Impl</span><span class="pun">&amp;&amp;</span>&nbsp;<span class="typ dec var fun">self</span><span class="pun">)</span><span class="pun">;</span>
+</code></pre>
+
+<p>Performs a wide check of state, used in the exception() functions</p>
+
+<p><em>Effects:</em> If result does not have an exception, it throws <code>bad_outcome_access</code>.</p>
+
+<hr />
+
+<hr />
+
+
+        </div><p><small>Last revised: December 05, 2018 at 14:18:52 UTC</small></p>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../../reference/policies/terminate.html"><img src="../../images/prev.png" alt="Prev"></a>
+    <a accesskey="u" href="../../reference/policies.html"><img src="../../images/up.png" alt="Up"></a>
+    <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../faq.html"><img src="../../images/next.png" alt="Next"></a></div></body>
+</html>

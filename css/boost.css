@@ -1028,24 +1028,32 @@ span.inlinemediaobject img
 
 /* Overrides to handle differences between BoostBook output and Hugo's.
 */
-li p:first-of-type {
+/* Fix that Hugo always puts a <p> into each <li> */
+li p:first-child {
   display: inline;
   text-align: inherit;
   font-size: inherit;
   line-height: inherit;
 }
-pre.chroma {
-  margin: 0;
-}
+/* Fix that raw dl is not styled */
 dl {
   text-align: left;
   font-size: 10pt;
   line-height: 1.15;
 }
-div.toc dl.children dt dl {
-  margin-inline-start: 40px;
+/* Fix that preformatted outside div.highlight is not styled */
+pre {
+  font-size: 10pt;
+  margin: 1pc 4% 0pc 4%;
+  padding: 0.5pc 0.5pc 0.5pc 0.5pc;
+}
+div.highlight pre {
+  font-size: inherit;
+  margin: initial;
+  padding: initial;
 }
 
+/* We don't use tables for notes like BoostBook */
 div.note,
 div.tip,
 div.important,
@@ -1064,7 +1072,8 @@ div.notices div.message {
   margin-left: 40px;
 }
 
-/* Bits ported over from local.css for the DockDoc theme.
+/* Bits ported over from local.css for the DocDock theme.
+This renders the "View on Github" link.
 */
 div.code-snippet {
   position: relative;
@@ -1075,4 +1084,42 @@ div.code-snippet a.code-snippet-url {
   right: 4%;
   top: 0.7em;
   padding-right: 1em;
+}
+/* This renders the tutorial TOC */
+.children p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.children-li p {
+  font-size: small;
+  font-style: italic;
+}
+ol.children li {
+  margin-top: 0.75em;
+}
+ol.children ol {
+  list-style-type: lower-alpha;
+}
+ol.children ol li {
+  margin-top: 0;
+}
+/* This styles captioned figures */
+figure {
+  margin: 1em 40px;
+}
+figure img {
+  border: 0;
+  max-width: 80%;
+  margin: 3rem auto;
+  display: block;
+  text-align: center;
+}
+figure figcaption {
+  margin-top: -2em;
+}
+figure figcaption h4 {
+  text-align: center;
+  font-size: small;
 }
