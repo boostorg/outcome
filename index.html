@@ -37,7 +37,130 @@
 
 <h1 id="outcome-2-1-library">Outcome 2.1 library</h1>
 
+<div>
+  <div class="author">
+    <h3 class="author"><span class="firstname">Niall</span> <span class="surname">Douglas</span></h3>
+  </div>
+</div>
+<div><p class="copyright">Copyright &#169; 2014-2019 Niall Douglas <a href="./credits">and others</a></p></div>
+<div><div class="legalnotice">
+<a name="outcome.legal"></a><p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="./LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl class="toc">
+  <dt><span class="section"><a href="./requirements.html">Prerequisites</a></span></dt>
+    </dt></dd>
+  <dt><span class="section"><a href="./build.html">Build and install</a></span></dt>
+    </dt></dd>
+  <dt><span class="section"><a href="./motivation.html">Motivation</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./motivation/exceptions.html">Exceptions</a></span></dt>
+  <dt><span class="section"><a href="./motivation/errno.html">errno</a></span></dt>
+  <dt><span class="section"><a href="./motivation/error_codes.html">Error codes</a></span></dt>
+  <dt><span class="section"><a href="./motivation/std_error_code.html">std::error_code</a></span></dt>
+  <dt><span class="section"><a href="./motivation/plug_error_code.html">Plugging a library into std::error_code</a></span></dt>
+  <dt><span class="section"><a href="./motivation/narrow_contract.html">Narrow contracts</a></span></dt>
+        </dl>
+    </dt></dd>
+  <dt><span class="section"><a href="./tutorial.html">Tutorial</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./tutorial/result.html">result&lt;&gt;</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./tutorial/result/inspecting.html">Inspecting result<T, EC></a></span></dt>
+  <dt><span class="section"><a href="./tutorial/result/try.html">TRY operations</a></span></dt>
+        </dl>
+    </dt></dd>
+  <dt><span class="section"><a href="./tutorial/outcome.html">outcome&lt;&gt;</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./tutorial/outcome/inspecting.html">Inspecting outcome<T, EC, EP></a></span></dt>
+        </dl>
+    </dt></dd>
+  <dt><span class="section"><a href="./tutorial/no-value.html">No-value policies</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./tutorial/no-value/custom.html">A custom no-value policy</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/no-value/builtin.html">Built-in policies</a></span></dt>
+        </dl>
+    </dt></dd>
+  <dt><span class="section"><a href="./tutorial/payload.html">Custom payloads</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./tutorial/payload/copy_file.html">The Filesystem TS</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/payload/copy_file2.html">Upgrading the Filesystem TS</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/payload/copy_file3.html">Auto-throwing filesystem_error</a></span></dt>
+        </dl>
+    </dt></dd>
+  <dt><span class="section"><a href="./tutorial/constructors.html">Result returning constructors</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./tutorial/constructors/two-phase-init.html">Two phase construction</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/constructors/file_handle.html">A file handle</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/constructors/static-constructor.html">Phase 2 construction</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/constructors/metaprogrammg1.html">Phase 3</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/constructors/metaprogrammg2.html">construct<T></a></span></dt>
+  <dt><span class="section"><a href="./tutorial/constructors/metaprogrammg3.html">Alternatives</a></span></dt>
+        </dl>
+    </dt></dd>
+  <dt><span class="section"><a href="./tutorial/hooks.html">Hooking events</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./tutorial/hooks/keeping_state.html">Keeping state</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/hooks/adl_bridging.html">ADL bridging</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/hooks/hook_result.html">Hook result</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/hooks/poke_exception.html">Custom exception ptr</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/hooks/hook_outcome.html">Hook outcome</a></span></dt>
+        </dl>
+    </dt></dd>
+  <dt><span class="section"><a href="./tutorial/c-api.html">Using result<T> from C code</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./tutorial/c-api/limitations.html">Limitations</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/c-api/example.html">Example C++ function</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/c-api/example2.html">Calling it from C</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/c-api/variations.html">Variations</a></span></dt>
+        </dl>
+    </dt></dd>
+  <dt><span class="section"><a href="./tutorial/interop.html">Interoperation</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./tutorial/interop/problem.html">Incommensurate E types</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/interop/value-or-error.html">ValueOrError Concept</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/interop/httplib.html">The HTTP library</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/interop/tidylib.html">The HTMLTidy library</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/interop/filelib.html">The File I/O library</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/interop/app.html">The Application</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/interop/app-map-httplib1.html">Mapping the HTTP library into the Application <sup>1</sup>&frasl;<sub>2</sub></a></span></dt>
+  <dt><span class="section"><a href="./tutorial/interop/app-map-httplib2.html">Mapping the HTTP library into the Application <sup>2</sup>&frasl;<sub>2</sub></a></span></dt>
+  <dt><span class="section"><a href="./tutorial/interop/app-map-filelib.html">Mapping the File I/O library into the Application</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/interop/app-map-tidylib.html">Mapping the HTMLTidy library into the Application</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/interop/app-go.html">In use</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/interop/conclusion.html">Conclusion</a></span></dt>
+        </dl>
+    </dt></dd>
+        </dl>
+    </dt></dd>
+  <dt><span class="section"><a href="./reference.html">API reference</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./reference/macros.html">Macros</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./reference/macros/version.html">Version macros</a></span></dt>
+  <dt><span class="section"><a href="./reference/macros/nodiscard.html"><code>BOOST_OUTCOME_NODISCARD</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/macros/symbol_visible.html"><code>BOOST_OUTCOME_SYMBOL_VISIBLE</code></a></span></dt>
+        </dl>
+    </dt></dd>
+        </dl>
+    </dt></dd>
+  <dt><span class="section"><a href="./faq.html">Frequently asked questions</a></span></dt>
+    </dt></dd>
+  <dt><span class="section"><a href="./videos.html">Videos</a></span></dt>
+    </dt></dd>
+  <dt><span class="section"><a href="./changelog.html">Changelog</a></span></dt>
+    </dt></dd>
+  <dt><span class="section"><a href="./history.html">History</a></span></dt>
+    </dt></dd>
 
+
+</dl>
+</div>
+<h2 class="title">Introduction</h2>
 
 <p>Outcome is a set of tools for reporting and handling function failures in contexts where using C++ exception handling is unsuitable. Such contexts include:</p>
 
