@@ -13,11 +13,6 @@
   </url>
   
   <url>
-    <loc>/use-matrix.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tutorial/interop/problem.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
@@ -38,11 +33,6 @@
   </url>
   
   <url>
-    <loc>/reference/policies/all_narrow.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/motivation/exceptions.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
@@ -55,6 +45,11 @@
   <url>
     <loc>/tutorial/c-api/limitations.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/macros.html</loc>
+    <lastmod>2018-12-10T20:38:56+00:00</lastmod>
   </url>
   
   <url>
@@ -74,11 +69,6 @@
   
   <url>
     <loc>/tutorial/constructors/two-phase-init.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/outcome.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
@@ -104,7 +94,7 @@
   
   <url>
     <loc>/reference.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
+    <lastmod>2018-12-10T20:38:56+00:00</lastmod>
   </url>
   
   <url>
@@ -138,17 +128,7 @@
   </url>
   
   <url>
-    <loc>/reference/policies/outcome_error_code_throw_as_system_error.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tutorial/outcome.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/result.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
@@ -213,16 +193,6 @@
   </url>
   
   <url>
-    <loc>/reference/try.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/policies/result_error_code_throw_as_system_error.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tutorial/interop/app-map-httplib2.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
@@ -243,22 +213,12 @@
   </url>
   
   <url>
-    <loc>/reference/success_failure.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tutorial/c-api/variations.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>/videos.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/policies/outcome_exception_ptr_rethrow.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
@@ -298,17 +258,7 @@
   </url>
   
   <url>
-    <loc>/reference/utils.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/tutorial/constructors/metaprogrammg2.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/policies/result_exception_ptr_rethrow.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
@@ -323,27 +273,7 @@
   </url>
   
   <url>
-    <loc>/reference/convert.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/motivation/narrow_contract.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/policies/terminate.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/bad_access.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/policies/throw_bad_result_access.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
   
@@ -363,23 +293,8 @@
   </url>
   
   <url>
-    <loc>/reference/iostream_support.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/result_c.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/history.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/policies.html</loc>
-    <lastmod>2018-12-05T14:18:52+00:00</lastmod>
+    <lastmod>2018-12-10T20:38:56+00:00</lastmod>
   </url>
   
   <url>
@@ -446,7 +361,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2018-12-07T15:37:06+00:00</lastmod>
+    <lastmod>2018-12-10T20:38:56+00:00</lastmod>
   </url>
   
   <url>
@@ -519,6 +434,21 @@
     <loc>/tags/value-or-error.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/reference/macros/version.html</loc>
+    <lastmod>2018-12-10T20:38:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/macros/nodiscard.html</loc>
+    <lastmod>2018-12-10T20:38:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/macros/symbol_visible.html</loc>
+    <lastmod>2018-12-10T20:38:56+00:00</lastmod>
   </url>
   
 </urlset>

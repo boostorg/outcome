@@ -34,7 +34,7 @@
 <a accesskey="p" href="../../tutorial/outcome.html"><img src="../../images/prev.png" alt="Prev"></a>
     <a accesskey="u" href="../../tutorial/outcome.html"><img src="../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../tutorial/no-value.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
-  <div class="titlepage"><div><div><h2 class="title" style="clear: both">Inspecting outcome&lt;T, EC, EP&gt;</h2></div></div></div>
+  <div class="titlepage"><div><div><h1 style="clear: both">Inspecting outcome<T, EC, EP></h1></div></div></div>
   <p>Continuing with the previous example, in <code>Layer3</code> we have function <code>z</code> which again reports failures via exceptions.
 It will call function <code>h</code> from <code>Layer2_old</code> which returns <code>outcome&lt;int&gt;</code> (which may store a <code>double</code> or an <code>std::error_code</code> or an <code>std::exception_ptr</code>).
 The goal is to unpack it to either the successful return value <code>int</code> or to throw an appropriate exception: if we are storing an <code>std::exception_ptr</code> just rethrow it.

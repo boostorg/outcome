@@ -1028,6 +1028,7 @@ span.inlinemediaobject img
 
 /* Overrides to handle differences between BoostBook output and Hugo's.
 */
+h1 { font-size: 150%; }
 /* Fix that Hugo always puts a <p> into each <li> */
 li p:first-child {
   display: inline;
