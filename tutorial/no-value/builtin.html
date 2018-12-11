@@ -37,22 +37,22 @@
   <div class="titlepage"><div><div><h1 style="clear: both">Built-in policies</h1></div></div></div>
   <p>These are the predefined policies built into Outcome:</p>
 
-<a href="reference/policies/all_narrow" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> all_narrow</a>
 
+    
 
 <p>If there is an observation of a value/error/exception which is not present,
 the behavior is undefined. However this is a tool-friendly UB using intrinsics
 such as <code>__builtin_unreachable()</code> that allows tool to make use of it, e.g.,
 better bug detection or optimizations.</p>
 
-<a href="reference/policies/terminate" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> terminate</a>
 
+    
 
 <p>Observation of a missing value/error/exception causes the call to
 <code>std::terminate()</code>.</p>
 
-<a href="reference/policies/outcome_error_code_throw_as_system_error" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> error_code_throw_as_system_error&lt;T, EC, EP&gt;</a>
 
+    
 
 <p>This policy assumes that <code>EC</code> has the interface of <code>std::error_code</code>,
 and <code>EP</code> has the interface of <code>std::exception_ptr</code>. Upon missing value
@@ -73,8 +73,8 @@ and then thrown as <code>system_error</code>.</li>
 
 <p>Upon missing exception observation throws <code>bad_outcome_access(&quot;no exception&quot;)</code>.</p>
 
-<a href="reference/policies/outcome_exception_ptr_rethrow" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> exception_ptr_rethrow&lt;T, EC, EP&gt;</a>
 
+    
 
 <p>This policy assumes that both <code>EC</code> and <code>EP</code> (unless <code>void</code>) has the interface of <code>std::exception_ptr</code>. Upon missing value observation:</p>
 
@@ -93,8 +93,8 @@ otherwise rethrows the stored error.</li>
 
 <p>Upon missing exception observation throws <code>bad_outcome_access(&quot;no exception&quot;)</code>.</p>
 
-<a href="reference/policies/throw_bad_result_access" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> throw_bad_result_access&lt;EC&gt;</a>
 
+    
 
 <p>Upon missing value observation throws <code>bad_result_access_with&lt;EC&gt;(ec)</code>,
 where <code>ec</code> is the value of the stored error. If error is not stored,

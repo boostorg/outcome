@@ -79,15 +79,15 @@ you want to use. Either create your own, or use one of the predefined policies.<
 <p>You can also use two predefined aliases for <code>basic_result&lt;&gt;</code>:</p>
 
 <ul>
-<li><a href="reference/result/#standardese-outcome_v2_xxx__unchecked-R-S-" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> unchecked&lt;T, EC&gt;</a>
-: it uses policy <a href="reference/policies/all_narrow" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> all_narrow</a>
-, where any observation of a missing value or error is undefined behavior;</li>
-<li><a href="reference/result/#standardese-outcome_v2_xxx__checked-R-S-" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> checked&lt;T, EC&gt;</a>
-:
-it uses policy <a href="reference/policies/throw_bad_result_access" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> throw_bad_result_access&lt;EC&gt;</a>
-, where any observation of a missing value or error throws <a href="reference/bad_access/#standardese-outcome_v2_xxx__bad_result_access_with-S-" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> bad_result_access_with&lt;EC&gt;</a>
- or <a href="reference/bad_access/#standardese-outcome_v2_xxx__bad_result_access" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> bad_result_access</a>
-
+<li>
+    : it uses policy 
+    , where any observation of a missing value or error is undefined behavior;</li>
+<li>
+    :
+it uses policy 
+    , where any observation of a missing value or error throws 
+     or 
+    
 respectively.</li>
 </ul>
 

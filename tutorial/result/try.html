@@ -35,8 +35,8 @@
     <a accesskey="u" href="../../tutorial/result.html"><img src="../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../tutorial/outcome.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both">TRY operations</h1></div></div></div>
-  <p>In the implementation of function <code>print_half</code> we have seen the usage of the macro <a href="reference/try" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> BOOST_OUTCOME_TRY</a>
-:</p>
+  <p>In the implementation of function <code>print_half</code> we have seen the usage of the macro 
+    :</p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">BOOST_OUTCOME_TRY</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">BigInt</span><span class="o">::</span><span class="n">fromString</span><span class="p">(</span><span class="n">text</span><span class="p">));</span>
 </code></pre></div>
 <p>The <code>BOOST_OUTCOME_TRY</code> macro uses C macro overloading to select between two implementations based on the number of

@@ -36,10 +36,10 @@
     <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../tutorial/interop.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both">Variations</h1></div></div></div>
   <p>You can of course choose your own <code>E</code> type so long as it has standard layout
-and is trivially copyable. You would declare that with <a href="reference/result_c/#standardese-CXX_DECLARE_RESULT" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> CXX_DECLARE_RESULT(t_ident, t_decl, e_ident, e_decl)</a>
-,
-refer to it with <a href="reference/result_c/#standardese-CXX_RESULT" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> CXX_RESULT(t_ident, e_ident)</a>
- and need to do your own
+and is trivially copyable. You would declare that with 
+    ,
+refer to it with 
+     and need to do your own
 decoding of errors from your <code>E</code> type. By using the <code>_EC</code> postfixed macros,
 you are in fact using <code>E =</code></p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">cxx_error_code</span>

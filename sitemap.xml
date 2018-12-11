@@ -103,6 +103,11 @@
   </url>
   
   <url>
+    <loc>/reference/concepts.html</loc>
+    <lastmod>2018-12-11T15:03:15+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tutorial/c-api/example.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
@@ -448,32 +453,42 @@
   
   <url>
     <loc>/reference/macros/disable_execinfo.html</loc>
-    <lastmod>2018-12-11T13:15:54+00:00</lastmod>
+    <lastmod>2018-12-11T15:03:15+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/nodiscard.html</loc>
-    <lastmod>2018-12-10T20:38:56+00:00</lastmod>
+    <lastmod>2018-12-11T15:03:15+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/requires.html</loc>
-    <lastmod>2018-12-11T13:15:54+00:00</lastmod>
+    <lastmod>2018-12-11T15:03:15+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/symbol_visible.html</loc>
-    <lastmod>2018-12-11T13:15:54+00:00</lastmod>
+    <lastmod>2018-12-11T15:03:15+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/thread_local.html</loc>
-    <lastmod>2018-12-11T13:15:54+00:00</lastmod>
+    <lastmod>2018-12-11T15:03:15+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/throw_exception.html</loc>
-    <lastmod>2018-12-11T13:15:54+00:00</lastmod>
+    <lastmod>2018-12-11T15:03:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/concepts/valueorerror.html</loc>
+    <lastmod>2018-12-11T15:03:15+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/concepts/valueornone.html</loc>
+    <lastmod>2018-12-11T15:03:15+00:00</lastmod>
   </url>
   
 </urlset>

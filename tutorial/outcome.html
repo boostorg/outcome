@@ -40,12 +40,12 @@
 
 <h2 id="outcome"><code>outcome&lt;&gt;</code></h2>
 
-<p>Type <a href="reference/outcome/#standardese-outcome_v2_xxx__outcome-R-S-P-NoValuePolicy-" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> outcome&lt;T, EC, EP, NVP&gt;</a>
- represets either a successfully computed value of type <code>T</code> or a reason for failure. Failure can be represented by <code>EC</code> or <code>EP</code> or both. Although usually it will either be an <code>EC</code> or an <code>EP</code>. <code>EC</code> defaults to <code>std::error_code</code> and <code>EP</code> defaults to <code>std::exception_ptr</code>. The distinction is made into two types, <code>EC</code> and <code>EP</code>:</p>
+<p>Type 
+     represets either a successfully computed value of type <code>T</code> or a reason for failure. Failure can be represented by <code>EC</code> or <code>EP</code> or both. Although usually it will either be an <code>EC</code> or an <code>EP</code>. <code>EC</code> defaults to <code>std::error_code</code> and <code>EP</code> defaults to <code>std::exception_ptr</code>. The distinction is made into two types, <code>EC</code> and <code>EP</code>:</p>
 
 <ul>
-<li><code>EC</code> represents a failue from lower-layer function which was retured through <a href="reference/result/#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-" class="api-reference"><i class="fa fa-book" aria-hidden="true"></i> result&lt;T, EC&gt;</a>
-.</li>
+<li><code>EC</code> represents a failue from lower-layer function which was retured through 
+    .</li>
 <li><code>EP</code> represents pointer to an exception thrown in a lower-layer function to signal a failure; but at the current level we do not want to proceed with stack unwinding.</li>
 </ul>
 
