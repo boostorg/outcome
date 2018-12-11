@@ -324,6 +324,11 @@
   </url>
   
   <url>
+    <loc>/reference/macros/template.html</loc>
+    <lastmod>2018-12-11T13:15:54+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/constructors.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
@@ -442,13 +447,33 @@
   </url>
   
   <url>
+    <loc>/reference/macros/disable_execinfo.html</loc>
+    <lastmod>2018-12-11T13:15:54+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/macros/nodiscard.html</loc>
     <lastmod>2018-12-10T20:38:56+00:00</lastmod>
   </url>
   
   <url>
+    <loc>/reference/macros/requires.html</loc>
+    <lastmod>2018-12-11T13:15:54+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/macros/symbol_visible.html</loc>
-    <lastmod>2018-12-10T22:42:25+00:00</lastmod>
+    <lastmod>2018-12-11T13:15:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/macros/thread_local.html</loc>
+    <lastmod>2018-12-11T13:15:54+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/macros/throw_exception.html</loc>
+    <lastmod>2018-12-11T13:15:54+00:00</lastmod>
   </url>
   
 </urlset>
