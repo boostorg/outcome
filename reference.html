@@ -51,9 +51,15 @@
 	<a href="./reference/macros/thread_local.html" ><code>BOOST_OUTCOME_THREAD_LOCAL</code></a>
 <p>How to mark variables as having thread local storage duration.</p><li>
 	<a href="./reference/macros/throw_exception.html" ><code>BOOST_OUTCOME_THROW_EXCEPTION(expr)</code></a>
-<p>How to throw a C++ exception, or equivalent thereof.</p></li></ol><li>
+<p>How to throw a C++ exception, or equivalent thereof.</p><li>
+	<a href="./reference/macros/try.html" ><code>BOOST_OUTCOME_TRY(var, expr)</code></a>
+<p>Evaluate an expression which results in a type matching the <code>ValueOrError&lt;T, E&gt;</code> concept, assigning <code>T</code> to a variable called <code>var</code> if successful, immediately returning <code>E</code> from the calling function if unsuccessful.</p><li>
+	<a href="./reference/macros/tryv.html" ><code>BOOST_OUTCOME_TRYV(expr)/BOOST_OUTCOME_TRY(expr)</code></a>
+<p>Evaluate an expression which results in a type matching the <code>ValueOrError&lt;void, E&gt;</code> concept, continuing execution if successful, immediately returning <code>E</code> from the calling function if unsuccessful.</p><li>
+	<a href="./reference/macros/tryx.html" ><code>BOOST_OUTCOME_TRYX(expr)</code></a>
+<p>Evaluate an expression which results in a type matching the <code>ValueOrError&lt;T, E&gt;</code> concept, emitting the <code>T</code> if successful, immediately returning <code>E</code> from the calling function if unsuccessful.</p></li></ol><li>
 	<a href="./reference/concepts.html" >Concepts</a><ol><li>
-	<a href="./reference/concepts/valueorerror.html" ><code>ValueOrError&lt;T&gt;</code></a>
+	<a href="./reference/concepts/valueorerror.html" ><code>ValueOrError&lt;T, E&gt;</code></a>
 <p>A boolean concept matching types with either a value or an error.</p><li>
 	<a href="./reference/concepts/valueornone.html" ><code>ValueOrNone&lt;T&gt;</code></a>
 <p>A boolean concept matching types with an optional value.</p></li></ol></li></ol>
