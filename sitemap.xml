@@ -198,6 +198,11 @@
   </url>
   
   <url>
+    <loc>/reference/functions/traits.html</loc>
+    <lastmod>2018-12-13T21:17:11+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/traits.html</loc>
     <lastmod>2018-12-13T17:45:22+00:00</lastmod>
   </url>
@@ -220,6 +225,11 @@
   <url>
     <loc>/tutorial/constructors/metaprogrammg1.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies.html</loc>
+    <lastmod>2018-12-13T21:17:11+00:00</lastmod>
   </url>
   
   <url>
@@ -268,6 +278,11 @@
   </url>
   
   <url>
+    <loc>/reference/types.html</loc>
+    <lastmod>2018-12-13T21:17:11+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tutorial/constructors/metaprogrammg2.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
@@ -278,6 +293,11 @@
   </url>
   
   <url>
+    <loc>/reference/aliases.html</loc>
+    <lastmod>2018-12-13T21:17:11+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tutorial/constructors/metaprogrammg3.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
@@ -285,6 +305,11 @@
   <url>
     <loc>/motivation/narrow_contract.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions.html</loc>
+    <lastmod>2018-12-13T21:17:11+00:00</lastmod>
   </url>
   
   <url>
@@ -512,8 +537,23 @@
   </url>
   
   <url>
+    <loc>/reference/types/basic_result.html</loc>
+    <lastmod>2018-12-13T21:17:11+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/traits/has_error_code.html</loc>
     <lastmod>2018-12-13T17:45:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/traits/has_exception_ptr.html</loc>
+    <lastmod>2018-12-13T21:17:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/in_place_type_t.html</loc>
+    <lastmod>2018-12-13T21:17:11+00:00</lastmod>
   </url>
   
   <url>
