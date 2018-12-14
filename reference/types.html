@@ -38,7 +38,29 @@
   <div class="titlepage"><div><div><h1 style="clear: both">Types</h1></div></div></div>
 <ol class="children children-li"><li>
 	<a href="../reference/types/basic_result.html" ><code>basic_result&lt;T, E, NoValuePolicy&gt;</code></a>
-<p>A sum type carrying either a successful <code>T</code>, or a disappointment <code>E</code>, with <code>NoValuePolicy</code> specifying what to do if one tries to read state which isn&rsquo;t there.</p><li>
+<p>A sum type carrying either a successful <code>T</code>, or a disappointment <code>E</code>, with <code>NoValuePolicy</code> specifying what to do if one tries to read state which isn&rsquo;t there.</p><ol><li>
+	<a href="../reference/types/basic_result/default.html" ><code>basic_result() = delete</code></a>
+<p>The default constructor (disabled).</p><li>
+	<a href="../reference/types/basic_result/move_constructor.html" ><code>basic_result(basic_result &amp;&amp;)</code></a>
+<p>Move constructor. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/copy_constructor.html" ><code>basic_result(const basic_result &amp;)</code></a>
+<p>Copy constructor. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/move_assignment.html" ><code>basic_result &amp;operator=(basic_result &amp;&amp;)</code></a>
+<p>Move assignment. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/copy_assignment.html" ><code>basic_result &amp;operator=(const basic_result &amp;)</code></a>
+<p>Copy assignment. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/destructor.html" ><code>~basic_result()</code></a>
+<p>Destructor. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/disabling_catchall.html" ><code>basic_result(Args...) = delete</code></a>
+<p>Disabling catchall constructor used to give useful diagnostic error when trying to use non-inplace constructors when <code>predicate::constructors_enabled</code> is false.</p><li>
+	<a href="../reference/types/basic_result/disabling_implicit_constructor.html" ><code>basic_result(X &amp;&amp;) = delete</code></a>
+<p>Disabling implicit constructor used to give useful diagnostic error when trying to use implicit constructors when <code>predicate::implicit_constructors_enabled</code> is false.</p><li>
+	<a href="../reference/types/basic_result/implicit_value_converting_constructor.html" ><code>basic_result(R &amp;&amp;)</code></a>
+<p>Implicit <code>value_type</code> constructor. Available if <code>predicate::enable_value_converting_constructor&lt;R&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/implicit_error_converting_constructor.html" ><code>basic_result(S &amp;&amp;)</code></a>
+<p>Implicit <code>error_type</code> constructor. Available if <code>predicate::enable_error_converting_constructor&lt;S&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/implicit_error_condition_converting_constructor.html" ><code>basic_result(ErrorCondEnum &amp;&amp;)</code></a>
+<p>Implicit <code>error_type</code> from <code>ErrorCondEnum</code> constructor. Available if <code>predicate::enable_error_condition_converting_constructor&lt;ErrorCondEnum&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p></li></ol><li>
 	<a href="../reference/types/in_place_type_t.html" ><code>in_place_type_t&lt;T&gt;</code></a>
 <p>Either <code>std::in_place_type_t&lt;T&gt;</code> if C++ 17 or later, else a local emulation.</p></li></ol>
 

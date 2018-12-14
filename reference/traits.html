@@ -38,9 +38,11 @@
   <div class="titlepage"><div><div><h1 style="clear: both">Traits</h1></div></div></div>
 <ol class="children children-li"><li>
 	<a href="../reference/traits/has_error_code.html" ><code>has_error_code&lt;T&gt;</code></a>
-<p>True if an ADL discovered free function overload <code>make_error_code(T)</code> exists and returns an error type.</p><li>
+<p>True if an error code can be constructed from a <code>T</code>.</p><li>
 	<a href="../reference/traits/has_exception_ptr.html" ><code>has_exception_ptr&lt;T&gt;</code></a>
 <p>True if an exception ptr can be constructed from a <code>T</code>.</p><li>
+	<a href="../reference/traits/is_basic_result.html" ><code>is_basic_result&lt;T&gt;</code></a>
+<p>An integral constant type true for `basic_result<T, E, NoValuePolicy> types.</p><li>
 	<a href="../reference/traits/is_error_type.html" ><code>is_error_type&lt;E&gt;</code></a>
 <p>A customisable integral constant type true for <code>E</code> types which are to receive error throwing no-value policies.</p><li>
 	<a href="../reference/traits/is_error_type_enum.html" ><code>is_error_type_enum&lt;E, Enum&gt;</code></a>

@@ -164,6 +164,7 @@
         <dd><dl>
   <dt><span class="section"><a href="./reference/traits/has_error_code.html"><code>has_error_code&lt;T&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/traits/has_exception_ptr.html"><code>has_exception_ptr&lt;T&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/traits/is_basic_result.html"><code>is_basic_result&lt;T&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/traits/is_error_type.html"><code>is_error_type&lt;E&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/traits/is_error_type_enum.html"><code>is_error_type_enum&lt;E, Enum&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/traits/type_can_be_used_in_basic_result.html"><code>type_can_be_used_in_basic_result&lt;R&gt;</code></a></span></dt>
@@ -174,6 +175,19 @@
   <dt><span class="section"><a href="./reference/types.html">Types</a></span></dt>
         <dd><dl>
   <dt><span class="section"><a href="./reference/types/basic_result.html"><code>basic_result&lt;T, E, NoValuePolicy&gt;</code></a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./reference/types/basic_result/default.html"><code>basic_result() = delete</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/move_constructor.html"><code>basic_result(basic_result &amp;&amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/copy_constructor.html"><code>basic_result(const basic_result &amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/move_assignment.html"><code>basic_result &amp;operator=(basic_result &amp;&amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/copy_assignment.html"><code>basic_result &amp;operator=(const basic_result &amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/destructor.html"><code>~basic_result()</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/disabling_catchall.html"><code>basic_result(Args...) = delete</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/disabling_implicit_constructor.html"><code>basic_result(X &amp;&amp;) = delete</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/implicit_value_converting_constructor.html"><code>basic_result(R &amp;&amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/implicit_error_converting_constructor.html"><code>basic_result(S &amp;&amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/implicit_error_condition_converting_constructor.html"><code>basic_result(ErrorCondEnum &amp;&amp;)</code></a></span></dt>
+        </dl>
     </dt></dd>
   <dt><span class="section"><a href="./reference/types/in_place_type_t.html"><code>in_place_type_t&lt;T&gt;</code></a></span></dt>
         </dl>

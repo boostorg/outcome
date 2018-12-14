@@ -333,6 +333,61 @@
   </url>
   
   <url>
+    <loc>/reference/types/basic_result/default.html</loc>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/move_constructor.html</loc>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/copy_constructor.html</loc>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/move_assignment.html</loc>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/copy_assignment.html</loc>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/destructor.html</loc>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/disabling_catchall.html</loc>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/disabling_implicit_constructor.html</loc>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/implicit_value_converting_constructor.html</loc>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/implicit_error_converting_constructor.html</loc>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/implicit_error_condition_converting_constructor.html</loc>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/_header.html</loc>
   </url>
   
@@ -538,12 +593,12 @@
   
   <url>
     <loc>/reference/types/basic_result.html</loc>
-    <lastmod>2018-12-13T21:17:11+00:00</lastmod>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/traits/has_error_code.html</loc>
-    <lastmod>2018-12-13T17:45:22+00:00</lastmod>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
   </url>
   
   <url>
@@ -554,6 +609,11 @@
   <url>
     <loc>/reference/types/in_place_type_t.html</loc>
     <lastmod>2018-12-13T21:17:11+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/traits/is_basic_result.html</loc>
+    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
   </url>
   
   <url>

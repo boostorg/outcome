@@ -33,9 +33,24 @@
 <div class="spirit-nav">
 <a accesskey="p" href="../../reference/types.html"><img src="../../images/prev.png" alt="Prev"></a>
     <a accesskey="u" href="../../reference/types.html"><img src="../../images/up.png" alt="Up"></a>
-    <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../reference/types/in_place_type_t.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
+    <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../reference/types/basic_result/default.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
 
   <div class="titlepage"><div><div><h1 style="clear: both"><code>basic_result&lt;T, E, NoValuePolicy&gt;</code></h1></div></div></div>
+  <div class="toc"><dl class="toc">
+<dt>
+<dd><dl>
+<dt>
+<dd><dl>
+<dt><a href="#design-rationale">Design rationale:</a></dt>
+<dt><a href="#public-member-type-aliases">Public member type aliases:</a></dt>
+<dt><a href="#protected-member-predicate-booleans">Protected member predicate booleans:</a></dt>
+<dt><a href="#public-member-functions">Public member functions:</a></dt>
+</dl></dd></dt>
+</dl></dd></dt>
+</dl>
+  </div>
+
+
 <p>A sum type carrying either a <code>T</code> or an <code>E</code>, with <code>NoValuePolicy</code> specifying what to do if one tries to read state which isn&rsquo;t there. Either or both of <code>T</code> and <code>E</code> can be <code>void</code> to indicate no value for that state is present.</p>
 
 <p><em>Requires</em>: Concept requirements if C++ 20, else static asserted:</p>
@@ -75,7 +90,9 @@
 
 <p>This very light weight inclusion dependencies makes basic result suitable for use in global header files of very large C++ codebases.</p>
 
-<p><em>Design rationale</em>: The basic result type is the main workhorse type of the Outcome library, providing a simple sum type with optional values representing success or disappointment. Unlike 
+<h3 id="design-rationale">Design rationale:</h3>
+
+<p>The basic result type is the main workhorse type of the Outcome library, providing a simple sum type with optional values representing success or disappointment. Unlike 
 <a href="https://wg21.link/P0323" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> P0323 std::expected&lt;T, E&gt;</a>, Outcome&rsquo;s result type is designed specifically for convenience when implementing failure handling, and it has a number of API differences to facilitate that.</p>
 
 <p>The first major design difference is that basic result models its constructor design on 
@@ -89,7 +106,119 @@
 
 <p>The second major design difference is that union storage is NOT used, as it is assumed that <code>sizeof(E)</code> will be small for failure handling. This very considerably reduces load on the compiler, and substantially improves compile times in very large C++ codebases.</p>
 
-<ol class="children children-li"></li></ol>
+<h3 id="public-member-type-aliases">Public member type aliases:</h3>
+
+<ul>
+<li><code>value_type</code> is <code>T</code>.</li>
+<li><code>error_type</code> is <code>E</code>.</li>
+<li><code>value_type_if_enabled</code> is <code>T</code> if construction from <code>T</code> is available, else it is a usefully named unusable internal type.</li>
+<li><code>error_type_if_enabled</code> is <code>E</code> if construction from <code>T</code> is available, else it is a usefully named unusable internal type.</li>
+<li><code>rebind&lt;A, B = E, C = NoValuePolicy&gt;</code> is <code>basic_result&lt;A, B, C&gt;</code>.</li>
+</ul>
+
+<h3 id="protected-member-predicate-booleans">Protected member predicate booleans:</h3>
+
+<ul>
+<li><p><code>predicate::constructors_enabled</code> is constexpr boolean true if decayed <code>value_type</code> and decayed <code>error_type</code> are not the same type.</p></li>
+
+<li><p><code>predicate::implicit_constructors_enabled</code> is constexpr boolean true if:</p>
+
+<ol>
+<li><code>predicate::constructors_enabled</code> is true.</li>
+<li>Trait 
+<a href="../../reference/traits/is_error_type.html" class="api-reference"> is_error_type&lt;E&gt;</a> is not true for both decayed <code>value_type</code> and decayed <code>error_type</code> at the same time.</li>
+<li><code>value_type</code> is not implicitly constructible from <code>error_type</code> and <code>error_type</code> is not implicitly constructible from <code>value_type</code>.<br>OR<br>trait 
+<a href="../../reference/traits/is_error_type.html" class="api-reference"> is_error_type&lt;E&gt;</a> is true for decayed <code>error_type</code> and <code>error_type</code> is not implicitly constructible from <code>value_type</code> and <code>value_type</code> is an integral type.</li>
+</ol></li>
+
+<li><p><code>predicate::enable_value_converting_constructor&lt;R&gt;</code> is constexpr boolean true if:</p>
+
+<ol>
+<li><code>predicate::constructors_enabled</code> is true.</li>
+<li>Decayed <code>R</code> is not this <code>basic_result</code> type.</li>
+<li>Decayed <code>R</code> is not an <code>in_place_type_t</code>.</li>
+<li>Trait 
+<a href="../../reference/traits/is_error_type_enum.html" class="api-reference"> is_error_type_enum&lt;E, Enum&gt;</a> is false for <code>error_type</code> and decayed <code>R</code>.</li>
+<li><code>value_type</code> is implicitly constructible from <code>R</code> and <code>error_type</code> is not implicitly constructible from <code>R</code>.<br>OR<br><code>value_type</code> is the exact same type as decayed <code>R</code> and <code>value_type</code> is implicitly constructible from <code>R</code>.</li>
+</ol></li>
+
+<li><p><code>predicate::enable_error_converting_constructor&lt;R&gt;</code> is constexpr boolean true if:</p>
+
+<ol>
+<li><code>predicate::constructors_enabled</code> is true.</li>
+<li>Decayed <code>R</code> is not this <code>basic_result</code> type.</li>
+<li>Decayed <code>R</code> is not an <code>in_place_type_t</code>.</li>
+<li>Trait 
+<a href="../../reference/traits/is_error_type_enum.html" class="api-reference"> is_error_type_enum&lt;E, Enum&gt;</a> is false for <code>error_type</code> and decayed <code>R</code>.</li>
+<li><code>value_type</code> is not implicitly constructible from <code>R</code> and <code>error_type</code> is implicitly constructible from <code>R</code>.<br>OR<br><code>error_type</code> is the exact same type as decayed <code>R</code> and <code>error_type</code> is implicitly constructible from <code>R</code>.</li>
+</ol></li>
+
+<li><p><code>predicate::enable_error_condition_converting_constructor&lt;ErrorCondEnum&gt;</code> is constexpr boolean true if:</p>
+
+<ol>
+<li><code>predicate::constructors_enabled</code> is true.</li>
+<li>Decayed <code>ErrorCondEnum</code> is not this <code>basic_result</code> type.</li>
+<li>Decayed <code>ErrorCondEnum</code> is not an <code>in_place_type_t</code>.</li>
+<li>Trait 
+<a href="../../reference/traits/is_error_type_enum.html" class="api-reference"> is_error_type_enum&lt;E, Enum&gt;</a> is true for <code>error_type</code> and decayed <code>ErrorCondEnum</code>.</li>
+</ol></li>
+
+<li><p><code>predicate::enable_compatible_conversion&lt;R, S, P&gt;</code> is constexpr boolean true if:</p>
+
+<ol>
+<li><code>predicate::constructors_enabled</code> is true.</li>
+<li><code>basic_result&lt;R, S, P&gt;</code> is not this <code>basic_result</code> type.</li>
+<li><code>R</code> is <code>void</code> OR <code>value_type</code> is explicitly constructible from <code>R</code>.</li>
+<li><code>S</code> is <code>void</code> OR <code>error_type</code> is explicitly constructible from <code>S</code>.</li>
+</ol></li>
+
+<li><p><code>predicate::enable_inplace_value_constructor&lt;Args...&gt;</code> is constexpr boolean true if:</p>
+
+<ol>
+<li><code>predicate::constructors_enabled</code> is true.</li>
+<li><code>value_type</code> is <code>void</code> OR <code>value_type</code> is explicitly constructible from <code>Args...</code>.</li>
+</ol></li>
+
+<li><p><code>predicate::enable_inplace_error_constructor&lt;Args...&gt;</code> is constexpr boolean true if:</p>
+
+<ol>
+<li><code>predicate::constructors_enabled</code> is true.</li>
+<li><code>error_type</code> is <code>void</code> OR <code>error_type</code> is explicitly constructible from <code>Args...</code>.</li>
+</ol></li>
+
+<li><p><code>predicate::enable_inplace_value_error_constructor&lt;Args...&gt;</code> is constexpr boolean true if:</p>
+
+<ol>
+<li><code>predicate::constructors_enabled</code> is true.</li>
+<li>Either, but not both, of <code>value_type</code> is explicitly constructible from <code>Args...</code> or <code>error_type</code> is explicitly constructible from <code>Args...</code>.</li>
+</ol></li>
+</ul>
+
+<h3 id="public-member-functions">Public member functions:</h3>
+
+<ol class="children children-li"><li>
+	<a href="../../reference/types/basic_result/default.html" ><code>basic_result() = delete</code></a>
+<p>The default constructor (disabled).</p><li>
+	<a href="../../reference/types/basic_result/move_constructor.html" ><code>basic_result(basic_result &amp;&amp;)</code></a>
+<p>Move constructor. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../../reference/types/basic_result/copy_constructor.html" ><code>basic_result(const basic_result &amp;)</code></a>
+<p>Copy constructor. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../../reference/types/basic_result/move_assignment.html" ><code>basic_result &amp;operator=(basic_result &amp;&amp;)</code></a>
+<p>Move assignment. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../../reference/types/basic_result/copy_assignment.html" ><code>basic_result &amp;operator=(const basic_result &amp;)</code></a>
+<p>Copy assignment. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../../reference/types/basic_result/destructor.html" ><code>~basic_result()</code></a>
+<p>Destructor. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../../reference/types/basic_result/disabling_catchall.html" ><code>basic_result(Args...) = delete</code></a>
+<p>Disabling catchall constructor used to give useful diagnostic error when trying to use non-inplace constructors when <code>predicate::constructors_enabled</code> is false.</p><li>
+	<a href="../../reference/types/basic_result/disabling_implicit_constructor.html" ><code>basic_result(X &amp;&amp;) = delete</code></a>
+<p>Disabling implicit constructor used to give useful diagnostic error when trying to use implicit constructors when <code>predicate::implicit_constructors_enabled</code> is false.</p><li>
+	<a href="../../reference/types/basic_result/implicit_value_converting_constructor.html" ><code>basic_result(R &amp;&amp;)</code></a>
+<p>Implicit <code>value_type</code> constructor. Available if <code>predicate::enable_value_converting_constructor&lt;R&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../../reference/types/basic_result/implicit_error_converting_constructor.html" ><code>basic_result(S &amp;&amp;)</code></a>
+<p>Implicit <code>error_type</code> constructor. Available if <code>predicate::enable_error_converting_constructor&lt;S&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../../reference/types/basic_result/implicit_error_condition_converting_constructor.html" ><code>basic_result(ErrorCondEnum &amp;&amp;)</code></a>
+<p>Implicit <code>error_type</code> from <code>ErrorCondEnum</code> constructor. Available if <code>predicate::enable_error_condition_converting_constructor&lt;ErrorCondEnum&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p></li></ol>
 
 
 
@@ -98,10 +227,10 @@
 
 
 
-        </div><p><small>Last revised: December 13, 2018 at 21:17:11 UTC</small></p>
+        </div><p><small>Last revised: December 14, 2018 at 15:57:41 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../reference/types.html"><img src="../../images/prev.png" alt="Prev"></a>
     <a accesskey="u" href="../../reference/types.html"><img src="../../images/up.png" alt="Up"></a>
-    <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../reference/types/in_place_type_t.html"><img src="../../images/next.png" alt="Next"></a></div></body>
+    <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../reference/types/basic_result/default.html"><img src="../../images/next.png" alt="Next"></a></div></body>
 </html>
