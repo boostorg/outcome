@@ -41,10 +41,10 @@
 <dd><dl>
 <dt>
 <dd><dl>
-<dt><a href="#design-rationale">Design rationale:</a></dt>
-<dt><a href="#public-member-type-aliases">Public member type aliases:</a></dt>
-<dt><a href="#protected-member-predicate-booleans">Protected member predicate booleans:</a></dt>
-<dt><a href="#public-member-functions">Public member functions:</a></dt>
+<dt><a href="#design-rationale">Design rationale</a></dt>
+<dt><a href="#public-member-type-aliases">Public member type aliases</a></dt>
+<dt><a href="#protected-member-predicate-booleans">Protected member predicate booleans</a></dt>
+<dt><a href="#public-member-functions">Public member functions</a></dt>
 </dl></dd></dt>
 </dl></dd></dt>
 </dl>
@@ -90,7 +90,7 @@
 
 <p>This very light weight inclusion dependencies makes basic result suitable for use in global header files of very large C++ codebases.</p>
 
-<h3 id="design-rationale">Design rationale:</h3>
+<h3 id="design-rationale">Design rationale</h3>
 
 <p>The basic result type is the main workhorse type of the Outcome library, providing a simple sum type with optional values representing success or disappointment. Unlike 
 <a href="https://wg21.link/P0323" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> P0323 std::expected&lt;T, E&gt;</a>, Outcome&rsquo;s result type is designed specifically for convenience when implementing failure handling, and it has a number of API differences to facilitate that.</p>
@@ -106,7 +106,7 @@
 
 <p>The second major design difference is that union storage is NOT used, as it is assumed that <code>sizeof(E)</code> will be small for failure handling. This very considerably reduces load on the compiler, and substantially improves compile times in very large C++ codebases.</p>
 
-<h3 id="public-member-type-aliases">Public member type aliases:</h3>
+<h3 id="public-member-type-aliases">Public member type aliases</h3>
 
 <ul>
 <li><code>value_type</code> is <code>T</code>.</li>
@@ -116,7 +116,7 @@
 <li><code>rebind&lt;A, B = E, C = NoValuePolicy&gt;</code> is <code>basic_result&lt;A, B, C&gt;</code>.</li>
 </ul>
 
-<h3 id="protected-member-predicate-booleans">Protected member predicate booleans:</h3>
+<h3 id="protected-member-predicate-booleans">Protected member predicate booleans</h3>
 
 <ul>
 <li><p><code>predicate::constructors_enabled</code> is constexpr boolean true if decayed <code>value_type</code> and decayed <code>error_type</code> are not the same type.</p></li>
@@ -194,7 +194,7 @@
 </ol></li>
 </ul>
 
-<h3 id="public-member-functions">Public member functions:</h3>
+<h3 id="public-member-functions">Public member functions</h3>
 
 <ol class="children children-li"><li>
 	<a href="../../reference/types/basic_result/default.html" ><code>basic_result() = delete</code></a>
@@ -227,7 +227,7 @@
 
 
 
-        </div><p><small>Last revised: December 14, 2018 at 15:57:41 UTC</small></p>
+        </div><p><small>Last revised: December 15, 2018 at 13:22:11 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../reference/types.html"><img src="../../images/prev.png" alt="Prev"></a>
