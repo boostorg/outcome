@@ -60,7 +60,23 @@
 	<a href="../reference/types/basic_result/implicit_error_converting_constructor.html" ><code>basic_result(S &amp;&amp;)</code></a>
 <p>Implicit <code>error_type</code> constructor. Available if <code>predicate::enable_error_converting_constructor&lt;S&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
 	<a href="../reference/types/basic_result/implicit_error_condition_converting_constructor.html" ><code>basic_result(ErrorCondEnum &amp;&amp;)</code></a>
-<p>Implicit <code>error_type</code> from <code>ErrorCondEnum</code> constructor. Available if <code>predicate::enable_error_condition_converting_constructor&lt;ErrorCondEnum&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p></li></ol><li>
+<p>Implicit <code>error_type</code> from <code>ErrorCondEnum</code> constructor. Available if <code>predicate::enable_error_condition_converting_constructor&lt;ErrorCondEnum&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/explicit_valueorerror_converting_constructor.html" ><code>explicit basic_result(ValueOrError&lt;T, E&gt; &amp;&amp;)</code></a>
+<p>Explicit converting constructor from <code>ValueOrError&lt;T, E&gt;</code> concept matching types. Available if <code>convert::value_or_error&lt;&gt;</code> permits it. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/explicit_copy_converting_constructor.html" ><code>explicit basic_result(const basic_result&lt;R, S, P&gt; &amp;)</code></a>
+<p>Explicit converting copy constructor from compatible <code>basic_result</code>. Available if <code>predicate::enable_compatible_conversion&lt;R, S, P&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/explicit_move_converting_constructor.html" ><code>explicit basic_result(basic_result&lt;R, S, P&gt; &amp;&amp;)</code></a>
+<p>Explicit converting move constructor from compatible <code>basic_result</code>. Available if <code>predicate::enable_compatible_conversion&lt;R, S, P&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/explicit_inplace_value_constructor.html" ><code>explicit basic_result(in_place_type_t&lt;value_type_if_enabled&gt;, Args ...)</code></a>
+<p>Explicit inplace value constructor. Available if <code>predicate::enable_inplace_value_constructor&lt;Args ...&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/explicit_inplace_value_constructor_il.html" ><code>explicit basic_result(in_place_type_t&lt;value_type_if_enabled&gt;, std::initializer_list&lt;U&gt;, Args ...)</code></a>
+<p>Explicit inplace value constructor. Available if <code>predicate::enable_inplace_value_constructor&lt;std::initializer_list&lt;U&gt;, Args ...&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/explicit_inplace_error_constructor.html" ><code>explicit basic_result(in_place_type_t&lt;error_type_if_enabled&gt;, Args ...)</code></a>
+<p>Explicit inplace error constructor. Available if <code>predicate::enable_inplace_error_constructor&lt;Args ...&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/explicit_inplace_error_constructor_il.html" ><code>explicit basic_result(in_place_type_t&lt;error_type_if_enabled&gt;, std::initializer_list&lt;U&gt;, Args ...)</code></a>
+<p>Explicit inplace error constructor. Available if <code>predicate::enable_inplace_error_constructor&lt;std::initializer_list&lt;U&gt;, Args ...&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/implicit_inplace_value_error_constructor.html" ><code>basic_result(A1 &amp;&amp;, A2 &amp;&amp;, Args ...)</code></a>
+<p>Implicit inplace value or error constructor. Available if <code>predicate::enable_inplace_value_error_constructor&lt;A1, A2, Args ...&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p></li></ol><li>
 	<a href="../reference/types/in_place_type_t.html" ><code>in_place_type_t&lt;T&gt;</code></a>
 <p>Either <code>std::in_place_type_t&lt;T&gt;</code> if C++ 17 or later, else a local emulation.</p></li></ol>
 

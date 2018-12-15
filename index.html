@@ -160,6 +160,12 @@
   <dt><span class="section"><a href="./reference/concepts/valueornone.html"><code>ValueOrNone&lt;T&gt;</code></a></span></dt>
         </dl>
     </dt></dd>
+  <dt><span class="section"><a href="./reference/converters.html">Converters</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./reference/converters/try_operation_return_as.html"><code>try_operation_return_as(expr)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/converters/value_or_error.html"><code>value_or_error&lt;T, U&gt;</code></a></span></dt>
+        </dl>
+    </dt></dd>
   <dt><span class="section"><a href="./reference/traits.html">Traits</a></span></dt>
         <dd><dl>
   <dt><span class="section"><a href="./reference/traits/has_error_code.html"><code>has_error_code&lt;T&gt;</code></a></span></dt>
@@ -187,6 +193,14 @@
   <dt><span class="section"><a href="./reference/types/basic_result/implicit_value_converting_constructor.html"><code>basic_result(R &amp;&amp;)</code></a></span></dt>
   <dt><span class="section"><a href="./reference/types/basic_result/implicit_error_converting_constructor.html"><code>basic_result(S &amp;&amp;)</code></a></span></dt>
   <dt><span class="section"><a href="./reference/types/basic_result/implicit_error_condition_converting_constructor.html"><code>basic_result(ErrorCondEnum &amp;&amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/explicit_valueorerror_converting_constructor.html"><code>explicit basic_result(ValueOrError&lt;T, E&gt; &amp;&amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/explicit_copy_converting_constructor.html"><code>explicit basic_result(const basic_result&lt;R, S, P&gt; &amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/explicit_move_converting_constructor.html"><code>explicit basic_result(basic_result&lt;R, S, P&gt; &amp;&amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/explicit_inplace_value_constructor.html"><code>explicit basic_result(in_place_type_t&lt;value_type_if_enabled&gt;, Args ...)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/explicit_inplace_value_constructor_il.html"><code>explicit basic_result(in_place_type_t&lt;value_type_if_enabled&gt;, std::initializer_list&lt;U&gt;, Args ...)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/explicit_inplace_error_constructor.html"><code>explicit basic_result(in_place_type_t&lt;error_type_if_enabled&gt;, Args ...)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/explicit_inplace_error_constructor_il.html"><code>explicit basic_result(in_place_type_t&lt;error_type_if_enabled&gt;, std::initializer_list&lt;U&gt;, Args ...)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/implicit_inplace_value_error_constructor.html"><code>basic_result(A1 &amp;&amp;, A2 &amp;&amp;, Args ...)</code></a></span></dt>
         </dl>
     </dt></dd>
   <dt><span class="section"><a href="./reference/types/in_place_type_t.html"><code>in_place_type_t&lt;T&gt;</code></a></span></dt>

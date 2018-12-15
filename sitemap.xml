@@ -138,6 +138,11 @@
   </url>
   
   <url>
+    <loc>/reference/converters.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tutorial/no-value.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
   </url>
@@ -334,57 +339,97 @@
   
   <url>
     <loc>/reference/types/basic_result/default.html</loc>
-    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/move_constructor.html</loc>
-    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/copy_constructor.html</loc>
-    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/move_assignment.html</loc>
-    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/copy_assignment.html</loc>
-    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/destructor.html</loc>
-    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/disabling_catchall.html</loc>
-    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/disabling_implicit_constructor.html</loc>
-    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/implicit_value_converting_constructor.html</loc>
-    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/implicit_error_converting_constructor.html</loc>
-    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/implicit_error_condition_converting_constructor.html</loc>
-    <lastmod>2018-12-14T15:57:41+00:00</lastmod>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/explicit_valueorerror_converting_constructor.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/explicit_copy_converting_constructor.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/explicit_move_converting_constructor.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/explicit_inplace_value_constructor.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/explicit_inplace_value_constructor_il.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/explicit_inplace_error_constructor.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/explicit_inplace_error_constructor_il.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/implicit_inplace_value_error_constructor.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
   <url>
@@ -403,6 +448,12 @@
   </url>
   
   <url>
+    <loc>/categories/assignment.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/backtrace.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
@@ -410,6 +461,7 @@
   
   <url>
     <loc>/categories.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -425,8 +477,50 @@
   </url>
   
   <url>
+    <loc>/categories/constructors.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/converting-constructors.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/copy-assignment.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/copy-constructors.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/default-actions.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/default-constructors.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/destructors.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/disabling-constructors.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -449,6 +543,12 @@
   </url>
   
   <url>
+    <loc>/categories/explicit-constructors.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/has_error_code.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
     <priority>0</priority>
@@ -466,8 +566,32 @@
   </url>
   
   <url>
+    <loc>/categories/implicit-constructors.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/inplace-constructors.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/make_error_code.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/move-assignment.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/move-constructors.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -480,6 +604,12 @@
   <url>
     <loc>/tags/nodiscard.html</loc>
     <lastmod>2018-12-05T14:18:52+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/operators.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -573,7 +703,7 @@
   
   <url>
     <loc>/reference/macros/tryv.html</loc>
-    <lastmod>2018-12-13T17:45:22+00:00</lastmod>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
   <url>
@@ -593,7 +723,7 @@
   
   <url>
     <loc>/reference/types/basic_result.html</loc>
-    <lastmod>2018-12-15T13:22:11+00:00</lastmod>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
   <url>
@@ -627,8 +757,18 @@
   </url>
   
   <url>
+    <loc>/reference/converters/try_operation_return_as.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/traits/type_can_be_used_in_basic_result.html</loc>
     <lastmod>2018-12-13T17:45:22+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/converters/value_or_error.html</loc>
+    <lastmod>2018-12-15T17:58:27+00:00</lastmod>
   </url>
   
 </urlset>

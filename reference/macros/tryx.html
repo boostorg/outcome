@@ -41,13 +41,11 @@
 
 <p><em>Overridable</em>: Not overridable.</p>
 
-<p><em>Definition</em>: See 
-<a href="../../reference/macros/tryv.html" class="api-reference"> BOOST_OUTCOME_TRYV(expr)</a> for most of the mechanics.</p>
+<p><em>Definition</em>: See <a href="../../reference/macros/tryv.html" class="api-reference">BOOST_OUTCOME_TRYV(expr)</a> for most of the mechanics.</p>
 
 <p>This macro makes use of a proprietary extension in GCC and clang to emit the <code>T</code> from a successful expression. You can thus use <code>BOOST_OUTCOME_TRYX(expr)</code> directly in expressions e.g. <code>auto x = y + BOOST_OUTCOME_TRYX(foo(z));</code>.</p>
 
-<p>Be aware there are compiler quirks in preserving the rvalue/lvalue/etc-ness of emitted <code>T</code>&rsquo;s, specifically copy or move constructors may be called unexpectedly and/or copy elision not work as expected. If these prove to be problematic, use 
-<a href="../../reference/macros/try.html" class="api-reference"> BOOST_OUTCOME_TRY(var, expr)</a> instead.</p>
+<p>Be aware there are compiler quirks in preserving the rvalue/lvalue/etc-ness of emitted <code>T</code>&rsquo;s, specifically copy or move constructors may be called unexpectedly and/or copy elision not work as expected. If these prove to be problematic, use <a href="../../reference/macros/try.html" class="api-reference">BOOST_OUTCOME_TRY(var, expr)</a> instead.</p>
 
 <p><em>Header</em>: <code>&lt;boost/outcome/try.hpp&gt;</code></p>
 
