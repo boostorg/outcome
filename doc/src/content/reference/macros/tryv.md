@@ -13,4 +13,4 @@ The difference between the `BOOST_OUTCOME_TRYV(expr)` and `BOOST_OUTCOME_TRY(exp
 
 {{% api "try_operation_return_as(expr)" %}} is as ADL discovered customisation point, the default implementation of which returns a {{% api "failure<E>" %}} for Outcome types, or an {{% api "std::unexpected<E>" %}} for Expected types.
 
-*Header*: `<boost/outcome/try.hpp>>`
+*Header*: `<boost/outcome/try.hpp>`

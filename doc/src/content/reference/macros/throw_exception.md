@@ -16,4 +16,4 @@ Throws a C++ exception, or equivalent thereof.
 <dd>To `BOOST_THROW_EXCEPTION(expr)`.
 </dl>
 
-*Header*: `<boost/outcome/config.hpp>>`
+*Header*: `<boost/outcome/config.hpp>`

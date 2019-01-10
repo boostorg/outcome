@@ -9,4 +9,4 @@ A C++ 20 `requires(...)`, if available.
 
 *Default*: To `requires(...)` if on C++ 20 or later, else to nothing.
 
-*Header*: `<boost/outcome/config.hpp>>`
+*Header*: `<boost/outcome/config.hpp>`

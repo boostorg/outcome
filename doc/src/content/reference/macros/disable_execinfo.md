@@ -11,4 +11,4 @@ Some embedded Linux toolchains do not define `<execinfo.h>`, thus disabling C++ 
 
 *Default*: Defined if `__ANDROID__` is defined, else undefined.
 
-*Header*: `<boost/outcome/config.hpp>>`
+*Header*: `<boost/outcome/config.hpp>`

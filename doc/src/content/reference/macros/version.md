@@ -4,7 +4,7 @@ title = "Version macros"
 
 *Overridable*: None of the following macros are overridable.
 
-*Header*: `<boost/outcome/config.hpp>>`
+*Header*: `<boost/outcome/config.hpp>`
 
 - <a name="version-major"></a>`BOOST_OUTCOME_VERSION_MAJOR <number>`
 

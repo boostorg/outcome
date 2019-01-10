@@ -9,4 +9,4 @@ Compiler-specific markup used to tell the compiler than the return value of a fu
 
 *Default*: To `[[nodiscard]]` if on C++ 17 or higher, `__attribute__((warn_unused_result))` if on clang, SAL `_Must_inspect_result_` if on MSVC, otherwise nothing.
 
-*Header*: `<boost/outcome/config.hpp>>`
+*Header*: `<boost/outcome/config.hpp>`
