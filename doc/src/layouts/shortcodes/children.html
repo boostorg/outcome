@@ -4,7 +4,6 @@
 {{- $depth :=  int (.Get "depth" | default "1") }}
 {{- $description :=  eq (.Get "description" | default "false") "true" }}
 {{- $sortTerm :=  .Get "sort" | default "Weight" }}
-{{- $categories :=  cond (ne (.Get "categories") "") (split (.Get "categories") ",") nil }}
 
 {{- .Scratch.Set "current" .Page }}
 
@@ -24,17 +23,17 @@
     {{- $pages := (.Scratch.Get "pages") }}
 
 	{{- if eq $sortTerm "Weight"}}
-		{{- template "childs2" dict "menu" $pages.ByWeight "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $description "sortTerm" $sortTerm "container" $container "categories" $categories}}
+		{{- template "childs2" dict "menu" $pages.ByWeight "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $description "sortTerm" $sortTerm "container" $container}}
 	{{- else if eq $sortTerm "Name"}}
-		{{- template "childs2" dict "menu" $pages.ByTitle "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $description "sortTerm" $sortTerm "container" $container "categories" $categories}}
+		{{- template "childs2" dict "menu" $pages.ByTitle "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $description "sortTerm" $sortTerm "container" $container}}
 	{{- else if eq $sortTerm "PublishDate"}}
-		{{- template "childs2" dict "menu" $pages.ByPublishDate "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $description "sortTerm" $sortTerm "container" $container "categories" $categories}}
+		{{- template "childs2" dict "menu" $pages.ByPublishDate "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $description "sortTerm" $sortTerm "container" $container}}
 	{{- else if eq $sortTerm "Date"}}
-		{{- template "childs2" dict "menu" $pages.ByDate "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $description "sortTerm" $sortTerm "container" $container "categories" $categories}}
+		{{- template "childs2" dict "menu" $pages.ByDate "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $description "sortTerm" $sortTerm "container" $container}}
 	{{- else if eq $sortTerm "Length"}}
-		{{- template "childs2" dict "menu" $pages.ByLength "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $description "sortTerm" $sortTerm "container" $container "categories" $categories}}
+		{{- template "childs2" dict "menu" $pages.ByLength "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $description "sortTerm" $sortTerm "container" $container}}
 	{{- else}}
-		{{- template "childs2" dict "menu" $pages "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $description "sortTerm" $sortTerm "container" $container "categories" $categories}}
+		{{- template "childs2" dict "menu" $pages "style" $style "showhidden" $showhidden "count" 1 "depth" $depth "pages" .Site.Pages "description" $description "sortTerm" $sortTerm "container" $container}}
 	{{end}}
 {{- (printf "</%s>" $container)|safeHTML}}
 
@@ -42,8 +41,7 @@
 
 {{ define "childs2" }}
 	{{- range .menu }}
-    {{- $in_categories := intersect $.categories .Params.categories }}
-		{{- if or (and .Params.hidden (not $.showhidden)) (and $.categories (not $in_categories)) }}
+		{{- if and .Params.hidden (not $.showhidden) }}
 		{{- else}}
 
 
@@ -83,17 +81,17 @@
 {{- end}}
 
 	{{- if eq $.sortTerm "Weight"}}
-		{{- template "childs2" dict "menu" $pages.ByWeight  "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm "container" $.container "categories" $.categories}}
+		{{- template "childs2" dict "menu" $pages.ByWeight  "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm "container" $.container}}
 	{{- else if eq $.sortTerm "Name"}}
-		{{- template "childs2" dict "menu" $pages.ByTitle  "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm "container" $.container "categories" $.categories}}
+		{{- template "childs2" dict "menu" $pages.ByTitle  "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm "container" $.container}}
 	{{- else if eq $.sortTerm "PublishDate"}}
-		{{- template "childs2" dict "menu" $pages.ByPublishDate  "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm "container" $.container "categories" $.categories}}
+		{{- template "childs2" dict "menu" $pages.ByPublishDate  "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm "container" $.container}}
 	{{- else if eq $.sortTerm "Date"}}
-		{{- template "childs2" dict "menu" $pages.ByDate  "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm "container" $.container "categories" $.categories}}
+		{{- template "childs2" dict "menu" $pages.ByDate  "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm "container" $.container}}
 	{{- else if eq $.sortTerm "Length"}}
-		{{- template "childs2" dict "menu" $pages.ByLength  "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm "container" $.container "categories" $.categories}}
+		{{- template "childs2" dict "menu" $pages.ByLength  "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm "container" $.container}}
 	{{- else}}
-		{{- template "childs2" dict "menu" $pages  "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm "container" $.container "categories" $.categories}}
+		{{- template "childs2" dict "menu" $pages  "style" $.style "showhidden" $.showhidden "count" (add $.count 1) "depth" $.depth "pages" $.pages "description" $.description "sortTerm" $.sortTerm "container" $.container}}
 	{{- end}}
 {{- if or (eq $.style "li") (eq $.style "dt") }}
 {{- (printf "</%s>" $.container)|safeHTML}}

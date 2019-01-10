@@ -15,5 +15,3 @@ Throws a C++ exception, or equivalent thereof.
 <dt>Boost.Outcome:
 <dd>To `BOOST_THROW_EXCEPTION(expr)`.
 </dl>
-
-*Header*: `<boost/outcome/config.hpp>`
