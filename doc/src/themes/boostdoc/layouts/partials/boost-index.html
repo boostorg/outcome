@@ -1,0 +1,53 @@
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl class="toc">
+{{- $currentNode := . }}
+
+{{- if eq .Site.Params.ordersectionsby "title"}}
+  {{- range .Site.Home.Sections.ByTitle}}
+  {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode}}
+  {{- end}}
+{{- else}}
+  {{- range .Site.Home.Sections.ByWeight}}
+  {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode }}
+  {{- end}}
+{{- end}}
+
+<!-- templates -->
+{{- define "section-tree-nav" }}
+{{- $currentNode := .currentnode }}
+ {{- with .sect}}
+  <dt><span class="section"><a href="{{ .RelPermalink}}">{{.Title | markdownify}}</a></span></dt>
+  {{- if and .IsSection (or (not .Params.hidden) $.showhidden)}}
+    {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
+      {{- if ne $numberOfPages 0 }}
+        <dd><dl>
+          {{- .Scratch.Set "pages" .Pages }}
+          {{- if .Sections}}
+          {{- .Scratch.Set "pages" (.Pages | union .Sections) }}
+          {{- end}}
+          {{- $pages := (.Scratch.Get "pages") }}
+
+        {{- if eq .Site.Params.ordersectionsby "title"}}
+          {{- range $pages.ByTitle }}
+            {{- if and .Params.hidden (not $.showhidden) }}
+            {{- else}}
+            {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode  }}
+            {{- end}}
+          {{- end}}
+        {{- else}}
+          {{- range $pages.ByWeight }}
+            {{- if and .Params.hidden (not $.showhidden) }}
+            {{- else}}
+            {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode  }}
+            {{- end}}
+          {{- end}}
+        {{- end}}
+        </dl>
+      {{- end}}
+    </dt></dd>
+  {{- end}}
+ {{- end}}
+{{- end}}
+</dl>
+</div>
