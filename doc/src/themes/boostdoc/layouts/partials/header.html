@@ -3,6 +3,7 @@
 {{- $dirdepth := (split (trim .RelPermalink "/") "/") | len -}}
 {{- $relbasedir := cond (eq $dirdepth 1) "" ("../" | strings.Repeat (sub $dirdepth 1)) -}}
 {{- .Page.Scratch.Set "relbasedir" $relbasedir -}}
+{{- if not (getenv "HUGO_BOOSTDOCDISABLECOMMONHEADING") -}}
 <div id="boost-common-heading-doc" style="background: #574D74 url('{{ $relbasedir }}images/header-bg.png') repeat-x top left;">
   <div class="heading-inner" style="background: url('{{ $relbasedir }}images/header-fg.png') no-repeat top left;">
   <div class="heading-placard"></div>
@@ -27,3 +28,4 @@
   </div>
 </div>
 <div id="boost-common-heading-doc-spacer"></div>
+{{- end -}}

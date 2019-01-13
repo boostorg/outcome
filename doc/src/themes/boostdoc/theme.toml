@@ -8,7 +8,7 @@ description = "A Hugo theme generating a Boost C++ Libraries documentation"
 homepage = "http://example.com/"
 tags = []
 features = ["documentation"]
-min_version = "0.32"
+min_version = "0.48"
 
 [author]
   name = "Niall Douglas"
