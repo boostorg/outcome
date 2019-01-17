@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>`basic_result&lt;T, E, NoValuePolicy&gt;` - Boost.Outcome documentation</title>
+<title>basic_result&amp;lt;T, E, NoValuePolicy&amp;gt; - Boost.Outcome documentation</title>
 <link rel="stylesheet" href="../../css/boost.css" type="text/css">
 <meta name="generator" content="Hugo 0.52 with Boostdoc theme">
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -53,7 +53,7 @@
   </div>
 
 
-<p>A sum type carrying either a <code>T</code> or an <code>E</code>, with <code>NoValuePolicy</code> specifying what to do if one tries to read state which isn&rsquo;t there. Either or both of <code>T</code> and <code>E</code> can be <code>void</code> to indicate no value for that state is present.</p>
+<p>A sum type carrying either a <code>T</code> or an <code>E</code>, with <code>NoValuePolicy</code> specifying what to do if one tries to read state which isn&rsquo;t there. Either or both of <code>T</code> and <code>E</code> can be <code>void</code> to indicate no value for that state is present. Note that <code>E = void</code> makes basic result into effectively an <code>optional&lt;T&gt;</code>, but with <code>NoValuePolicy</code> configurable behaviour.</p>
 
 <p><em>Requires</em>: Concept requirements if C++ 20, else static asserted:</p>
 
@@ -89,22 +89,18 @@
 <li><code>&lt;cassert&gt;</code></li>
 </ol>
 
-<p>This very light weight inclusion dependencies makes basic result suitable for use in global header files of very large C++ codebases.</p>
+<p>This very light weight set of inclusion dependencies makes basic result suitable for use in global header files of very large C++ codebases.</p>
 
 <h3 id="design-rationale">Design rationale</h3>
 
 <p>The basic result type is the main workhorse type of the Outcome library, providing a simple sum type with optional values representing success or disappointment. Unlike 
-<a href="https://wg21.link/P0323" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> P0323 std::expected&lt;T, E&gt;</a>, Outcome&rsquo;s result type is designed specifically for convenience when implementing failure handling, and it has a number of API differences to facilitate that.</p>
+<a href="https://wg21.link/P0323" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> P0323 std::expected&lt;T, E&gt;</a>, Outcome&rsquo;s result type is designed specifically for convenience when implementing failure handling across very large codebases, and it has a number of API differences to facilitate that.</p>
 
 <p>The first major design difference is that basic result models its constructor design on 
 <a href="https://en.cppreference.com/w/cpp/utility/variant" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> std::variant&lt;...&gt;</a>, rather than modelling 
-<a href="https://en.cppreference.com/w/cpp/utility/optional" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> std::optional&lt;T&gt;</a>&rsquo;s constructor design like <code>std::expected&lt;T, E&gt;</code> does. This means that basic result will implicitly construct either a <code>T</code> or an <code>E</code> if doing so is unambiguous, same as <code>variant</code> does. Where implicit construction is ambiguous, the implicit constructors disable and a <code>T</code> or <code>E</code> can be specified via <a href="../../reference/types/in_place_type_t.html" class="api-reference">in_place_type_t&lt;T&gt;</a>, or via 
-    
-    <b>API NOT FOUND IN DOCS <code>success_type&lt;T&gt;</code></b> or 
-    
-    <b>API NOT FOUND IN DOCS <code>failure_type&lt;T&gt;</code></b>.</p>
+<a href="https://en.cppreference.com/w/cpp/utility/optional" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> std::optional&lt;T&gt;</a>&rsquo;s constructor design like <code>std::expected&lt;T, E&gt;</code> does. This means that basic result will implicitly construct either a <code>T</code> or an <code>E</code> if doing so is unambiguous, same as <code>variant</code> does. Where implicit construction is ambiguous, the implicit constructors disable and a <code>T</code> or <code>E</code> can be specified via <a href="../../reference/types/in_place_type_t.html" class="api-reference">in_place_type_t&lt;T&gt;</a>, or via <a href="../../reference/types/basic_result/implicit_success_move_constructor.html" class="api-reference">success_type&lt;T&gt;</a> or <a href="../../reference/types/basic_result/implicit_failure_move_constructor.html" class="api-reference">failure_type&lt;T&gt;</a>. We implement a subset of variant&rsquo;s constructors for improved compile time impact, so the implicit and explicit constructor design is split into fixed subsets to reduce SFINAE execution.</p>
 
-<p>The second major design difference is that union storage is NOT used, as it is assumed that <code>sizeof(E)</code> will be small for failure handling. This very considerably reduces load on the compiler, and substantially improves compile times in very large C++ codebases.</p>
+<p>The second major design difference is that union storage is NOT used, as it is assumed that <code>sizeof(E)</code> will be small for failure handling. This very considerably reduces load on the compiler, and substantially improves compile times in very large C++ 14 codebases, because copies and moves do not need to jump through complex ceremony in order to implement the never-empty guarantees which would be required in a union storage based implementation (C++ 17 onwards does far fewer copy and move constructor instantiations, but it all adds up &ndash; work avoided is always the fastest).</p>
 
 <h3 id="public-member-type-aliases">Public member type aliases</h3>
 
@@ -199,7 +195,7 @@
 	<a href="../../reference/types/basic_result/disabling_implicit_constructor.html" ><code>basic_result(X &amp;&amp;) = delete</code></a>
 <p>Disabling implicit constructor used to give useful diagnostic error when trying to use implicit constructors when <code>predicate::implicit_constructors_enabled</code> is false.</p></li></ol>
 
-<h4 id="regular-member-functions">Regular member functions</h4>
+<h4 id="copy-and-move-constructors-and-assignment-and-destructor">Copy and move constructors and assignment, and destructor</h4>
 
 <ol class="children children-li"><li>
     <a href="../../reference/types/basic_result/default.html" ><code>basic_result() = delete</code></a>
@@ -245,13 +241,35 @@
     <a href="../../reference/types/basic_result/implicit_inplace_value_error_constructor.html" ><code>basic_result(A1 &amp;&amp;, A2 &amp;&amp;, Args ...)</code></a>
 <p>Implicit inplace value or error constructor. Available if <code>predicate::enable_inplace_value_error_constructor&lt;A1, A2, Args ...&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p></li></ol>
 
+<h4 id="tagged-constructors">Tagged constructors</h4>
+
+<ol class="children children-li"><li>
+    <a href="../../reference/types/basic_result/implicit_success_copy_constructor.html" ><code>basic_result(const success_type&lt;T&gt; &amp;)</code></a>
+<p>Implicit value-from-success-type-sugar copy constructor. Available if <code>predicate::enable_compatible_conversion&lt;T, void, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/implicit_success_move_constructor.html" ><code>basic_result(success_type&lt;T&gt; &amp;&amp;)</code></a>
+<p>Implicit value-from-success-type-sugar move constructor. Available if <code>predicate::enable_compatible_conversion&lt;T, void, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/implicit_failure_copy_constructor.html" ><code>basic_result(const failure_type&lt;T&gt; &amp;)</code></a>
+<p>Implicit error-from-failure-type-sugar copy constructor. Available if <code>predicate::enable_compatible_conversion&lt;void, T, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/implicit_failure_move_constructor.html" ><code>basic_result(failure_type&lt;T&gt; &amp;&amp;)</code></a>
+<p>Implicit error-from-failure-type-sugar move constructor. Available if <code>predicate::enable_compatible_conversion&lt;void, T, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p></li></ol>
+
+<h4 id="observers">Observers</h4>
+
+<ol class="children children-li"></li></ol>
+
+<h4 id="modifiers">Modifiers</h4>
+
+<ol class="children children-li"><li>
+    <a href="../../reference/types/basic_result/swap.html" ><code>void swap(basic_result &amp;)</code></a>
+<p>Swap one basic_result with another. Noexcept propagating.</p></li></ol>
 
 
 
 
 
 
-        </div><p><small>Last revised: December 15, 2018 at 17:49:37 UTC</small></p>
+
+        </div><p><small>Last revised: January 17, 2019 at 21:24:36 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../reference/types.html"><img src="../../images/prev.png" alt="Prev"></a>

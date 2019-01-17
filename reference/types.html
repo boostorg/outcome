@@ -75,7 +75,17 @@
 	<a href="../reference/types/basic_result/explicit_inplace_error_constructor_il.html" ><code>explicit basic_result(in_place_type_t&lt;error_type_if_enabled&gt;, std::initializer_list&lt;U&gt;, Args ...)</code></a>
 <p>Explicit inplace error constructor. Available if <code>predicate::enable_inplace_error_constructor&lt;std::initializer_list&lt;U&gt;, Args ...&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
 	<a href="../reference/types/basic_result/implicit_inplace_value_error_constructor.html" ><code>basic_result(A1 &amp;&amp;, A2 &amp;&amp;, Args ...)</code></a>
-<p>Implicit inplace value or error constructor. Available if <code>predicate::enable_inplace_value_error_constructor&lt;A1, A2, Args ...&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p></li></ol><li>
+<p>Implicit inplace value or error constructor. Available if <code>predicate::enable_inplace_value_error_constructor&lt;A1, A2, Args ...&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/implicit_success_copy_constructor.html" ><code>basic_result(const success_type&lt;T&gt; &amp;)</code></a>
+<p>Implicit value-from-success-type-sugar copy constructor. Available if <code>predicate::enable_compatible_conversion&lt;T, void, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/implicit_success_move_constructor.html" ><code>basic_result(success_type&lt;T&gt; &amp;&amp;)</code></a>
+<p>Implicit value-from-success-type-sugar move constructor. Available if <code>predicate::enable_compatible_conversion&lt;T, void, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/implicit_failure_copy_constructor.html" ><code>basic_result(const failure_type&lt;T&gt; &amp;)</code></a>
+<p>Implicit error-from-failure-type-sugar copy constructor. Available if <code>predicate::enable_compatible_conversion&lt;void, T, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/implicit_failure_move_constructor.html" ><code>basic_result(failure_type&lt;T&gt; &amp;&amp;)</code></a>
+<p>Implicit error-from-failure-type-sugar move constructor. Available if <code>predicate::enable_compatible_conversion&lt;void, T, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/swap.html" ><code>void swap(basic_result &amp;)</code></a>
+<p>Swap one basic_result with another. Noexcept propagating.</p></li></ol><li>
 	<a href="../reference/types/in_place_type_t.html" ><code>in_place_type_t&lt;T&gt;</code></a>
 <p>Either <code>std::in_place_type_t&lt;T&gt;</code> if C++ 17 or later, else a local emulation.</p></li></ol>
 
