@@ -84,6 +84,22 @@
 <p>Implicit error-from-failure-type-sugar copy constructor. Available if <code>predicate::enable_compatible_conversion&lt;void, T, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
 	<a href="../reference/types/basic_result/implicit_failure_move_constructor.html" ><code>basic_result(failure_type&lt;T&gt; &amp;&amp;)</code></a>
 <p>Implicit error-from-failure-type-sugar move constructor. Available if <code>predicate::enable_compatible_conversion&lt;void, T, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_result/assume_value_lvalue.html" ><code>value_type &amp;assume_value() &amp; noexcept</code></a>
+<p>Narrow contract lvalue reference observer of any value present. Constexpr propagating.</p><li>
+	<a href="../reference/types/basic_result/assume_value_lvalue_const.html" ><code>const value_type &amp;assume_value() const &amp; noexcept</code></a>
+<p>Narrow contract const lvalue reference observer of any value present. Constexpr propagating.</p><li>
+	<a href="../reference/types/basic_result/assume_value_rvalue.html" ><code>value_type &amp;&amp;assume_value() &amp;&amp; noexcept</code></a>
+<p>Narrow contract rvalue reference observer of any value present. Constexpr propagating.</p><li>
+	<a href="../reference/types/basic_result/assume_value_rvalue_const.html" ><code>const value_type &amp;&amp;assume_value() const &amp;&amp; noexcept</code></a>
+<p>Narrow contract const rvalue reference observer of any value present. Constexpr propagating.</p><li>
+	<a href="../reference/types/basic_result/value_lvalue.html" ><code>value_type &amp;value() &amp;</code></a>
+<p>Wide contract lvalue reference observer of any value present. Constexpr propagating.</p><li>
+	<a href="../reference/types/basic_result/value_lvalue_const.html" ><code>const value_type &amp;value() const &amp;</code></a>
+<p>Wide contract const lvalue reference observer of any value present. Constexpr propagating.</p><li>
+	<a href="../reference/types/basic_result/value_rvalue.html" ><code>value_type &amp;&amp;value() &amp;&amp;</code></a>
+<p>Wide contract rvalue reference observer of any value present. Constexpr propagating.</p><li>
+	<a href="../reference/types/basic_result/value_rvalue_const.html" ><code>const value_type &amp;&amp;value() const &amp;&amp;</code></a>
+<p>Wide contract const rvalue reference observer of any value present. Constexpr propagating.</p><li>
 	<a href="../reference/types/basic_result/swap.html" ><code>void swap(basic_result &amp;)</code></a>
 <p>Swap one basic_result with another. Noexcept propagating.</p></li></ol><li>
 	<a href="../reference/types/in_place_type_t.html" ><code>in_place_type_t&lt;T&gt;</code></a>
