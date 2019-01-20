@@ -204,6 +204,11 @@
   <dt><span class="section"><a href="./reference/types/basic_result/implicit_success_move_constructor.html"><code>basic_result(success_type&lt;T&gt; &amp;&amp;)</code></a></span></dt>
   <dt><span class="section"><a href="./reference/types/basic_result/implicit_failure_copy_constructor.html"><code>basic_result(const failure_type&lt;T&gt; &amp;)</code></a></span></dt>
   <dt><span class="section"><a href="./reference/types/basic_result/implicit_failure_move_constructor.html"><code>basic_result(failure_type&lt;T&gt; &amp;&amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/operator_bool.html"><code>explicit operator bool() const noexcept</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/has_value.html"><code>bool has_value() const noexcept</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/has_error.html"><code>bool has_error() const noexcept</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/has_exception.html"><code>bool has_exception() const noexcept</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/has_failure.html"><code>bool has_failure() const noexcept</code></a></span></dt>
   <dt><span class="section"><a href="./reference/types/basic_result/assume_value_lvalue.html"><code>value_type &amp;assume_value() &amp; noexcept</code></a></span></dt>
   <dt><span class="section"><a href="./reference/types/basic_result/assume_value_lvalue_const.html"><code>const value_type &amp;assume_value() const &amp; noexcept</code></a></span></dt>
   <dt><span class="section"><a href="./reference/types/basic_result/assume_value_rvalue.html"><code>value_type &amp;&amp;assume_value() &amp;&amp; noexcept</code></a></span></dt>
@@ -212,7 +217,23 @@
   <dt><span class="section"><a href="./reference/types/basic_result/value_lvalue_const.html"><code>const value_type &amp;value() const &amp;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/types/basic_result/value_rvalue.html"><code>value_type &amp;&amp;value() &amp;&amp;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/types/basic_result/value_rvalue_const.html"><code>const value_type &amp;&amp;value() const &amp;&amp;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/assume_error_lvalue.html"><code>error_type &amp;assume_error() &amp; noexcept</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/assume_error_lvalue_const.html"><code>const error_type &amp;assume_error() const &amp; noexcept</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/assume_error_rvalue.html"><code>error_type &amp;&amp;assume_error() &amp;&amp; noexcept</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/assume_error_rvalue_const.html"><code>const error_type &amp;&amp;assume_error() const &amp;&amp; noexcept</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/error_lvalue.html"><code>error_type &amp;error() &amp;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/error_lvalue_const.html"><code>const error_type &amp;error() const &amp;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/error_rvalue.html"><code>error_type &amp;&amp;error() &amp;&amp;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/error_rvalue_const.html"><code>const error_type &amp;&amp;error() const &amp;&amp;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/equality_basic_result.html"><code>bool operator==(const basic_result&lt;A, B, C&gt; &amp;) const</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/inequality_success_type.html"><code>bool operator==(const success_type&lt;A&gt; &amp;) const</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/equality_failure_type.html"><code>bool operator==(const failure_type&lt;A, void&gt; &amp;) const</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/inequality_basic_result.html"><code>bool operator!=(const basic_result&lt;A, B, C&gt; &amp;) const</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/equality_success_type.html"><code>bool operator!=(const success_type&lt;A&gt; &amp;) const</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/inequality_failure_type.html"><code>bool operator!=(const failure_type&lt;A, void&gt; &amp;) const</code></a></span></dt>
   <dt><span class="section"><a href="./reference/types/basic_result/swap.html"><code>void swap(basic_result &amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/as_failure_lvalue.html"><code>auto as_failure() const &amp;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/basic_result/as_failure_rvalue.html"><code>auto as_failure() &amp;&amp;</code></a></span></dt>
         </dl>
     </dt></dd>
   <dt><span class="section"><a href="./reference/types/in_place_type_t.html"><code>in_place_type_t&lt;T&gt;</code></a></span></dt>

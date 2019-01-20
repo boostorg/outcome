@@ -42,7 +42,10 @@
 <dd><dl>
 <dt><a href="#design-rationale">Design rationale</a></dt>
 <dt><a href="#public-member-type-aliases">Public member type aliases</a></dt>
-<dt><a href="#protected-member-predicate-booleans">Protected member predicate booleans</a></dt>
+<dt><a href="#protected-member-predicate-booleans">Protected member predicate booleans</a>
+<dd><dl>
+<dt><a href="#summary-of-standard-requirements-provided-https-en-cppreference-com-w-cpp-named-req">Summary of <a href="https://en.cppreference.com/w/cpp/named_req">standard requirements provided</a></a></dt>
+</dl></dd></dt>
 <dt><a href="#public-member-functions">Public member functions</a>
 <dd><dl>
 <dt><a href="#disabling-constructors">Disabling constructors</a></dt>
@@ -185,6 +188,35 @@
 </ol></li>
 </ul>
 
+<h4 id="summary-of-standard-requirements-provided-https-en-cppreference-com-w-cpp-named-req">Summary of <a href="https://en.cppreference.com/w/cpp/named_req">standard requirements provided</a></h4>
+
+<ul>
+<li><del><code>DefaultConstructible</code></del>, always deleted to force user to choose valued or errored for every result instanced.</li>
+<li><code>MoveConstructible</code>, if both <code>value_type</code> and <code>error_type</code> implement move constructors.</li>
+<li><code>CopyConstructible</code>, if both <code>value_type</code> and <code>error_type</code> implement copy constructors.</li>
+<li><code>MoveAssignable</code>, if both <code>value_type</code> and <code>error_type</code> implement move constructors and move assignment.</li>
+<li><code>CopyAssignable</code>, if both <code>value_type</code> and <code>error_type</code> implement copy constructors and copy assignment.</li>
+<li><code>Destructible</code></li>
+<li><code>TriviallyCopyable</code>, if both <code>value_type</code> and <code>error_type</code> are trivially copyable.</li>
+<li><code>TrivialType</code>, if both <code>value_type</code> and <code>error_type</code> are trivial types.</li>
+<li><code>LiteralType</code>, if both <code>value_type</code> and <code>error_type</code> are literal types.</li>
+
+<li><p><code>StandardLayoutType</code>, if both <code>value_type</code> and <code>error_type</code> are standard layout types. If so, layout of <code>basic_result</code> in C is guaranteed to be:</p>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">struct</span> <span class="n">result_layout</span> <span class="p">{</span>
+  <span class="n">value_type</span> <span class="n">value</span><span class="p">;</span>
+  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">;</span>
+  <span class="n">error_type</span> <span class="n">error</span><span class="p">;</span>
+<span class="p">};</span>
+</code></pre></div></li>
+
+<li><p><code>EqualityComparable</code>, if both <code>value_type</code> and <code>error_type</code> implement equality comparisons with one another.</p></li>
+
+<li><p><del><code>LessThanComparable</code></del>, not implemented due to availability of implicit conversions from <code>value_type</code> and <code>error_type</code>, this can cause major surprise (i.e. hard to diagnose bugs), so we don&rsquo;t implement these at all.
+~ <code>Swappable</code></p></li>
+
+<li><p><del><code>Hash</code></del>, not implemented as a generic implementation of a unique hash for non-valued items which are unequal would require a dependency on RTTI being enabled.</p></li>
+</ul>
+
 <h3 id="public-member-functions">Public member functions</h3>
 
 <h4 id="disabling-constructors">Disabling constructors</h4>
@@ -256,14 +288,24 @@
 <h4 id="observers">Observers</h4>
 
 <ol class="children children-li"><li>
+    <a href="../../reference/types/basic_result/operator_bool.html" ><code>explicit operator bool() const noexcept</code></a>
+<p>Returns true if a value is present. Constexpr, never throws.</p><li>
+    <a href="../../reference/types/basic_result/has_value.html" ><code>bool has_value() const noexcept</code></a>
+<p>Returns true if a value is present. Constexpr, never throws.</p><li>
+    <a href="../../reference/types/basic_result/has_error.html" ><code>bool has_error() const noexcept</code></a>
+<p>Returns true if an error is present. Constexpr, never throws.</p><li>
+    <a href="../../reference/types/basic_result/has_exception.html" ><code>bool has_exception() const noexcept</code></a>
+<p>Always returns false for <code>basic_result</code>. Constexpr, never throws.</p><li>
+    <a href="../../reference/types/basic_result/has_failure.html" ><code>bool has_failure() const noexcept</code></a>
+<p>Returns true if there is either an error or an exception. Constexpr, never throws.</p><li>
     <a href="../../reference/types/basic_result/assume_value_lvalue.html" ><code>value_type &amp;assume_value() &amp; noexcept</code></a>
-<p>Narrow contract lvalue reference observer of any value present. Constexpr propagating.</p><li>
+<p>Narrow contract lvalue reference observer of any value present. Constexpr propagating, never throws.</p><li>
     <a href="../../reference/types/basic_result/assume_value_lvalue_const.html" ><code>const value_type &amp;assume_value() const &amp; noexcept</code></a>
-<p>Narrow contract const lvalue reference observer of any value present. Constexpr propagating.</p><li>
+<p>Narrow contract const lvalue reference observer of any value present. Constexpr propagating, never throws.</p><li>
     <a href="../../reference/types/basic_result/assume_value_rvalue.html" ><code>value_type &amp;&amp;assume_value() &amp;&amp; noexcept</code></a>
-<p>Narrow contract rvalue reference observer of any value present. Constexpr propagating.</p><li>
+<p>Narrow contract rvalue reference observer of any value present. Constexpr propagating, never throws.</p><li>
     <a href="../../reference/types/basic_result/assume_value_rvalue_const.html" ><code>const value_type &amp;&amp;assume_value() const &amp;&amp; noexcept</code></a>
-<p>Narrow contract const rvalue reference observer of any value present. Constexpr propagating.</p><li>
+<p>Narrow contract const rvalue reference observer of any value present. Constexpr propagating, never throws.</p><li>
     <a href="../../reference/types/basic_result/value_lvalue.html" ><code>value_type &amp;value() &amp;</code></a>
 <p>Wide contract lvalue reference observer of any value present. Constexpr propagating.</p><li>
     <a href="../../reference/types/basic_result/value_lvalue_const.html" ><code>const value_type &amp;value() const &amp;</code></a>
@@ -271,13 +313,51 @@
     <a href="../../reference/types/basic_result/value_rvalue.html" ><code>value_type &amp;&amp;value() &amp;&amp;</code></a>
 <p>Wide contract rvalue reference observer of any value present. Constexpr propagating.</p><li>
     <a href="../../reference/types/basic_result/value_rvalue_const.html" ><code>const value_type &amp;&amp;value() const &amp;&amp;</code></a>
-<p>Wide contract const rvalue reference observer of any value present. Constexpr propagating.</p></li></ol>
+<p>Wide contract const rvalue reference observer of any value present. Constexpr propagating.</p><li>
+    <a href="../../reference/types/basic_result/assume_error_lvalue.html" ><code>error_type &amp;assume_error() &amp; noexcept</code></a>
+<p>Narrow contract lvalue reference observer of the stored error. Constexpr propagating, never throws.</p><li>
+    <a href="../../reference/types/basic_result/assume_error_lvalue_const.html" ><code>const error_type &amp;assume_error() const &amp; noexcept</code></a>
+<p>Narrow contract const lvalue reference observer of the stored error. Constexpr propagating, never throws.</p><li>
+    <a href="../../reference/types/basic_result/assume_error_rvalue.html" ><code>error_type &amp;&amp;assume_error() &amp;&amp; noexcept</code></a>
+<p>Narrow contract rvalue reference observer of the stored error. Constexpr propagating, never throws.</p><li>
+    <a href="../../reference/types/basic_result/assume_error_rvalue_const.html" ><code>const error_type &amp;&amp;assume_error() const &amp;&amp; noexcept</code></a>
+<p>Narrow contract const rvalue reference observer of the stored error. Constexpr propagating, never throws.</p><li>
+    <a href="../../reference/types/basic_result/error_lvalue.html" ><code>error_type &amp;error() &amp;</code></a>
+<p>Wide contract lvalue reference observer of the stored error. Constexpr propagating.</p><li>
+    <a href="../../reference/types/basic_result/error_lvalue_const.html" ><code>const error_type &amp;error() const &amp;</code></a>
+<p>Wide contract const lvalue reference observer of the stored error. Constexpr propagating.</p><li>
+    <a href="../../reference/types/basic_result/error_rvalue.html" ><code>error_type &amp;&amp;error() &amp;&amp;</code></a>
+<p>Wide contract rvalue reference observer of the stored error. Constexpr propagating.</p><li>
+    <a href="../../reference/types/basic_result/error_rvalue_const.html" ><code>const error_type &amp;&amp;error() const &amp;&amp;</code></a>
+<p>Wide contract const rvalue reference observer of the stored error. Constexpr propagating.</p><li>
+    <a href="../../reference/types/basic_result/as_failure_lvalue.html" ><code>auto as_failure() const &amp;</code></a>
+<p>Return the output from free function <code>failure()</code> containing a copy of any errored state.</p></li></ol>
 
 <h4 id="modifiers">Modifiers</h4>
 
 <ol class="children children-li"><li>
     <a href="../../reference/types/basic_result/swap.html" ><code>void swap(basic_result &amp;)</code></a>
-<p>Swap one basic_result with another. Noexcept propagating.</p></li></ol>
+<p>Swap one basic_result with another. Noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/as_failure_rvalue.html" ><code>auto as_failure() &amp;&amp;</code></a>
+<p>Return the output from free function <code>failure()</code> containing a move of any errored state.</p></li></ol>
+
+<h4 id="comparisons">Comparisons</h4>
+
+<p>See above for why <code>LessThanComparable</code> is not implemented.</p>
+
+<ol class="children children-li"><li>
+    <a href="../../reference/types/basic_result/equality_basic_result.html" ><code>bool operator==(const basic_result&lt;A, B, C&gt; &amp;) const</code></a>
+<p>Returns true if this result compares equal to the other result. Constexpr and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/inequality_success_type.html" ><code>bool operator==(const success_type&lt;A&gt; &amp;) const</code></a>
+<p>Returns true if this result compares equal to the success type sugar. Constexpr and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/equality_failure_type.html" ><code>bool operator==(const failure_type&lt;A, void&gt; &amp;) const</code></a>
+<p>Returns true if this result compares equal to the failure type sugar. Constexpr and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/inequality_basic_result.html" ><code>bool operator!=(const basic_result&lt;A, B, C&gt; &amp;) const</code></a>
+<p>Returns true if this result does not compare equal to the other result. Constexpr and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/equality_success_type.html" ><code>bool operator!=(const success_type&lt;A&gt; &amp;) const</code></a>
+<p>Returns true if this result does not compare equal to the success type sugar. Constexpr and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/inequality_failure_type.html" ><code>bool operator!=(const failure_type&lt;A, void&gt; &amp;) const</code></a>
+<p>Returns true if this result does not compare equal to the failure type sugar. Constexpr and noexcept propagating.</p></li></ol>
 
 
 
@@ -285,7 +365,7 @@
 
 
 
-        </div><p><small>Last revised: January 17, 2019 at 21:24:36 UTC</small></p>
+        </div><p><small>Last revised: January 20, 2019 at 16:02:33 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../reference/types.html"><img src="../../images/prev.png" alt="Prev"></a>

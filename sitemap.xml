@@ -453,23 +453,48 @@
   </url>
   
   <url>
+    <loc>/reference/types/basic_result/operator_bool.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/has_value.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/has_error.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/has_exception.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/has_failure.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/basic_result/assume_value_lvalue.html</loc>
-    <lastmod>2019-01-19T01:27:54+00:00</lastmod>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/assume_value_lvalue_const.html</loc>
-    <lastmod>2019-01-19T01:27:54+00:00</lastmod>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/assume_value_rvalue.html</loc>
-    <lastmod>2019-01-19T01:27:54+00:00</lastmod>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/assume_value_rvalue_const.html</loc>
-    <lastmod>2019-01-19T01:27:54+00:00</lastmod>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
   </url>
   
   <url>
@@ -493,8 +518,88 @@
   </url>
   
   <url>
+    <loc>/reference/types/basic_result/assume_error_lvalue.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/assume_error_lvalue_const.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/assume_error_rvalue.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/assume_error_rvalue_const.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/error_lvalue.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/error_lvalue_const.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/error_rvalue.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/error_rvalue_const.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/equality_basic_result.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/inequality_success_type.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/equality_failure_type.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/inequality_basic_result.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/equality_success_type.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/inequality_failure_type.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/basic_result/swap.html</loc>
-    <lastmod>2019-01-19T01:27:54+00:00</lastmod>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/as_failure_lvalue.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/as_failure_rvalue.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
   </url>
   
   <url>
@@ -527,6 +632,12 @@
   <url>
     <loc>/categories.html</loc>
     <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/comparisons.html</loc>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -650,7 +761,7 @@
   
   <url>
     <loc>/categories/modifiers.html</loc>
-    <lastmod>2019-01-19T01:27:54+00:00</lastmod>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -806,7 +917,7 @@
   
   <url>
     <loc>/reference/types/basic_result.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
   </url>
   
   <url>
