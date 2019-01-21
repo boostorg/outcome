@@ -172,6 +172,8 @@
   <dt><span class="section"><a href="./reference/traits/is_basic_result.html"><code>is_basic_result&lt;T&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/traits/is_error_type.html"><code>is_error_type&lt;E&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/traits/is_error_type_enum.html"><code>is_error_type_enum&lt;E, Enum&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/traits/is_failure_type.html"><code>is_failure_type&lt;T&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/traits/is_success_type.html"><code>is_success_type&lt;T&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/traits/type_can_be_used_in_basic_result.html"><code>type_can_be_used_in_basic_result&lt;R&gt;</code></a></span></dt>
         </dl>
     </dt></dd>
@@ -236,15 +238,29 @@
   <dt><span class="section"><a href="./reference/types/basic_result/as_failure_rvalue.html"><code>auto as_failure() &amp;&amp;</code></a></span></dt>
         </dl>
     </dt></dd>
+  <dt><span class="section"><a href="./reference/types/failure_type.html"><code>failure_type&lt;EC, E = void&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/types/in_place_type_t.html"><code>in_place_type_t&lt;T&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/success_type.html"><code>success_type&lt;T&gt;</code></a></span></dt>
         </dl>
     </dt></dd>
   <dt><span class="section"><a href="./reference/aliases.html">Aliases</a></span></dt>
     </dt></dd>
   <dt><span class="section"><a href="./reference/functions.html">Functions</a></span></dt>
         <dd><dl>
-  <dt><span class="section"><a href="./reference/functions/traits.html">Traits</a></span></dt>
+  <dt><span class="section"><a href="./reference/functions/hooks.html">Hooks</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./reference/functions/hooks/spare_storage.html"><code>uint16_t spare_storage(const basic_result|basic_outcome *) noexcept</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/functions/hooks/hook_result_construction.html"><code>void hook_result_construction(T *, U &amp;&amp;) noexcept</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/functions/hooks/hook_result_copy_construction.html"><code>void hook_result_copy_construction(T *, U &amp;&amp;) noexcept</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/functions/hooks/hook_result_in_place_construction.html"><code>void hook_result_in_place_construction(T *, in_place_type_t&lt;U&gt;, Args &amp;&amp;...) noexcept</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/functions/hooks/hook_result_move_construction.html"><code>void hook_result_move_construction(T *, U &amp;&amp;) noexcept</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/functions/hooks/set_spare_storage.html"><code>void set_spare_storage(basic_result|basic_outcome *, uint16_t) noexcept</code></a></span></dt>
+        </dl>
     </dt></dd>
+  <dt><span class="section"><a href="./reference/functions/failure.html"><code>auto failure(T &amp;&amp;, ...)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/functions/success.html"><code>auto success(T &amp;&amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/functions/try_operation_return_as_t.html"><code>auto try_operation_return_as(T &amp;&amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/functions/try_operation_return_as_expected.html"><code>std::experimental::unexpected&lt;E&gt; try_operation_return_as(std::experimental::expected&lt;T, E&gt;)</code></a></span></dt>
         </dl>
     </dt></dd>
         </dl>

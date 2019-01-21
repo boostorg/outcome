@@ -74,7 +74,7 @@
   
   <url>
     <loc>/tutorial/result.html</loc>
-    <lastmod>2018-10-28T00:29:27+02:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -89,7 +89,7 @@
   
   <url>
     <loc>/tutorial/hooks/adl_bridging.html</loc>
-    <lastmod>2018-01-17T23:35:00+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -99,7 +99,7 @@
   
   <url>
     <loc>/tutorial/no-value/builtin.html</loc>
-    <lastmod>2018-11-15T01:03:50+01:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -134,7 +134,7 @@
   
   <url>
     <loc>/tutorial/outcome.html</loc>
-    <lastmod>2019-01-16T01:05:39+01:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -144,7 +144,7 @@
   
   <url>
     <loc>/tutorial/no-value.html</loc>
-    <lastmod>2018-11-15T00:51:58+01:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -164,7 +164,7 @@
   
   <url>
     <loc>/tutorial/payload.html</loc>
-    <lastmod>2018-02-01T15:03:27+01:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -179,7 +179,12 @@
   
   <url>
     <loc>/tutorial/hooks/hook_result.html</loc>
-    <lastmod>2018-01-17T23:35:00+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/hooks.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -199,12 +204,7 @@
   
   <url>
     <loc>/tutorial/result/try.html</loc>
-    <lastmod>2018-10-24T00:10:44+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/functions/traits.html</loc>
-    <lastmod>2018-12-13T21:10:19+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -239,7 +239,7 @@
   
   <url>
     <loc>/tutorial/c-api/variations.html</loc>
-    <lastmod>2017-12-14T18:57:08+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -269,7 +269,7 @@
   
   <url>
     <loc>/tutorial/hooks.html</loc>
-    <lastmod>2018-01-17T23:35:00+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -379,17 +379,17 @@
   
   <url>
     <loc>/reference/types/basic_result/implicit_value_converting_constructor.html</loc>
-    <lastmod>2018-12-15T17:49:37+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/implicit_error_converting_constructor.html</loc>
-    <lastmod>2018-12-15T17:49:37+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/implicit_error_condition_converting_constructor.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -399,32 +399,32 @@
   
   <url>
     <loc>/reference/types/basic_result/explicit_copy_converting_constructor.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/explicit_move_converting_constructor.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/explicit_inplace_value_constructor.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/explicit_inplace_value_constructor_il.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/explicit_inplace_error_constructor.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/explicit_inplace_error_constructor_il.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -434,22 +434,22 @@
   
   <url>
     <loc>/reference/types/basic_result/implicit_success_copy_constructor.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/implicit_success_move_constructor.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/implicit_failure_copy_constructor.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/implicit_failure_move_constructor.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -613,7 +613,7 @@
   
   <url>
     <loc>/tags/adl-bridging.html</loc>
-    <lastmod>2018-01-17T23:35:00+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -654,13 +654,13 @@
   
   <url>
     <loc>/categories/constructors.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/converting-constructors.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -720,13 +720,13 @@
   
   <url>
     <loc>/categories/explicit-constructors.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/has_error_code.html</loc>
-    <lastmod>2018-02-01T15:03:27+01:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -737,25 +737,25 @@
   
   <url>
     <loc>/tags/hooks.html</loc>
-    <lastmod>2018-01-17T23:35:00+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/implicit-constructors.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/inplace-constructors.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/make_error_code.html</loc>
-    <lastmod>2018-02-01T15:03:27+01:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -779,7 +779,7 @@
   
   <url>
     <loc>/tags/namespace.html</loc>
-    <lastmod>2018-10-28T00:29:27+02:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -803,31 +803,31 @@
   
   <url>
     <loc>/tags/outcome.html</loc>
-    <lastmod>2019-01-16T01:05:39+01:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/payload.html</loc>
-    <lastmod>2018-02-01T15:03:27+01:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/policies.html</loc>
-    <lastmod>2018-11-15T00:51:58+01:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/result.html</loc>
-    <lastmod>2018-10-28T00:29:27+02:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/tagged-constructors.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -839,7 +839,7 @@
   
   <url>
     <loc>/tags/try.html</loc>
-    <lastmod>2018-10-28T00:29:27+02:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -892,17 +892,17 @@
   
   <url>
     <loc>/reference/macros/try.html</loc>
-    <lastmod>2018-12-12T22:01:42+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/tryv.html</loc>
-    <lastmod>2018-12-15T17:49:37+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/tryx.html</loc>
-    <lastmod>2018-12-12T22:01:42+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -916,8 +916,28 @@
   </url>
   
   <url>
+    <loc>/reference/functions/failure.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/success.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/try_operation_return_as_t.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/basic_result.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/failure_type.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -951,8 +971,28 @@
   </url>
   
   <url>
+    <loc>/reference/traits/is_failure_type.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/traits/is_success_type.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/try_operation_return_as_expected.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/success_type.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/converters/try_operation_return_as.html</loc>
-    <lastmod>2018-12-15T17:49:37+00:00</lastmod>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
@@ -961,8 +1001,38 @@
   </url>
   
   <url>
+    <loc>/reference/functions/hooks/spare_storage.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/converters/value_or_error.html</loc>
     <lastmod>2018-12-15T17:49:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/hooks/hook_result_construction.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/hooks/hook_result_copy_construction.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/hooks/hook_result_in_place_construction.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/hooks/hook_result_move_construction.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/hooks/set_spare_storage.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
 </urlset>

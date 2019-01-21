@@ -37,12 +37,10 @@
   <div class="titlepage"><div><div><h1 style="clear: both">outcome&lt;&gt;</h1></div></div></div>
 <p>Type 
     
-    <b>API NOT FOUND IN DOCS <code>outcome/#standardese-outcome_v2_xxx__outcome-R-S-P-NoValuePolicy-</code></b> represets either a successfully computed value of type <code>T</code> or a reason for failure. Failure can be represented by <code>EC</code> or <code>EP</code> or both. Although usually it will either be an <code>EC</code> or an <code>EP</code>. <code>EC</code> defaults to <code>std::error_code</code> and <code>EP</code> defaults to <code>std::exception_ptr</code>. The distinction is made into two types, <code>EC</code> and <code>EP</code>:</p>
+    <b>API NOT FOUND IN DOCS <code>outcome&lt;T, EC, EP, NoValuePolicy&gt;</code></b> represets either a successfully computed value of type <code>T</code> or a reason for failure. Failure can be represented by <code>EC</code> or <code>EP</code> or both. Although usually it will either be an <code>EC</code> or an <code>EP</code>. <code>EC</code> defaults to <code>std::error_code</code> and <code>EP</code> defaults to <code>std::exception_ptr</code>. The distinction is made into two types, <code>EC</code> and <code>EP</code>:</p>
 
 <ul>
-<li><code>EC</code> represents a failue from lower-layer function which was retured through 
-    
-    <b>API NOT FOUND IN DOCS <code>result/#standardese-outcome_v2_xxx__result-R-S-NoValuePolicy-</code></b>.</li>
+<li><code>EC</code> represents a failue from lower-layer function which was retured through <a href="../reference/types/basic_result.html" class="api-reference">result&lt;T, E, NoValuePolicy&gt;</a>.</li>
 <li><code>EP</code> represents pointer to an exception thrown in a lower-layer function to signal a failure; but at the current level we do not want to proceed with stack unwinding.</li>
 </ul>
 
@@ -88,7 +86,7 @@ and be able to rethrow it in <code>Layer3</code>.</p>
 
 
 
-        </div><p><small>Last revised: January 16, 2019 at 01:05:39 &#43;0100</small></p>
+        </div><p><small>Last revised: January 21, 2019 at 18:00:41 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../tutorial/result/try.html"><img src="../images/prev.png" alt="Prev"></a>

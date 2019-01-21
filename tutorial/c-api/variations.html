@@ -37,10 +37,10 @@
   <p>You can of course choose your own <code>E</code> type so long as it has standard layout
 and is trivially copyable. You would declare that with 
     
-    <b>API NOT FOUND IN DOCS <code>result_c/#standardese-CXX_DECLARE_RESULT</code></b>,
+    <b>API NOT FOUND IN DOCS <code>CXX_DECLARE_RESULT(t_ident, t_decl, e_ident, e_decl)</code></b>,
 refer to it with 
     
-    <b>API NOT FOUND IN DOCS <code>result_c/#standardese-CXX_RESULT</code></b> and need to do your own
+    <b>API NOT FOUND IN DOCS <code>CXX_RESULT(t_ident, e_ident)</code></b> and need to do your own
 decoding of errors from your <code>E</code> type. By using the <code>_EC</code> postfixed macros,
 you are in fact using <code>E =</code></p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">cxx_error_code</span>
@@ -63,7 +63,7 @@ implemented and thus the natural C use pattern becomes available:</p>
 and is left as an exercise to the interested reader.</p>
 
 
-        </div><p><small>Last revised: December 14, 2017 at 18:57:08 UTC</small></p>
+        </div><p><small>Last revised: January 21, 2019 at 18:00:41 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../tutorial/c-api/example2.html"><img src="../../images/prev.png" alt="Prev"></a>

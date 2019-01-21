@@ -52,11 +52,11 @@
 	<a href="./reference/macros/throw_exception.html" ><code>BOOST_OUTCOME_THROW_EXCEPTION(expr)</code></a>
 <p>How to throw a C++ exception, or equivalent thereof.</p><li>
 	<a href="./reference/macros/try.html" ><code>BOOST_OUTCOME_TRY(var, expr)</code></a>
-<p>Evaluate an expression which results in a type matching the <code>ValueOrError&lt;T, E&gt;</code> concept, assigning <code>T</code> to a variable called <code>var</code> if successful, immediately returning <code>E</code> from the calling function if unsuccessful.</p><li>
+<p>Evaluate an expression which results in a type matching the <code>ValueOrError&lt;T, E&gt;</code> concept, assigning <code>T</code> to a variable called <code>var</code> if successful, immediately returning <code>try_operation_return_as(expr)</code> from the calling function if unsuccessful.</p><li>
 	<a href="./reference/macros/tryv.html" ><code>BOOST_OUTCOME_TRYV(expr)/BOOST_OUTCOME_TRY(expr)</code></a>
-<p>Evaluate an expression which results in a type matching the <code>ValueOrError&lt;void, E&gt;</code> concept, continuing execution if successful, immediately returning <code>E</code> from the calling function if unsuccessful.</p><li>
+<p>Evaluate an expression which results in a type matching the <code>ValueOrError&lt;void, E&gt;</code> concept, continuing execution if successful, immediately returning <code>try_operation_return_as(expr)</code> from the calling function if unsuccessful.</p><li>
 	<a href="./reference/macros/tryx.html" ><code>BOOST_OUTCOME_TRYX(expr)</code></a>
-<p>Evaluate an expression which results in a type matching the <code>ValueOrError&lt;T, E&gt;</code> concept, emitting the <code>T</code> if successful, immediately returning <code>E</code> from the calling function if unsuccessful.</p></li></ol><li>
+<p>Evaluate an expression which results in a type matching the <code>ValueOrError&lt;T, E&gt;</code> concept, emitting the <code>T</code> if successful, immediately returning <code>try_operation_return_as(expr)</code> from the calling function if unsuccessful.</p></li></ol><li>
 	<a href="./reference/concepts.html" >Concepts</a><ol><li>
 	<a href="./reference/concepts/valueorerror.html" ><code>ValueOrError&lt;T, E&gt;</code></a>
 <p>A boolean concept matching types with either a value or an error.</p><li>
@@ -78,17 +78,33 @@
 <p>A customisable integral constant type true for <code>E</code> types which are to receive error throwing no-value policies.</p><li>
 	<a href="./reference/traits/is_error_type_enum.html" ><code>is_error_type_enum&lt;E, Enum&gt;</code></a>
 <p>A customisable integral constant type true for <code>E</code> types constructible from <code>Enum</code> types which are to receive error throwing no-value policies.</p><li>
+	<a href="./reference/traits/is_failure_type.html" ><code>is_failure_type&lt;T&gt;</code></a>
+<p>An integral constant boolean variable true for <code>failure_type&lt;EC, E = void&gt;</code> types.</p><li>
+	<a href="./reference/traits/is_success_type.html" ><code>is_success_type&lt;T&gt;</code></a>
+<p>An integral constant boolean variable true for <code>success_type&lt;T&gt;</code> types.</p><li>
 	<a href="./reference/traits/type_can_be_used_in_basic_result.html" ><code>type_can_be_used_in_basic_result&lt;R&gt;</code></a>
 <p>A constexpr boolean true for types permissible in <code>basic_result&lt;T, E, NoValuePolicy&gt;</code>.</p></li></ol><li>
 	<a href="./reference/policies.html" >Policies</a><li>
 	<a href="./reference/types.html" >Types</a><ol><li>
 	<a href="./reference/types/basic_result.html" ><code>basic_result&lt;T, E, NoValuePolicy&gt;</code></a>
 <p>A sum type carrying either a successful <code>T</code>, or a disappointment <code>E</code>, with <code>NoValuePolicy</code> specifying what to do if one tries to read state which isn&rsquo;t there.</p><li>
+	<a href="./reference/types/failure_type.html" ><code>failure_type&lt;EC, E = void&gt;</code></a>
+<p>Type sugar for constructing an unsuccessful result or outcome.</p><li>
 	<a href="./reference/types/in_place_type_t.html" ><code>in_place_type_t&lt;T&gt;</code></a>
-<p>Either <code>std::in_place_type_t&lt;T&gt;</code> if C++ 17 or later, else a local emulation.</p></li></ol><li>
+<p>Either <code>std::in_place_type_t&lt;T&gt;</code> if C++ 17 or later, else a local emulation.</p><li>
+	<a href="./reference/types/success_type.html" ><code>success_type&lt;T&gt;</code></a>
+<p>Type sugar for constructing a successful result or outcome.</p></li></ol><li>
 	<a href="./reference/aliases.html" >Aliases</a><li>
 	<a href="./reference/functions.html" >Functions</a><ol><li>
-	<a href="./reference/functions/traits.html" >Traits</a></li></ol></li></ol>
+	<a href="./reference/functions/hooks.html" >Hooks</a><li>
+	<a href="./reference/functions/failure.html" ><code>auto failure(T &amp;&amp;, ...)</code></a>
+<p>Returns appropriate type sugar for constructing an unsuccessful result or outcome.</p><li>
+	<a href="./reference/functions/success.html" ><code>auto success(T &amp;&amp;)</code></a>
+<p>Returns appropriate type sugar for constructing a successful result or outcome.</p><li>
+	<a href="./reference/functions/try_operation_return_as_t.html" ><code>auto try_operation_return_as(T &amp;&amp;)</code></a>
+<p>Implementation of <code>try_operation_return_as(expr)</code> ADL customisation point for <code>basic_result</code> and <code>basic_outcome</code>.</p><li>
+	<a href="./reference/functions/try_operation_return_as_expected.html" ><code>std::experimental::unexpected&lt;E&gt; try_operation_return_as(std::experimental::expected&lt;T, E&gt;)</code></a>
+<p>Implementation of <code>try_operation_return_as(expr)</code> ADL customisation point for <code>expected&lt;T, E&gt;</code>.</p></li></ol></li></ol>
 
 
 
