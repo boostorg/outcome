@@ -36,18 +36,14 @@
   <div class="titlepage"><div><div><h1 style="clear: both">Built-in policies</h1></div></div></div>
   <p>These are the predefined policies built into Outcome:</p>
 
-
-    
-    <b>API NOT FOUND IN DOCS <code>all_narrow</code></b>
+<a href="../../reference/policies/all_narrow.html" class="api-reference">all_narrow</a>
 
 <p>If there is an observation of a value/error/exception which is not present,
 the behavior is undefined. However this is a tool-friendly UB using intrinsics
 such as <code>__builtin_unreachable()</code> that allows tool to make use of it, e.g.,
 better bug detection or optimizations.</p>
 
-
-    
-    <b>API NOT FOUND IN DOCS <code>terminate</code></b>
+<a href="../../reference/policies/terminate.html" class="api-reference">terminate</a>
 
 <p>Observation of a missing value/error/exception causes the call to
 <code>std::terminate()</code>.</p>

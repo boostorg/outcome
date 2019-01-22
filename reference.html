@@ -84,7 +84,13 @@
 <p>An integral constant boolean variable true for <code>success_type&lt;T&gt;</code> types.</p><li>
 	<a href="./reference/traits/type_can_be_used_in_basic_result.html" ><code>type_can_be_used_in_basic_result&lt;R&gt;</code></a>
 <p>A constexpr boolean true for types permissible in <code>basic_result&lt;T, E, NoValuePolicy&gt;</code>.</p></li></ol><li>
-	<a href="./reference/policies.html" >Policies</a><li>
+	<a href="./reference/policies.html" >Policies</a><ol><li>
+	<a href="./reference/policies/base.html" ><code>base</code></a>
+<p>Base class of most policy classes defining the narrow observer policies.</p><li>
+	<a href="./reference/policies/all_narrow.html" ><code>all_narrow</code></a>
+<p>Policy class defining that hard undefined behaviour should occur on incorrect narrow and wide value, error or exception observation. Inherits publicly from <code>base</code>.</p><li>
+	<a href="./reference/policies/terminate.html" ><code>terminate</code></a>
+<p>Policy class defining that <code>std::terminate()</code> should be called on incorrect wide value, error or exception observation. Inherits publicly from <code>base</code>.</p></li></ol><li>
 	<a href="./reference/types.html" >Types</a><ol><li>
 	<a href="./reference/types/basic_result.html" ><code>basic_result&lt;T, E, NoValuePolicy&gt;</code></a>
 <p>A sum type carrying either a successful <code>T</code>, or a disappointment <code>E</code>, with <code>NoValuePolicy</code> specifying what to do if one tries to read state which isn&rsquo;t there.</p><li>
@@ -96,7 +102,10 @@
 <p>Type sugar for constructing a successful result or outcome.</p></li></ol><li>
 	<a href="./reference/aliases.html" >Aliases</a><li>
 	<a href="./reference/functions.html" >Functions</a><ol><li>
-	<a href="./reference/functions/hooks.html" >Hooks</a><li>
+	<a href="./reference/functions/hooks.html" >Hooks</a>
+<p>Functions used to hook into the functionality of <code>basic_result</code> and <code>basic_outcome</code>.</p><li>
+	<a href="./reference/functions/policy.html" >Policy</a>
+<p>Functions used to customise how the policy classes operate.</p><li>
 	<a href="./reference/functions/failure.html" ><code>auto failure(T &amp;&amp;, ...)</code></a>
 <p>Returns appropriate type sugar for constructing an unsuccessful result or outcome.</p><li>
 	<a href="./reference/functions/success.html" ><code>auto success(T &amp;&amp;)</code></a>

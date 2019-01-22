@@ -36,7 +36,8 @@
 
   <div class="titlepage"><div><div><h1 style="clear: both">Functions</h1></div></div></div>
 <ol class="children children-li"><li>
-	<a href="../reference/functions/hooks.html" >Hooks</a><ol><li>
+	<a href="../reference/functions/hooks.html" >Hooks</a>
+<p>Functions used to hook into the functionality of <code>basic_result</code> and <code>basic_outcome</code>.</p><ol><li>
 	<a href="../reference/functions/hooks/spare_storage.html" ><code>uint16_t spare_storage(const basic_result|basic_outcome *) noexcept</code></a>
 <p>Returns the sixteen bits of spare storage in the specified result or outcome.</p><li>
 	<a href="../reference/functions/hooks/hook_result_construction.html" ><code>void hook_result_construction(T *, U &amp;&amp;) noexcept</code></a>
@@ -49,6 +50,12 @@
 <p>ADL discovered free function hook invoked by the converting move constructors of <code>basic_result</code>.</p><li>
 	<a href="../reference/functions/hooks/set_spare_storage.html" ><code>void set_spare_storage(basic_result|basic_outcome *, uint16_t) noexcept</code></a>
 <p>Sets the sixteen bits of spare storage in the specified result or outcome.</p></li></ol><li>
+	<a href="../reference/functions/policy.html" >Policy</a>
+<p>Functions used to customise how the policy classes operate.</p><ol><li>
+	<a href="../reference/functions/policy/outcome_throw_as_system_error_with_payload_std_enum.html" ><code>void outcome_throw_as_system_error_with_payload(ErrorCodeEnum &amp;&amp;)</code></a>
+<p>Specialisation of <code>outcome_throw_as_system_error_with_payload()</code> for input types where <code>std::is_error_code_enum&lt;ErrorCodeEnum&gt;</code> or <code>std::is_error_condition_enum&lt;ErrorCodeEnum&gt;</code> is true.</p><li>
+	<a href="../reference/functions/policy/outcome_throw_as_system_error_with_payload_std_error_code.html" ><code>void outcome_throw_as_system_error_with_payload(const std::error_code &amp;)</code></a>
+<p>Specialisation of <code>outcome_throw_as_system_error_with_payload()</code> for <code>std::error_code</code>.</p></li></ol><li>
 	<a href="../reference/functions/failure.html" ><code>auto failure(T &amp;&amp;, ...)</code></a>
 <p>Returns appropriate type sugar for constructing an unsuccessful result or outcome.</p><li>
 	<a href="../reference/functions/success.html" ><code>auto success(T &amp;&amp;)</code></a>

@@ -184,7 +184,7 @@
   
   <url>
     <loc>/reference/functions/hooks.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
   </url>
   
   <url>
@@ -235,6 +235,11 @@
   <url>
     <loc>/reference/policies.html</loc>
     <lastmod>2018-12-13T21:10:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/policy.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
   </url>
   
   <url>
@@ -343,6 +348,11 @@
   </url>
   
   <url>
+    <loc>/reference/policies/base/ub.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/basic_result/move_constructor.html</loc>
     <lastmod>2019-01-17T21:24:36+00:00</lastmod>
   </url>
@@ -393,8 +403,48 @@
   </url>
   
   <url>
+    <loc>/reference/policies/base/has_value.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/has_error.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/has_exception.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/has_error_is_errno.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/value.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/error.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/exception.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/basic_result/explicit_valueorerror_converting_constructor.html</loc>
     <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/set_has_value.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
   </url>
   
   <url>
@@ -403,8 +453,23 @@
   </url>
   
   <url>
+    <loc>/reference/policies/base/set_has_error.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/basic_result/explicit_move_converting_constructor.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/set_has_exception.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/set_has_error_is_errno.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
   </url>
   
   <url>
@@ -413,13 +478,28 @@
   </url>
   
   <url>
+    <loc>/reference/policies/base/narrow_value_check.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/basic_result/explicit_inplace_value_constructor_il.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
+    <loc>/reference/policies/base/narrow_error_check.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/basic_result/explicit_inplace_error_constructor.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/narrow_exception_check.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
   </url>
   
   <url>
@@ -790,6 +870,12 @@
   </url>
   
   <url>
+    <loc>/categories/observer-policies.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/observers.html</loc>
     <lastmod>2019-01-19T01:27:54+00:00</lastmod>
     <priority>0</priority>
@@ -822,6 +908,12 @@
   <url>
     <loc>/tags/result.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/special.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -916,6 +1008,11 @@
   </url>
   
   <url>
+    <loc>/reference/policies/all_narrow.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/functions/failure.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
@@ -928,6 +1025,11 @@
   <url>
     <loc>/reference/functions/try_operation_return_as_t.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
   </url>
   
   <url>
@@ -991,6 +1093,11 @@
   </url>
   
   <url>
+    <loc>/reference/policies/terminate.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/converters/try_operation_return_as.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
@@ -1028,6 +1135,16 @@
   <url>
     <loc>/reference/functions/hooks/hook_result_move_construction.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/policy/outcome_throw_as_system_error_with_payload_std_enum.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/policy/outcome_throw_as_system_error_with_payload_std_error_code.html</loc>
+    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
   </url>
   
   <url>
