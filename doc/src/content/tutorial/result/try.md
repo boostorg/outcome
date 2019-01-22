@@ -5,7 +5,7 @@ weight = 30
 tags = ["try"]
 +++
 
-In the implementation of function `print_half` we have seen the usage of the macro {{< api try BOOST_OUTCOME_TRY >}}:
+In the implementation of function `print_half` we have seen the usage of the macro {{< api "BOOST_OUTCOME_TRY(var, expr)" >}}:
 
 ```c++
 BOOST_OUTCOME_TRY (i, BigInt::fromString(text));
