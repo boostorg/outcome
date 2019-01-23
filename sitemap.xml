@@ -1038,6 +1038,31 @@
   </url>
   
   <url>
+    <loc>/reference/functions/policy/exception_ptr.html</loc>
+    <lastmod>2019-01-23T01:27:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aliases/default_policy.html</loc>
+    <lastmod>2019-01-23T01:27:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/error_code_throw_as_system_error_result.html</loc>
+    <lastmod>2019-01-23T01:27:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/exception_ptr_rethrow_result.html</loc>
+    <lastmod>2019-01-23T01:27:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/fail_to_compile_observers.html</loc>
+    <lastmod>2019-01-23T01:27:31+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/failure_type.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
@@ -1088,6 +1113,21 @@
   </url>
   
   <url>
+    <loc>/reference/aliases/std_checked.html</loc>
+    <lastmod>2019-01-23T01:27:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aliases/std_result.html</loc>
+    <lastmod>2019-01-23T01:27:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aliases/std_unchecked.html</loc>
+    <lastmod>2019-01-23T01:27:31+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/success_type.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
@@ -1095,6 +1135,11 @@
   <url>
     <loc>/reference/policies/terminate.html</loc>
     <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/throw_bad_result_access.html</loc>
+    <lastmod>2019-01-23T01:27:31+00:00</lastmod>
   </url>
   
   <url>

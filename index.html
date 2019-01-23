@@ -199,7 +199,11 @@
         </dl>
     </dt></dd>
   <dt><span class="section"><a href="./reference/policies/all_narrow.html"><code>all_narrow</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/policies/error_code_throw_as_system_error_result.html"><code>error_code_throw_as_system_error&lt;T, EC, void&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/policies/exception_ptr_rethrow_result.html"><code>exception_ptr_rethrow&lt;T, EC, void&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/policies/fail_to_compile_observers.html"><code>fail_to_compile_observers</code></a></span></dt>
   <dt><span class="section"><a href="./reference/policies/terminate.html"><code>terminate</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/policies/throw_bad_result_access.html"><code>throw_bad_result_access&lt;EC&gt;</code></a></span></dt>
         </dl>
     </dt></dd>
   <dt><span class="section"><a href="./reference/types.html">Types</a></span></dt>
@@ -267,6 +271,12 @@
         </dl>
     </dt></dd>
   <dt><span class="section"><a href="./reference/aliases.html">Aliases</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./reference/aliases/default_policy.html"><code>default_policy&lt;T, EC, EP&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/aliases/std_checked.html"><code>std_checked&lt;T, E = std::error_code&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/aliases/std_result.html"><code>std_result&lt;T, E = std::error_code, NoValuePolicy = policy::default_policy&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/aliases/std_unchecked.html"><code>std_unchecked&lt;T, E = std::error_code&gt;</code></a></span></dt>
+        </dl>
     </dt></dd>
   <dt><span class="section"><a href="./reference/functions.html">Functions</a></span></dt>
         <dd><dl>
@@ -282,6 +292,7 @@
     </dt></dd>
   <dt><span class="section"><a href="./reference/functions/policy.html">Policy</a></span></dt>
         <dd><dl>
+  <dt><span class="section"><a href="./reference/functions/policy/exception_ptr.html"><code>decltype(auto) exception_ptr(T &amp;&amp;)</code></a></span></dt>
   <dt><span class="section"><a href="./reference/functions/policy/outcome_throw_as_system_error_with_payload_std_enum.html"><code>void outcome_throw_as_system_error_with_payload(ErrorCodeEnum &amp;&amp;)</code></a></span></dt>
   <dt><span class="section"><a href="./reference/functions/policy/outcome_throw_as_system_error_with_payload_std_error_code.html"><code>void outcome_throw_as_system_error_with_payload(const std::error_code &amp;)</code></a></span></dt>
         </dl>

@@ -32,10 +32,18 @@
 <div id="boost-common-heading-doc-spacer"></div><div class="spirit-nav">
 <a accesskey="p" href="../reference/types/success_type.html"><img src="../images/prev.png" alt="Prev"></a>
     <a accesskey="u" href="../reference.html"><img src="../images/up.png" alt="Up"></a>
-    <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../reference/functions.html"><img src="../images/next.png" alt="Next"></a></div><div id="content">
+    <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../reference/aliases/default_policy.html"><img src="../images/next.png" alt="Next"></a></div><div id="content">
 
   <div class="titlepage"><div><div><h1 style="clear: both">Aliases</h1></div></div></div>
-<ol class="children children-li"></li></ol>
+<ol class="children children-li"><li>
+	<a href="../reference/aliases/default_policy.html" ><code>default_policy&lt;T, EC, EP&gt;</code></a>
+<p>A type alias to a no-value policy selected based on traits matching of <code>T</code>, <code>EC</code> and <code>EP</code>.</p><li>
+	<a href="../reference/aliases/std_checked.html" ><code>std_checked&lt;T, E = std::error_code&gt;</code></a>
+<p>A type alias to a <code>basic_result</code> configured with <code>std::error_code</code> and <code>policy::throw_bad_result_access&lt;EC&gt;</code>.</p><li>
+	<a href="../reference/aliases/std_result.html" ><code>std_result&lt;T, E = std::error_code, NoValuePolicy = policy::default_policy&gt;</code></a>
+<p>A type alias to a <code>basic_result</code> configured with <code>std::error_code</code> and <code>policy::default_policy</code>.</p><li>
+	<a href="../reference/aliases/std_unchecked.html" ><code>std_unchecked&lt;T, E = std::error_code&gt;</code></a>
+<p>A type alias to a <code>basic_result</code> configured with <code>std::error_code</code> and <code>policy::all_narrow</code>.</p></li></ol>
 
 
 
@@ -49,5 +57,5 @@
 <div class="spirit-nav">
 <a accesskey="p" href="../reference/types/success_type.html"><img src="../images/prev.png" alt="Prev"></a>
     <a accesskey="u" href="../reference.html"><img src="../images/up.png" alt="Up"></a>
-    <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../reference/functions.html"><img src="../images/next.png" alt="Next"></a></div></body>
+    <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../reference/aliases/default_policy.html"><img src="../images/next.png" alt="Next"></a></div></body>
 </html>

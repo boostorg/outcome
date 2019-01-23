@@ -70,8 +70,16 @@
 <p>Observer policy performing hard UB if no exception is present. Constexpr, never throws.</p></li></ol><li>
 	<a href="../reference/policies/all_narrow.html" ><code>all_narrow</code></a>
 <p>Policy class defining that hard undefined behaviour should occur on incorrect narrow and wide value, error or exception observation. Inherits publicly from <code>base</code>.</p><li>
+	<a href="../reference/policies/error_code_throw_as_system_error_result.html" ><code>error_code_throw_as_system_error&lt;T, EC, void&gt;</code></a>
+<p>Policy class defining that the ADL discovered free function <code>outcome_throw_as_system_error_with_payload()</code> should be called on incorrect wide value observation. Inherits publicly from <code>base</code>. Can only be used with <code>basic_result</code>.</p><li>
+	<a href="../reference/policies/exception_ptr_rethrow_result.html" ><code>exception_ptr_rethrow&lt;T, EC, void&gt;</code></a>
+<p>Policy class defining that the ADL discovered free function <code>rethrow_exception()</code> should be called on incorrect wide value observation. Inherits publicly from <code>base</code>. Can only be used with <code>basic_result</code>.</p><li>
+	<a href="../reference/policies/fail_to_compile_observers.html" ><code>fail_to_compile_observers</code></a>
+<p>Policy class defining that a static assertion should occur upon compilation of the wide value, error or exception observation. Inherits publicly from <code>base</code>.</p><li>
 	<a href="../reference/policies/terminate.html" ><code>terminate</code></a>
-<p>Policy class defining that <code>std::terminate()</code> should be called on incorrect wide value, error or exception observation. Inherits publicly from <code>base</code>.</p></li></ol>
+<p>Policy class defining that <code>std::terminate()</code> should be called on incorrect wide value, error or exception observation. Inherits publicly from <code>base</code>.</p><li>
+	<a href="../reference/policies/throw_bad_result_access.html" ><code>throw_bad_result_access&lt;EC&gt;</code></a>
+<p>Policy class defining that <code>bad_result_access_with&lt;EC&gt;</code> should be thrown on incorrect wide value observation. Inherits publicly from <code>base</code>.</p></li></ol>
 
 
 
