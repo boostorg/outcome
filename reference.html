@@ -102,21 +102,33 @@
 	<a href="./reference/types.html" >Types</a><ol><li>
 	<a href="./reference/types/basic_result.html" ><code>basic_result&lt;T, E, NoValuePolicy&gt;</code></a>
 <p>A sum type carrying either a successful <code>T</code>, or a disappointment <code>E</code>, with <code>NoValuePolicy</code> specifying what to do if one tries to read state which isn&rsquo;t there.</p><li>
-	<a href="./reference/types/failure_type.html" ><code>failure_type&lt;EC, E = void&gt;</code></a>
+	<a href="./reference/types/failure_type.html" ><code>failure_type&lt;EC, EP = void&gt;</code></a>
 <p>Type sugar for constructing an unsuccessful result or outcome.</p><li>
 	<a href="./reference/types/in_place_type_t.html" ><code>in_place_type_t&lt;T&gt;</code></a>
 <p>Either <code>std::in_place_type_t&lt;T&gt;</code> if C++ 17 or later, else a local emulation.</p><li>
 	<a href="./reference/types/success_type.html" ><code>success_type&lt;T&gt;</code></a>
 <p>Type sugar for constructing a successful result or outcome.</p></li></ol><li>
 	<a href="./reference/aliases.html" >Aliases</a><ol><li>
+	<a href="./reference/aliases/boost_checked.html" ><code>boost_checked&lt;T, E = boost::system::error_code&gt;</code></a>
+<p>A type alias to a <code>basic_result</code> configured with <code>boost::system::error_code</code> and <code>policy::throw_bad_result_access&lt;EC&gt;</code>.</p><li>
+	<a href="./reference/aliases/boost_result.html" ><code>boost_result&lt;T, E = boost::system::error_code, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a>
+<p>A type alias to a <code>basic_result</code> configured with <code>boost::system::error_code</code> and <code>policy::default_policy</code>.</p><li>
+	<a href="./reference/aliases/boost_unchecked.html" ><code>boost_unchecked&lt;T, E = boost::system::error_code&gt;</code></a>
+<p>A type alias to a <code>basic_result</code> configured with <code>boost::system::error_code</code> and <code>policy::all_narrow</code>.</p><li>
+	<a href="./reference/aliases/checked.html" ><code>checked&lt;T, E = varies&gt;</code></a>
+<p>A type alias to a <code>std_checked&lt;T, E&gt;</code> (standalone edition) or <code>boost_checked&lt;T, E&gt;</code> (Boost edition).</p><li>
 	<a href="./reference/aliases/default_policy.html" ><code>default_policy&lt;T, EC, EP&gt;</code></a>
 <p>A type alias to a no-value policy selected based on traits matching of <code>T</code>, <code>EC</code> and <code>EP</code>.</p><li>
+	<a href="./reference/aliases/result.html" ><code>result&lt;T, E = varies, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a>
+<p>A type alias to a <code>std_result&lt;T, E, NoValuePolicy&gt;</code> (standalone edition) or <code>boost_result&lt;T, E, NoValuePolicy&gt;</code> (Boost edition).</p><li>
 	<a href="./reference/aliases/std_checked.html" ><code>std_checked&lt;T, E = std::error_code&gt;</code></a>
 <p>A type alias to a <code>basic_result</code> configured with <code>std::error_code</code> and <code>policy::throw_bad_result_access&lt;EC&gt;</code>.</p><li>
-	<a href="./reference/aliases/std_result.html" ><code>std_result&lt;T, E = std::error_code, NoValuePolicy = policy::default_policy&gt;</code></a>
+	<a href="./reference/aliases/std_result.html" ><code>std_result&lt;T, E = std::error_code, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a>
 <p>A type alias to a <code>basic_result</code> configured with <code>std::error_code</code> and <code>policy::default_policy</code>.</p><li>
 	<a href="./reference/aliases/std_unchecked.html" ><code>std_unchecked&lt;T, E = std::error_code&gt;</code></a>
-<p>A type alias to a <code>basic_result</code> configured with <code>std::error_code</code> and <code>policy::all_narrow</code>.</p></li></ol><li>
+<p>A type alias to a <code>basic_result</code> configured with <code>std::error_code</code> and <code>policy::all_narrow</code>.</p><li>
+	<a href="./reference/aliases/unchecked.html" ><code>unchecked&lt;T, E = varies&gt;</code></a>
+<p>A type alias to a <code>std_unchecked&lt;T, E&gt;</code> (standalone edition) or <code>boost_unchecked&lt;T, E&gt;</code> (Boost edition).</p></li></ol><li>
 	<a href="./reference/functions.html" >Functions</a><ol><li>
 	<a href="./reference/functions/hooks.html" >Hooks</a>
 <p>Functions used to hook into the functionality of <code>basic_result</code> and <code>basic_outcome</code>.</p><li>

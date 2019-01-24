@@ -265,17 +265,23 @@
   <dt><span class="section"><a href="./reference/types/basic_result/as_failure_rvalue.html"><code>auto as_failure() &amp;&amp;</code></a></span></dt>
         </dl>
     </dt></dd>
-  <dt><span class="section"><a href="./reference/types/failure_type.html"><code>failure_type&lt;EC, E = void&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/types/failure_type.html"><code>failure_type&lt;EC, EP = void&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/types/in_place_type_t.html"><code>in_place_type_t&lt;T&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/types/success_type.html"><code>success_type&lt;T&gt;</code></a></span></dt>
         </dl>
     </dt></dd>
   <dt><span class="section"><a href="./reference/aliases.html">Aliases</a></span></dt>
         <dd><dl>
+  <dt><span class="section"><a href="./reference/aliases/boost_checked.html"><code>boost_checked&lt;T, E = boost::system::error_code&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/aliases/boost_result.html"><code>boost_result&lt;T, E = boost::system::error_code, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/aliases/boost_unchecked.html"><code>boost_unchecked&lt;T, E = boost::system::error_code&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/aliases/checked.html"><code>checked&lt;T, E = varies&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/aliases/default_policy.html"><code>default_policy&lt;T, EC, EP&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/aliases/result.html"><code>result&lt;T, E = varies, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/aliases/std_checked.html"><code>std_checked&lt;T, E = std::error_code&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/aliases/std_result.html"><code>std_result&lt;T, E = std::error_code, NoValuePolicy = policy::default_policy&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/aliases/std_result.html"><code>std_result&lt;T, E = std::error_code, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/aliases/std_unchecked.html"><code>std_unchecked&lt;T, E = std::error_code&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/aliases/unchecked.html"><code>unchecked&lt;T, E = varies&gt;</code></a></span></dt>
         </dl>
     </dt></dd>
   <dt><span class="section"><a href="./reference/functions.html">Functions</a></span></dt>
@@ -293,7 +299,9 @@
   <dt><span class="section"><a href="./reference/functions/policy.html">Policy</a></span></dt>
         <dd><dl>
   <dt><span class="section"><a href="./reference/functions/policy/exception_ptr.html"><code>decltype(auto) exception_ptr(T &amp;&amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/functions/policy/outcome_throw_as_system_error_with_payload_boost_enum.html"><code>void outcome_throw_as_system_error_with_payload(BoostErrorCodeEnum &amp;&amp;)</code></a></span></dt>
   <dt><span class="section"><a href="./reference/functions/policy/outcome_throw_as_system_error_with_payload_std_enum.html"><code>void outcome_throw_as_system_error_with_payload(ErrorCodeEnum &amp;&amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/functions/policy/outcome_throw_as_system_error_with_payload_boost_error_code.html"><code>void outcome_throw_as_system_error_with_payload(const boost::system::error_code &amp;)</code></a></span></dt>
   <dt><span class="section"><a href="./reference/functions/policy/outcome_throw_as_system_error_with_payload_std_error_code.html"><code>void outcome_throw_as_system_error_with_payload(const std::error_code &amp;)</code></a></span></dt>
         </dl>
     </dt></dd>
