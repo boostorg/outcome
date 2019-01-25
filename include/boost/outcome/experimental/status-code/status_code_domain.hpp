@@ -28,14 +28,14 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef SYSTEM_ERROR2_STATUS_CODE_DOMAIN_HPP
-#define SYSTEM_ERROR2_STATUS_CODE_DOMAIN_HPP
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_STATUS_CODE_DOMAIN_HPP
+#define BOOST_OUTCOME_SYSTEM_ERROR2_STATUS_CODE_DOMAIN_HPP
 
 #include "config.hpp"
 
 #include <cstring>  // for strchr
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
 /*! The main workhorse of the system_error2 library, can be typed (`status_code<DomainType>`), erased-immutable (`status_code<void>`) or erased-mutable (`status_code<erased<T>>`).
 
@@ -134,7 +134,7 @@ public:
 
   public:
     //! Construct from a C string literal
-    SYSTEM_ERROR2_CONSTEXPR14 explicit string_ref(const char *str, size_type len = static_cast<size_type>(-1), void *state0 = nullptr, void *state1 = nullptr, void *state2 = nullptr,
+    BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 explicit string_ref(const char *str, size_type len = static_cast<size_type>(-1), void *state0 = nullptr, void *state1 = nullptr, void *state2 = nullptr,
 #ifndef NDEBUG
                                                   _thunk_spec thunk = _checking_string_thunk
 #else
@@ -211,7 +211,7 @@ public:
     }
 
     //! Returns whether the reference is empty or not
-    SYSTEM_ERROR2_NODISCARD bool empty() const noexcept { return _begin == _end; }
+    BOOST_OUTCOME_SYSTEM_ERROR2_NODISCARD bool empty() const noexcept { return _begin == _end; }
     //! Returns the size of the string
     size_type size() const noexcept { return _end - _begin; }
     //! Returns a null terminated C string
@@ -345,10 +345,10 @@ protected:
   virtual string_ref _do_message(const status_code<void> &code) const noexcept = 0;
 #if defined(_CPPUNWIND) || defined(__EXCEPTIONS) || defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE)
   //! Throw a code as a C++ exception.
-  SYSTEM_ERROR2_NORETURN virtual void _do_throw_exception(const status_code<void> &code) const = 0;
+  BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN virtual void _do_throw_exception(const status_code<void> &code) const = 0;
 #else
   // Keep a vtable slot for binary compatibility
-  SYSTEM_ERROR2_NORETURN virtual void _do_throw_exception(const status_code<void> &code) const { abort(); }
+  BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN virtual void _do_throw_exception(const status_code<void> &code) const { abort(); }
 #endif
   // For a `status_code<erased<T>>` only, copy from `src` to `dst`. Default implementation uses `memcpy()`.
   virtual void _do_erased_copy(status_code<void> &dst, const status_code<void> &src, size_t bytes) const { memcpy(&dst, &src, bytes); }
@@ -360,6 +360,6 @@ protected:
   }
 };
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 
 #endif

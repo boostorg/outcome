@@ -29,7 +29,7 @@ DEALINGS IN THE SOFTWARE.
 
 #include "../../include/boost/outcome/experimental/status_outcome.hpp"
 
-template <class T, class S = SYSTEM_ERROR2_NAMESPACE::system_code, class P = boost::exception_ptr> using outcome = BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_outcome<T, S, P>;
+template <class T, class S = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code, class P = boost::exception_ptr> using outcome = BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_outcome<T, S, P>;
 using BOOST_OUTCOME_V2_NAMESPACE::in_place_type;
 
 #include <boost/test/unit_test.hpp>
@@ -43,7 +43,7 @@ using BOOST_OUTCOME_V2_NAMESPACE::in_place_type;
 
 BOOST_OUTCOME_AUTO_TEST_CASE(works_status_code_outcome, "Tests that the outcome with status_code works as intended")
 {
-  using namespace SYSTEM_ERROR2_NAMESPACE;
+  using namespace BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE;
 
   {  // errored int
     outcome<int> m(generic_code{errc::bad_address});

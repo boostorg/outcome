@@ -28,13 +28,13 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef SYSTEM_ERROR2_ERROR_HPP
-#define SYSTEM_ERROR2_ERROR_HPP
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_ERROR_HPP
+#define BOOST_OUTCOME_SYSTEM_ERROR2_ERROR_HPP
 
 #include "errored_status_code.hpp"
 #include "system_code.hpp"
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
 /*! An erased `system_code` which is always a failure. The closest equivalent to
 `std::error_code`, except it cannot be null and cannot be modified.
@@ -60,6 +60,6 @@ static_assert(sizeof(error) == 2 * sizeof(void *), "error is not exactly two poi
 static_assert(traits::is_move_relocating<error>::value, "error is not move relocating!");
 #endif
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 
 #endif

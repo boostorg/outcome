@@ -28,12 +28,12 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef SYSTEM_ERROR2_STATUS_CODE_PTR_HPP
-#define SYSTEM_ERROR2_STATUS_CODE_PTR_HPP
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_STATUS_CODE_PTR_HPP
+#define BOOST_OUTCOME_SYSTEM_ERROR2_STATUS_CODE_PTR_HPP
 
 #include "status_code.hpp"
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
 namespace detail
 {
@@ -91,7 +91,7 @@ namespace detail
       return typename StatusCode::domain_type()._do_message(*c.value());
     }
 #if defined(_CPPUNWIND) || defined(__EXCEPTIONS) || defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE)
-    SYSTEM_ERROR2_NORETURN virtual void _do_throw_exception(const status_code<void> &code) const override  // NOLINT
+    BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN virtual void _do_throw_exception(const status_code<void> &code) const override  // NOLINT
     {
       assert(code.domain() == *this);
       const auto &c = static_cast<const _mycode &>(code);  // NOLINT
@@ -132,6 +132,6 @@ inline status_code<erased<typename std::add_pointer<typename std::decay<T>::type
   return status_code<detail::indirecting_domain<status_code_type>>(in_place, new status_code_type(static_cast<T &&>(v)));
 }
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 
 #endif

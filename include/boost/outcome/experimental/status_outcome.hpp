@@ -43,7 +43,7 @@ namespace detail
 {
   namespace adl
   {
-    template <class DomainType> inline std::exception_ptr basic_outcome_failure_exception_from_error(const SYSTEM_ERROR2_NAMESPACE::status_code<DomainType> &sc, search_detail_adl /*unused*/)
+    template <class DomainType> inline std::exception_ptr basic_outcome_failure_exception_from_error(const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<DomainType> &sc, search_detail_adl /*unused*/)
     {
 #ifndef BOOST_NO_EXCEPTIONS
       try
@@ -65,25 +65,25 @@ namespace trait
 {
   namespace detail
   {
-    template <class DomainType> struct has_error_code<SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>, void>
+    template <class DomainType> struct has_error_code<BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>, void>
     {
       static constexpr bool value = true;
     };
-    template <class T, class DomainType> struct has_error_code<T, SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>>
+    template <class T, class DomainType> struct has_error_code<T, BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>>
     {
       static constexpr bool value = true;
     };
   }  // namespace detail
 #if 0
-  template <class DomainType> struct is_error_type<SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>>
+  template <class DomainType> struct is_error_type<BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>>
   {
     static constexpr bool value = true;
   };
-  template <> struct is_error_type<SYSTEM_ERROR2_NAMESPACE::errc>
+  template <> struct is_error_type<BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc>
   {
     static constexpr bool value = true;
   };
-  template <class DomainType, class Enum> struct is_error_type_enum<SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>, Enum>
+  template <class DomainType, class Enum> struct is_error_type_enum<BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>, Enum>
   {
     static constexpr bool value = boost::system::is_error_condition_enum<Enum>::value;
   };
@@ -100,31 +100,31 @@ namespace experimental
     /*! Default policy selector.
     */
     template <class T, class EC, class E>
-    using default_status_outcome_policy = std::conditional_t<                                                                                                  //
-    std::is_void<EC>::value && std::is_void<E>::value,                                                                                                         //
-    BOOST_OUTCOME_V2_NAMESPACE::policy::terminate,                                                                                                                   //
-    std::conditional_t<SYSTEM_ERROR2_NAMESPACE::is_status_code<EC>::value && (std::is_void<E>::value || BOOST_OUTCOME_V2_NAMESPACE::trait::has_exception_ptr_v<E>),  //
-                       status_code_throw<T, EC, E>,                                                                                                            //
-                       BOOST_OUTCOME_V2_NAMESPACE::policy::all_narrow                                                                                                //
+    using default_status_outcome_policy = std::conditional_t<                                                                                                                //
+    std::is_void<EC>::value && std::is_void<E>::value,                                                                                                                       //
+    BOOST_OUTCOME_V2_NAMESPACE::policy::terminate,                                                                                                                                 //
+    std::conditional_t<(is_status_code<EC>::value || is_errored_status_code<EC>::value) && (std::is_void<E>::value || BOOST_OUTCOME_V2_NAMESPACE::trait::has_exception_ptr_v<E>),  //
+                       status_code_throw<T, status_code<void>, E>,                                                                                                           //
+                       BOOST_OUTCOME_V2_NAMESPACE::policy::fail_to_compile_observers                                                                                               //
                        >>;
   }  // namespace policy
 
   /*! TODO
   */
-  template <class R, class S = SYSTEM_ERROR2_NAMESPACE::system_code, class P = std::exception_ptr>  //
-  using erased_outcome = basic_outcome<R, S, P, policy::default_status_outcome_policy<R, S, P>>;
+  template <class R, class S = system_code, class P = std::exception_ptr, class NoValuePolicy = policy::default_status_outcome_policy<R, S, P>>  //
+  using erased_outcome = basic_outcome<R, S, P, NoValuePolicy>;
 
   /*! TODO
   */
-  template <class R, class DomainType = typename SYSTEM_ERROR2_NAMESPACE::generic_code::domain_type, class P = std::exception_ptr>  //
-  using status_outcome = basic_outcome<R, SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>, P, policy::default_status_outcome_policy<R, SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>, P>>;
+  template <class R, class DomainType = typename generic_code::domain_type, class P = std::exception_ptr, class NoValuePolicy = policy::default_status_outcome_policy<R, status_code<DomainType>, P>>  //
+  using status_outcome = basic_outcome<R, status_code<DomainType>, P, NoValuePolicy>;
 
   //! Namespace for policies
   namespace policy
   {
     /*!
     */
-    template <class T, class DomainType, class E> struct status_code_throw<T, SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>, E> : BOOST_OUTCOME_V2_NAMESPACE::policy::base
+    template <class T, class DomainType, class E> struct status_code_throw<T, status_code<DomainType>, E> : BOOST_OUTCOME_V2_NAMESPACE::policy::base
     {
       using _base = BOOST_OUTCOME_V2_NAMESPACE::policy::base;
       /*! Performs a wide check of state, used in the value() functions.
@@ -136,7 +136,7 @@ namespace experimental
         {
           if(base::_has_exception(static_cast<Impl &&>(self)))
           {
-            BOOST_OUTCOME_V2_NAMESPACE::policy::detail::_rethrow_exception<trait::has_exception_ptr_v<E>>(base::_exception<T, SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>, E, status_code_throw>(static_cast<Impl &&>(self)));
+            BOOST_OUTCOME_V2_NAMESPACE::policy::detail::_rethrow_exception<trait::has_exception_ptr_v<E>>(base::_exception<T, status_code<DomainType>, E, status_code_throw>(static_cast<Impl &&>(self)));
           }
           if(base::_has_error(static_cast<Impl &&>(self)))
           {

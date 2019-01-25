@@ -28,8 +28,8 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef SYSTEM_ERROR2_SYSTEM_CODE_HPP
-#define SYSTEM_ERROR2_SYSTEM_CODE_HPP
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_SYSTEM_CODE_HPP
+#define BOOST_OUTCOME_SYSTEM_ERROR2_SYSTEM_CODE_HPP
 
 #include "posix_code.hpp"
 
@@ -39,7 +39,7 @@ DEALINGS IN THE SOFTWARE.
 // NOT "com_code.hpp"
 #endif
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 /*! An erased-mutable status code suitably large for all the system codes
 which can be returned on this system.
 
@@ -61,6 +61,6 @@ static_assert(sizeof(system_code) == 2 * sizeof(void *), "system_code is not exa
 static_assert(traits::is_move_relocating<system_code>::value, "system_code is not move relocating!");
 #endif
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 
 #endif

@@ -28,8 +28,8 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef SYSTEM_ERROR2_STATUS_CODE_HPP
-#define SYSTEM_ERROR2_STATUS_CODE_HPP
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_STATUS_CODE_HPP
+#define BOOST_OUTCOME_SYSTEM_ERROR2_STATUS_CODE_HPP
 
 #include "status_code_domain.hpp"
 
@@ -37,14 +37,14 @@ DEALINGS IN THE SOFTWARE.
 // 0.26
 #include <utility>  // for in_place
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 using in_place_t = std::in_place_t;
 using std::in_place;
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 
 #else
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 //! Aliases `std::in_place_t` if on C++ 17 or later, else defined locally.
 struct in_place_t
 {
@@ -52,10 +52,10 @@ struct in_place_t
 };
 //! Aliases `std::in_place` if on C++ 17 or later, else defined locally.
 constexpr in_place_t in_place{};
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 #endif
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
 //! Namespace for user injected mixins
 namespace mixins
@@ -169,7 +169,7 @@ public:
   //! Return the status code domain.
   constexpr const status_code_domain &domain() const noexcept { return *_domain; }
   //! True if the status code is empty.
-  SYSTEM_ERROR2_NODISCARD constexpr bool empty() const noexcept { return _domain == nullptr; }
+  BOOST_OUTCOME_SYSTEM_ERROR2_NODISCARD constexpr bool empty() const noexcept { return _domain == nullptr; }
 
   //! Return a reference to a string textually representing a code.
   string_ref message() const noexcept { return (_domain != nullptr) ? _domain->_do_message(*this) : string_ref("(empty)"); }
@@ -199,7 +199,7 @@ public:
   template <class T> inline bool equivalent(const status_code<T> &o) const noexcept;
 #if defined(_CPPUNWIND) || defined(__EXCEPTIONS) || defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE)
   //! Throw a code as a C++ exception.
-  SYSTEM_ERROR2_NORETURN void throw_exception() const { _domain->_do_throw_exception(*this); }
+  BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN void throw_exception() const { _domain->_do_throw_exception(*this); }
 #endif
 };
 
@@ -239,7 +239,7 @@ namespace detail
     constexpr const domain_type &domain() const noexcept { return *static_cast<const domain_type *>(this->_domain); }
 
     //! Reset the code to empty.
-    SYSTEM_ERROR2_CONSTEXPR14 void clear() noexcept
+    BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 void clear() noexcept
     {
       this->_value.~value_type();
       this->_domain = nullptr;
@@ -260,9 +260,9 @@ namespace detail
   protected:
     status_code_storage() = default;
     status_code_storage(const status_code_storage &) = default;
-    SYSTEM_ERROR2_CONSTEXPR14 status_code_storage(status_code_storage &&o) noexcept : _base(static_cast<status_code_storage &&>(o)), _value(static_cast<status_code_storage &&>(o)._value) { o._domain = nullptr; }
+    BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 status_code_storage(status_code_storage &&o) noexcept : _base(static_cast<status_code_storage &&>(o)), _value(static_cast<status_code_storage &&>(o)._value) { o._domain = nullptr; }
     status_code_storage &operator=(const status_code_storage &) = default;
-    SYSTEM_ERROR2_CONSTEXPR14 status_code_storage &operator=(status_code_storage &&o) noexcept
+    BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 status_code_storage &operator=(status_code_storage &&o) noexcept
     {
       this->~status_code_storage();
       new(this) status_code_storage(static_cast<status_code_storage &&>(o));
@@ -321,7 +321,7 @@ public:
   ~status_code() = default;
 
   //! Return a copy of the code.
-  SYSTEM_ERROR2_CONSTEXPR14 status_code clone() const { return *this; }
+  BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 status_code clone() const { return *this; }
 
   /***** KEEP THESE IN SYNC WITH ERRORED_STATUS_CODE *****/
   //! Implicit construction from any type where an ADL discovered `make_status_code(T, Args ...)` returns a `status_code`.
@@ -374,7 +374,7 @@ public:
   }
 
   //! Assignment from a `value_type`.
-  SYSTEM_ERROR2_CONSTEXPR14 status_code &operator=(const value_type &v) noexcept(std::is_nothrow_copy_assignable<value_type>::value)
+  BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 status_code &operator=(const value_type &v) noexcept(std::is_nothrow_copy_assignable<value_type>::value)
   {
     this->_value = v;
     return *this;
@@ -459,7 +459,7 @@ public:
   //! Implicit move construction from any other status code if its value type is trivially copyable or move relocating and it would fit into our storage
   template <class DomainType,  //
             typename std::enable_if<detail::type_erasure_is_safe<value_type, typename DomainType::value_type>::value, bool>::type = true>
-  SYSTEM_ERROR2_CONSTEXPR14 status_code(status_code<DomainType> &&v) noexcept : _base(typename _base::_value_type_constructor{}, &v.domain(), detail::erasure_cast<value_type>(v.value()))
+  BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 status_code(status_code<DomainType> &&v) noexcept : _base(typename _base::_value_type_constructor{}, &v.domain(), detail::erasure_cast<value_type>(v.value()))
   {
     v._domain = nullptr;
   }
@@ -478,7 +478,7 @@ public:
 
   /**** By rights ought to be removed in any formal standard ****/
   //! Reset the code to empty.
-  SYSTEM_ERROR2_CONSTEXPR14 void clear() noexcept { *this = status_code(); }
+  BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 void clear() noexcept { *this = status_code(); }
   //! Return the erased `value_type` by value.
   constexpr value_type value() const noexcept { return this->_value; }
 };
@@ -491,6 +491,6 @@ namespace traits
   };
 }  // namespace traits
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 
 #endif

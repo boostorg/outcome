@@ -29,7 +29,7 @@ deterministic exceptions, or an emulation.
 Will compile into deterministic exceptions, or an emulation.
 */
 #if BOOST_OUTCOME_DETERMINISTIC_EXCEPTIONS_USE_EMULATION
-#define BOOST_OUTCOME_THROWS_ERROR_API(rettype, ...) ::BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_result<rettype, ::SYSTEM_ERROR2_NAMESPACE::error> __VA_ARGS__ noexcept
+#define BOOST_OUTCOME_THROWS_ERROR_API(rettype, ...) ::BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_result<rettype, ::BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::error> __VA_ARGS__ noexcept
 #else
 #define BOOST_OUTCOME_THROWS_ERROR_API(rettype, ...) rettype __VA_ARGS__ throws(std::error)
 #endif
@@ -64,12 +64,12 @@ concept matching type.
 You would then have to write your code in this quite unnatural form:
 
 ```c++
-// Throws ::SYSTEM_ERROR2_NAMESPACE::error, the proposed std::error for P0709 Zero
+// Throws ::BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::error, the proposed std::error for P0709 Zero
 // overhead deterministic exceptions
 BOOST_OUTCOME_THROWS_ERROR_API(int, foo(double x))
 {
   if(x < INT_MIN || x > INT_MAX)
-    BOOST_OUTCOME_THROW(::SYSTEM_ERROR2_NAMESPACE::errc::result_out_of_range);
+    BOOST_OUTCOME_THROW(::BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc::result_out_of_range);
   return static_cast<int>(x);
 }
 ...

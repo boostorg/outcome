@@ -28,14 +28,14 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef SYSTEM_ERROR2_GENERIC_CODE_HPP
-#define SYSTEM_ERROR2_GENERIC_CODE_HPP
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_GENERIC_CODE_HPP
+#define BOOST_OUTCOME_SYSTEM_ERROR2_GENERIC_CODE_HPP
 
 #include "status_error.hpp"
 
 #include <cerrno>  // for error constants
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
 //! The generic error coding (POSIX)
 enum class errc : int
@@ -127,9 +127,9 @@ namespace detail
   struct generic_code_messages
   {
     const char *msgs[256];
-    SYSTEM_ERROR2_CONSTEXPR14 size_t size() const { return sizeof(msgs) / sizeof(*msgs); }
-    SYSTEM_ERROR2_CONSTEXPR14 const char *operator[](int i) const { return (i < 0 || i >= static_cast<int>(size()) || nullptr == msgs[i]) ? "unknown" : msgs[i]; }  // NOLINT
-    SYSTEM_ERROR2_CONSTEXPR14 generic_code_messages()
+    BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 size_t size() const { return sizeof(msgs) / sizeof(*msgs); }
+    BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 const char *operator[](int i) const { return (i < 0 || i >= static_cast<int>(size()) || nullptr == msgs[i]) ? "unknown" : msgs[i]; }  // NOLINT
+    BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 generic_code_messages()
         : msgs{}
     {
       msgs[0] = "Success";
@@ -267,11 +267,11 @@ protected:
   {
     assert(code.domain() == *this);
     const auto &c = static_cast<const generic_code &>(code);  // NOLINT
-    static SYSTEM_ERROR2_CONSTEXPR14 detail::generic_code_messages msgs;
+    static BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 detail::generic_code_messages msgs;
     return string_ref(msgs[static_cast<int>(c.value())]);
   }
 #if defined(_CPPUNWIND) || defined(__EXCEPTIONS) || defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE)
-  SYSTEM_ERROR2_NORETURN virtual void _do_throw_exception(const status_code<void> &code) const override  // NOLINT
+  BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN virtual void _do_throw_exception(const status_code<void> &code) const override  // NOLINT
   {
     assert(code.domain() == *this);
     const auto &c = static_cast<const generic_code &>(code);  // NOLINT
@@ -288,7 +288,7 @@ inline constexpr const _generic_code_domain &_generic_code_domain::get()
   return generic_code_domain;
 }
 // Enable implicit construction of generic_code from errc
-BOOST_SYSTEM_ERROR2_CONSTEXPR14 inline generic_code make_status_code(errc c) noexcept
+BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 inline generic_code make_status_code(errc c) noexcept
 {
   return generic_code(in_place, c);
 }
@@ -370,6 +370,6 @@ operator!=(const T &a, const status_code<DomainType1> &b)
   return !b.equivalent(make_status_code(a));
 }
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 
 #endif
