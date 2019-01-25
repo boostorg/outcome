@@ -1028,13 +1028,33 @@
   </url>
   
   <url>
+    <loc>/reference/types/bad_outcome_access.html</loc>
+    <lastmod>2019-01-25T01:51:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/bad_result_access_with.html</loc>
+    <lastmod>2019-01-25T01:51:37+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/bad_result_access.html</loc>
+    <lastmod>2019-01-25T01:51:37+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/policies/base.html</loc>
     <lastmod>2019-01-22T01:11:40+00:00</lastmod>
   </url>
   
   <url>
+    <loc>/reference/types/basic_outcome.html</loc>
+    <lastmod>2019-01-25T01:51:37+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/basic_result.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2019-01-25T01:51:37+00:00</lastmod>
   </url>
   
   <url>

@@ -35,9 +35,7 @@
     <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../tutorial/outcome/inspecting.html"><img src="../images/next.png" alt="Next"></a></div><div id="content">
 
   <div class="titlepage"><div><div><h1 style="clear: both">outcome&lt;&gt;</h1></div></div></div>
-<p>Type 
-    
-    <b>API NOT FOUND IN DOCS <code>outcome&lt;T, EC, EP, NoValuePolicy&gt;</code></b> represets either a successfully computed value of type <code>T</code> or a reason for failure. Failure can be represented by <code>EC</code> or <code>EP</code> or both. Although usually it will either be an <code>EC</code> or an <code>EP</code>. <code>EC</code> defaults to <code>std::error_code</code> and <code>EP</code> defaults to <code>std::exception_ptr</code>. The distinction is made into two types, <code>EC</code> and <code>EP</code>:</p>
+<p>Type <a href="../reference/types/basic_outcome.html" class="api-reference">outcome&lt;T, EC, EP, NoValuePolicy&gt;</a> represets either a successfully computed value of type <code>T</code> or a reason for failure. Failure can be represented by <code>EC</code> or <code>EP</code> or both. Although usually it will either be an <code>EC</code> or an <code>EP</code>. <code>EC</code> defaults to <code>std::error_code</code> and <code>EP</code> defaults to <code>std::exception_ptr</code>. The distinction is made into two types, <code>EC</code> and <code>EP</code>:</p>
 
 <ul>
 <li><code>EC</code> represents a failue from lower-layer function which was retured through <a href="../reference/types/basic_result.html" class="api-reference">result&lt;T, E, NoValuePolicy&gt;</a>.</li>

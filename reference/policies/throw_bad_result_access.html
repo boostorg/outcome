@@ -34,9 +34,7 @@
     <a accesskey="u" href="../../reference/policies.html"><img src="../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../reference/types.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>throw_bad_result_access&lt;EC&gt;</code></h1></div></div></div>
-  <p>Policy class defining that 
-    
-    <b>API NOT FOUND IN DOCS <code>bad_result_access_with&lt;EC&gt;</code></b> should be thrown on incorrect wide value observation. The primary purpose of this policy is to enable standing in for 
+  <p>Policy class defining that <a href="../../reference/types/bad_result_access_with.html" class="api-reference">bad_result_access_with&lt;EC&gt;</a> should be thrown on incorrect wide value observation. The primary purpose of this policy is to enable standing in for 
 <a href="https://wg21.link/P0323" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> P0323 std::expected&lt;T, E&gt;</a> which throws a <code>bad_expected_access&lt;E&gt;</code> on incorrect wide value observation. This is why it is only ever <code>EC</code> which is thrown with <code>bad_result_access_with&lt;EC&gt;</code> on value observation only, and only when there is an error available.</p>
 
 <p>If used in <code>basic_outcome</code>, and the outcome is exceptioned and so no error is available, incorrect wide value observation performs instead:</p>

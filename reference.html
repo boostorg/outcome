@@ -100,8 +100,16 @@
 	<a href="./reference/policies/throw_bad_result_access.html" ><code>throw_bad_result_access&lt;EC&gt;</code></a>
 <p>Policy class defining that <code>bad_result_access_with&lt;EC&gt;</code> should be thrown on incorrect wide value observation. Inherits publicly from <code>base</code>.</p></li></ol><li>
 	<a href="./reference/types.html" >Types</a><ol><li>
+	<a href="./reference/types/basic_outcome.html" ><code>basic_outcome&lt;T, EC, EP, NoValuePolicy&gt;</code></a>
+<p>A type carrying one of (i) a successful <code>T</code> (ii) a disappointment <code>EC</code> (iii) a failure <code>EP</code> (iv) both a disappointment <code>EC</code> and a failure <code>EP</code>, with <code>NoValuePolicy</code> specifying what to do if one tries to read state which isn&rsquo;t there.</p><li>
 	<a href="./reference/types/basic_result.html" ><code>basic_result&lt;T, E, NoValuePolicy&gt;</code></a>
 <p>A sum type carrying either a successful <code>T</code>, or a disappointment <code>E</code>, with <code>NoValuePolicy</code> specifying what to do if one tries to read state which isn&rsquo;t there.</p><li>
+	<a href="./reference/types/bad_outcome_access.html" ><code>bad_outcome_access</code></a>
+<p>Exception type publicly inheriting from <code>std::logic_error</code> indicating an incorrect observation of value or error or exception occurred.</p><li>
+	<a href="./reference/types/bad_result_access_with.html" ><code>bad_result_access_with&lt;EC&gt;</code></a>
+<p>Exception type publicly inheriting from <code>bad_result_access</code> indicating an incorrect observation of value occurred, supplying the error value.</p><li>
+	<a href="./reference/types/bad_result_access.html" ><code>bad_result_access</code></a>
+<p>Exception type publicly inheriting from <code>std::logic_error</code> indicating an incorrect observation of value or error occurred.</p><li>
 	<a href="./reference/types/failure_type.html" ><code>failure_type&lt;EC, EP = void&gt;</code></a>
 <p>Type sugar for constructing an unsuccessful result or outcome.</p><li>
 	<a href="./reference/types/in_place_type_t.html" ><code>in_place_type_t&lt;T&gt;</code></a>
