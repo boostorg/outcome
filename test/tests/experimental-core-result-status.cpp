@@ -29,7 +29,7 @@ DEALINGS IN THE SOFTWARE.
 
 #include "../../include/boost/outcome/experimental/status_result.hpp"
 
-template <class T, class S = SYSTEM_ERROR2_NAMESPACE::system_code> using result = BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_result<T, S>;
+template <class T, class S = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code, class NoValuePolicy = BOOST_OUTCOME_V2_NAMESPACE::experimental::policy::default_status_result_policy<T, S>> using result = BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_result<T, S, NoValuePolicy>;
 using BOOST_OUTCOME_V2_NAMESPACE::in_place_type;
 
 #include <boost/test/unit_test.hpp>
@@ -42,10 +42,10 @@ using BOOST_OUTCOME_V2_NAMESPACE::in_place_type;
 // Custom error type with payload
 struct payload
 {
-  SYSTEM_ERROR2_NAMESPACE::errc ec;
+  BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc ec;
   const char *str{nullptr};
   payload() = default;
-  payload(SYSTEM_ERROR2_NAMESPACE::errc _ec, const char *_str)
+  payload(BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc _ec, const char *_str)
       : ec(_ec)
       , str(_str)
   {
@@ -62,11 +62,11 @@ struct payload_exception : std::exception
 };
 
 class _payload_domain;
-using status_code_payload = SYSTEM_ERROR2_NAMESPACE::status_code<_payload_domain>;
-class _payload_domain : public SYSTEM_ERROR2_NAMESPACE::status_code_domain
+using status_code_payload = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<_payload_domain>;
+class _payload_domain : public BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code_domain
 {
   template <class> friend class status_code;
-  using _base = SYSTEM_ERROR2_NAMESPACE::status_code_domain;
+  using _base = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code_domain;
 
 public:
   using value_type = payload;
@@ -79,12 +79,12 @@ public:
 
   virtual _base::string_ref name() const noexcept override final { return string_ref("payload domain"); }  // NOLINT
 protected:
-  virtual bool _do_failure(const SYSTEM_ERROR2_NAMESPACE::status_code<void> &code) const noexcept override final  // NOLINT
+  virtual bool _do_failure(const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<void> &code) const noexcept override final  // NOLINT
   {
     assert(code.domain() == *this);
-    return static_cast<const status_code_payload &>(code).value().ec != SYSTEM_ERROR2_NAMESPACE::errc::success;  // NOLINT
+    return static_cast<const status_code_payload &>(code).value().ec != BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc::success;  // NOLINT
   }
-  virtual bool _do_equivalent(const SYSTEM_ERROR2_NAMESPACE::status_code<void> &code1, const SYSTEM_ERROR2_NAMESPACE::status_code<void> &code2) const noexcept override final  // NOLINT
+  virtual bool _do_equivalent(const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<void> &code1, const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<void> &code2) const noexcept override final  // NOLINT
   {
     assert(code1.domain() == *this);
     const auto &c1 = static_cast<const status_code_payload &>(code1);  // NOLINT
@@ -95,19 +95,19 @@ protected:
     }
     return false;
   }
-  virtual SYSTEM_ERROR2_NAMESPACE::generic_code _generic_code(const SYSTEM_ERROR2_NAMESPACE::status_code<void> &code) const noexcept override final  // NOLINT
+  virtual BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::generic_code _generic_code(const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<void> &code) const noexcept override final  // NOLINT
   {
     assert(code.domain() == *this);
     return static_cast<const status_code_payload &>(code).value().ec;  // NOLINT
   }
-  virtual _base::string_ref _do_message(const SYSTEM_ERROR2_NAMESPACE::status_code<void> &code) const noexcept override final  // NOLINT
+  virtual _base::string_ref _do_message(const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<void> &code) const noexcept override final  // NOLINT
   {
     assert(code.domain() == *this);
     const auto &c = static_cast<const status_code_payload &>(code);  // NOLINT
-    static SYSTEM_ERROR2_CONSTEXPR14 SYSTEM_ERROR2_NAMESPACE::detail::generic_code_messages msgs;
+    static BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::detail::generic_code_messages msgs;
     return string_ref(msgs[static_cast<int>(c.value().ec)]);
   }
-  virtual void _do_throw_exception(const SYSTEM_ERROR2_NAMESPACE::status_code<void> &code) const override final  // NOLINT
+  virtual void _do_throw_exception(const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<void> &code) const override final  // NOLINT
   {
     assert(code.domain() == *this);
     const auto &c = static_cast<const status_code_payload &>(code);  // NOLINT
@@ -121,13 +121,13 @@ inline constexpr const _payload_domain &_payload_domain::get()
 }
 inline status_code_payload make_status_code(payload c) noexcept
 {
-  return status_code_payload(SYSTEM_ERROR2_NAMESPACE::in_place, c);
+  return status_code_payload(BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::in_place, c);
 }
 #endif
 
 BOOST_OUTCOME_AUTO_TEST_CASE(works_status_code_result, "Tests that the result with status_code works as intended")
 {
-  using namespace SYSTEM_ERROR2_NAMESPACE;
+  using namespace BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE;
 
   {  // errored int
     result<int> m(generic_code{errc::bad_address});
@@ -330,7 +330,7 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_status_code_result, "Tests that the result wi
 
   // Test direct use of error code enum works
   {
-    constexpr result<int, errc> a(5), b(errc::invalid_argument);
+    constexpr result<int, errc, BOOST_OUTCOME_V2_NAMESPACE::policy::all_narrow> a(5), b(errc::invalid_argument);
     static_assert(a.value() == 5, "a is not 5");
     static_assert(b.error() == errc::invalid_argument, "b is not errored");
   }

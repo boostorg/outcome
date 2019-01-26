@@ -28,13 +28,13 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef SYSTEM_ERROR2_ERRORED_STATUS_CODE_HPP
-#define SYSTEM_ERROR2_ERRORED_STATUS_CODE_HPP
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_ERRORED_STATUS_CODE_HPP
+#define BOOST_OUTCOME_SYSTEM_ERROR2_ERRORED_STATUS_CODE_HPP
 
 #include "generic_code.hpp"
 #include "status_code_ptr.hpp"
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
 /*! A `status_code` which is always a failure. The closest equivalent to
 `std::error_code`, except it cannot be modified, and is templated.
@@ -310,6 +310,33 @@ operator!=(const T &a, const errored_status_code<DomainType1> &b)
 }
 
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+namespace detail
+{
+  template <class T> struct is_errored_status_code
+  {
+    static constexpr bool value = false;
+  };
+  template <class T> struct is_errored_status_code<errored_status_code<T>>
+  {
+    static constexpr bool value = true;
+  };
+  template <class T> struct is_erased_errored_status_code
+  {
+    static constexpr bool value = false;
+  };
+  template <class T> struct is_erased_errored_status_code<errored_status_code<erased<T>>>
+  {
+    static constexpr bool value = true;
+  };
+}
+
+//! Trait returning true if the type is an errored status code.
+template <class T> struct is_errored_status_code
+{
+  static constexpr bool value = detail::is_errored_status_code<typename std::decay<T>::type>::value || detail::is_erased_errored_status_code<typename std::decay<T>::type>::value;
+};
+
+
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 
 #endif

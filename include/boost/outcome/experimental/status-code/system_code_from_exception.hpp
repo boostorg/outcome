@@ -28,15 +28,15 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef SYSTEM_ERROR2_SYSTEM_CODE_FROM_EXCEPTION_HPP
-#define SYSTEM_ERROR2_SYSTEM_CODE_FROM_EXCEPTION_HPP
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_SYSTEM_CODE_FROM_EXCEPTION_HPP
+#define BOOST_OUTCOME_SYSTEM_ERROR2_SYSTEM_CODE_FROM_EXCEPTION_HPP
 
 #include "system_code.hpp"
 
 #include <exception>  // for exception_ptr
 #include <stdexcept>  // for the exception types
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
 /*! A utility function which returns the closest matching system_code to a supplied
 exception ptr.
@@ -111,6 +111,6 @@ inline system_code system_code_from_exception(std::exception_ptr &&ep = std::cur
   return not_matched;
 }
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 
 #endif

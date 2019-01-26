@@ -28,8 +28,8 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef SYSTEM_ERROR2_STD_ERROR_CODE_HPP
-#define SYSTEM_ERROR2_STD_ERROR_CODE_HPP
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_STD_ERROR_CODE_HPP
+#define BOOST_OUTCOME_SYSTEM_ERROR2_STD_ERROR_CODE_HPP
 
 #include "posix_code.hpp"
 
@@ -39,7 +39,7 @@ DEALINGS IN THE SOFTWARE.
 
 #include <system_error>
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
 namespace detail
 {
@@ -159,7 +159,7 @@ protected:
     return _make_string_ref(c.value());
   }
 #if defined(_CPPUNWIND) || defined(__EXCEPTIONS) || defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE)
-  SYSTEM_ERROR2_NORETURN virtual void _do_throw_exception(const status_code<void> &code) const override  // NOLINT
+  BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN virtual void _do_throw_exception(const status_code<void> &code) const override  // NOLINT
   {
     assert(code.domain() == *this);
     const auto &c = static_cast<const _status_code &>(code);  // NOLINT
@@ -179,6 +179,6 @@ inline std_error_code make_status_code(std::error_code c) noexcept
   return std_error_code(in_place, c);
 }
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 
 #endif

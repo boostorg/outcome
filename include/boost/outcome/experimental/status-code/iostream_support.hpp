@@ -28,14 +28,14 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef SYSTEM_ERROR2_IOSTREAM_SUPPORT_HPP
-#define SYSTEM_ERROR2_IOSTREAM_SUPPORT_HPP
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_IOSTREAM_SUPPORT_HPP
+#define BOOST_OUTCOME_SYSTEM_ERROR2_IOSTREAM_SUPPORT_HPP
 
 #include "error.hpp"
 
 #include <iostream>
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
 /*! Print the status code to a `std::ostream &`.
 Requires that `DomainType::value_type` implements an `operator<<` overload for `std::ostream`.
@@ -73,6 +73,6 @@ inline std::ostream &operator<<(std::ostream &s, const generic_code &v)
   return s << v.domain().name().c_str() << ": " << v.message().c_str();
 }
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 
 #endif

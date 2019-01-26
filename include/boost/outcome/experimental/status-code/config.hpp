@@ -28,8 +28,8 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef SYSTEM_ERROR2_CONFIG_HPP
-#define SYSTEM_ERROR2_CONFIG_HPP
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_CONFIG_HPP
+#define BOOST_OUTCOME_SYSTEM_ERROR2_CONFIG_HPP
 
 // < 0.1 each
 #include <cassert>
@@ -50,57 +50,57 @@ DEALINGS IN THE SOFTWARE.
 // 0.01
 #include <initializer_list>
 
-#ifndef SYSTEM_ERROR2_CONSTEXPR14
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14
 #if defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE) || __cplusplus >= 201400 || _MSC_VER >= 1910 /* VS2017 */
 //! Defined to be `constexpr` when on C++ 14 or better compilers. Usually automatic, can be overriden.
-#define SYSTEM_ERROR2_CONSTEXPR14 constexpr
+#define BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 constexpr
 #else
-#define SYSTEM_ERROR2_CONSTEXPR14
+#define BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14
 #endif
 #endif
 
-#ifndef SYSTEM_ERROR2_NORETURN
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN
 #if defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE) || (_HAS_CXX17 && _MSC_VER >= 1911 /* VS2017.3 */)
-#define SYSTEM_ERROR2_NORETURN [[noreturn]]
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN [[noreturn]]
 #endif
 #endif
-#if !defined(SYSTEM_ERROR2_NORETURN)
+#if !defined(BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN)
 #ifdef __has_cpp_attribute
 #if __has_cpp_attribute(noreturn)
-#define SYSTEM_ERROR2_NORETURN [[noreturn]]
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN [[noreturn]]
 #endif
 #endif
 #endif
-#if !defined(SYSTEM_ERROR2_NORETURN)
+#if !defined(BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN)
 #if defined(_MSC_VER)
-#define SYSTEM_ERROR2_NORETURN __declspec(noreturn)
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN __declspec(noreturn)
 #elif defined(__GNUC__)
-#define SYSTEM_ERROR2_NORETURN __attribute__((__noreturn__))
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN __attribute__((__noreturn__))
 #else
-#define SYSTEM_ERROR2_NORETURN
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN
 #endif
 #endif
 // GCCs before 7 don't grok [[noreturn]] virtual functions, and warn annoyingly
 #if defined(__GNUC__) && !defined(__clang__) && __GNUC__ < 7
-#undef SYSTEM_ERROR2_NORETURN
-#define SYSTEM_ERROR2_NORETURN
+#undef BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN
 #endif
 
-#ifndef SYSTEM_ERROR2_NODISCARD
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_NODISCARD
 #if defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE) || (_HAS_CXX17 && _MSC_VER >= 1911 /* VS2017.3 */)
-#define SYSTEM_ERROR2_NODISCARD [[nodiscard]]
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NODISCARD [[nodiscard]]
 #endif
 #endif
-#ifndef SYSTEM_ERROR2_NODISCARD
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_NODISCARD
 #ifdef __has_cpp_attribute
 #if __has_cpp_attribute(nodiscard)
-#define SYSTEM_ERROR2_NODISCARD [[nodiscard]]
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NODISCARD [[nodiscard]]
 #endif
 #elif defined(__clang__)
-#define SYSTEM_ERROR2_NODISCARD __attribute__((warn_unused_result))
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NODISCARD __attribute__((warn_unused_result))
 #elif defined(_MSC_VER)
 // _Must_inspect_result_ expands into this
-#define SYSTEM_ERROR2_NODISCARD                                                                                                                                                                                                                                                                                                \
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NODISCARD                                                                                                                                                                                                                                                                                                \
   __declspec("SAL_name"                                                                                                                                                                                                                                                                                                        \
              "("                                                                                                                                                                                                                                                                                                               \
              "\"_Must_inspect_result_\""                                                                                                                                                                                                                                                                                       \
@@ -111,23 +111,23 @@ DEALINGS IN THE SOFTWARE.
              ")") __declspec("SAL_begin") __declspec("SAL_post") __declspec("SAL_mustInspect") __declspec("SAL_post") __declspec("SAL_checkReturn") __declspec("SAL_end")
 #endif
 #endif
-#ifndef SYSTEM_ERROR2_NODISCARD
-#define SYSTEM_ERROR2_NODISCARD
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_NODISCARD
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NODISCARD
 #endif
 
-#ifndef SYSTEM_ERROR2_NAMESPACE
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE
 //! The system_error2 namespace name.
-#define SYSTEM_ERROR2_NAMESPACE system_error2
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE system_error2
 //! Begins the system_error2 namespace.
-#define SYSTEM_ERROR2_NAMESPACE_BEGIN                                                                                                                                                                                                                                                                                          \
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN                                                                                                                                                                                                                                                                                          \
   namespace system_error2                                                                                                                                                                                                                                                                                                      \
   {
 //! Ends the system_error2 namespace.
-#define SYSTEM_ERROR2_NAMESPACE_END }
+#define BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END }
 #endif
 
 //! Namespace for the library
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
 //! Namespace for user specialised traits
 namespace traits
@@ -146,7 +146,7 @@ namespace traits
 
 namespace detail
 {
-  inline SYSTEM_ERROR2_CONSTEXPR14 size_t cstrlen(const char *str)
+  inline BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 size_t cstrlen(const char *str)
   {
     const char *end = nullptr;
     for(end = str; *end != 0; ++end)  // NOLINT
@@ -224,15 +224,15 @@ namespace detail
     return bit_cast<To>(padded_erasure_object<From, sizeof(To) - sizeof(From)>{from});
   }
 }
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 
-#ifndef SYSTEM_ERROR2_FATAL
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_FATAL
 #include <cstdlib>  // for abort
 #ifdef __APPLE__
 #include <unistd.h>  // for write
 #endif
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 namespace detail
 {
   namespace avoid_stdio_include
@@ -249,9 +249,9 @@ namespace detail
     abort();
   }
 }  // namespace detail
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 //! Prints msg to stderr, and calls `std::terminate()`. Can be overriden via predefinition.
-#define SYSTEM_ERROR2_FATAL(msg) ::SYSTEM_ERROR2_NAMESPACE::detail::do_fatal_exit(msg)
+#define BOOST_OUTCOME_SYSTEM_ERROR2_FATAL(msg) ::BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::detail::do_fatal_exit(msg)
 #endif
 
 #endif

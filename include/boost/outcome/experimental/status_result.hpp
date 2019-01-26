@@ -32,23 +32,30 @@ DEALINGS IN THE SOFTWARE.
 #define BOOST_OUTCOME_STATUS_RESULT_HPP
 
 #include "../basic_result.hpp"
+#include "../policy/fail_to_compile_observers.hpp"
 
-#include "status-code/include/system_error2.hpp"
+#include "status-code/system_error2.hpp"
 
 BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
 namespace detail
 {
   // Customise _set_error_is_errno
-  template <class State> constexpr inline void _set_error_is_errno(State &state, const SYSTEM_ERROR2_NAMESPACE::generic_code & /*unused*/) { state._status |= status_error_is_errno; }
-  template <class State> constexpr inline void _set_error_is_errno(State &state, const SYSTEM_ERROR2_NAMESPACE::posix_code & /*unused*/) { state._status |= status_error_is_errno; }
-  template <class State> constexpr inline void _set_error_is_errno(State &state, const SYSTEM_ERROR2_NAMESPACE::errc & /*unused*/) { state._status |= status_error_is_errno; }
+  template <class State> constexpr inline void _set_error_is_errno(State &state, const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::generic_code & /*unused*/) { state._status |= status_error_is_errno; }
+  template <class State> constexpr inline void _set_error_is_errno(State &state, const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::posix_code & /*unused*/) { state._status |= status_error_is_errno; }
+  template <class State> constexpr inline void _set_error_is_errno(State &state, const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc & /*unused*/) { state._status |= status_error_is_errno; }
 
 }  // namespace detail
 
 //! Namespace for experimental features
 namespace experimental
 {
+  //! Import whole of system_error2
+  using namespace BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE;
+  //! Also bring in success and failure free functions
+  using BOOST_OUTCOME_V2_NAMESPACE::success;
+  using BOOST_OUTCOME_V2_NAMESPACE::failure;
+
   //! Namespace for policies
   namespace policy
   {
@@ -58,7 +65,7 @@ namespace experimental
     };
     /*!
     */
-    template <class T, class DomainType> struct status_code_throw<T, SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>, void> : BOOST_OUTCOME_V2_NAMESPACE::policy::base
+    template <class T, class DomainType> struct status_code_throw<T, status_code<DomainType>, void> : BOOST_OUTCOME_V2_NAMESPACE::policy::base
     {
       using _base = BOOST_OUTCOME_V2_NAMESPACE::policy::base;
       /*! Performs a wide check of state, used in the value() functions.
@@ -87,24 +94,24 @@ namespace experimental
     /*! Default policy selector.
     */
     template <class T, class EC>
-    using default_status_result_policy = std::conditional_t<                //
-    std::is_void<EC>::value,                                                //
-    BOOST_OUTCOME_V2_NAMESPACE::policy::terminate,                                //
-    std::conditional_t<SYSTEM_ERROR2_NAMESPACE::is_status_code<EC>::value,  //
-                       status_code_throw<T, EC, void>,                      //
-                       BOOST_OUTCOME_V2_NAMESPACE::policy::all_narrow             //
+    using default_status_result_policy = std::conditional_t<                            //
+    std::is_void<EC>::value,                                                            //
+    BOOST_OUTCOME_V2_NAMESPACE::policy::terminate,                                            //
+    std::conditional_t<is_status_code<EC>::value || is_errored_status_code<EC>::value,  //
+                       status_code_throw<T, status_code<void>, void>,                   //
+                       BOOST_OUTCOME_V2_NAMESPACE::policy::fail_to_compile_observers          //
                        >>;
   }  // namespace policy
 
   /*! TODO
   */
-  template <class R, class S = SYSTEM_ERROR2_NAMESPACE::system_code>  //
-  using erased_result = basic_result<R, S, policy::default_status_result_policy<R, S>>;
+  template <class R, class S = system_code, class NoValuePolicy = policy::default_status_result_policy<R, S>>  //
+  using erased_result = basic_result<R, S, NoValuePolicy>;
 
   /*! TODO
   */
-  template <class R, class DomainType = typename SYSTEM_ERROR2_NAMESPACE::generic_code::domain_type>  //
-  using status_result = basic_result<R, SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>, policy::default_status_result_policy<R, SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>>>;
+  template <class R, class DomainType = typename generic_code::domain_type, class NoValuePolicy = policy::default_status_result_policy<R, status_code<DomainType>>>  //
+  using status_result = basic_result<R, status_code<DomainType>, NoValuePolicy>;
 
 }  // namespace experimental
 

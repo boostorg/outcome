@@ -28,8 +28,8 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef SYSTEM_ERROR2_COM_CODE_HPP
-#define SYSTEM_ERROR2_COM_CODE_HPP
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_COM_CODE_HPP
+#define BOOST_OUTCOME_SYSTEM_ERROR2_COM_CODE_HPP
 
 #if !defined(_WIN32) && !defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE)
 #error This file should only be included on Windows
@@ -42,7 +42,7 @@ DEALINGS IN THE SOFTWARE.
 #include <comdef.h>
 #endif
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_BEGIN
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
 class _com_code_domain;
 /*! (Windows only) A COM error code. Note semantic equivalence testing is only implemented for `FACILITY_WIN32`
@@ -220,7 +220,7 @@ protected:
     return _make_string_ref(c.value());
   }
 #if defined(_CPPUNWIND) || defined(__EXCEPTIONS) || defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE)
-  SYSTEM_ERROR2_NORETURN virtual void _do_throw_exception(const status_code<void> &code) const override  // NOLINT
+  BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN virtual void _do_throw_exception(const status_code<void> &code) const override  // NOLINT
   {
     assert(code.domain() == *this);
     const auto &c = static_cast<const com_code &>(code);  // NOLINT
@@ -235,6 +235,6 @@ inline constexpr const _com_code_domain &_com_code_domain::get()
   return com_code_domain;
 }
 
-BOOST_SYSTEM_ERROR2_NAMESPACE_END
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 
 #endif
