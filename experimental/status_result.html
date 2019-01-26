@@ -42,18 +42,18 @@ and
     <b>API NOT FOUND IN DOCS <code>std_outcome&lt;T, EC = std::error_code, EP = std::exception_ptr, NoValuePolicy = policy::default_policy&lt;T, EC, EP&gt;&gt;</code></b>.</p>
 
 <p>There is however a slight difference in template parameters because the
-payload of <code>status_code&lt;DomainType&gt;</code> is determined by <code>DomainType</code>, so the
-specification is:</p>
+payload of <code>status_code&lt;DomainType&gt;</code> is determined by <code>DomainType</code>, so
+instead the specification is:</p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">experimental</span><span class="o">::</span><span class="n">status_result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">DomainType</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">experimental</span><span class="o">::</span><span class="n">generic_code</span><span class="o">::</span><span class="n">domain_type</span><span class="o">&gt;</span>
 </code></pre></div>
-<p>&hellip; instead. The resulting <code>basic_result</code> implementation gains an <code>error_type</code> of
+<p>The resulting <code>basic_result</code> implementation gains an <code>error_type</code> of
 <code>experimental::status_code&lt;DomainType&gt;</code>.</p>
 
 <p>The same applies to <code>status_outcome</code>, where the specification is:</p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">experimental</span><span class="o">::</span><span class="n">status_outcome</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">DomainType</span> <span class="o">=</span> <span class="k">typename</span> <span class="n">experimental</span><span class="o">::</span><span class="n">generic_code</span><span class="o">::</span><span class="n">domain_type</span><span class="p">,</span> <span class="n">EP</span> <span class="o">=</span> <span class="n">std</span><span class="o">::</span><span class="n">exception_ptr</span><span class="o">&gt;</span>
 </code></pre></div>
 
-        </div><p><small>Last revised: January 25, 2019 at 23:04:27 UTC</small></p>
+        </div><p><small>Last revised: January 26, 2019 at 21:01:46 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../experimental/differences.html"><img src="../images/prev.png" alt="Prev"></a>

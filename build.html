@@ -37,34 +37,28 @@
   <div class="titlepage"><div><div><h1 style="clear: both">Build and install</h1></div></div></div>
 
 
-<p>Outcome v2 is feature complete, meeting the feedback from the Boost peer review in May 2017.
-It is an all new code base, written entirely from scratch during the month of June 2017.
-It has completed three months of maturation, and will shortly be sent back to Boost
-for a second peer review. As a result, consider this library to <strong>beta</strong>
-quality and subject change if a second review demands it.</p>
-
-<p>That said, the essentials here are the same as they were in v1. Indeed most code
-written for v1 should be convertible to v2 without too much effort.</p>
-
 <h2 id="usage-as-a-single-header-file">Usage as a single header file</h2>
 
 <p>Outcome v2 comes in single header file form. This is regenerated per commit. To fetch
 on Linux:</p>
 
-<pre><code>wget https://github.com/ned14/outcome/raw/develop/single-header/outcome.hpp
+<pre><code>wget https://github.com/ned14/outcome/raw/master/single-header/outcome.hpp
 </code></pre>
 
 <p>On BSD:</p>
 
-<pre><code>fetch https://github.com/ned14/outcome/raw/develop/single-header/outcome.hpp
+<pre><code>fetch https://github.com/ned14/outcome/raw/master/single-header/outcome.hpp
 </code></pre>
 
 <p>If you have <code>curl</code> installed:</p>
 
-<pre><code>curl -O -J -L https://github.com/ned14/outcome/raw/develop/single-header/outcome.hpp
+<pre><code>curl -O -J -L https://github.com/ned14/outcome/raw/master/single-header/outcome.hpp
 </code></pre>
 
-<p>Otherwise, simply download the raw file from above and place it wherever it suits you.</p>
+<p>Otherwise, simply download the raw file from above and place it wherever it suits you.
+If you might be debugging using Microsoft Visual Studio, you may find the debugger
+visualisation file at <a href="https://github.com/ned14/outcome/raw/master/include/outcome/outcome.natvis">https://github.com/ned14/outcome/raw/master/include/outcome/outcome.natvis</a>
+useful to include into your build.</p>
 
 <h2 id="usage-from-the-conan-package-manager">Usage from the Conan package manager</h2>
 
@@ -90,7 +84,7 @@ submodule to your project so you can keep abreast of bug fixes. Here is how:</p>
 
 <pre><code>git submodule add https://github.com/ned14/outcome
 cd outcome
-git checkout develop
+git checkout master
 git submodule update --init --recursive
 </code></pre>
 
@@ -179,7 +173,7 @@ suite along with your own.</li>
 
 
 
-        </div><p><small>Last revised: January 16, 2019 at 01:05:39 &#43;0100</small></p>
+        </div><p><small>Last revised: January 26, 2019 at 21:01:46 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./requirements.html"><img src="./images/prev.png" alt="Prev"></a>

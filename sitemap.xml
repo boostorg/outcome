@@ -4,12 +4,12 @@
   
   <url>
     <loc>/requirements.html</loc>
-    <lastmod>2019-01-16T01:05:39+01:00</lastmod>
+    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
   </url>
   
   <url>
     <loc>/build.html</loc>
-    <lastmod>2019-01-16T01:05:39+01:00</lastmod>
+    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
   </url>
   
   <url>
@@ -19,7 +19,7 @@
   
   <url>
     <loc>/experimental/advantages.html</loc>
-    <lastmod>2019-01-25T23:04:27+00:00</lastmod>
+    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
   </url>
   
   <url>
@@ -40,6 +40,11 @@
   <url>
     <loc>/experimental/map.html</loc>
     <lastmod>2019-01-25T23:04:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/experimental/worked-example/preamble.html</loc>
+    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
   </url>
   
   <url>
@@ -89,7 +94,7 @@
   
   <url>
     <loc>/experimental.html</loc>
-    <lastmod>2019-01-25T23:04:27+00:00</lastmod>
+    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
   </url>
   
   <url>
@@ -134,12 +139,17 @@
   
   <url>
     <loc>/experimental/differences.html</loc>
-    <lastmod>2019-01-25T23:04:27+00:00</lastmod>
+    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tutorial/interop/filelib.html</loc>
     <lastmod>2017-11-16T21:31:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/experimental/worked-example/value_type.html</loc>
+    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
   </url>
   
   <url>
@@ -234,7 +244,7 @@
   
   <url>
     <loc>/experimental/status_result.html</loc>
-    <lastmod>2019-01-25T23:04:27+00:00</lastmod>
+    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
   </url>
   
   <url>
@@ -279,7 +289,7 @@
   
   <url>
     <loc>/experimental/erased_status_result.html</loc>
-    <lastmod>2019-01-25T23:04:27+00:00</lastmod>
+    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
   </url>
   
   <url>
@@ -295,6 +305,11 @@
   <url>
     <loc>/tutorial/constructors.html</loc>
     <lastmod>2017-12-13T09:28:03+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/experimental/c_macros.html</loc>
+    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
   </url>
   
   <url>
@@ -370,6 +385,11 @@
   <url>
     <loc>/history.html</loc>
     <lastmod>2019-01-25T23:04:27+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/experimental/worked-example.html</loc>
+    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
   </url>
   
   <url>

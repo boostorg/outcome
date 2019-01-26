@@ -37,8 +37,9 @@
   <div class="titlepage"><div><div><h1 style="clear: both">Experimental</h1></div></div></div>
 <p>In <code>&lt;boost/outcome/experimental&gt;</code>, there ships an Outcome-based simulation of
 the proposed <a href="https://wg21.link/P1095">P1095 <em>Zero overhead deterministic failure</em></a>
-specific implementation of <a href="http://wg21.link/P0709">P0709 <em>Zero overhead exceptions: Throwing values</em></a>, aka &ldquo;Herbceptions&rdquo;. This library-only simulation lets you use a close simulacrum
-of potential future C++ lightweight exceptions today in any C++ 14 compiler.</p>
+specific implementation of <a href="http://wg21.link/P0709">P0709 <em>Zero overhead exceptions: Throwing values</em></a>, aka &ldquo;Herbceptions&rdquo;. This library-only implementation lets you use a close simulacrum
+of potential future C++ lightweight exceptions today in <a href="./requirements.html">any C++ 14 compiler
+which Outcome supports</a>.</p>
 
 <div class="notices warning" style="background: url('images/warning.png') top left no-repeat padding-box padding-box;">
 <div class="notices heading">warning</div>
@@ -56,7 +57,8 @@ measure.</p>
 
 
 <p>P1095&rsquo;s support library has a reference implementation at <a href="https://ned14.github.io/status-code/">https://ned14.github.io/status-code/</a>.
-This is wholly incorporated into Outcome in the <code>&lt;boost/outcome/experimental/status-code&gt;</code>
+You will find terse documentation there, and an API reference.
+This library is wholly incorporated into Outcome in the <code>&lt;boost/outcome/experimental/status-code&gt;</code>
 directory, with bindings into Outcome provided in the following headers:</p>
 
 <ul>
@@ -79,7 +81,7 @@ code to work with the C-compatible subset of <code>status_result&lt;T, E&gt;</co
 
 
 
-        </div><p><small>Last revised: January 25, 2019 at 23:04:27 UTC</small></p>
+        </div><p><small>Last revised: January 26, 2019 at 21:01:46 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./tutorial/interop/conclusion.html"><img src="./images/prev.png" alt="Prev"></a>

@@ -32,12 +32,13 @@
 <div id="boost-common-heading-doc-spacer"></div><div class="spirit-nav">
 <a accesskey="p" href="../experimental/status_result.html"><img src="../images/prev.png" alt="Prev"></a>
     <a accesskey="u" href="../experimental.html"><img src="../images/up.png" alt="Up"></a>
-    <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../reference.html"><img src="../images/next.png" alt="Next"></a></div><div id="content">
+    <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../experimental/c_macros.html"><img src="../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>erased_status_result</code> and <code>erased_status_outcome</code></h1></div></div></div>
   <p><code>erased_status_result</code> and <code>erased_status_outcome</code> are also type aliases to <a href="../reference/types/basic_result.html" class="api-reference">basic_result&lt;T, E, NoValuePolicy&gt;</a>
 and <a href="../reference/types/basic_outcome.html" class="api-reference">basic_outcome&lt;T, EC, EP, NoValuePolicy&gt;</a>, however they
 alias a basic result or outcome with an <code>error_type</code> of <code>status_code&lt;erased&lt;E&gt;&gt;</code> instead
-of <code>status_code&lt;DomainType&gt;</code>.</p>
+of <code>status_code&lt;DomainType&gt;</code>. You will remember from the introduction that erased status
+codes are move-only.</p>
 
 <p>The specifications are:</p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">experimental</span><span class="o">::</span><span class="n">erased_result</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">E</span> <span class="o">=</span> <span class="n">experimental</span><span class="o">::</span><span class="n">system_code</span><span class="o">&gt;</span>
@@ -61,7 +62,7 @@ form because it seems &ldquo;difficult&rdquo;.</p>
 
 <p>It is actually, in fact, a wise discipline to follow to make all functions return
 move-only types if you care about determinism and performance. Whilst C++ 17 onwards
-does much to have the compiler avoid copies of identical function return values thanks to
+does much to have the compiler avoid copying of identical function return values thanks to
 guaranteed copy elision, when a chain of functions return different types, if the
 programmer forgets to scatter <code>std::move()</code> appropriately, copies rather than moves
 tend to occur in non-obvious ways. No doubt future C++ standards will improve on the
@@ -73,10 +74,10 @@ your <code>result</code> and <code>outcome</code> types move-only is an excellen
 about unnecessary use of <code>std::move()</code>.</p>
 
 
-        </div><p><small>Last revised: January 25, 2019 at 23:04:27 UTC</small></p>
+        </div><p><small>Last revised: January 26, 2019 at 21:01:46 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../experimental/status_result.html"><img src="../images/prev.png" alt="Prev"></a>
     <a accesskey="u" href="../experimental.html"><img src="../images/up.png" alt="Up"></a>
-    <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../reference.html"><img src="../images/next.png" alt="Next"></a></div></body>
+    <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../experimental/c_macros.html"><img src="../images/next.png" alt="Next"></a></div></body>
 </html>
