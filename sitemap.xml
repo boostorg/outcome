@@ -44,7 +44,7 @@
   
   <url>
     <loc>/experimental/worked-example/preamble.html</loc>
-    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
+    <lastmod>2019-01-26T23:38:56+00:00</lastmod>
   </url>
   
   <url>
@@ -149,7 +149,7 @@
   
   <url>
     <loc>/experimental/worked-example/value_type.html</loc>
-    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
+    <lastmod>2019-01-26T23:38:56+00:00</lastmod>
   </url>
   
   <url>
@@ -238,6 +238,11 @@
   </url>
   
   <url>
+    <loc>/experimental/worked-example/constructor.html</loc>
+    <lastmod>2019-01-26T23:38:56+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/traits.html</loc>
     <lastmod>2018-12-13T17:36:11+00:00</lastmod>
   </url>
@@ -275,6 +280,11 @@
   <url>
     <loc>/reference/functions/policy.html</loc>
     <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/experimental/worked-example/string_ref.html</loc>
+    <lastmod>2019-01-26T23:38:56+00:00</lastmod>
   </url>
   
   <url>
@@ -333,6 +343,11 @@
   </url>
   
   <url>
+    <loc>/experimental/worked-example/message.html</loc>
+    <lastmod>2019-01-26T23:38:56+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types.html</loc>
     <lastmod>2018-12-13T21:10:19+00:00</lastmod>
   </url>
@@ -358,6 +373,11 @@
   </url>
   
   <url>
+    <loc>/experimental/worked-example/source.html</loc>
+    <lastmod>2019-01-26T23:38:56+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/motivation/narrow_contract.html</loc>
     <lastmod>2018-11-21T09:20:22+00:00</lastmod>
   </url>
@@ -365,6 +385,11 @@
   <url>
     <loc>/reference/functions.html</loc>
     <lastmod>2018-12-13T21:10:19+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/experimental/worked-example/implicit_conversion.html</loc>
+    <lastmod>2019-01-26T23:38:56+00:00</lastmod>
   </url>
   
   <url>
@@ -383,13 +408,18 @@
   </url>
   
   <url>
-    <loc>/history.html</loc>
-    <lastmod>2019-01-25T23:04:27+00:00</lastmod>
+    <loc>/experimental/worked-example.html</loc>
+    <lastmod>2019-01-26T23:38:56+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/experimental/worked-example.html</loc>
-    <lastmod>2019-01-26T21:01:46+00:00</lastmod>
+    <loc>/experimental/outcome.html</loc>
+    <lastmod>2019-01-26T23:38:56+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/history.html</loc>
+    <lastmod>2019-01-25T23:04:27+00:00</lastmod>
   </url>
   
   <url>
