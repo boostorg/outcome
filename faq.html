@@ -77,7 +77,7 @@
 </span><span class="cm">Will compile into deterministic exceptions, or an emulation.
 </span><span class="cm">*/</span>
 <span class="cp">#if BOOST_OUTCOME_DETERMINISTIC_EXCEPTIONS_USE_EMULATION
-</span><span class="cp">#define BOOST_OUTCOME_THROWS_ERROR_API(rettype, ...) ::BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_result&lt;rettype, ::SYSTEM_ERROR2_NAMESPACE::error&gt; __VA_ARGS__ noexcept
+</span><span class="cp">#define BOOST_OUTCOME_THROWS_ERROR_API(rettype, ...) ::BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_result&lt;rettype, ::BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::error&gt; __VA_ARGS__ noexcept
 </span><span class="cp">#else
 </span><span class="cp">#define BOOST_OUTCOME_THROWS_ERROR_API(rettype, ...) rettype __VA_ARGS__ throws(std::error)
 </span><span class="cp">#endif
@@ -109,12 +109,12 @@
 </span><span class="cp">#endif
 </span><span class="cp"></span></code></pre></div>
 <p>You would then have to write your code in this quite unnatural form:</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// Throws ::SYSTEM_ERROR2_NAMESPACE::error, the proposed std::error for P0709 Zero
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="c1">// Throws ::BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::error, the proposed std::error for P0709 Zero
 </span><span class="c1">// overhead deterministic exceptions
 </span><span class="c1"></span><span class="n">BOOST_OUTCOME_THROWS_ERROR_API</span><span class="p">(</span><span class="kt">int</span><span class="p">,</span> <span class="n">foo</span><span class="p">(</span><span class="kt">double</span> <span class="n">x</span><span class="p">))</span>
 <span class="p">{</span>
   <span class="k">if</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="n">INT_MIN</span> <span class="o">||</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="n">INT_MAX</span><span class="p">)</span>
-    <span class="n">BOOST_OUTCOME_THROW</span><span class="p">(</span><span class="o">::</span><span class="n">SYSTEM_ERROR2_NAMESPACE</span><span class="o">::</span><span class="n">errc</span><span class="o">::</span><span class="n">result_out_of_range</span><span class="p">);</span>
+    <span class="n">BOOST_OUTCOME_THROW</span><span class="p">(</span><span class="o">::</span><span class="n">BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE</span><span class="o">::</span><span class="n">errc</span><span class="o">::</span><span class="n">result_out_of_range</span><span class="p">);</span>
   <span class="k">return</span> <span class="k">static_cast</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">);</span>
 <span class="p">}</span>
 <span class="p">...</span>
