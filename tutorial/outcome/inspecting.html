@@ -48,7 +48,7 @@ If we are storing an <code>std::error_code</code> throw it as <code>std::system_
   <span class="k">else</span>
     <span class="k">throw</span> <span class="n">std</span><span class="o">::</span><span class="n">system_error</span><span class="p">{</span><span class="n">o</span><span class="p">.</span><span class="n">error</span><span class="p">()};</span>
 <span class="p">}</span>
-</code></pre></div><a href="https://github.com/ned14/boost-outcome/tree/master/doc/src/snippets/using_outcome.cpp#L41" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/using_outcome.cpp#L41" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 <p>Function <code>has_exception</code> checks if it is <code>EP</code> (<code>std::exception_ptr</code>) that is stored, function <code>exception</code> accesses it. Similarly, function <code>error</code> accesses the <code>EC</code> (<code>std::error_code</code>) if it is stored.

@@ -403,7 +403,7 @@ can be implemented by wrapping up <code>checked&lt;T, E&gt;</code> with the diff
   <span class="k">return</span> <span class="n">BOOST_OUTCOME_V2_NAMESPACE</span><span class="o">::</span><span class="n">failure</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
 <span class="p">}</span>
 <span class="k">template</span> <span class="o">&lt;</span><span class="k">class</span><span class="err"> </span><span class="nc">E</span><span class="o">&gt;</span> <span class="k">using</span> <span class="n">bad_expected_access</span> <span class="o">=</span> <span class="n">BOOST_OUTCOME_V2_NAMESPACE</span><span class="o">::</span><span class="n">bad_result_access_with</span><span class="o">&lt;</span><span class="n">E</span><span class="o">&gt;</span><span class="p">;</span>
-</code></pre></div><a href="https://github.com/ned14/boost-outcome/tree/master/doc/src/snippets/expected_implementation.cpp#L5" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/expected_implementation.cpp#L5" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 <h2 id="why-doesn-t-outcome-duplicate-std-expected-t-e-s-design">Why doesn&rsquo;t Outcome duplicate <code>std::expected&lt;T, E&gt;</code>&rsquo;s design?</h2>

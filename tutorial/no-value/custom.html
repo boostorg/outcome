@@ -57,7 +57,7 @@
       <span class="n">std</span><span class="o">::</span><span class="n">abort</span><span class="p">();</span>
   <span class="p">}</span>
 <span class="p">};</span>
-</code></pre></div><a href="https://github.com/ned14/boost-outcome/tree/master/doc/src/snippets/policies.cpp#L6" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/policies.cpp#L6" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 <p>Once the policy is defined, you have to use it when providing your own
@@ -66,7 +66,7 @@
 <div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span> <span class="o">&lt;</span><span class="k">typename</span> <span class="n">T</span><span class="o">&gt;</span>
 <span class="k">using</span> <span class="n">strictOutcome</span>
   <span class="o">=</span> <span class="n">outcome</span><span class="o">::</span><span class="n">basic_outcome</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">error_code</span><span class="p">,</span> <span class="n">std</span><span class="o">::</span><span class="n">exception_ptr</span><span class="p">,</span> <span class="n">abort_policy</span><span class="o">&gt;</span><span class="p">;</span>
-</code></pre></div><a href="https://github.com/ned14/boost-outcome/tree/master/doc/src/snippets/policies.cpp#L65" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/policies.cpp#L65" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 

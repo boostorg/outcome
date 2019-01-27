@@ -43,7 +43,7 @@
 </span><span class="c1"></span>    <span class="k">static_assert</span><span class="p">(</span><span class="o">!</span><span class="n">std</span><span class="o">::</span><span class="n">is_same</span><span class="o">&lt;</span><span class="n">T</span><span class="p">,</span> <span class="n">T</span><span class="o">&gt;::</span><span class="n">value</span><span class="p">,</span> <span class="s">&#34;construct&lt;T&gt;() was not specialised for the type T supplied&#34;</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">};</span>
-</code></pre></div><a href="https://github.com/ned14/boost-outcome/tree/master/doc/src/snippets/constructors.cpp#L152" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/constructors.cpp#L152" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 <p>This fails a static assert if the type is ever instantiated unspecialised.</p>
@@ -58,7 +58,7 @@
 </span><span class="c1"></span>
   <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span> <span class="k">operator</span><span class="p">()()</span> <span class="k">const</span> <span class="k">noexcept</span> <span class="p">{</span> <span class="k">return</span> <span class="n">file_handle</span><span class="o">::</span><span class="n">file</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">_path</span><span class="p">));</span> <span class="p">}</span>
 <span class="p">};</span>
-</code></pre></div><a href="https://github.com/ned14/boost-outcome/tree/master/doc/src/snippets/constructors.cpp#L162" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/constructors.cpp#L162" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 <p>Because this is a struct, we can list initialise <code>construct</code>, and use
