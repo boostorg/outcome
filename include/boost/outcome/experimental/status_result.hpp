@@ -59,15 +59,16 @@ namespace experimental
   //! Namespace for policies
   namespace policy
   {
+    using namespace BOOST_OUTCOME_V2_NAMESPACE::policy;
     template <class T, class EC, class E> struct status_code_throw
     {
       static_assert(!std::is_same<T, T>::value, "policy::status_code_throw not specialised for these types, did you use status_result<T, status_code<DomainType>, E>?");
     };
     /*!
     */
-    template <class T, class DomainType> struct status_code_throw<T, status_code<DomainType>, void> : BOOST_OUTCOME_V2_NAMESPACE::policy::base
+    template <class T, class DomainType> struct status_code_throw<T, status_code<DomainType>, void> : base
     {
-      using _base = BOOST_OUTCOME_V2_NAMESPACE::policy::base;
+      using _base = base;
       /*! Performs a wide check of state, used in the value() functions.
       \effects TODO
       */
@@ -90,6 +91,11 @@ namespace experimental
       */
       template <class Impl> static constexpr void wide_error_check(Impl &&self) { _base::narrow_error_check(static_cast<Impl &&>(self)); }
     };
+    template <class T, class DomainType> struct status_code_throw<T, errored_status_code<DomainType>, void> : status_code_throw<T, status_code<DomainType>, void>
+    {
+      status_code_throw() = default;
+      using status_code_throw<T, status_code<DomainType>, void>::status_code_throw;
+    };
 
     /*! Default policy selector.
     */
@@ -98,7 +104,7 @@ namespace experimental
     std::is_void<EC>::value,                                                            //
     BOOST_OUTCOME_V2_NAMESPACE::policy::terminate,                                            //
     std::conditional_t<is_status_code<EC>::value || is_errored_status_code<EC>::value,  //
-                       status_code_throw<T, status_code<void>, void>,                   //
+                       status_code_throw<T, EC, void>,                                  //
                        BOOST_OUTCOME_V2_NAMESPACE::policy::fail_to_compile_observers          //
                        >>;
   }  // namespace policy
