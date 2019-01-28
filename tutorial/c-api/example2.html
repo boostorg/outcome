@@ -36,49 +36,8 @@
   <div class="titlepage"><div><div><h1 style="clear: both">Calling it from C</h1></div></div></div>
   <p>Now let us call our <code>result</code> returning C++ function from C:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp">
-</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;  // for strerror</span><span class="cp">
-</span><span class="cp"></span><span class="c1">// This header in Outcome is pure C, it provides a suite of C helper macros
-</span><span class="c1"></span><span class="cp">#include</span> <span class="cpf">&#34;../../../include/outcome/result.h&#34;</span><span class="cp">
-</span><span class="cp"></span>
-<span class="c1">// Declare our C++ function&#39;s returning result type. Only needs to be done once.
-</span><span class="c1"></span><span class="n">CXX_DECLARE_RESULT_EC</span><span class="p">(</span><span class="n">size_t</span><span class="p">,</span> <span class="n">size_t</span><span class="p">);</span>
-
-<span class="c1">// Tell C about our C++ function
-</span><span class="c1"></span><span class="k">extern</span> <span class="nf">CXX_RESULT_EC</span><span class="p">(</span><span class="n">size_t</span><span class="p">)</span> <span class="n">to_string</span><span class="p">(</span><span class="kt">char</span> <span class="o">*</span><span class="n">buffer</span><span class="p">,</span> <span class="n">size_t</span> <span class="n">bufferlen</span><span class="p">,</span> <span class="kt">int</span> <span class="n">v</span><span class="p">);</span>
-
-<span class="kt">void</span> <span class="nf">print</span><span class="p">(</span><span class="kt">int</span> <span class="n">v</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span>
-  <span class="n">CXX_RESULT_EC</span><span class="p">(</span><span class="n">size_t</span><span class="p">)</span> <span class="n">res</span><span class="p">;</span>
-
-  <span class="n">res</span> <span class="o">=</span> <span class="n">to_string</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">),</span> <span class="n">v</span><span class="p">);</span>
-  <span class="k">if</span><span class="p">(</span><span class="n">CXX_RESULT_HAS_VALUE</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
-  <span class="p">{</span>
-    <span class="n">printf</span><span class="p">(</span><span class="s">&#34;to_string(%d) fills buffer with &#39;%s&#39; of %zu characters</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">buffer</span><span class="p">,</span> <span class="n">res</span><span class="p">.</span><span class="n">value</span><span class="p">);</span>
-    <span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="c1">// Is the error returned in the std::generic_category domain and thus an errno?
-</span><span class="c1"></span>  <span class="k">if</span><span class="p">(</span><span class="n">CXX_RESULT_ERROR_IS_ERRNO</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
-  <span class="p">{</span>
-    <span class="c1">// If you get a weird compile error here, note that CXX_RESULT_ERROR()
-</span><span class="c1"></span>    <span class="c1">// uses C11 generics, you need a C11 compiler for it to work. If you don&#39;t
-</span><span class="c1"></span>    <span class="c1">// have a C11 compiler, res.error or res.error.code can be used directly.
-</span><span class="c1"></span>    <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;to_string(%d) failed with error code %d (%s)</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">CXX_RESULT_ERROR</span><span class="p">(</span><span class="n">res</span><span class="p">),</span> <span class="n">strerror</span><span class="p">(</span><span class="n">CXX_RESULT_ERROR</span><span class="p">(</span><span class="n">res</span><span class="p">)));</span>
-    <span class="k">return</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="n">fprintf</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&#34;to_string(%d) failed with unknown error code %d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">CXX_RESULT_ERROR</span><span class="p">(</span><span class="n">res</span><span class="p">));</span>
-<span class="p">}</span>
-
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
-<span class="p">{</span>
-  <span class="n">print</span><span class="p">(</span><span class="mi">9</span><span class="p">);</span>
-  <span class="n">print</span><span class="p">(</span><span class="mi">99</span><span class="p">);</span>
-  <span class="n">print</span><span class="p">(</span><span class="mi">999</span><span class="p">);</span>
-  <span class="n">print</span><span class="p">(</span><span class="mi">9999</span><span class="p">);</span>
-  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
-<span class="p">}</span>
-</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/c_api.c#L31" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/c_api.c#L101" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 <p>Running this C program yields:</p>

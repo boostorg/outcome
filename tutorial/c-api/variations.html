@@ -37,10 +37,10 @@
   <p>You can of course choose your own <code>E</code> type so long as it has standard layout
 and is trivially copyable. You would declare that with 
     
-    <b>API NOT FOUND IN DOCS <code>CXX_DECLARE_RESULT(t_ident, t_decl, e_ident, e_decl)</code></b>,
+    <b>API NOT FOUND IN DOCS <code>BOOST_OUTCOME_C_DECLARE_RESULT(t_ident, t_decl, e_ident, e_decl)</code></b>,
 refer to it with 
     
-    <b>API NOT FOUND IN DOCS <code>CXX_RESULT(t_ident, e_ident)</code></b> and need to do your own
+    <b>API NOT FOUND IN DOCS <code>BOOST_OUTCOME_C_RESULT(t_ident, e_ident)</code></b> and need to do your own
 decoding of errors from your <code>E</code> type. By using the <code>_EC</code> postfixed macros,
 you are in fact using <code>E =</code></p>
 <div class="highlight"><pre class="chroma"><code class="language-c" data-lang="c"><span class="k">struct</span> <span class="n">cxx_error_code</span>
