@@ -29,7 +29,8 @@ DEALINGS IN THE SOFTWARE.
 
 #include "../../include/boost/outcome/experimental/status_outcome.hpp"
 
-template <class T, class S = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code, class P = boost::exception_ptr> using outcome = BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_outcome<T, S, P>;
+#define BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND std
+template <class T, class S = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code, class P = BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::exception_ptr> using outcome = BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_outcome<T, S, P>;
 using BOOST_OUTCOME_V2_NAMESPACE::in_place_type;
 
 #include <boost/test/unit_test.hpp>
@@ -53,7 +54,7 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_status_code_outcome, "Tests that the outcome 
     BOOST_CHECK(!m.has_exception());
     BOOST_CHECK_THROW(m.value(), status_error<void>);
     BOOST_CHECK_NO_THROW(m.error());
-    BOOST_CHECK_THROW(boost::rethrow_exception(m.failure()), generic_error);
+    BOOST_CHECK_THROW(BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::rethrow_exception(m.failure()), generic_error);
   }
   {  // errored void
     outcome<void> m(generic_code{errc::bad_address});
@@ -63,7 +64,7 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_status_code_outcome, "Tests that the outcome 
     BOOST_CHECK(!m.has_exception());
     BOOST_CHECK_THROW(([&m]() -> void { return m.value(); }()), generic_error);
     BOOST_CHECK_NO_THROW(m.error());
-    BOOST_CHECK_THROW(boost::rethrow_exception(m.failure()), generic_error);
+    BOOST_CHECK_THROW(BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::rethrow_exception(m.failure()), generic_error);
   }
   {  // valued int
     outcome<int> m(5);
@@ -111,7 +112,7 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_status_code_outcome, "Tests that the outcome 
     BOOST_CHECK(m.failure());
     try
     {
-      boost::rethrow_exception(m.failure());
+      BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::rethrow_exception(m.failure());
     }
     catch(const generic_error &ex)
     {
@@ -122,22 +123,22 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_status_code_outcome, "Tests that the outcome 
   }
 #if !defined(__APPLE__) || defined(__cpp_exceptions)
   {  // excepted
-    boost::system::error_code ec(5, boost::system::system_category());
-    auto e = boost::copy_exception(boost::system::system_error(ec));  // NOLINT
+    BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::error_code ec(5, BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::system_category());
+    auto e = BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::make_exception_ptr(BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::system_error(ec));  // NOLINT
     outcome<int> m(e);
     BOOST_CHECK(!m);
     BOOST_CHECK(!m.has_value());
     BOOST_CHECK(!m.has_error());
     BOOST_CHECK(m.has_exception());
-    BOOST_CHECK_THROW(m.value(), boost::system::system_error);
+    BOOST_CHECK_THROW(m.value(), BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::system_error);
     BOOST_CHECK(m.exception() == e);
 #ifndef BOOST_NO_EXCEPTIONS
     BOOST_CHECK(m.failure());
     try
     {
-      boost::rethrow_exception(m.failure());
+      BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::rethrow_exception(m.failure());
     }
-    catch(const boost::system::system_error &ex)
+    catch(const BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::system_error &ex)
     {
       BOOST_CHECK(ex.code() == ec);
       BOOST_CHECK(ex.code().value() == 5);
@@ -148,7 +149,7 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_status_code_outcome, "Tests that the outcome 
     struct Foo
     {
     };
-    auto e = boost::copy_exception(Foo());
+    auto e = BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::make_exception_ptr(Foo());
     outcome<int> m(e);
     BOOST_CHECK(!m);
     BOOST_CHECK(!m.has_value());
@@ -158,8 +159,8 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_status_code_outcome, "Tests that the outcome 
     BOOST_CHECK(m.exception() == e);
   }
   {  // outcome<void, void> should work
-    boost::system::error_code ec(5, boost::system::system_category());
-    auto e = boost::copy_exception(boost::system::system_error(ec));
+    BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::error_code ec(5, BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::system_category());
+    auto e = BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::make_exception_ptr(BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::system_error(ec));
     outcome<void, void> m(e);
     BOOST_CHECK(!m);
     BOOST_CHECK(!m.has_value());
@@ -200,7 +201,7 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_status_code_outcome, "Tests that the outcome 
     // Test void compiles
     outcome<void> c(in_place_type<void>);
     // Test int, void compiles
-    outcome<int, void> d(in_place_type<boost::exception_ptr>);
+    outcome<int, void> d(in_place_type<BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::exception_ptr>);
   }
 
   {
