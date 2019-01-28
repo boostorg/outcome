@@ -31,17 +31,17 @@ DEALINGS IN THE SOFTWARE.
 #ifndef BOOST_OUTCOME_EXPERIMENTAL_RESULT_H
 #define BOOST_OUTCOME_EXPERIMENTAL_RESULT_H
 
-#define CXX_DECLARE_STATUS_CODE(ident, T)                                                                                                                                                                                                                                                                                      \
+#define BOOST_OUTCOME_C_DECLARE_STATUS_CODE(ident, value_type)                                                                                                                                                                                                                                                                             \
   struct cxx_status_code_##ident                                                                                                                                                                                                                                                                                               \
   {                                                                                                                                                                                                                                                                                                                            \
     void *domain;                                                                                                                                                                                                                                                                                                              \
-    T value;                                                                                                                                                                                                                                                                                                                   \
+    value_type value;                                                                                                                                                                                                                                                                                                          \
   };
 
-#define CXX_STATUS_CODE(ident) struct cxx_status_code_##ident
+#define BOOST_OUTCOME_C_STATUS_CODE(ident) struct cxx_status_code_##ident
 
 
-#define CXX_DECLARE_RESULT(ident, R, S)                                                                                                                                                                                                                                                                                        \
+#define BOOST_OUTCOME_C_DECLARE_RESULT(ident, R, S)                                                                                                                                                                                                                                                                                        \
   struct cxx_result_##ident                                                                                                                                                                                                                                                                                                    \
   {                                                                                                                                                                                                                                                                                                                            \
     R value;                                                                                                                                                                                                                                                                                                                   \
@@ -49,14 +49,14 @@ DEALINGS IN THE SOFTWARE.
     S error;                                                                                                                                                                                                                                                                                                                   \
   }
 
-#define CXX_RESULT(ident) struct cxx_result_##ident
+#define BOOST_OUTCOME_C_RESULT(ident) struct cxx_result_##ident
 
 
-#define CXX_RESULT_HAS_VALUE(r) (((r).flags & 1U) == 1U)
+#define BOOST_OUTCOME_C_RESULT_HAS_VALUE(r) (((r).flags & 1U) == 1U)
 
-#define CXX_RESULT_HAS_ERROR(r) (((r).flags & 2U) == 2U)
+#define BOOST_OUTCOME_C_RESULT_HAS_ERROR(r) (((r).flags & 2U) == 2U)
 
-#define CXX_RESULT_ERROR_IS_ERRNO(r) (((r).flags & (1U << 4U)) == (1U << 4U))
+#define BOOST_OUTCOME_C_RESULT_ERROR_IS_ERRNO(r) (((r).flags & (1U << 4U)) == (1U << 4U))
 
 
 struct cxx_status_code_posix
@@ -64,9 +64,7 @@ struct cxx_status_code_posix
   void *domain;
   int value;
 };
-#define CXX_DECLARE_RESULT_ERRNO(ident, R) CXX_DECLARE_RESULT(posix_##ident, R, struct cxx_status_code_posix)
-#define CXX_RESULT_ERRNO(ident) CXX_RESULT(posix_##ident)
-#define CXX_RESULT_GET_ERRNO(r) _Generic((r).error, struct cxx_status_code_posix : ((struct cxx_status_code_posix *) &(r).error)->value, default : (r).error)
-#define CXX_RESULT_SET_ERRNO(r) (errno = CXX_RESULT_HAS_ERROR(r) ? (CXX_RESULT_ERROR_IS_ERRNO(r) ? CXX_RESULT_ERRNO(r) : EAGAIN) : 0)
+#define BOOST_OUTCOME_C_DECLARE_RESULT_ERRNO(ident, R) BOOST_OUTCOME_C_DECLARE_RESULT(posix_##ident, R, struct cxx_status_code_posix)
+#define BOOST_OUTCOME_C_RESULT_ERRNO(ident) BOOST_OUTCOME_C_RESULT(posix_##ident)
 
 #endif
