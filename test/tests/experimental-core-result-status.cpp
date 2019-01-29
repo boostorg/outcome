@@ -58,7 +58,7 @@ struct payload_exception : std::exception
       : _what(what)
   {
   }
-  virtual const char *what() const noexcept override final { return _what; }
+  virtual const char *what() const noexcept override final { return _what; }  // NOLINT
 };
 
 class _payload_domain;

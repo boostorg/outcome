@@ -45,6 +45,7 @@ namespace detail
   {
     template <class DomainType> inline std::exception_ptr basic_outcome_failure_exception_from_error(const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<DomainType> &sc, search_detail_adl /*unused*/)
     {
+	  (void) sc;
 #ifndef BOOST_NO_EXCEPTIONS
       try
       {
@@ -57,8 +58,8 @@ namespace detail
 #endif
       return {};
     }
-  }
-}
+  }  // namespace adl
+}  // namespace detail
 
 //! Namespace for traits
 namespace trait

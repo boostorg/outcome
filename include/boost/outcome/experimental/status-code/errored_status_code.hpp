@@ -328,7 +328,7 @@ namespace detail
   {
     static constexpr bool value = true;
   };
-}
+}  // namespace detail
 
 //! Trait returning true if the type is an errored status code.
 template <class T> struct is_errored_status_code
