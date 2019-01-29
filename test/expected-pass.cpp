@@ -729,7 +729,7 @@ void expected_from_moved_expected()
   BOOST_TEST(static_cast<bool>(e));
 
 // BOOST_REQUIRE_NO_THROW(e2.value());
-#ifndef __GLIBCXX__
+#ifndef __GLIBBOOST_OUTCOME_C__
   BOOST_TEST_EQ(e2.value(), "");
   BOOST_TEST_EQ(*e2, "");
 #endif
