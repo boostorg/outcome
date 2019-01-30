@@ -42,7 +42,7 @@ using BOOST_OUTCOME_V2_NAMESPACE::in_place_type;
 // Custom error type with payload
 struct payload
 {
-  BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc ec;
+  BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc ec{BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc::success};
   const char *str{nullptr};
   payload() = default;
   payload(BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc _ec, const char *_str)
@@ -81,12 +81,12 @@ public:
 protected:
   virtual bool _do_failure(const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<void> &code) const noexcept override final  // NOLINT
   {
-    assert(code.domain() == *this);
+    assert(code.domain() == *this);                                                                              // NOLINT
     return static_cast<const status_code_payload &>(code).value().ec != BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc::success;  // NOLINT
   }
   virtual bool _do_equivalent(const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<void> &code1, const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<void> &code2) const noexcept override final  // NOLINT
   {
-    assert(code1.domain() == *this);
+    assert(code1.domain() == *this);                                   // NOLINT
     const auto &c1 = static_cast<const status_code_payload &>(code1);  // NOLINT
     if(code2.domain() == *this)
     {
@@ -97,19 +97,19 @@ protected:
   }
   virtual BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::generic_code _generic_code(const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<void> &code) const noexcept override final  // NOLINT
   {
-    assert(code.domain() == *this);
+    assert(code.domain() == *this);                                    // NOLINT
     return static_cast<const status_code_payload &>(code).value().ec;  // NOLINT
   }
   virtual _base::string_ref _do_message(const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<void> &code) const noexcept override final  // NOLINT
   {
-    assert(code.domain() == *this);
+    assert(code.domain() == *this);                                  // NOLINT
     const auto &c = static_cast<const status_code_payload &>(code);  // NOLINT
     static BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::detail::generic_code_messages msgs;
     return string_ref(msgs[static_cast<int>(c.value().ec)]);
   }
   virtual void _do_throw_exception(const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<void> &code) const override final  // NOLINT
   {
-    assert(code.domain() == *this);
+    assert(code.domain() == *this);                                  // NOLINT
     const auto &c = static_cast<const status_code_payload &>(code);  // NOLINT
     throw payload_exception(c.value().str);
   }

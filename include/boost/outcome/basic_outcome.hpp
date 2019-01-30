@@ -948,7 +948,7 @@ public:
   {
     if((this->_state._status & detail::status_have_value) != 0 && (o._state._status & detail::status_have_value) != 0)
     {
-      return this->_state._value == o._state._value;
+      return this->_state._value == o._state._value;  // NOLINT
     }
     if((this->_state._status & detail::status_have_error) != 0 && (o._state._status & detail::status_have_error) != 0  //
        && (this->_state._status & detail::status_have_exception) != 0 && (o._state._status & detail::status_have_exception) != 0)
@@ -1016,7 +1016,7 @@ public:
   {
     if((this->_state._status & detail::status_have_value) != 0 && (o._state._status & detail::status_have_value) != 0)
     {
-      return this->_state._value != o._state._value;
+      return this->_state._value != o._state._value;  // NOLINT
     }
     if((this->_state._status & detail::status_have_error) != 0 && (o._state._status & detail::status_have_error) != 0  //
        && (this->_state._status & detail::status_have_exception) != 0 && (o._state._status & detail::status_have_exception) != 0)
@@ -1200,7 +1200,7 @@ namespace hooks
   */
   template <class R, class S, class P, class NoValuePolicy, class U> constexpr inline void override_outcome_exception(basic_outcome<R, S, P, NoValuePolicy> *o, U &&v) noexcept
   {
-    o->_ptr = static_cast<U &&>(v);
+    o->_ptr = static_cast<U &&>(v);  // NOLINT
     o->_state._status |= detail::status_have_exception;
   }
 }  // namespace hooks

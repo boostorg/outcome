@@ -94,7 +94,7 @@ namespace detail
     {
       if((this->_state._status & detail::status_have_value) != 0 && (o._state._status & detail::status_have_value) != 0)
       {
-        return this->_state._value == o._state._value;
+        return this->_state._value == o._state._value;  // NOLINT
       }
       if((this->_state._status & detail::status_have_error) != 0 && (o._state._status & detail::status_have_error) != 0)
       {

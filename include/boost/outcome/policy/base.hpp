@@ -52,7 +52,7 @@ namespace policy
 #endif
     void _ub(Impl && /*unused*/)
     {
-      assert(false);
+      assert(false);  // NOLINT
 #if defined(__GNUC__) || defined(__clang__)
       __builtin_unreachable();
 #endif

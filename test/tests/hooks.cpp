@@ -70,9 +70,9 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_result_hooks, "Tests that you can hook result
 {
   using namespace hook_test;
   result<int> a(5);
-  BOOST_CHECK(!strcmp(extended_error_info, "5"));
+  BOOST_CHECK(!strcmp(extended_error_info, "5"));  // NOLINT
   result<std::string> b("niall");
-  BOOST_CHECK(!strcmp(extended_error_info, "niall"));
+  BOOST_CHECK(!strcmp(extended_error_info, "niall"));  // NOLINT
 }
 
 //! [extended_error_coding2]
@@ -100,7 +100,7 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_hooks, "Tests that you can hook outco
 {
   using namespace hook_test;
   outcome<int> a(result<int>(5));
-  BOOST_REQUIRE(a.has_exception());
+  BOOST_REQUIRE(a.has_exception());  // NOLINT
   BOOST_CHECK(a.exception() == "5");
   outcome<std::string> b(result<std::string>("niall"));
   BOOST_CHECK(b.exception() == "niall");

@@ -56,14 +56,14 @@ namespace policy
       {
         if(base::_has_exception(std::forward<Impl>(self)))
         {
-          detail::_rethrow_exception<trait::has_exception_ptr_v<E>>{base::_exception<T, EC, E, error_code_throw_as_system_error>(std::forward<Impl>(self))};
+          detail::_rethrow_exception<trait::has_exception_ptr_v<E>>{base::_exception<T, EC, E, error_code_throw_as_system_error>(std::forward<Impl>(self))};  // NOLINT
         }
         if(base::_has_error(std::forward<Impl>(self)))
         {
           // ADL discovered
           outcome_throw_as_system_error_with_payload(base::_error(std::forward<Impl>(self)));
         }
-        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no value"));
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no value"));  // NOLINT
       }
     }
     /*! Performs a wide check of state, used in the error() functions
@@ -73,7 +73,7 @@ namespace policy
     {
       if(!base::_has_error(std::forward<Impl>(self)))
       {
-        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no error"));
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no error"));  // NOLINT
       }
     }
     /*! Performs a wide check of state, used in the exception() functions
@@ -83,7 +83,7 @@ namespace policy
     {
       if(!base::_has_exception(std::forward<Impl>(self)))
       {
-        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no exception"));
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no exception"));  // NOLINT
       }
     }
   };

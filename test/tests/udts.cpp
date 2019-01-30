@@ -69,9 +69,9 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_udts, "Tests that the outcome works a
       }
       udt() = delete;
       udt(const udt & /*unused*/) { throw std::logic_error("copy"); }
-      udt(udt && /*unused*/) noexcept(false) { throw std::logic_error("move"); }
+      udt(udt && /*unused*/) noexcept(false) { throw std::logic_error("move"); }  // NOLINT
       udt &operator=(const udt & /*unused*/) { throw std::logic_error("copy"); }
-      udt &operator=(udt && /*unused*/) noexcept(false) { throw std::logic_error("move"); }
+      udt &operator=(udt && /*unused*/) noexcept(false) { throw std::logic_error("move"); }  // NOLINT
       ~udt() { a.clear(); }
     };
     static_assert(!std::is_default_constructible<udt>::value, "udt is default constructible");
