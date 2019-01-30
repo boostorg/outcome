@@ -5,11 +5,11 @@
 
 {{- if eq .Site.Params.ordersectionsby "title"}}
   {{- range .Site.Home.Sections.ByTitle}}
-  {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode}}
+  {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "count" 1}}
   {{- end}}
 {{- else}}
   {{- range .Site.Home.Sections.ByWeight}}
-  {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode }}
+  {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "count" 1}}
   {{- end}}
 {{- end}}
 
@@ -18,8 +18,9 @@
 {{- $currentNode := .currentnode }}
  {{- with .sect}}
   <dt><span class="section"><a href="{{ .RelPermalink}}">{{.Title | markdownify}}</a></span></dt>
-  {{- if and .IsSection (or (not .Params.hidden) $.showhidden)}}
-    {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
+  {{- if lt $.count 3 }}
+    {{- if and .IsSection (or (not .Params.hidden) $.showhidden)}}
+      {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
       {{- if ne $numberOfPages 0 }}
         <dd><dl>
           {{- .Scratch.Set "pages" .Pages }}
@@ -32,20 +33,20 @@
           {{- range $pages.ByTitle }}
             {{- if and .Params.hidden (not $.showhidden) }}
             {{- else}}
-            {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode  }}
+              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "count" (add $.count 1) }}
             {{- end}}
           {{- end}}
         {{- else}}
           {{- range $pages.ByWeight }}
             {{- if and .Params.hidden (not $.showhidden) }}
             {{- else}}
-            {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode  }}
+              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "count" (add $.count 1) }}
             {{- end}}
           {{- end}}
         {{- end}}
-        </dl>
+        </dl></dd>
       {{- end}}
-    </dt></dd>
+    {{- end}}
   {{- end}}
  {{- end}}
 {{- end}}
