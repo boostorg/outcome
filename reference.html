@@ -56,7 +56,9 @@
 	<a href="./reference/macros/tryv.html" ><code>BOOST_OUTCOME_TRYV(expr)/BOOST_OUTCOME_TRY(expr)</code></a>
 <p>Evaluate an expression which results in a type matching the <code>ValueOrError&lt;void, E&gt;</code> concept, continuing execution if successful, immediately returning <code>try_operation_return_as(expr)</code> from the calling function if unsuccessful.</p><li>
 	<a href="./reference/macros/tryx.html" ><code>BOOST_OUTCOME_TRYX(expr)</code></a>
-<p>Evaluate an expression which results in a type matching the <code>ValueOrError&lt;T, E&gt;</code> concept, emitting the <code>T</code> if successful, immediately returning <code>try_operation_return_as(expr)</code> from the calling function if unsuccessful.</p></li></ol><li>
+<p>Evaluate an expression which results in a type matching the <code>ValueOrError&lt;T, E&gt;</code> concept, emitting the <code>T</code> if successful, immediately returning <code>try_operation_return_as(expr)</code> from the calling function if unsuccessful.</p><li>
+	<a href="./reference/macros/in_place_type.html" ><code>BOOST_OUTCOME_USE_STD_IN_PLACE_TYPE</code></a>
+<p>How to implement <code>in_place_type_t&lt;T&gt;</code> and <code>in_place_type&lt;T&gt;</code>.</p></li></ol><li>
 	<a href="./reference/concepts.html" >Concepts</a><ol><li>
 	<a href="./reference/concepts/valueorerror.html" ><code>ValueOrError&lt;T, E&gt;</code></a>
 <p>A boolean concept matching types with either a value or an error.</p><li>
@@ -72,8 +74,10 @@
 <p>True if an error code can be constructed from a <code>T</code>.</p><li>
 	<a href="./reference/traits/has_exception_ptr.html" ><code>has_exception_ptr&lt;T&gt;</code></a>
 <p>True if an exception ptr can be constructed from a <code>T</code>.</p><li>
+	<a href="./reference/traits/is_basic_outcome.html" ><code>is_basic_outcome&lt;T&gt;</code></a>
+<p>An integral constant type true for <code>basic_outcome&lt;T, EC, EP, NoValuePolicy&gt;</code> types.</p><li>
 	<a href="./reference/traits/is_basic_result.html" ><code>is_basic_result&lt;T&gt;</code></a>
-<p>An integral constant type true for `basic_result<T, E, NoValuePolicy> types.</p><li>
+<p>An integral constant type true for <code>basic_result&lt;T, E, NoValuePolicy&gt;</code> types.</p><li>
 	<a href="./reference/traits/is_error_type.html" ><code>is_error_type&lt;E&gt;</code></a>
 <p>A customisable integral constant type true for <code>E</code> types which are to receive error throwing no-value policies.</p><li>
 	<a href="./reference/traits/is_error_type_enum.html" ><code>is_error_type_enum&lt;E, Enum&gt;</code></a>
@@ -113,7 +117,7 @@
 	<a href="./reference/types/failure_type.html" ><code>failure_type&lt;EC, EP = void&gt;</code></a>
 <p>Type sugar for constructing an unsuccessful result or outcome.</p><li>
 	<a href="./reference/types/in_place_type_t.html" ><code>in_place_type_t&lt;T&gt;</code></a>
-<p>Either <code>std::in_place_type_t&lt;T&gt;</code> if C++ 17 or later, else a local emulation.</p><li>
+<p>Either <code>std::in_place_type_t&lt;T&gt;</code> or a local emulation, depending on the <code>BOOST_OUTCOME_USE_STD_IN_PLACE_TYPE</code> macro.</p><li>
 	<a href="./reference/types/success_type.html" ><code>success_type&lt;T&gt;</code></a>
 <p>Type sugar for constructing a successful result or outcome.</p></li></ol><li>
 	<a href="./reference/aliases.html" >Aliases</a><ol><li>
