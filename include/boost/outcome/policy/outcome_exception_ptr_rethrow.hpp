@@ -59,7 +59,7 @@ namespace policy
         {
           detail::_rethrow_exception<trait::has_exception_ptr_v<EC>>{base::_error(std::forward<Impl>(self))};
         }
-        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no value"));
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no value"));  // NOLINT
       }
     }
     /*! Performs a wide check of state, used in the error() functions
@@ -69,7 +69,7 @@ namespace policy
     {
       if(!base::_has_error(std::forward<Impl>(self)))
       {
-        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no error"));
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no error"));  // NOLINT
       }
     }
     /*! Performs a wide check of state, used in the exception() functions
@@ -79,7 +79,7 @@ namespace policy
     {
       if(!base::_has_exception(std::forward<Impl>(self)))
       {
-        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no exception"));
+        BOOST_OUTCOME_THROW_EXCEPTION(bad_outcome_access("no exception"));  // NOLINT
       }
     }
   };

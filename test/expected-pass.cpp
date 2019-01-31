@@ -202,7 +202,7 @@ struct Oracle
   State s{sDefaultConstructed};
   OracleVal val;
 
-  Oracle() {}
+  Oracle() = default;
   Oracle(const OracleVal &v)  // NOLINT
   : s(sValueCopyConstructed),
     val(v)

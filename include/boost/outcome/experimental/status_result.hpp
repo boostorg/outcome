@@ -81,7 +81,7 @@ namespace experimental
 #ifndef BOOST_NO_EXCEPTIONS
             base::_error(static_cast<Impl &&>(self)).throw_exception();
 #else
-            BOOST_OUTCOME_THROW_EXCEPTION(wide_value_check);
+            BOOST_OUTCOME_THROW_EXCEPTION("wide value check failed");
 #endif
           }
         }

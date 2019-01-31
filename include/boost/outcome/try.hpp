@@ -33,7 +33,7 @@ DEALINGS IN THE SOFTWARE.
 
 #include "success_failure.hpp"
 
-namespace std
+namespace std  // NOLINT
 {
   namespace experimental
   {

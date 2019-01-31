@@ -127,7 +127,7 @@ namespace detail
   struct generic_code_messages
   {
     const char *msgs[256];
-    BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 size_t size() const { return sizeof(msgs) / sizeof(*msgs); }
+    BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 size_t size() const { return sizeof(msgs) / sizeof(*msgs); }  // NOLINT
     BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 const char *operator[](int i) const { return (i < 0 || i >= static_cast<int>(size()) || nullptr == msgs[i]) ? "unknown" : msgs[i]; }  // NOLINT
     BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 generic_code_messages()
         : msgs{}
@@ -244,12 +244,12 @@ public:
 protected:
   virtual bool _do_failure(const status_code<void> &code) const noexcept override  // NOLINT
   {
-    assert(code.domain() == *this);
+    assert(code.domain() == *this);  // NOLINT
     return static_cast<const generic_code &>(code).value() != errc::success;  // NOLINT
   }
   virtual bool _do_equivalent(const status_code<void> &code1, const status_code<void> &code2) const noexcept override  // NOLINT
   {
-    assert(code1.domain() == *this);
+    assert(code1.domain() == *this);  // NOLINT
     const auto &c1 = static_cast<const generic_code &>(code1);  // NOLINT
     if(code2.domain() == *this)
     {
@@ -260,12 +260,12 @@ protected:
   }
   virtual generic_code _generic_code(const status_code<void> &code) const noexcept override  // NOLINT
   {
-    assert(code.domain() == *this);
+    assert(code.domain() == *this);  // NOLINT
     return static_cast<const generic_code &>(code);  // NOLINT
   }
   virtual _base::string_ref _do_message(const status_code<void> &code) const noexcept override  // NOLINT
   {
-    assert(code.domain() == *this);
+    assert(code.domain() == *this);  // NOLINT
     const auto &c = static_cast<const generic_code &>(code);  // NOLINT
     static BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 detail::generic_code_messages msgs;
     return string_ref(msgs[static_cast<int>(c.value())]);
@@ -273,7 +273,7 @@ protected:
 #if defined(_CPPUNWIND) || defined(__EXCEPTIONS) || defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE)
   BOOST_OUTCOME_SYSTEM_ERROR2_NORETURN virtual void _do_throw_exception(const status_code<void> &code) const override  // NOLINT
   {
-    assert(code.domain() == *this);
+    assert(code.domain() == *this);  // NOLINT
     const auto &c = static_cast<const generic_code &>(code);  // NOLINT
     throw status_error<_generic_code_domain>(c);
   }

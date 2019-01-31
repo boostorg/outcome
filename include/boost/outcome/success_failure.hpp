@@ -67,7 +67,7 @@ public:
   BOOST_OUTCOME_TEMPLATE(class U)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(!std::is_same<success_type, std::decay_t<U>>::value))
   constexpr explicit success_type(U &&v)
-      : _value(static_cast<U &&>(v))
+      : _value(static_cast<U &&>(v))  // NOLINT
   {
   }
 
@@ -116,7 +116,7 @@ template <class EC, class E = void> struct failure_type
   using exception_type = E;
 
 private:
-  bool _have_error, _have_exception;
+  bool _have_error{}, _have_exception{};
   //! The error code
   error_type _error;
   //! The exception
@@ -157,7 +157,6 @@ public:
   template <class U>
   constexpr explicit failure_type(in_place_type_t<error_type> /*unused*/, U &&u, error_init_tag /*unused*/ = error_init_tag())
       : _have_error(true)
-      , _have_exception(false)
       , _error(static_cast<U &&>(u))
       , _exception()
   {
@@ -166,8 +165,7 @@ public:
   */
   template <class U>
   constexpr explicit failure_type(in_place_type_t<exception_type> /*unused*/, U &&u, exception_init_tag /*unused*/ = exception_init_tag())
-      : _have_error(false)
-      , _have_exception(true)
+      : _have_exception(true)
       , _error()
       , _exception(static_cast<U &&>(u))
   {
@@ -237,7 +235,7 @@ public:
   BOOST_OUTCOME_TEMPLATE(class U)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(!std::is_same<failure_type, std::decay_t<U>>::value))
   constexpr explicit failure_type(U &&u)
-      : _error(static_cast<U &&>(u))
+      : _error(static_cast<U &&>(u))  // NOLINT
   {
   }
 
@@ -288,7 +286,7 @@ public:
   BOOST_OUTCOME_TEMPLATE(class V)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(!std::is_same<failure_type, std::decay_t<V>>::value))
   constexpr explicit failure_type(V &&v)
-      : _exception(static_cast<V &&>(v))
+      : _exception(static_cast<V &&>(v))  // NOLINT
   {
   }
 
