@@ -1,7 +1,6 @@
 +++
 title = "`in_place_type_t<T>`"
-description = "Either `std::in_place_type_t<T>` or a local emulation, depending on the
-`BOOST_OUTCOME_USE_STD_IN_PLACE_TYPE` macro."
+description = "Either `std::in_place_type_t<T>` or a local emulation, depending on the `BOOST_OUTCOME_USE_STD_IN_PLACE_TYPE` macro."
 +++
 
 Either `std::in_place_type_t<T>` or a local emulation, depending on the
