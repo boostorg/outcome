@@ -37,6 +37,8 @@ DEALINGS IN THE SOFTWARE.
 #include "../detail/trait_std_exception.hpp"
 #include "status_result.hpp"
 
+#include "boost/exception_ptr.hpp"
+
 BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 template <class DomainType> inline std::exception_ptr basic_outcome_failure_exception_from_error(const status_code<DomainType> &sc)
 {
