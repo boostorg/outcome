@@ -9,6 +9,6 @@ A specialisation of `outcome_throw_as_system_error_with_payload()` for types whe
 
 *Requires*: Either {{% api "std::is_error_code_enum<T>" %}} or {{% api "std::is_error_condition_enum<T>" %}} to be true for a decayed `ErrorCodeEnum`.
 
-*Namespace*: `BOOST_OUTCOME_V2_NAMESPACE::policy`
+*Namespace*: `std`
 
 *Header*: `<boost/outcome/std_result.hpp>`
