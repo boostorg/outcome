@@ -146,12 +146,34 @@
 <p>Wide contract rvalue reference observer of the stored error. Constexpr propagating.</p><li>
 	<a href="../reference/types/basic_outcome/error_rvalue_const.html" ><code>const error_type &amp;&amp;error() const &amp;&amp;</code></a>
 <p>Wide contract const rvalue reference observer of the stored error. Constexpr propagating.</p><li>
-	<a href="../reference/types/basic_outcome/equality_basic_result.html" ><code>bool operator==(const basic_outcome&lt;A, B, C, D&gt; &amp;) const</code></a>
+	<a href="../reference/types/basic_outcome/assume_exception_lvalue.html" ><code>exception_type &amp;assume_exception() &amp; noexcept</code></a>
+<p>Narrow contract lvalue reference observer of the stored exception. Constexpr propagating, never throws.</p><li>
+	<a href="../reference/types/basic_outcome/assume_exception_lvalue_const.html" ><code>const exception_type &amp;assume_exception() const &amp; noexcept</code></a>
+<p>Narrow contract const lvalue reference observer of the stored exception. Constexpr propagating, never throws.</p><li>
+	<a href="../reference/types/basic_outcome/assume_exception_rvalue_const.html" ><code>const exception_type &amp;&amp;assume_exception() const &amp;&amp; noexcept</code></a>
+<p>Narrow contract const rvalue reference observer of the stored exception. Constexpr propagating, never throws.</p><li>
+	<a href="../reference/types/basic_outcome/assume_exception_rvalue.html" ><code>exception_type &amp;&amp;assume_exception() &amp;&amp; noexcept</code></a>
+<p>Narrow contract rvalue reference observer of the stored exception. Constexpr propagating, never throws.</p><li>
+	<a href="../reference/types/basic_outcome/exception_lvalue.html" ><code>exception_type &amp;exception() &amp;</code></a>
+<p>Wide contract lvalue reference observer of the stored exception. Constexpr propagating.</p><li>
+	<a href="../reference/types/basic_outcome/exception_lvalue_const.html" ><code>const exception_type &amp;exception() const &amp;</code></a>
+<p>Wide contract const lvalue reference observer of the stored exception. Constexpr propagating.</p><li>
+	<a href="../reference/types/basic_outcome/exception_rvalue.html" ><code>exception_type &amp;&amp;exception() &amp;&amp;</code></a>
+<p>Wide contract rvalue reference observer of the stored exception. Constexpr propagating.</p><li>
+	<a href="../reference/types/basic_outcome/exception_rvalue_const.html" ><code>const exception_type &amp;&amp;exception() const &amp;&amp;</code></a>
+<p>Wide contract const rvalue reference observer of the stored exception. Constexpr propagating.</p><li>
+	<a href="../reference/types/basic_outcome/failure.html" ><code>exception_type failure() const noexcept</code></a>
+<p>Synthesising observer of the stored exception or error. Available if the traits <code>has_error_code&lt;T&gt;</code> and <code>has_exception_ptr&lt;T&gt;</code> are both true. Never throws.</p><li>
+	<a href="../reference/types/basic_outcome/equality_basic_result.html" ><code>bool operator==(const basic_result&lt;A, B, C&gt; &amp;) const</code></a>
+<p>Returns true if this outcome compares equal to the other result. Constexpr and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_outcome/equality_basic_outcome.html" ><code>bool operator==(const basic_outcome&lt;A, B, C, D&gt; &amp;) const</code></a>
 <p>Returns true if this outcome compares equal to the other outcome. Constexpr and noexcept propagating.</p><li>
 	<a href="../reference/types/basic_outcome/inequality_success_type.html" ><code>bool operator==(const success_type&lt;A&gt; &amp;) const</code></a>
 <p>Returns true if this result compares equal to the success type sugar. Constexpr and noexcept propagating.</p><li>
 	<a href="../reference/types/basic_outcome/equality_failure_type.html" ><code>bool operator==(const failure_type&lt;A, B&gt; &amp;) const</code></a>
 <p>Returns true if this outcome compares equal to the failure type sugar. Constexpr and noexcept propagating.</p><li>
+	<a href="../reference/types/basic_outcome/inequality_basic_result.html" ><code>bool operator!=(const basic_result&lt;A, B, C&gt; &amp;) const</code></a>
+<p>Returns true if this outcome does not compare equal to the other result. Constexpr and noexcept propagating.</p><li>
 	<a href="../reference/types/basic_outcome/inequality_basic_outcome.html" ><code>bool operator!=(const basic_outcome&lt;A, B, C, D&gt; &amp;) const</code></a>
 <p>Returns true if this outcome does not compare equal to the other outcome. Constexpr and noexcept propagating.</p><li>
 	<a href="../reference/types/basic_outcome/equality_success_type.html" ><code>bool operator!=(const success_type&lt;A&gt; &amp;) const</code></a>
@@ -160,9 +182,9 @@
 <p>Returns true if this outcome does not compare equal to the failure type sugar. Constexpr and noexcept propagating.</p><li>
 	<a href="../reference/types/basic_outcome/swap.html" ><code>void swap(basic_outcome &amp;)</code></a>
 <p>Swap one basic_outcome with another. Noexcept propagating.</p><li>
-	<a href="../reference/types/basic_outcome/as_failure_lvalue.html" ><code>auto as_failure() const &amp;</code></a>
+	<a href="../reference/types/basic_outcome/as_failure_lvalue.html" ><code>failure_type&lt;error_type, exception_type&gt; as_failure() const &amp;</code></a>
 <p>Return the output from free function <code>failure()</code> containing a copy of any errored and/or excepted state.</p><li>
-	<a href="../reference/types/basic_outcome/as_failure_rvalue.html" ><code>auto as_failure() &amp;&amp;</code></a>
+	<a href="../reference/types/basic_outcome/as_failure_rvalue.html" ><code>failure_type&lt;error_type, exception_type&gt; as_failure() &amp;&amp;</code></a>
 <p>Return the output from free function <code>failure()</code> containing a move of any errored and/or excepted state.</p></li></ol><li>
 	<a href="../reference/types/basic_result.html" ><code>basic_result&lt;T, E, NoValuePolicy&gt;</code></a>
 <p>A sum type carrying either a successful <code>T</code>, or a disappointment <code>E</code>, with <code>NoValuePolicy</code> specifying what to do if one tries to read state which isn&rsquo;t there.</p><ol><li>

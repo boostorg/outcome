@@ -101,13 +101,6 @@
   <dt><span class="section"><a href="./tutorial/hooks/poke_exception.html">Custom exception ptr</a></span></dt>
   <dt><span class="section"><a href="./tutorial/hooks/hook_outcome.html">Hook outcome</a></span></dt>
         </dl></dd>
-  <dt><span class="section"><a href="./tutorial/c-api.html">Using result<T> from C code</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./tutorial/c-api/limitations.html">Limitations</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/c-api/example.html">Example C++ function</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/c-api/example2.html">Calling it from C</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/c-api/variations.html">Variations</a></span></dt>
-        </dl></dd>
   <dt><span class="section"><a href="./tutorial/interop.html">Interoperation</a></span></dt>
         <dd><dl>
   <dt><span class="section"><a href="./tutorial/interop/problem.html">Incommensurate E types</a></span></dt>
@@ -131,6 +124,13 @@
   <dt><span class="section"><a href="./experimental/differences.html">Major differences</a></span></dt>
   <dt><span class="section"><a href="./experimental/status_result.html"><code>status_result</code> and <code>status_outcome</code></a></span></dt>
   <dt><span class="section"><a href="./experimental/erased_status_result.html"><code>erased_status_result</code> and <code>erased_status_outcome</code></a></span></dt>
+  <dt><span class="section"><a href="./experimental/c-api.html">Using Outcome from C code</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./experimental/c-api/limitations.html">Limitations</a></span></dt>
+  <dt><span class="section"><a href="./experimental/c-api/example.html">Example C++ function</a></span></dt>
+  <dt><span class="section"><a href="./experimental/c-api/example2.html">Calling it from C</a></span></dt>
+  <dt><span class="section"><a href="./experimental/c-api/variations.html">Variations</a></span></dt>
+        </dl></dd>
   <dt><span class="section"><a href="./experimental/c_macros.html">C macro API</a></span></dt>
   <dt><span class="section"><a href="./experimental/worked-example.html">Worked example: Custom domain</a></span></dt>
         <dd><dl>
@@ -187,7 +187,9 @@
         <dd><dl>
   <dt><span class="section"><a href="./reference/policies/base.html"><code>base</code></a></span></dt>
   <dt><span class="section"><a href="./reference/policies/all_narrow.html"><code>all_narrow</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/policies/error_code_throw_as_system_error_outcome.html"><code>error_code_throw_as_system_error&lt;T, EC, EP&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/policies/error_code_throw_as_system_error_result.html"><code>error_code_throw_as_system_error&lt;T, EC, void&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/policies/exception_ptr_rethrow_outcome.html"><code>exception_ptr_rethrow&lt;T, EC, EP&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/policies/exception_ptr_rethrow_result.html"><code>exception_ptr_rethrow&lt;T, EC, void&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/policies/fail_to_compile_observers.html"><code>fail_to_compile_observers</code></a></span></dt>
   <dt><span class="section"><a href="./reference/policies/terminate.html"><code>terminate</code></a></span></dt>
@@ -207,12 +209,15 @@
   <dt><span class="section"><a href="./reference/aliases.html">Aliases</a></span></dt>
         <dd><dl>
   <dt><span class="section"><a href="./reference/aliases/boost_checked.html"><code>boost_checked&lt;T, E = boost::system::error_code&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/aliases/boost_outcome.html"><code>boost_outcome&lt;T, EC = boost::system::error_code, EP = boost::exception_ptr, NoValuePolicy = policy::default_policy&lt;T, EC, EP&gt;&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/aliases/boost_result.html"><code>boost_result&lt;T, E = boost::system::error_code, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/aliases/boost_unchecked.html"><code>boost_unchecked&lt;T, E = boost::system::error_code&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/aliases/checked.html"><code>checked&lt;T, E = varies&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/aliases/default_policy.html"><code>default_policy&lt;T, EC, EP&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/aliases/outcome.html"><code>outcome&lt;T, EC = varies, EP = varies, NoValuePolicy = policy::default_policy&lt;T, EC, EP&gt;&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/aliases/result.html"><code>result&lt;T, E = varies, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/aliases/std_checked.html"><code>std_checked&lt;T, E = std::error_code&gt;</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/aliases/std_outcome.html"><code>std_outcome&lt;T, EC = std::error_code, EP = std::exception_ptr, NoValuePolicy = policy::default_policy&lt;T, EC, EP&gt;&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/aliases/std_result.html"><code>std_result&lt;T, E = std::error_code, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/aliases/std_unchecked.html"><code>std_unchecked&lt;T, E = std::error_code&gt;</code></a></span></dt>
   <dt><span class="section"><a href="./reference/aliases/unchecked.html"><code>unchecked&lt;T, E = varies&gt;</code></a></span></dt>
@@ -224,7 +229,9 @@
   <dt><span class="section"><a href="./reference/functions/failure.html"><code>auto failure(T &amp;&amp;, ...)</code></a></span></dt>
   <dt><span class="section"><a href="./reference/functions/success.html"><code>auto success(T &amp;&amp;)</code></a></span></dt>
   <dt><span class="section"><a href="./reference/functions/try_operation_return_as_t.html"><code>auto try_operation_return_as(T &amp;&amp;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/functions/error_from_exception.html"><code>std::error_code error_from_exception(std::exception_ptr &amp;&amp;ep = std::current_exception(), std::error_code not_matched = std::make_error_code(std::errc::resource_unavailable_try_again)) noexcept</code></a></span></dt>
   <dt><span class="section"><a href="./reference/functions/try_operation_return_as_expected.html"><code>std::experimental::unexpected&lt;E&gt; try_operation_return_as(std::experimental::expected&lt;T, E&gt;)</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/functions/try_throw_std_exception_from_error.html"><code>void try_throw_std_exception_from_error(std::error_code ec, const std::string &amp;msg = std::string{})</code></a></span></dt>
         </dl></dd>
         </dl></dd>
   <dt><span class="section"><a href="./faq.html">Frequently asked questions</a></span></dt>

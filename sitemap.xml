@@ -58,8 +58,8 @@
   </url>
   
   <url>
-    <loc>/tutorial/c-api/limitations.html</loc>
-    <lastmod>2017-12-14T18:57:08+00:00</lastmod>
+    <loc>/experimental/c-api/limitations.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
@@ -128,8 +128,8 @@
   </url>
   
   <url>
-    <loc>/tutorial/c-api/example.html</loc>
-    <lastmod>2017-10-20T18:57:40+01:00</lastmod>
+    <loc>/experimental/c-api/example.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
@@ -188,8 +188,8 @@
   </url>
   
   <url>
-    <loc>/tutorial/c-api/example2.html</loc>
-    <lastmod>2017-10-20T02:06:07+01:00</lastmod>
+    <loc>/experimental/c-api/example2.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
@@ -288,8 +288,8 @@
   </url>
   
   <url>
-    <loc>/tutorial/c-api/variations.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <loc>/experimental/c-api/variations.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
@@ -353,6 +353,11 @@
   </url>
   
   <url>
+    <loc>/experimental/c-api.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tutorial/constructors/metaprogrammg2.html</loc>
     <lastmod>2017-10-24T15:42:27+01:00</lastmod>
   </url>
@@ -390,11 +395,6 @@
   <url>
     <loc>/experimental/worked-example/implicit_conversion.html</loc>
     <lastmod>2019-01-26T23:38:56+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tutorial/c-api.html</loc>
-    <lastmod>2017-10-20T02:06:07+01:00</lastmod>
   </url>
   
   <url>
@@ -988,13 +988,63 @@
   </url>
   
   <url>
+    <loc>/reference/types/basic_outcome/assume_exception_lvalue.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/assume_exception_lvalue_const.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/assume_exception_rvalue_const.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/assume_exception_rvalue.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/exception_lvalue.html</loc>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/exception_lvalue_const.html</loc>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/exception_rvalue.html</loc>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/exception_rvalue_const.html</loc>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/failure.html</loc>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/basic_outcome/equality_basic_result.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/equality_basic_result.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/equality_basic_outcome.html</loc>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
   </url>
   
   <url>
@@ -1019,12 +1069,17 @@
   
   <url>
     <loc>/reference/types/basic_result/inequality_basic_result.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/inequality_basic_result.html</loc>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/inequality_basic_outcome.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
   </url>
   
   <url>
@@ -1058,23 +1113,23 @@
   </url>
   
   <url>
-    <loc>/reference/types/basic_outcome/as_failure_lvalue.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/reference/types/basic_result/as_failure_lvalue.html</loc>
     <lastmod>2019-01-24T01:15:16+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/reference/types/basic_outcome/as_failure_rvalue.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <loc>/reference/types/basic_outcome/as_failure_lvalue.html</loc>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/as_failure_rvalue.html</loc>
     <lastmod>2019-01-24T01:15:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/as_failure_rvalue.html</loc>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
   </url>
   
   <url>
@@ -1417,13 +1472,18 @@
   </url>
   
   <url>
+    <loc>/reference/functions/policy/basic_outcome_failure_exception_from_error.html</loc>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/functions/failure.html</loc>
-    <lastmod>2019-01-24T01:15:16+00:00</lastmod>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/functions/success.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
@@ -1453,7 +1513,7 @@
   
   <url>
     <loc>/reference/types/basic_outcome.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
@@ -1464,6 +1524,11 @@
   <url>
     <loc>/reference/aliases/boost_checked.html</loc>
     <lastmod>2019-01-24T01:15:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aliases/boost_outcome.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
@@ -1492,13 +1557,23 @@
   </url>
   
   <url>
+    <loc>/reference/policies/error_code_throw_as_system_error_outcome.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/policies/error_code_throw_as_system_error_result.html</loc>
-    <lastmod>2019-01-23T01:27:31+00:00</lastmod>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/exception_ptr_rethrow_outcome.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/policies/exception_ptr_rethrow_result.html</loc>
-    <lastmod>2019-01-23T01:27:31+00:00</lastmod>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
@@ -1557,8 +1632,18 @@
   </url>
   
   <url>
+    <loc>/reference/aliases/outcome.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/aliases/result.html</loc>
     <lastmod>2019-01-24T01:15:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/error_from_exception.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
@@ -1569,6 +1654,11 @@
   <url>
     <loc>/reference/aliases/std_checked.html</loc>
     <lastmod>2019-01-23T01:27:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/aliases/std_outcome.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
@@ -1627,8 +1717,18 @@
   </url>
   
   <url>
+    <loc>/reference/functions/hooks/hook_outcome_construction2.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/functions/hooks/hook_outcome_copy_construction.html</loc>
     <lastmod>2019-01-30T16:16:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/hooks/hook_outcome_copy_construction2.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
@@ -1639,6 +1739,11 @@
   <url>
     <loc>/reference/functions/hooks/hook_outcome_move_construction.html</loc>
     <lastmod>2019-01-30T16:16:10+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/hooks/hook_outcome_move_construction2.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
   <url>
@@ -1663,12 +1768,12 @@
   
   <url>
     <loc>/reference/functions/policy/outcome_throw_as_system_error_with_payload_boost_enum.html</loc>
-    <lastmod>2019-01-24T01:15:16+00:00</lastmod>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/functions/policy/outcome_throw_as_system_error_with_payload_std_enum.html</loc>
-    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
   </url>
   
   <url>
@@ -1678,7 +1783,7 @@
   
   <url>
     <loc>/reference/functions/policy/outcome_throw_as_system_error_with_payload_std_error_code.html</loc>
-    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
   </url>
   
   <url>
@@ -1689,6 +1794,11 @@
   <url>
     <loc>/reference/functions/hooks/set_spare_storage.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/try_throw_std_exception_from_error.html</loc>
+    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
   </url>
   
 </urlset>

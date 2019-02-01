@@ -265,14 +265,19 @@ from <code>Args...</code>.</li>
 <li><code>TrivialType</code>, if all of <code>value_type</code>, <code>error_type</code> and <code>exception_type</code> are trivial types.</li>
 <li><code>LiteralType</code>, if all of <code>value_type</code>, <code>error_type</code> and <code>exception_type</code> are literal types.</li>
 
-<li><p><code>StandardLayoutType</code>, if all of <code>value_type</code>, <code>error_type</code> and <code>exception_type</code> are standard layout types. If so, layout of <code>basic_outcome</code> in C is guaranteed to be:</p>
+<li><p><del><code>StandardLayoutType</code></del>. It is implementation defined if <code>basic_outcome</code> can be used by C.
+However all of the three major compilers MSVC, GCC and clang implement C layout of <code>basic_outcome</code> as follows:</p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">struct</span> <span class="n">outcome_layout</span> <span class="p">{</span>
-  <span class="n">value_type</span> <span class="n">value</span><span class="p">;</span>
-  <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">;</span>
-  <span class="n">error_type</span> <span class="n">error</span><span class="p">;</span>
+  <span class="k">struct</span> <span class="n">result_layout</span> <span class="p">{</span>
+    <span class="n">value_type</span> <span class="n">value</span><span class="p">;</span>
+    <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">flags</span><span class="p">;</span>
+    <span class="n">error_type</span> <span class="n">error</span><span class="p">;</span>
+  <span class="p">};</span>
   <span class="n">exception_type</span> <span class="n">exception</span><span class="p">;</span>
 <span class="p">};</span>
-</code></pre></div></li>
+</code></pre></div>
+<p>If you choose standard layout <code>value_type</code>, <code>error_type</code> and <code>exception_type</code>, <code>basic_outcome</code>
+works fine from C on MSVC, GCC and clang.</p></li>
 
 <li><p><code>EqualityComparable</code>, if all of <code>value_type</code>, <code>error_type</code> and <code>exception_type</code> implement equality comparisons with one another.</p></li>
 
@@ -418,7 +423,25 @@ from <code>Args...</code>.</li>
 <p>Wide contract rvalue reference observer of the stored error. Constexpr propagating.</p><li>
     <a href="../../reference/types/basic_outcome/error_rvalue_const.html" ><code>const error_type &amp;&amp;error() const &amp;&amp;</code></a>
 <p>Wide contract const rvalue reference observer of the stored error. Constexpr propagating.</p><li>
-    <a href="../../reference/types/basic_outcome/as_failure_lvalue.html" ><code>auto as_failure() const &amp;</code></a>
+    <a href="../../reference/types/basic_outcome/assume_exception_lvalue.html" ><code>exception_type &amp;assume_exception() &amp; noexcept</code></a>
+<p>Narrow contract lvalue reference observer of the stored exception. Constexpr propagating, never throws.</p><li>
+    <a href="../../reference/types/basic_outcome/assume_exception_lvalue_const.html" ><code>const exception_type &amp;assume_exception() const &amp; noexcept</code></a>
+<p>Narrow contract const lvalue reference observer of the stored exception. Constexpr propagating, never throws.</p><li>
+    <a href="../../reference/types/basic_outcome/assume_exception_rvalue_const.html" ><code>const exception_type &amp;&amp;assume_exception() const &amp;&amp; noexcept</code></a>
+<p>Narrow contract const rvalue reference observer of the stored exception. Constexpr propagating, never throws.</p><li>
+    <a href="../../reference/types/basic_outcome/assume_exception_rvalue.html" ><code>exception_type &amp;&amp;assume_exception() &amp;&amp; noexcept</code></a>
+<p>Narrow contract rvalue reference observer of the stored exception. Constexpr propagating, never throws.</p><li>
+    <a href="../../reference/types/basic_outcome/exception_lvalue.html" ><code>exception_type &amp;exception() &amp;</code></a>
+<p>Wide contract lvalue reference observer of the stored exception. Constexpr propagating.</p><li>
+    <a href="../../reference/types/basic_outcome/exception_lvalue_const.html" ><code>const exception_type &amp;exception() const &amp;</code></a>
+<p>Wide contract const lvalue reference observer of the stored exception. Constexpr propagating.</p><li>
+    <a href="../../reference/types/basic_outcome/exception_rvalue.html" ><code>exception_type &amp;&amp;exception() &amp;&amp;</code></a>
+<p>Wide contract rvalue reference observer of the stored exception. Constexpr propagating.</p><li>
+    <a href="../../reference/types/basic_outcome/exception_rvalue_const.html" ><code>const exception_type &amp;&amp;exception() const &amp;&amp;</code></a>
+<p>Wide contract const rvalue reference observer of the stored exception. Constexpr propagating.</p><li>
+    <a href="../../reference/types/basic_outcome/failure.html" ><code>exception_type failure() const noexcept</code></a>
+<p>Synthesising observer of the stored exception or error. Available if the traits <code>has_error_code&lt;T&gt;</code> and <code>has_exception_ptr&lt;T&gt;</code> are both true. Never throws.</p><li>
+    <a href="../../reference/types/basic_outcome/as_failure_lvalue.html" ><code>failure_type&lt;error_type, exception_type&gt; as_failure() const &amp;</code></a>
 <p>Return the output from free function <code>failure()</code> containing a copy of any errored and/or excepted state.</p></li></ol>
 
 <h4 id="modifiers">Modifiers</h4>
@@ -426,7 +449,7 @@ from <code>Args...</code>.</li>
 <ol class="children children-li"><li>
     <a href="../../reference/types/basic_outcome/swap.html" ><code>void swap(basic_outcome &amp;)</code></a>
 <p>Swap one basic_outcome with another. Noexcept propagating.</p><li>
-    <a href="../../reference/types/basic_outcome/as_failure_rvalue.html" ><code>auto as_failure() &amp;&amp;</code></a>
+    <a href="../../reference/types/basic_outcome/as_failure_rvalue.html" ><code>failure_type&lt;error_type, exception_type&gt; as_failure() &amp;&amp;</code></a>
 <p>Return the output from free function <code>failure()</code> containing a move of any errored and/or excepted state.</p></li></ol>
 
 <h4 id="comparisons">Comparisons</h4>
@@ -434,12 +457,16 @@ from <code>Args...</code>.</li>
 <p>See above for why <code>LessThanComparable</code> is not implemented.</p>
 
 <ol class="children children-li"><li>
-    <a href="../../reference/types/basic_outcome/equality_basic_result.html" ><code>bool operator==(const basic_outcome&lt;A, B, C, D&gt; &amp;) const</code></a>
+    <a href="../../reference/types/basic_outcome/equality_basic_result.html" ><code>bool operator==(const basic_result&lt;A, B, C&gt; &amp;) const</code></a>
+<p>Returns true if this outcome compares equal to the other result. Constexpr and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_outcome/equality_basic_outcome.html" ><code>bool operator==(const basic_outcome&lt;A, B, C, D&gt; &amp;) const</code></a>
 <p>Returns true if this outcome compares equal to the other outcome. Constexpr and noexcept propagating.</p><li>
     <a href="../../reference/types/basic_outcome/inequality_success_type.html" ><code>bool operator==(const success_type&lt;A&gt; &amp;) const</code></a>
 <p>Returns true if this result compares equal to the success type sugar. Constexpr and noexcept propagating.</p><li>
     <a href="../../reference/types/basic_outcome/equality_failure_type.html" ><code>bool operator==(const failure_type&lt;A, B&gt; &amp;) const</code></a>
 <p>Returns true if this outcome compares equal to the failure type sugar. Constexpr and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_outcome/inequality_basic_result.html" ><code>bool operator!=(const basic_result&lt;A, B, C&gt; &amp;) const</code></a>
+<p>Returns true if this outcome does not compare equal to the other result. Constexpr and noexcept propagating.</p><li>
     <a href="../../reference/types/basic_outcome/inequality_basic_outcome.html" ><code>bool operator!=(const basic_outcome&lt;A, B, C, D&gt; &amp;) const</code></a>
 <p>Returns true if this outcome does not compare equal to the other outcome. Constexpr and noexcept propagating.</p><li>
     <a href="../../reference/types/basic_outcome/equality_success_type.html" ><code>bool operator!=(const success_type&lt;A&gt; &amp;) const</code></a>
@@ -453,7 +480,7 @@ from <code>Args...</code>.</li>
 
 
 
-        </div><p><small>Last revised: January 31, 2019 at 01:07:35 UTC</small></p>
+        </div><p><small>Last revised: February 01, 2019 at 23:42:52 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../reference/types.html"><img src="../../images/prev.png" alt="Prev"></a>

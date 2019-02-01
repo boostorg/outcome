@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Calling it from C - Boost.Outcome documentation</title>
+<link rel="stylesheet" href="../../css/boost.css" type="text/css">
+<meta name="generator" content="Hugo 0.52 with Boostdoc theme">
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+
+<link rel="icon" href="../../images/favicon.ico" type="image/ico"/>
+<body><div id="boost-common-heading-doc" style="background: #574D74 url('../../images/header-bg.png') repeat-x top left;">
+  <div class="heading-inner" style="background: url('../../images/header-fg.png') no-repeat top left;">
+  <div class="heading-placard"></div>
+
+  <h1 class="heading-title">
+    <a href="../../">
+      <img src="../../images/space.png" alt="Boost C++ Libraries" class="heading-logo" />
+      <span class="heading-boost">Boost</span>
+      <span class="heading-cpplibraries">C++ Libraries</span>
+    </a>
+  </h1>
+
+  <p class="heading-quote">
+    <q>...one of the most highly
+    regarded and expertly designed C++ library projects in the
+    world.</q> <span class="heading-attribution">&mdash; <a href=
+    "http://www.gotw.ca/" class="external">Herb Sutter</a> and <a href=
+    "http://en.wikipedia.org/wiki/Andrei_Alexandrescu" class="external">Andrei
+    Alexandrescu</a>, <a href=
+    "http://safari.awprofessional.com/?XmlId=0321113586" class="external">C++
+    Coding Standards</a></span></p>
+  </div>
+</div>
+<div id="boost-common-heading-doc-spacer"></div><div class="spirit-nav">
+<a accesskey="p" href="../../experimental/c-api/example.html"><img src="../../images/prev.png" alt="Prev"></a>
+    <a accesskey="u" href="../../experimental/c-api.html"><img src="../../images/up.png" alt="Up"></a>
+    <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../experimental/c-api/variations.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
+  <div class="titlepage"><div><div><h1 style="clear: both">Calling it from C</h1></div></div></div>
+  <p>Now let us call our <code>result</code> returning C++ function from C:</p>
+
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++">
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/c_api.c#L101" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+
+
+<p>Running this C program yields:</p>
+
+<pre><code>to_string(9) fills buffer with '9' of 1 characters
+to_string(99) fills buffer with '99' of 2 characters
+to_string(999) fills buffer with '999' of 3 characters
+to_string(9999) failed with error code 105 (No buffer space available)
+</code></pre>
+
+
+        </div><p><small>Last revised: February 01, 2019 at 23:42:52 UTC</small></p>
+<hr>
+<div class="spirit-nav">
+<a accesskey="p" href="../../experimental/c-api/example.html"><img src="../../images/prev.png" alt="Prev"></a>
+    <a accesskey="u" href="../../experimental/c-api.html"><img src="../../images/up.png" alt="Up"></a>
+    <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../experimental/c-api/variations.html"><img src="../../images/next.png" alt="Next"></a></div></body>
+</html>

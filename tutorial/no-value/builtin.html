@@ -48,9 +48,7 @@ better bug detection or optimizations.</p>
 <p>Observation of a missing value/error/exception causes the call to
 <code>std::terminate()</code>.</p>
 
-
-    
-    <b>API NOT FOUND IN DOCS <code>error_code_throw_as_system_error&lt;T, EC, EP&gt;</code></b>
+<a href="../../reference/policies/error_code_throw_as_system_error_outcome.html" class="api-reference">error_code_throw_as_system_error&lt;T, EC, EP&gt;</a>
 
 <p>This policy assumes that <code>EC</code> has the interface of <code>std::error_code</code>,
 and <code>EP</code> has the interface of <code>std::exception_ptr</code>. Upon missing value
@@ -71,9 +69,7 @@ and then thrown as <code>system_error</code>.</li>
 
 <p>Upon missing exception observation throws <code>bad_outcome_access(&quot;no exception&quot;)</code>.</p>
 
-
-    
-    <b>API NOT FOUND IN DOCS <code>exception_ptr_rethrow&lt;T, EC, EP&gt;</code></b>
+<a href="../../reference/policies/exception_ptr_rethrow_outcome.html" class="api-reference">exception_ptr_rethrow&lt;T, EC, EP&gt;</a>
 
 <p>This policy assumes that both <code>EC</code> and <code>EP</code> (unless <code>void</code>) has the interface of <code>std::exception_ptr</code>. Upon missing value observation:</p>
 

@@ -42,11 +42,17 @@
 <p>Returns the sixteen bits of spare storage in the specified result or outcome.</p><li>
 	<a href="../reference/functions/hooks/hook_outcome_construction.html" ><code>void hook_outcome_construction(T *, U &amp;&amp;) noexcept</code></a>
 <p>ADL discovered free function hook invoked by the implicit constructors of <code>basic_outcome</code>.</p><li>
+	<a href="../reference/functions/hooks/hook_outcome_construction2.html" ><code>void hook_outcome_construction(T *, U &amp;&amp;, V &amp;&amp;) noexcept</code></a>
+<p>ADL discovered free function hook invoked by the implicit constructors of <code>basic_outcome</code>.</p><li>
 	<a href="../reference/functions/hooks/hook_outcome_copy_construction.html" ><code>void hook_outcome_copy_construction(T *, U &amp;&amp;) noexcept</code></a>
+<p>ADL discovered free function hook invoked by the converting copy constructors of <code>basic_outcome</code>.</p><li>
+	<a href="../reference/functions/hooks/hook_outcome_copy_construction2.html" ><code>void hook_outcome_copy_construction(T *, U &amp;&amp;, V &amp;&amp;) noexcept</code></a>
 <p>ADL discovered free function hook invoked by the converting copy constructors of <code>basic_outcome</code>.</p><li>
 	<a href="../reference/functions/hooks/hook_outcome_in_place_construction.html" ><code>void hook_outcome_in_place_construction(T *, in_place_type_t&lt;U&gt;, Args &amp;&amp;...) noexcept</code></a>
 <p>ADL discovered free function hook invoked by the in-place constructors of <code>basic_outcome</code>.</p><li>
 	<a href="../reference/functions/hooks/hook_outcome_move_construction.html" ><code>void hook_outcome_move_construction(T *, U &amp;&amp;) noexcept</code></a>
+<p>ADL discovered free function hook invoked by the converting move constructors of <code>basic_outcome</code>.</p><li>
+	<a href="../reference/functions/hooks/hook_outcome_move_construction2.html" ><code>void hook_outcome_move_construction(T *, U &amp;&amp;, V &amp;&amp;) noexcept</code></a>
 <p>ADL discovered free function hook invoked by the converting move constructors of <code>basic_outcome</code>.</p><li>
 	<a href="../reference/functions/hooks/hook_result_construction.html" ><code>void hook_result_construction(T *, U &amp;&amp;) noexcept</code></a>
 <p>ADL discovered free function hook invoked by the implicit constructors of <code>basic_result</code>.</p><li>
@@ -62,6 +68,8 @@
 <p>Sets the sixteen bits of spare storage in the specified result or outcome.</p></li></ol><li>
 	<a href="../reference/functions/policy.html" >Policy</a>
 <p>Functions used to customise how the policy classes operate.</p><ol><li>
+	<a href="../reference/functions/policy/basic_outcome_failure_exception_from_error.html" ><code>auto basic_outcome_failure_exception_from_error(const EC &amp;)</code></a>
+<p>.</p><li>
 	<a href="../reference/functions/policy/exception_ptr.html" ><code>decltype(auto) exception_ptr(T &amp;&amp;)</code></a>
 <p>Extracts a <code>boost::exception_ptr</code> or <code>std::exception_ptr</code> from the input via ADL discovery of a suitable <code>make_exception_ptr(T)</code> function.</p><li>
 	<a href="../reference/functions/policy/outcome_throw_as_system_error_with_payload_boost_enum.html" ><code>void outcome_throw_as_system_error_with_payload(BoostErrorCodeEnum &amp;&amp;)</code></a>
@@ -78,8 +86,12 @@
 <p>Returns appropriate type sugar for constructing a successful result or outcome.</p><li>
 	<a href="../reference/functions/try_operation_return_as_t.html" ><code>auto try_operation_return_as(T &amp;&amp;)</code></a>
 <p>Implementation of <code>try_operation_return_as(expr)</code> ADL customisation point for <code>basic_result</code> and <code>basic_outcome</code>.</p><li>
+	<a href="../reference/functions/error_from_exception.html" ><code>std::error_code error_from_exception(std::exception_ptr &amp;&amp;ep = std::current_exception(), std::error_code not_matched = std::make_error_code(std::errc::resource_unavailable_try_again)) noexcept</code></a>
+<p>Returns an error code matching a thrown standard library exception.</p><li>
 	<a href="../reference/functions/try_operation_return_as_expected.html" ><code>std::experimental::unexpected&lt;E&gt; try_operation_return_as(std::experimental::expected&lt;T, E&gt;)</code></a>
-<p>Implementation of <code>try_operation_return_as(expr)</code> ADL customisation point for <code>expected&lt;T, E&gt;</code>.</p></li></ol>
+<p>Implementation of <code>try_operation_return_as(expr)</code> ADL customisation point for <code>expected&lt;T, E&gt;</code>.</p><li>
+	<a href="../reference/functions/try_throw_std_exception_from_error.html" ><code>void try_throw_std_exception_from_error(std::error_code ec, const std::string &amp;msg = std::string{})</code></a>
+<p>Try to throw a standard library exception type matching an error code.</p></li></ol>
 
 
 

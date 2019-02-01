@@ -37,9 +37,7 @@
   <p><code>status_result</code> and <code>status_outcome</code> are type aliases to <a href="../reference/types/basic_result.html" class="api-reference">basic_result&lt;T, E, NoValuePolicy&gt;</a>
 and <a href="../reference/types/basic_outcome.html" class="api-reference">basic_outcome&lt;T, EC, EP, NoValuePolicy&gt;</a>, just the same as
 <a href="../reference/aliases/std_result.html" class="api-reference">std_result&lt;T, E = std::error_code, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</a>
-and 
-    
-    <b>API NOT FOUND IN DOCS <code>std_outcome&lt;T, EC = std::error_code, EP = std::exception_ptr, NoValuePolicy = policy::default_policy&lt;T, EC, EP&gt;&gt;</code></b>.</p>
+and <a href="../reference/aliases/std_outcome.html" class="api-reference">std_outcome&lt;T, EC = std::error_code, EP = std::exception_ptr, NoValuePolicy = policy::default_policy&lt;T, EC, EP&gt;&gt;</a>.</p>
 
 <p>There is however a slight difference in template parameters because the
 payload of <code>status_code&lt;DomainType&gt;</code> is determined by <code>DomainType</code>, so
