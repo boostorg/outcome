@@ -37,29 +37,27 @@ DEALINGS IN THE SOFTWARE.
 #include "../detail/trait_std_exception.hpp"
 #include "status_result.hpp"
 
-BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
+#include "boost/exception_ptr.hpp"
 
-namespace detail
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
+template <class DomainType> inline std::exception_ptr basic_outcome_failure_exception_from_error(const status_code<DomainType> &sc)
 {
-  namespace adl
-  {
-    template <class DomainType> inline std::exception_ptr basic_outcome_failure_exception_from_error(const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<DomainType> &sc, search_detail_adl /*unused*/)
-    {
-      (void) sc;
+  (void) sc;
 #ifndef BOOST_NO_EXCEPTIONS
-      try
-      {
-        sc.throw_exception();
-      }
-      catch(...)
-      {
-        return std::current_exception();
-      }
+  try
+  {
+    sc.throw_exception();
+  }
+  catch(...)
+  {
+    return std::current_exception();
+  }
 #endif
-      return {};
-    }
-  }  // namespace adl
-}  // namespace detail
+  return {};
+}
+BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
+
+BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
 //! Namespace for traits
 namespace trait

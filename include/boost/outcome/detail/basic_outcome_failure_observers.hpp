@@ -42,12 +42,19 @@ namespace detail
     struct search_detail_adl
     {
     };
+    BOOST_OUTCOME_TEMPLATE(class S)                                                                        //
+    BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(basic_outcome_failure_exception_from_error(std::declval<S>())))  //
+    inline auto _delayed_lookup_basic_outcome_failure_exception_from_error(const S &ec, search_detail_adl /*unused*/)
+    {
+      // ADL discovered
+      return basic_outcome_failure_exception_from_error(ec);
+    }
   }
 #if defined(_MSC_VER) && _MSC_VER < 1920
   // VS2017 with /permissive- chokes on the correct form due to over eager early instantiation.
-  template <class S, class P> inline void basic_outcome_failure_exception_from_error(...) { static_assert(sizeof(S) == 0, "No specialisation for these error and exception types available!"); }
+  template <class S, class P> inline void _delayed_lookup_basic_outcome_failure_exception_from_error(...) { static_assert(sizeof(S) == 0, "No specialisation for these error and exception types available!"); }
 #else
-  template <class S, class P> inline void basic_outcome_failure_exception_from_error(...) = delete;  // NOLINT No specialisation for these error and exception types available!
+  template <class S, class P> inline void _delayed_lookup_basic_outcome_failure_exception_from_error(...) = delete;  // NOLINT No specialisation for these error and exception types available!
 #endif
 
   //! The failure observers implementation of `basic_outcome<R, S, P>`.
@@ -65,15 +72,26 @@ namespace detail
     */
     exception_type failure() const noexcept
     {
-      if((this->_state._status & detail::status_have_exception) != 0)
+#ifndef BOOST_NO_EXCEPTIONS
+      try
+#endif
       {
-        return this->exception();
+        if((this->_state._status & detail::status_have_exception) != 0)
+        {
+          return this->assume_exception();
+        }
+        if((this->_state._status & detail::status_have_error) != 0)
+        {
+          return _delayed_lookup_basic_outcome_failure_exception_from_error(this->assume_error(), adl::search_detail_adl());
+        }
+        return exception_type();
       }
-      if((this->_state._status & detail::status_have_error) != 0)
+#ifndef BOOST_NO_EXCEPTIONS
+      catch(...)
       {
-        return basic_outcome_failure_exception_from_error(this->error(), adl::search_detail_adl());
+        return std::current_exception();
       }
-      return exception_type();
+#endif
     }
   };
 
