@@ -41,8 +41,6 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome, "Tests that the outcome works as int
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
 
-  static_assert(trait::has_exception_ptr<boost::exception_ptr>::value, "Trait for detecting exception_ptr is broken");
-
   static_assert(std::is_constructible<outcome<long>, int>::value, "Sanity check that monad can be constructed from a value_type");
   static_assert(!std::is_constructible<outcome<outcome<long>>, int>::value, "Sanity check that outer monad can be constructed from an inner monad's value_type");
   static_assert(!std::is_constructible<outcome<outcome<outcome<long>>>, int>::value, "Sanity check that outer monad can be constructed from an inner inner monad's value_type");

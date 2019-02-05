@@ -9,7 +9,10 @@ The main advantages of choosing `<boost/outcome/experimental>` over default Outc
 
 2. Build time impact is markedly lower, barely above the inclusion of naked
 `<basic_result.hpp>`, as the STL allocator machinery and `std::string` et al
-is not dragged into inclusion by including `<system_error>`.
+is not dragged into inclusion by including `<system_error>`. Note that
+`<boost/outcome/experimental/status_outcome.hpp>` bring in `<exception>`,
+however `<boost/outcome/experimental/status_result.hpp>` brings in no extra system
+headers.
 
 3. More discipline is imposed on your use of Outcome, leading to
 less ambiguous code which is easier to optimise by the compiler,
