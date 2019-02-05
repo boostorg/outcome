@@ -163,7 +163,7 @@
 	<a href="../reference/types/basic_outcome/exception_rvalue_const.html" ><code>const exception_type &amp;&amp;exception() const &amp;&amp;</code></a>
 <p>Wide contract const rvalue reference observer of the stored exception. Constexpr propagating.</p><li>
 	<a href="../reference/types/basic_outcome/failure.html" ><code>exception_type failure() const noexcept</code></a>
-<p>Synthesising observer of the stored exception or error. Available if the traits <code>has_error_code&lt;T&gt;</code> and <code>has_exception_ptr&lt;T&gt;</code> are both true. Never throws.</p><li>
+<p>Synthesising observer of the stored exception or error. Available if the traits <code>is_error_code_available&lt;T&gt;</code> and <code>is_exception_ptr_available&lt;T&gt;</code> are both true. Never throws.</p><li>
 	<a href="../reference/types/basic_outcome/equality_basic_result.html" ><code>bool operator==(const basic_result&lt;A, B, C&gt; &amp;) const</code></a>
 <p>Returns true if this outcome compares equal to the other result. Constexpr and noexcept propagating.</p><li>
 	<a href="../reference/types/basic_outcome/equality_basic_outcome.html" ><code>bool operator==(const basic_outcome&lt;A, B, C, D&gt; &amp;) const</code></a>
