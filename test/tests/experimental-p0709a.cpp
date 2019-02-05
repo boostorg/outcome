@@ -6,7 +6,7 @@
 // status_code<erased<intptr_t>>
 using error = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::error;
 // Outcome's result must be told when it is dealing with an erased status code
-template <class T, class E> using result = BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_result<T, E, BOOST_OUTCOME_V2_NAMESPACE::policy::all_narrow>;
+template <class T, class E> using result = BOOST_OUTCOME_V2_NAMESPACE::experimental::status_result<T, E, BOOST_OUTCOME_V2_NAMESPACE::policy::all_narrow>;
 
 enum class arithmetic_errc
 {

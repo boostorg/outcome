@@ -29,7 +29,7 @@ DEALINGS IN THE SOFTWARE.
 
 #include "../../include/boost/outcome/experimental/status_result.hpp"
 
-template <class T, class S = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code, class NoValuePolicy = BOOST_OUTCOME_V2_NAMESPACE::experimental::policy::default_status_result_policy<T, S>> using result = BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_result<T, S, NoValuePolicy>;
+template <class T, class S = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code, class NoValuePolicy = BOOST_OUTCOME_V2_NAMESPACE::experimental::policy::default_status_result_policy<T, S>> using result = BOOST_OUTCOME_V2_NAMESPACE::experimental::status_result<T, S, NoValuePolicy>;
 using BOOST_OUTCOME_V2_NAMESPACE::in_place_type;
 
 #include <boost/test/unit_test.hpp>

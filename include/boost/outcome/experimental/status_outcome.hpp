@@ -72,6 +72,14 @@ namespace trait
     {
       static constexpr bool value = true;
     };
+    template <class DomainType> struct has_error_code<BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errored_status_code<DomainType>, void>
+    {
+      static constexpr bool value = true;
+    };
+    template <class T, class DomainType> struct has_error_code<T, BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errored_status_code<DomainType>>
+    {
+      static constexpr bool value = true;
+    };
   }  // namespace detail
 #if 0
   template <class DomainType> struct is_error_type<BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<DomainType>>
@@ -111,12 +119,7 @@ namespace experimental
   /*! TODO
   */
   template <class R, class S = system_code, class P = std::exception_ptr, class NoValuePolicy = policy::default_status_outcome_policy<R, S, P>>  //
-  using erased_outcome = basic_outcome<R, S, P, NoValuePolicy>;
-
-  /*! TODO
-  */
-  template <class R, class DomainType = typename generic_code::domain_type, class P = std::exception_ptr, class NoValuePolicy = policy::default_status_outcome_policy<R, status_code<DomainType>, P>>  //
-  using status_outcome = basic_outcome<R, status_code<DomainType>, P, NoValuePolicy>;
+  using status_outcome = basic_outcome<R, S, P, NoValuePolicy>;
 
   //! Namespace for policies
   namespace policy

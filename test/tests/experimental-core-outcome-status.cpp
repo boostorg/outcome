@@ -30,7 +30,7 @@ DEALINGS IN THE SOFTWARE.
 #include "../../include/boost/outcome/experimental/status_outcome.hpp"
 
 #define BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND std
-template <class T, class S = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code, class P = BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::exception_ptr> using outcome = BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_outcome<T, S, P>;
+template <class T, class S = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code, class P = BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::exception_ptr> using outcome = BOOST_OUTCOME_V2_NAMESPACE::experimental::status_outcome<T, S, P>;
 using BOOST_OUTCOME_V2_NAMESPACE::in_place_type;
 
 #include <boost/test/unit_test.hpp>
