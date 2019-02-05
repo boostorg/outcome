@@ -41,7 +41,7 @@
     <h3 class="author"><span class="firstname">Niall</span> <span class="surname">Douglas</span></h3>
   </div>
 </div>
-<div><p class="copyright">Copyright &#169; 2014-2019 Niall Douglas <a href="./credits">and others</a></p></div>
+<div><p class="copyright">Copyright &#169; 2014-2019 Niall Douglas <a href="./credits.html">and others</a></p></div>
 <div><div class="legalnotice">
 <a name="outcome.legal"></a><p>
         Distributed under the Boost Software License, Version 1.0. (See accompanying
@@ -123,15 +123,6 @@
   <dt><span class="section"><a href="./experimental/map.html">Approximate map between error code designs</a></span></dt>
   <dt><span class="section"><a href="./experimental/differences.html">Major differences</a></span></dt>
   <dt><span class="section"><a href="./experimental/status_result.html"><code>status_result</code> and <code>status_outcome</code></a></span></dt>
-  <dt><span class="section"><a href="./experimental/erased_status_result.html"><code>erased_status_result</code> and <code>erased_status_outcome</code></a></span></dt>
-  <dt><span class="section"><a href="./experimental/c-api.html">Using Outcome from C code</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./experimental/c-api/limitations.html">Limitations</a></span></dt>
-  <dt><span class="section"><a href="./experimental/c-api/example.html">Example C++ function</a></span></dt>
-  <dt><span class="section"><a href="./experimental/c-api/example2.html">Calling it from C</a></span></dt>
-  <dt><span class="section"><a href="./experimental/c-api/variations.html">Variations</a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./experimental/c_macros.html">C macro API</a></span></dt>
   <dt><span class="section"><a href="./experimental/worked-example.html">Worked example: Custom domain</a></span></dt>
         <dd><dl>
   <dt><span class="section"><a href="./experimental/worked-example/preamble.html">Define a custom code domain</a></span></dt>
@@ -142,7 +133,14 @@
   <dt><span class="section"><a href="./experimental/worked-example/source.html">Constexpr domain source</a></span></dt>
   <dt><span class="section"><a href="./experimental/worked-example/implicit_conversion.html">Implicit conversion</a></span></dt>
         </dl></dd>
-  <dt><span class="section"><a href="./experimental/outcome.html">Example of Outcome</a></span></dt>
+  <dt><span class="section"><a href="./experimental/outcome.html">Tying it all together</a></span></dt>
+  <dt><span class="section"><a href="./experimental/c-api.html">Using Outcome from C code</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./experimental/c-api/limitations.html">Limitations</a></span></dt>
+  <dt><span class="section"><a href="./experimental/c-api/example.html">Example C++ function</a></span></dt>
+  <dt><span class="section"><a href="./experimental/c-api/example2.html">Calling it from C</a></span></dt>
+  <dt><span class="section"><a href="./experimental/c-api/reference.html">C Macro API Reference</a></span></dt>
+        </dl></dd>
         </dl></dd>
   <dt><span class="section"><a href="./reference.html">API reference</a></span></dt>
         <dd><dl>
@@ -160,6 +158,7 @@
   <dt><span class="section"><a href="./reference/macros/tryv.html"><code>BOOST_OUTCOME_TRYV(expr)/BOOST_OUTCOME_TRY(expr)</code></a></span></dt>
   <dt><span class="section"><a href="./reference/macros/tryx.html"><code>BOOST_OUTCOME_TRYX(expr)</code></a></span></dt>
   <dt><span class="section"><a href="./reference/macros/in_place_type.html"><code>BOOST_OUTCOME_USE_STD_IN_PLACE_TYPE</code></a></span></dt>
+  <dt><span class="section"><a href="./reference/macros/is_nothrow_swappable.html"><code>BOOST_OUTCOME_USE_STD_IS_NOTHROW_SWAPPABLE</code></a></span></dt>
         </dl></dd>
   <dt><span class="section"><a href="./reference/concepts.html">Concepts</a></span></dt>
         <dd><dl>
@@ -306,14 +305,13 @@ is available in scope.</p>
 
 <div class="notices note" style="background: url('images/note.png') top left no-repeat padding-box padding-box;">
 <div class="notices heading">note</div>
-<div class="notices message"><p>This is the v2 Outcome designed in response to feedback from a <a href="https://lists.boost.org/boost-announce/2017/06/0510.php">Boost peer review held in
-May 2017</a>. This library has successfully passed the second Boost peer review, and is currently expected to become part of the Boost official release distribution before the 1.70 release (Spring 2019).</p>
+<div class="notices message"><p>This library joined <a href="https://www.boost.org/doc/libs/develop/libs/outcome/doc/html/index.html">the Boost C++ libraries</a> in the 1.70 release (Spring 2019). <a href="https://github.com/boostorg/outcome">It can be grafted into much older Boost releases if desired</a>.</p>
 </div>
 </div>
 
 
 
-        </div><p><small>Last revised: December 10, 2018 at 20:32:00 UTC</small></p>
+        </div><p><small>Last revised: February 05, 2019 at 17:14:18 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./history.html"><img src="./images/prev.png" alt="Prev"></a>
