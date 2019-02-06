@@ -31,6 +31,8 @@ DEALINGS IN THE SOFTWARE.
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>  // for sprintf
 
+#if !defined(__GNUC__) || __GNUC__ > 6  // GCC 6 chokes on this
+
 #include "../../../include/boost/outcome/experimental/status_result.hpp"
 
 /* Original note to WG21:
@@ -237,3 +239,12 @@ int main(void)
   }
 }
 //! [open_file]
+
+#else
+  
+int main(void)
+{
+  return 0;
+}
+
+#endif
