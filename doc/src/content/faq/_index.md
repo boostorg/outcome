@@ -20,7 +20,7 @@ Technically yes:
 deterministic exceptions, or an emulation.
 */
 #if BOOST_OUTCOME_DETERMINISTIC_EXCEPTIONS_USE_EMULATION
-#define BOOST_OUTCOME_THROWS_API(rettype, errtype, ...) ::BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_result<rettype, errtype> __VA_ARGS__ noexcept
+#define BOOST_OUTCOME_THROWS_API(rettype, errtype, ...) ::BOOST_OUTCOME_V2_NAMESPACE::experimental::status_result<rettype, errtype> __VA_ARGS__ noexcept
 #else
 #define BOOST_OUTCOME_THROWS_API(rettype, errtype, ...) rettype __VA_ARGS__ throws(errtype)
 #endif
@@ -29,7 +29,7 @@ deterministic exceptions, or an emulation.
 Will compile into deterministic exceptions, or an emulation.
 */
 #if BOOST_OUTCOME_DETERMINISTIC_EXCEPTIONS_USE_EMULATION
-#define BOOST_OUTCOME_THROWS_ERROR_API(rettype, ...) ::BOOST_OUTCOME_V2_NAMESPACE::experimental::erased_result<rettype, ::BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::error> __VA_ARGS__ noexcept
+#define BOOST_OUTCOME_THROWS_ERROR_API(rettype, ...) ::BOOST_OUTCOME_V2_NAMESPACE::experimental::status_result<rettype, ::BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::error> __VA_ARGS__ noexcept
 #else
 #define BOOST_OUTCOME_THROWS_ERROR_API(rettype, ...) rettype __VA_ARGS__ throws(std::error)
 #endif
