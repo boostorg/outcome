@@ -52,12 +52,18 @@ If we are storing an <code>std::error_code</code> throw it as <code>std::system_
 
 
 <p>Function <code>has_exception</code> checks if it is <code>EP</code> (<code>std::exception_ptr</code>) that is stored, function <code>exception</code> accesses it. Similarly, function <code>error</code> accesses the <code>EC</code> (<code>std::error_code</code>) if it is stored.
-<code>outcome&lt;&gt;</code> also has a function <code>has_failure</code> to check if either <code>EC</code> or <code>EP</code> is being stored. In fact, the above pattern of &ldquo;unpacking&rdquo; <code>outcome&lt;&gt;</code>
-is so common that it has been implemented inside function <code>.value()</code>, so function <code>z</code> could be written as:</p>
+<code>outcome&lt;&gt;</code> also has a function <code>has_failure</code> to check if either <code>EC</code> or <code>EP</code> is being stored.</p>
+
+<p>It would seem obvious that the above pattern of &ldquo;unpacking&rdquo; <code>outcome&lt;&gt;</code>
+is so common that it ought to be implemented inside function <code>.value()</code>,
+so function <code>z</code> could be written as:</p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">return</span> <span class="n">old</span><span class="o">::</span><span class="n">h</span><span class="p">().</span><span class="n">value</span><span class="p">();</span>
 </code></pre></div>
+<p>And this is exactly what the aforementioned no-value policy template argument is for, which is described in
+the next section.</p>
 
-        </div><p><small>Last revised: January 29, 2018 at 00:53:02 UTC</small></p>
+
+        </div><p><small>Last revised: February 06, 2019 at 14:38:54 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../tutorial/outcome.html"><img src="../../images/prev.png" alt="Prev"></a>

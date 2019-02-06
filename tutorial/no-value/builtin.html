@@ -39,14 +39,19 @@
 <a href="../../reference/policies/all_narrow.html" class="api-reference">all_narrow</a>
 
 <p>If there is an observation of a value/error/exception which is not present,
-the behavior is undefined. However this is a tool-friendly UB using intrinsics
-such as <code>__builtin_unreachable()</code> that allows tool to make use of it, e.g.,
+the program is put into a hard undefined behaviour situation. However this
+is a tool-friendly UB using intrinsics
+such as <code>__builtin_unreachable()</code> that allows tools to make use of it, e.g.,
 better bug detection or optimizations.</p>
+
+<hr>
 
 <a href="../../reference/policies/terminate.html" class="api-reference">terminate</a>
 
-<p>Observation of a missing value/error/exception causes the call to
+<p>Observation of a missing value/error/exception causes a call to
 <code>std::terminate()</code>.</p>
+
+<hr>
 
 <a href="../../reference/policies/error_code_throw_as_system_error_outcome.html" class="api-reference">error_code_throw_as_system_error&lt;T, EC, EP&gt;</a>
 
@@ -69,14 +74,18 @@ and then thrown as <code>system_error</code>.</li>
 
 <p>Upon missing exception observation throws <code>bad_outcome_access(&quot;no exception&quot;)</code>.</p>
 
+<p>Overloads are provided for <code>boost::system::error_code</code> and <code>boost::exception_ptr</code>.</p>
+
+<hr>
+
 <a href="../../reference/policies/exception_ptr_rethrow_outcome.html" class="api-reference">exception_ptr_rethrow&lt;T, EC, EP&gt;</a>
 
-<p>This policy assumes that both <code>EC</code> and <code>EP</code> (unless <code>void</code>) has the interface of <code>std::exception_ptr</code>. Upon missing value observation:</p>
+<p>This policy assumes that either <code>EC</code> or <code>EP</code> (unless <code>void</code>) has the interface of <code>std::exception_ptr</code>. Upon missing value observation:</p>
 
 <ul>
 <li>in instances of <code>basic_result&lt;&gt;</code>, rethrows exception pointed to by <code>EC</code>;</li>
-<li>in instances of <code>basic_outcome&lt;&gt;</code>, if exception <code>ep</code> is present rethrows it,
-otherwise rethrows the stored error.</li>
+<li>in instances of <code>basic_outcome&lt;&gt;</code>, if exception <code>EP</code> is present rethrows it,
+otherwise rethrows <code>EC</code>.</li>
 </ul>
 
 <p>Upon missing error observation:</p>
@@ -88,18 +97,23 @@ otherwise rethrows the stored error.</li>
 
 <p>Upon missing exception observation throws <code>bad_outcome_access(&quot;no exception&quot;)</code>.</p>
 
+<p>Overloads are provided for <code>boost::exception_ptr</code>.</p>
+
+<hr>
+
 <a href="../../reference/policies/throw_bad_result_access.html" class="api-reference">throw_bad_result_access&lt;EC&gt;</a>
 
 <p>Upon missing value observation throws <code>bad_result_access_with&lt;EC&gt;(ec)</code>,
 where <code>ec</code> is the value of the stored error. If error is not stored,
-the behavior is undefined.</p>
+the behaviour is undefined.</p>
 
 <p>Upon missing error observation throws <code>bad_result_access(&quot;no error&quot;)</code>.</p>
 
-<p>This policy should not be used with <code>basic_outcome&lt;&gt;</code> instances.</p>
+<p>This policy can be used with <code>basic_outcome&lt;&gt;</code> instances, where it always
+throws <code>bad_outcome_access</code> for all no-value/error/exception observations.</p>
 
 
-        </div><p><small>Last revised: January 21, 2019 at 18:00:41 UTC</small></p>
+        </div><p><small>Last revised: February 06, 2019 at 14:38:54 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../tutorial/no-value/custom.html"><img src="../../images/prev.png" alt="Prev"></a>

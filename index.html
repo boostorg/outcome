@@ -51,225 +51,45 @@
 <div class="toc">
 <p><b>Table of Contents</b></p>
 <dl class="toc">
-  <dt><span class="section"><a href="./requirements.html">Prerequisites</a></span></dt>
-  <dt><span class="section"><a href="./build.html">Build and install</a></span></dt>
-  <dt><span class="section"><a href="./motivation.html">Motivation</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./motivation/exceptions.html">Exceptions</a></span></dt>
-  <dt><span class="section"><a href="./motivation/errno.html">errno</a></span></dt>
-  <dt><span class="section"><a href="./motivation/error_codes.html">Error codes</a></span></dt>
-  <dt><span class="section"><a href="./motivation/std_error_code.html">std::error_code</a></span></dt>
-  <dt><span class="section"><a href="./motivation/plug_error_code.html">Plugging a library into std::error_code</a></span></dt>
-  <dt><span class="section"><a href="./motivation/narrow_contract.html">Narrow contracts</a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./tutorial.html">Tutorial</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./tutorial/result.html">result&lt;&gt;</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./tutorial/result/inspecting.html">Inspecting result<T, EC></a></span></dt>
-  <dt><span class="section"><a href="./tutorial/result/try.html">TRY operations</a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./tutorial/outcome.html">outcome&lt;&gt;</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./tutorial/outcome/inspecting.html">Inspecting outcome<T, EC, EP></a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./tutorial/no-value.html">No-value policies</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./tutorial/no-value/custom.html">A custom no-value policy</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/no-value/builtin.html">Built-in policies</a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./tutorial/payload.html">Custom payloads</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./tutorial/payload/copy_file.html">The Filesystem TS</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/payload/copy_file2.html">Upgrading the Filesystem TS</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/payload/copy_file3.html">Auto-throwing filesystem_error</a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./tutorial/constructors.html">Result returning constructors</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./tutorial/constructors/two-phase-init.html">Two phase construction</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/constructors/file_handle.html">A file handle</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/constructors/static-constructor.html">Phase 2 construction</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/constructors/metaprogrammg1.html">Phase 3</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/constructors/metaprogrammg2.html">construct<T></a></span></dt>
-  <dt><span class="section"><a href="./tutorial/constructors/metaprogrammg3.html">Alternatives</a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./tutorial/hooks.html">Hooking events</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./tutorial/hooks/keeping_state.html">Keeping state</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/hooks/adl_bridging.html">ADL bridging</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/hooks/hook_result.html">Hook result</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/hooks/poke_exception.html">Custom exception ptr</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/hooks/hook_outcome.html">Hook outcome</a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./tutorial/interop.html">Interoperation</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./tutorial/interop/problem.html">Incommensurate E types</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/interop/value-or-error.html">ValueOrError Concept</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/interop/httplib.html">The HTTP library</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/interop/tidylib.html">The HTMLTidy library</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/interop/filelib.html">The File I/O library</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/interop/app.html">The Application</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/interop/app-map-httplib1.html">Mapping the HTTP library into the Application <sup>1</sup>&frasl;<sub>2</sub></a></span></dt>
-  <dt><span class="section"><a href="./tutorial/interop/app-map-httplib2.html">Mapping the HTTP library into the Application <sup>2</sup>&frasl;<sub>2</sub></a></span></dt>
-  <dt><span class="section"><a href="./tutorial/interop/app-map-filelib.html">Mapping the File I/O library into the Application</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/interop/app-map-tidylib.html">Mapping the HTMLTidy library into the Application</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/interop/app-go.html">In use</a></span></dt>
-  <dt><span class="section"><a href="./tutorial/interop/conclusion.html">Conclusion</a></span></dt>
-        </dl></dd>
-        </dl></dd>
-  <dt><span class="section"><a href="./experimental.html">Experimental</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./experimental/advantages.html">The main advantages</a></span></dt>
-  <dt><span class="section"><a href="./experimental/map.html">Approximate map between error code designs</a></span></dt>
-  <dt><span class="section"><a href="./experimental/differences.html">Major differences</a></span></dt>
-  <dt><span class="section"><a href="./experimental/status_result.html"><code>status_result</code> and <code>status_outcome</code></a></span></dt>
-  <dt><span class="section"><a href="./experimental/worked-example.html">Worked example: Custom domain</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./experimental/worked-example/preamble.html">Define a custom code domain</a></span></dt>
-  <dt><span class="section"><a href="./experimental/worked-example/value_type.html">The payload</a></span></dt>
-  <dt><span class="section"><a href="./experimental/worked-example/constructor.html">The constructor</a></span></dt>
-  <dt><span class="section"><a href="./experimental/worked-example/string_ref.html">String refs</a></span></dt>
-  <dt><span class="section"><a href="./experimental/worked-example/message.html">Redefining <code>message()</code></a></span></dt>
-  <dt><span class="section"><a href="./experimental/worked-example/source.html">Constexpr domain source</a></span></dt>
-  <dt><span class="section"><a href="./experimental/worked-example/implicit_conversion.html">Implicit conversion</a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./experimental/outcome.html">Tying it all together</a></span></dt>
-  <dt><span class="section"><a href="./experimental/c-api.html">Using Outcome from C code</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./experimental/c-api/limitations.html">Limitations</a></span></dt>
-  <dt><span class="section"><a href="./experimental/c-api/example.html">Example C++ function</a></span></dt>
-  <dt><span class="section"><a href="./experimental/c-api/example2.html">Calling it from C</a></span></dt>
-  <dt><span class="section"><a href="./experimental/c-api/reference.html">C Macro API Reference</a></span></dt>
-        </dl></dd>
-        </dl></dd>
-  <dt><span class="section"><a href="./reference.html">API reference</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./reference/macros.html">Macros</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./reference/macros/template.html">Constrained template macros</a></span></dt>
-  <dt><span class="section"><a href="./reference/macros/version.html">Version macros</a></span></dt>
-  <dt><span class="section"><a href="./reference/macros/disable_execinfo.html"><code>BOOST_OUTCOME_DISABLE_EXECINFO</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/macros/nodiscard.html"><code>BOOST_OUTCOME_NODISCARD</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/macros/requires.html"><code>BOOST_OUTCOME_REQUIRES(...)</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/macros/symbol_visible.html"><code>BOOST_OUTCOME_SYMBOL_VISIBLE</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/macros/thread_local.html"><code>BOOST_OUTCOME_THREAD_LOCAL</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/macros/throw_exception.html"><code>BOOST_OUTCOME_THROW_EXCEPTION(expr)</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/macros/try.html"><code>BOOST_OUTCOME_TRY(var, expr)</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/macros/tryv.html"><code>BOOST_OUTCOME_TRYV(expr)/BOOST_OUTCOME_TRY(expr)</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/macros/tryx.html"><code>BOOST_OUTCOME_TRYX(expr)</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/macros/in_place_type.html"><code>BOOST_OUTCOME_USE_STD_IN_PLACE_TYPE</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/macros/is_nothrow_swappable.html"><code>BOOST_OUTCOME_USE_STD_IS_NOTHROW_SWAPPABLE</code></a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./reference/concepts.html">Concepts</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./reference/concepts/valueorerror.html"><code>ValueOrError&lt;T, E&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/concepts/valueornone.html"><code>ValueOrNone&lt;T&gt;</code></a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./reference/converters.html">Converters</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./reference/converters/try_operation_return_as.html"><code>try_operation_return_as(expr)</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/converters/value_or_error.html"><code>value_or_error&lt;T, U&gt;</code></a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./reference/traits.html">Traits</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./reference/traits/is_basic_outcome.html"><code>is_basic_outcome&lt;T&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/traits/is_basic_result.html"><code>is_basic_result&lt;T&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/traits/is_error_code_available.html"><code>is_error_code_available&lt;T&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/traits/is_error_type.html"><code>is_error_type&lt;E&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/traits/is_error_type_enum.html"><code>is_error_type_enum&lt;E, Enum&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/traits/is_exception_ptr_available.html"><code>is_exception_ptr_available&lt;T&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/traits/is_failure_type.html"><code>is_failure_type&lt;T&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/traits/is_success_type.html"><code>is_success_type&lt;T&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/traits/type_can_be_used_in_basic_result.html"><code>type_can_be_used_in_basic_result&lt;R&gt;</code></a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./reference/policies.html">Policies</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./reference/policies/base.html"><code>base</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/policies/all_narrow.html"><code>all_narrow</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/policies/error_code_throw_as_system_error_outcome.html"><code>error_code_throw_as_system_error&lt;T, EC, EP&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/policies/error_code_throw_as_system_error_result.html"><code>error_code_throw_as_system_error&lt;T, EC, void&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/policies/exception_ptr_rethrow_outcome.html"><code>exception_ptr_rethrow&lt;T, EC, EP&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/policies/exception_ptr_rethrow_result.html"><code>exception_ptr_rethrow&lt;T, EC, void&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/policies/fail_to_compile_observers.html"><code>fail_to_compile_observers</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/policies/terminate.html"><code>terminate</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/policies/throw_bad_result_access.html"><code>throw_bad_result_access&lt;EC&gt;</code></a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./reference/types.html">Types</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./reference/types/basic_outcome.html"><code>basic_outcome&lt;T, EC, EP, NoValuePolicy&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/types/basic_result.html"><code>basic_result&lt;T, E, NoValuePolicy&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/types/bad_outcome_access.html"><code>bad_outcome_access</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/types/bad_result_access_with.html"><code>bad_result_access_with&lt;EC&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/types/bad_result_access.html"><code>bad_result_access</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/types/failure_type.html"><code>failure_type&lt;EC, EP = void&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/types/in_place_type_t.html"><code>in_place_type_t&lt;T&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/types/success_type.html"><code>success_type&lt;T&gt;</code></a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./reference/aliases.html">Aliases</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./reference/aliases/boost_checked.html"><code>boost_checked&lt;T, E = boost::system::error_code&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/aliases/boost_outcome.html"><code>boost_outcome&lt;T, EC = boost::system::error_code, EP = boost::exception_ptr, NoValuePolicy = policy::default_policy&lt;T, EC, EP&gt;&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/aliases/boost_result.html"><code>boost_result&lt;T, E = boost::system::error_code, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/aliases/boost_unchecked.html"><code>boost_unchecked&lt;T, E = boost::system::error_code&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/aliases/checked.html"><code>checked&lt;T, E = varies&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/aliases/default_policy.html"><code>default_policy&lt;T, EC, EP&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/aliases/outcome.html"><code>outcome&lt;T, EC = varies, EP = varies, NoValuePolicy = policy::default_policy&lt;T, EC, EP&gt;&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/aliases/result.html"><code>result&lt;T, E = varies, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/aliases/std_checked.html"><code>std_checked&lt;T, E = std::error_code&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/aliases/std_outcome.html"><code>std_outcome&lt;T, EC = std::error_code, EP = std::exception_ptr, NoValuePolicy = policy::default_policy&lt;T, EC, EP&gt;&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/aliases/std_result.html"><code>std_result&lt;T, E = std::error_code, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/aliases/std_unchecked.html"><code>std_unchecked&lt;T, E = std::error_code&gt;</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/aliases/unchecked.html"><code>unchecked&lt;T, E = varies&gt;</code></a></span></dt>
-        </dl></dd>
-  <dt><span class="section"><a href="./reference/functions.html">Functions</a></span></dt>
-        <dd><dl>
-  <dt><span class="section"><a href="./reference/functions/hooks.html">Hooks</a></span></dt>
-  <dt><span class="section"><a href="./reference/functions/policy.html">Policy</a></span></dt>
-  <dt><span class="section"><a href="./reference/functions/failure.html"><code>auto failure(T &amp;&amp;, ...)</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/functions/success.html"><code>auto success(T &amp;&amp;)</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/functions/try_operation_return_as_t.html"><code>auto try_operation_return_as(T &amp;&amp;)</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/functions/error_from_exception.html"><code>std::error_code error_from_exception(std::exception_ptr &amp;&amp;ep = std::current_exception(), std::error_code not_matched = std::make_error_code(std::errc::resource_unavailable_try_again)) noexcept</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/functions/try_operation_return_as_expected.html"><code>std::experimental::unexpected&lt;E&gt; try_operation_return_as(std::experimental::expected&lt;T, E&gt;)</code></a></span></dt>
-  <dt><span class="section"><a href="./reference/functions/try_throw_std_exception_from_error.html"><code>void try_throw_std_exception_from_error(std::error_code ec, const std::string &amp;msg = std::string{})</code></a></span></dt>
-        </dl></dd>
-        </dl></dd>
-  <dt><span class="section"><a href="./faq.html">Frequently asked questions</a></span></dt>
-  <dt><span class="section"><a href="./videos.html">Videos</a></span></dt>
-  <dt><span class="section"><a href="./changelog.html">Changelog</a></span></dt>
-  <dt><span class="section"><a href="./history.html">History</a></span></dt>
 
 
 </dl>
 </div>
 <h2 class="title">Introduction</h2>
 
-<p>Outcome is a set of tools for reporting and handling function failures in contexts where using C++ exception handling is unsuitable. Such contexts include:</p>
+<p>Outcome is a set of tools for reporting and handling function failures in contexts where <em>directly</em> using C++ exception handling is unsuitable. Such contexts include:</p>
 
 <ul>
-<li><p>programs, or parts thereof, that are compiled with exceptions disabled;</p></li>
+<li><p>there are programs, or parts thereof, that are compiled with exceptions disabled;</p></li>
 
-<li><p>parts of program that have a lot of branches depending on types of failures,
+<li><p>there are parts of program that have a lot of branches depending on types of failures,
 where if-statements are cleaner than try-catch blocks;</p></li>
 
-<li><p>requirement that failure path of execution should not cost more than the successful path of execution;</p></li>
+<li><p>there is a hard requirement that the failure path of execution should not cost more than the successful path of execution;</p></li>
 
-<li><p>situations, like in <a href="http://www.boost.org/doc/libs/release/libs/filesystem/doc/index.htm"><code>filesystem</code></a> library, where the decision whether the failure should be handled remotely
-(use exceptions) or locally cannot be made inside the function and needs to be moved onto the caller,
-and in the latter case launching stack unwinding is not desirable for the aforementioned reasons;</p></li>
+<li><p>there are situations, like in the <a href="http://www.boost.org/doc/libs/release/libs/filesystem/doc/index.htm"><code>filesystem</code></a> library, where whether the failure should be handled remotely
+(using a C++ exception throw), or locally cannot be made inside the function and needs to be decided by the caller,
+and in the latter case throwing a C++ exception is not desirable for the aforementioned reasons;</p></li>
 
-<li><p>parts of the programs/frameworks that themselves implement exception handling and prefer
-to not use exceptions to propagate failure reports across thread, tasks, fibers;</p></li>
+<li><p>there are parts of the program/framework that themselves implement exception handling and prefer
+to not use exceptions to propagate failure reports across threads, tasks, fibers, etc;</p></li>
 
-<li><p>propagating exceptions trough layers that do not implement exception throw safety;</p></li>
+<li><p>one needs to propagate exceptions through layers that do not implement exception throw safety;</p></li>
 
-<li><p>external requirement (such as company-wide policy) that failure handling paths are explicitly indicated in the code.</p></li>
+<li><p>there is an external requirement (such as a company-wide policy) that failure handling paths are explicitly indicated in the code.</p></li>
+
+<li><p>where interoperation with C code, without having to resort to C++ exception wrapper shims, is important.</p></li>
 </ul>
 
-<p>Outcome addresses failure handling through returning a special type from functions, which is able to store either a successfully computed value (or <code>void</code>) or the information about failure. Outcome also comes with a set of idioms for dealing with such types.</p>
+<p>Outcome addresses failure handling through returning a special type from functions, which is able to store either a successfully computed value (or <code>void</code>), or the information about failure. Outcome also comes with a set of idioms for dealing with such types.</p>
+
+<p>Particular care has been taken to ensure that Outcome has the lowest possible impact on build times,
+thus making it suitable for use in the global headers of really large codebases. Storage layout is
+guaranteed and is C-compatible for <code>result&lt;T, E&gt;</code><sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>, thus making Outcome based code long term ABI-stable.</p>
 
 <h2 id="sample-usage">Sample usage</h2>
 
-<p>One of the tools in the Outcome library is <code>result&lt;T&gt;</code>: it represents either a successfully computed value of type <code>T</code> or an <code>std::error_code</code> representing the reason for failure. You use it in the function&rsquo;s return type:</p>
+<p>The main workhorse in the Outcome library is <code>result&lt;T&gt;</code>: it represents either a successfully computed value of type <code>T</code>, or a <code>std::error_code</code>/<code>boost::system_error_code</code><sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> representing the reason for failure. You use it in the function&rsquo;s return type:</p>
 
 <div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">auto</span> <span class="nf">read_data_from_file</span><span class="p">(</span><span class="n">string_view</span> <span class="n">path</span><span class="p">)</span> <span class="k">noexcept</span>
   <span class="o">-&gt;</span> <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">string</span><span class="o">&gt;</span><span class="p">;</span>
@@ -285,7 +105,7 @@ to not use exceptions to propagate failure reports across thread, tasks, fibers;
 </span><span class="c1"></span></code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/intro_example.cpp#L26" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
-<p>Or, if this function is called in another function that also returns <code>result&lt;T&gt;</code> you can use a dedicated control statement:</p>
+<p>Or, if this function is called in another function that also returns <code>result&lt;T&gt;</code>, you can use a dedicated control statement:</p>
 
 <div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">auto</span> <span class="nf">process</span><span class="p">(</span><span class="k">const</span> <span class="n">string</span><span class="o">&amp;</span> <span class="n">content</span><span class="p">)</span> <span class="k">noexcept</span>
   <span class="o">-&gt;</span> <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">;</span>
@@ -309,9 +129,20 @@ is available in scope.</p>
 </div>
 </div>
 
+<div class="footnotes">
+
+<hr />
+
+<ol>
+<li id="fn:1">If you choose a C-compatible <code>T</code> and <code>E</code> type.
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+<li id="fn:2"><code>result&lt;T&gt;</code> defaults to <code>std::error_code</code> for Standalone Outcome, and to <code>boost::system_error_code</code> for Boost.Outcome. You can mandate a choice using <code>std_result&lt;T&gt;</code> or <code>boost_result&lt;T&gt;</code>.
+ <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+</ol>
+</div>
 
 
-        </div><p><small>Last revised: February 05, 2019 at 17:14:18 UTC</small></p>
+        </div><p><small>Last revised: February 06, 2019 at 14:38:54 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./history.html"><img src="./images/prev.png" alt="Prev"></a>

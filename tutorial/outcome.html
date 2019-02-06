@@ -35,18 +35,31 @@
     <a accesskey="h" href="../index.html"><img src="../images/home.png" alt="Home"></a><a accesskey="n" href="../tutorial/outcome/inspecting.html"><img src="../images/next.png" alt="Next"></a></div><div id="content">
 
   <div class="titlepage"><div><div><h1 style="clear: both">outcome&lt;&gt;</h1></div></div></div>
-<p>Type <a href="../reference/types/basic_outcome.html" class="api-reference">outcome&lt;T, EC, EP, NoValuePolicy&gt;</a> represets either a successfully computed value of type <code>T</code> or a reason for failure. Failure can be represented by <code>EC</code> or <code>EP</code> or both. Although usually it will either be an <code>EC</code> or an <code>EP</code>. <code>EC</code> defaults to <code>std::error_code</code> and <code>EP</code> defaults to <code>std::exception_ptr</code>. The distinction is made into two types, <code>EC</code> and <code>EP</code>:</p>
+
+
+<p>Type <a href="../reference/aliases/outcome.html" class="api-reference">outcome&lt;T, EC = varies, EP = varies, NoValuePolicy = policy::default_policy&lt;T, EC, EP&gt;&gt;</a> represents either a successfully computed value of type <code>T</code>, or one or two reasons for failure. Failure can be represented by <code>EC</code>, or <code>EP</code>, or both, although usually it will either be an <code>EC</code> or an <code>EP</code>.
+Similarly to <code>result</code>, <code>EC</code> defaults to <code>std::error_code</code>/<code>boost::system_error_code</code>, and <code>EP</code> defaults to <code>std::exception_ptr</code>/<code>boost::exception_ptr</code>.</p>
+
+<p>The distinction is made into two types, <code>EC</code> and <code>EP</code>:</p>
 
 <ul>
-<li><code>EC</code> represents a failue from lower-layer function which was retured through <a href="../reference/types/basic_result.html" class="api-reference">result&lt;T, E, NoValuePolicy&gt;</a>.</li>
-<li><code>EP</code> represents pointer to an exception thrown in a lower-layer function to signal a failure; but at the current level we do not want to proceed with stack unwinding.</li>
+<li><code>EC</code> represents a <em>recoverable</em> failure from a lower-layer function, perhaps which was returned through <a href="../reference/aliases/result.html" class="api-reference">result&lt;T, E = varies, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</a>.</li>
+<li><code>EP</code> represents an <em>unrecoverable</em> failure where a C++ exception would ordinarily have been thrown. This is usually a pointer to an exception throw.</li>
 </ul>
+
+<p>It should be emphasised that this distinction is by convention only, but it will be confusing to your
+users if you deviate significantly from this convention.</p>
+
+<hr>
+
+<h3 id="legacy-codebases">Legacy codebases</h3>
 
 <p><code>outcome</code> is useful for transporting exceptions across layers of the program that were never designed with exception safety in mind.</p>
 
 <p>Consider a program consisting of three layers:</p>
 
 
+<center><img src="layer_chart.gif"></center>
 
 <p>The highest-level layer, <code>Layer3</code>, uses exceptions for signalling failures. The middle layer, <code>Layer2_old</code>,
 was not designed with exception safety in mind and functions need to return information about failures in return value.
@@ -84,7 +97,7 @@ and be able to rethrow it in <code>Layer3</code>.</p>
 
 
 
-        </div><p><small>Last revised: January 21, 2019 at 18:00:41 UTC</small></p>
+        </div><p><small>Last revised: February 06, 2019 at 14:38:54 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../tutorial/result/try.html"><img src="../images/prev.png" alt="Prev"></a>
