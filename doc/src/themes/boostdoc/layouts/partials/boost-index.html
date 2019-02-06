@@ -1,15 +1,14 @@
 <div class="toc">
 <p><b>Table of Contents</b></p>
 <dl class="toc">
-{{- $currentNode := . }}
 
 {{- if eq .Site.Params.ordersectionsby "title"}}
   {{- range .Site.Home.Sections.ByTitle}}
-  {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "count" 1}}
+  {{- template "section-tree-nav" dict "sect" .context "currentnode" .context "count" 1 "tocdepth" .toc_depth}}
   {{- end}}
 {{- else}}
   {{- range .Site.Home.Sections.ByWeight}}
-  {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "count" 1}}
+  {{- template "section-tree-nav" dict "sect" .context "currentnode" .context "count" 1 "tocdepth" .toc_depth}}
   {{- end}}
 {{- end}}
 
@@ -18,7 +17,7 @@
 {{- $currentNode := .currentnode }}
  {{- with .sect}}
   <dt><span class="section"><a href="{{ .RelPermalink}}">{{.Title | markdownify}}</a></span></dt>
-  {{- if lt $.count 3 }}
+  {{- if lt $.count $.tocdepth }}
     {{- if and .IsSection (or (not .Params.hidden) $.showhidden)}}
       {{- $numberOfPages := (add (len .Pages) (len .Sections)) }}
       {{- if ne $numberOfPages 0 }}
@@ -33,14 +32,14 @@
           {{- range $pages.ByTitle }}
             {{- if and .Params.hidden (not $.showhidden) }}
             {{- else}}
-              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "count" (add $.count 1) }}
+              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "count" (add $.count 1) "tocdepth" $.tocdepth }}
             {{- end}}
           {{- end}}
         {{- else}}
           {{- range $pages.ByWeight }}
             {{- if and .Params.hidden (not $.showhidden) }}
             {{- else}}
-              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "count" (add $.count 1) }}
+              {{- template "section-tree-nav" dict "sect" . "currentnode" $currentNode "count" (add $.count 1) "tocdepth" $.tocdepth }}
             {{- end}}
           {{- end}}
         {{- end}}
