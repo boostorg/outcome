@@ -84,7 +84,7 @@
   
   <url>
     <loc>/tutorial/constructors/two-phase-init.html</loc>
-    <lastmod>2017-12-12T10:02:44+00:00</lastmod>
+    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
   </url>
   
   <url>
@@ -104,7 +104,7 @@
   
   <url>
     <loc>/tutorial/constructors/file_handle.html</loc>
-    <lastmod>2017-10-24T15:42:27+01:00</lastmod>
+    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
   </url>
   
   <url>
@@ -184,7 +184,7 @@
   
   <url>
     <loc>/tutorial/payload/copy_file3.html</loc>
-    <lastmod>2018-01-17T23:35:00+00:00</lastmod>
+    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
   </url>
   
   <url>
@@ -194,7 +194,7 @@
   
   <url>
     <loc>/tutorial/payload.html</loc>
-    <lastmod>2019-02-05T21:41:47+00:00</lastmod>
+    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
   </url>
   
   <url>
@@ -264,7 +264,7 @@
   
   <url>
     <loc>/tutorial/constructors/metaprogrammg1.html</loc>
-    <lastmod>2017-10-24T15:42:27+01:00</lastmod>
+    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
   </url>
   
   <url>
@@ -344,7 +344,7 @@
   
   <url>
     <loc>/tutorial/constructors/metaprogrammg2.html</loc>
-    <lastmod>2017-10-24T15:42:27+01:00</lastmod>
+    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
   </url>
   
   <url>
@@ -359,7 +359,7 @@
   
   <url>
     <loc>/tutorial/constructors/metaprogrammg3.html</loc>
-    <lastmod>2017-10-31T03:47:36+00:00</lastmod>
+    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
   </url>
   
   <url>
@@ -1171,14 +1171,14 @@
   </url>
   
   <url>
-    <loc>/tags/constructors.html</loc>
-    <lastmod>2017-12-13T09:28:03+00:00</lastmod>
+    <loc>/categories/constructors.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/constructors.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <loc>/tags/constructors.html</loc>
+    <lastmod>2017-12-13T09:28:03+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1202,7 +1202,7 @@
   
   <url>
     <loc>/tags/default-actions.html</loc>
-    <lastmod>2018-01-17T23:35:00+00:00</lastmod>
+    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1250,7 +1250,7 @@
   
   <url>
     <loc>/tags/has_error_code.html</loc>
-    <lastmod>2019-02-05T21:41:47+00:00</lastmod>
+    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1279,7 +1279,7 @@
   
   <url>
     <loc>/tags/make_error_code.html</loc>
-    <lastmod>2019-02-05T21:41:47+00:00</lastmod>
+    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1339,7 +1339,7 @@
   
   <url>
     <loc>/tags/payload.html</loc>
-    <lastmod>2019-02-05T21:41:47+00:00</lastmod>
+    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1468,7 +1468,7 @@
   
   <url>
     <loc>/reference/functions/policy/basic_outcome_failure_exception_from_error.html</loc>
-    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
+    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
   </url>
   
   <url>

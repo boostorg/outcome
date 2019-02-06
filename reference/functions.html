@@ -69,7 +69,7 @@
 	<a href="../reference/functions/policy.html" >Policy</a>
 <p>Functions used to customise how the policy classes operate.</p><ol><li>
 	<a href="../reference/functions/policy/basic_outcome_failure_exception_from_error.html" ><code>auto basic_outcome_failure_exception_from_error(const EC &amp;)</code></a>
-<p>.</p><li>
+<p>ADL discovered free function synthesising an exception type from an error type, used by the <code>.failure()</code> observers.</p><li>
 	<a href="../reference/functions/policy/exception_ptr.html" ><code>decltype(auto) exception_ptr(T &amp;&amp;)</code></a>
 <p>Extracts a <code>boost::exception_ptr</code> or <code>std::exception_ptr</code> from the input via ADL discovery of a suitable <code>make_exception_ptr(T)</code> function.</p><li>
 	<a href="../reference/functions/policy/outcome_throw_as_system_error_with_payload_boost_enum.html" ><code>void outcome_throw_as_system_error_with_payload(BoostErrorCodeEnum &amp;&amp;)</code></a>

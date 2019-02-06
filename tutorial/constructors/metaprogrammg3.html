@@ -35,33 +35,34 @@
     <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../tutorial/hooks.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both">Alternatives</h1></div></div></div>
   <p>No doubt many will dislike the two-stage invocation pattern i.e.</p>
-<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">construct</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span><span class="p">{</span><span class="s">&#34;hello&#34;</span><span class="p">}();</span>
+<div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">make</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span><span class="p">{</span><span class="s">&#34;hello&#34;</span><span class="p">}();</span>
 </code></pre></div>
-<p>So let us examine the most obvious alternative: a templated free function <code>construct&lt;T&gt;</code>.</p>
+<p>So let us examine the most obvious alternative: a templated free function <code>make&lt;T&gt;</code>.</p>
 
 <p>Due to the inability to partially specialise templated functions in C++, you
 need to use tagged overloading e.g.</p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">template</span><span class="o">&lt;</span><span class="k">class</span><span class="err">... </span><span class="nc">Args</span><span class="o">&gt;</span>
-<span class="kr">inline</span> <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span> <span class="n">construct</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">in_place_type_t</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span> <span class="p">...</span> <span class="n">args</span><span class="p">)</span>
+<span class="kr">inline</span> <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span> <span class="n">make</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">in_place_type_t</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">Args</span><span class="o">&amp;&amp;</span> <span class="p">...</span> <span class="n">args</span><span class="p">)</span>
 <span class="p">{</span>
   <span class="k">return</span> <span class="n">file_handle</span><span class="o">::</span><span class="n">file</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">forward</span><span class="o">&lt;</span><span class="n">Args</span><span class="o">&gt;</span><span class="p">(</span><span class="n">args</span><span class="p">)...);</span>
 <span class="p">}</span>
 <span class="p">...</span>
 <span class="c1">// Now you must always write this:
-</span><span class="c1"></span><span class="n">construct</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">in_place_type</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span><span class="p">,</span> <span class="s">&#34;hello&#34;</span><span class="p">);</span>
+</span><span class="c1"></span><span class="n">make</span><span class="p">(</span><span class="n">std</span><span class="o">::</span><span class="n">in_place_type</span><span class="o">&lt;</span><span class="n">file_handle</span><span class="o">&gt;</span><span class="p">,</span> <span class="s">&#34;hello&#34;</span><span class="p">);</span>
 </code></pre></div>
 <p>Tagged overloading is fine for smaller projects, but for larger code bases:</p>
 
 <ol>
-<li>It takes longer to type <code>construct(std::in_place_type&lt;file_handle&gt;, &quot;hello&quot;)</code>,
+<li>It takes longer to type <code>make(std::in_place_type&lt;file_handle&gt;, &quot;hello&quot;)</code>,
 and is possibly less intuitive to write,
-than it does <code>construct&lt;file_handle&gt;{&quot;hello&quot;}()</code>.</li>
+than it does <code>make&lt;file_handle&gt;{&quot;hello&quot;}()</code>.</li>
 <li>Compiler error messages are enormously clearer if you encode the permitted
-overloads for construction into the <code>construct&lt;file_handle&gt;</code> type rather than
+overloads for construction into the <code>make&lt;file_handle&gt;</code> type rather than
 letting a variadic free function fail to resolve an appropriate overload.</li>
 <li>Resolving variadic free function overloads is not constant time for the compiler,
-whereas resolving the type specialisation for <code>construct&lt;file_handle&gt;</code>
-is constant time.</li>
+whereas resolving the type specialisation for <code>make&lt;file_handle&gt;</code>
+is constant time. In other words, free functions are <em>expensive</em> on build
+times, whereas fully specialised types are not.</li>
 <li>It actually turns out to be quite useful when writing generic code
 to pass around object constructing factory objects all of which have
 no parameters for their call operator. It becomes, effectively, a
@@ -69,7 +70,7 @@ no parameters for their call operator. It becomes, effectively, a
 </ol>
 
 
-        </div><p><small>Last revised: October 31, 2017 at 03:47:36 UTC</small></p>
+        </div><p><small>Last revised: February 06, 2019 at 16:50:01 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../tutorial/constructors/metaprogrammg2.html"><img src="../../images/prev.png" alt="Prev"></a>

@@ -60,14 +60,24 @@ failing paths is easy:</p>
 </span><span class="c1"></span>  <span class="c1">// we need to for some reason.
 </span><span class="c1"></span>  <span class="kr">inline</span> <span class="kt">void</span> <span class="n">outcome_throw_as_system_error_with_payload</span><span class="p">(</span><span class="n">failure_info</span> <span class="n">fi</span><span class="p">)</span>
   <span class="p">{</span>
-    <span class="c1">// If the error code is not filesystem related e.g. ENOMEM, throw that as a standard STL exception.
+    <span class="c1">// If the error code is not filesystem related e.g. ENOMEM, throw that as a
+</span><span class="c1"></span>    <span class="c1">// standard STL exception.
 </span><span class="c1"></span>    <span class="n">outcome</span><span class="o">::</span><span class="n">try_throw_std_exception_from_error</span><span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">ec</span><span class="p">);</span>
-    <span class="c1">// Throw the exact same filesystem_error exception which the throwing copy_file() edition does.
-</span><span class="c1"></span>    <span class="k">throw</span> <span class="nf">filesystem_error</span><span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">ec</span><span class="p">.</span><span class="n">message</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">path1</span><span class="p">),</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">path2</span><span class="p">),</span> <span class="n">fi</span><span class="p">.</span><span class="n">ec</span><span class="p">);</span>
+    <span class="c1">// Throw the exact same filesystem_error exception which the throwing copy_file()
+</span><span class="c1"></span>    <span class="c1">// edition does.
+</span><span class="c1"></span>    <span class="k">throw</span> <span class="nf">filesystem_error</span><span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">ec</span><span class="p">.</span><span class="n">message</span><span class="p">(),</span> <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">path1</span><span class="p">),</span>  <span class="c1">//
+</span><span class="c1"></span>                           <span class="n">std</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="n">fi</span><span class="p">.</span><span class="n">path2</span><span class="p">),</span> <span class="n">fi</span><span class="p">.</span><span class="n">ec</span><span class="p">);</span>
   <span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/outcome_payload.cpp#L69" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/outcome_payload.cpp#L70" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
+
+<p>Reference documentation for the above functions:</p>
+
+<ul>
+<li><a href="../../reference/functions/policy.html">List of builtin <code>outcome_throw_as_system_error_with_payload()</code> overloads</a></li>
+<li><a href="../../reference/functions/try_throw_std_exception_from_error.html" class="api-reference">void try_throw_std_exception_from_error(std::error_code ec, const std::string &amp;msg = std::string{})</a></li>
+</ul>
 
 <p>Usage of our new &ldquo;upgraded&rdquo; Filesystem <code>copy_file()</code> might now be as follows:</p>
 
@@ -99,12 +109,11 @@ failing paths is easy:</p>
     <span class="n">std</span><span class="o">::</span><span class="n">cerr</span> <span class="o">&lt;&lt;</span> <span class="s">&#34;Copy file failed with exception &#34;</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">.</span><span class="n">what</span><span class="p">()</span>  <span class="c1">//
 </span><span class="c1"></span>              <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
   <span class="p">}</span>
-  
-</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/outcome_payload.cpp#L93" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/outcome_payload.cpp#L97" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 
-        </div><p><small>Last revised: January 17, 2018 at 23:35:00 UTC</small></p>
+        </div><p><small>Last revised: February 06, 2019 at 16:50:01 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../tutorial/payload/copy_file2.html"><img src="../../images/prev.png" alt="Prev"></a>
