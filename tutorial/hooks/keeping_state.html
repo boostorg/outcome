@@ -86,13 +86,13 @@ perhaps kept per-thread to avoid the need to keep mutexes.</p>
 </code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/error_code_extended.cpp#L52" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
-<p>The extended error info is kept in a sixteen item long ring buffer. We continuously
+<p>The extended error info is kept in a sixteen item long, thread local, ring buffer. We continuously
 increment the current index pointer which is a 16 bit value which will wrap after
 65,535. This lets us detect an attempt to access recycled storage, and thus return
 item-not-found instead of the wrong extended error info.</p>
 
 
-        </div><p><small>Last revised: December 13, 2017 at 09:28:03 UTC</small></p>
+        </div><p><small>Last revised: February 07, 2019 at 14:30:22 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../tutorial/hooks.html"><img src="../../images/prev.png" alt="Prev"></a>

@@ -61,15 +61,37 @@ slot in TLS storage and writes the current stack backtrace into it.</p>
 </code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/error_code_extended.cpp#L119" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
-<p>The only non-obvious part above is the call to <a href="../../reference/functions/hooks/set_spare_storage.html" class="api-reference">void set_spare_storage(basic_result|basic_outcome *, uint16_t) noexcept</a>.
-Both <code>result</code> and <code>outcome</code> keep their internal state metadata in a <code>uint32_t</code>,
+<p>The only non-obvious part above is the call to <a href="../../reference/functions/hooks/set_spare_storage.html" class="api-reference">void set_spare_storage(basic_result|basic_outcome *, uint16_t) noexcept</a>.</p>
+
+<p>Both <code>result</code> and <code>outcome</code> keep their internal state metadata in a <code>uint32_t</code>,
 half of which is not used by Outcome. As it can be very useful to keep a small
 unique number attached to any particular <code>result</code> or <code>outcome</code> instance, we
 permit user code to set those sixteen bits to anything they feel like.
 The corresponding function to retrieve those sixteen bits is <a href="../../reference/functions/hooks/spare_storage.html" class="api-reference">uint16_t spare_storage(const basic_result|basic_outcome *) noexcept</a>.</p>
 
+<p>The state of the sixteen bits of spare storage are ignored during comparison operations.</p>
 
-        </div><p><small>Last revised: January 21, 2019 at 18:00:41 UTC</small></p>
+<p>The sixteen bits of spare storage propagate during the following operations:</p>
+
+<ol>
+<li>Copy and move construction between <code>result</code>&rsquo;s.</li>
+<li>Copy and move construction between <code>outcome</code>&rsquo;s.</li>
+<li>Copy and move construction from a <code>result</code> to an <code>outcome</code>.</li>
+<li>Converting copy and move constructions for all the above.</li>
+<li>Assignment for all of the above.</li>
+</ol>
+
+<p>They are NOT propagated in these operations:</p>
+
+<ol>
+<li>Any conversion or translation which goes through a <code>failure_type</code> or <code>success_type</code>.</li>
+<li>Any conversion or translation which goes through a <code>ValueOrError</code> concept match.</li>
+<li>Any unpacking or repacking of value/error/exception e.g. a manual repack of an
+<code>outcome</code> into a <code>result</code>.</li>
+</ol>
+
+
+        </div><p><small>Last revised: February 07, 2019 at 14:30:22 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../tutorial/hooks/adl_bridging.html"><img src="../../images/prev.png" alt="Prev"></a>

@@ -54,7 +54,7 @@
   
   <url>
     <loc>/tutorial/hooks/keeping_state.html</loc>
-    <lastmod>2017-12-13T09:28:03+00:00</lastmod>
+    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
   </url>
   
   <url>
@@ -109,7 +109,7 @@
   
   <url>
     <loc>/tutorial/hooks/adl_bridging.html</loc>
-    <lastmod>2019-01-24T01:15:16+00:00</lastmod>
+    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
   </url>
   
   <url>
@@ -209,7 +209,7 @@
   
   <url>
     <loc>/tutorial/hooks/hook_result.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
   </url>
   
   <url>
@@ -254,7 +254,7 @@
   
   <url>
     <loc>/tutorial/hooks/poke_exception.html</loc>
-    <lastmod>2017-10-18T01:20:59+01:00</lastmod>
+    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
   </url>
   
   <url>
@@ -314,12 +314,12 @@
   
   <url>
     <loc>/tutorial/hooks/hook_outcome.html</loc>
-    <lastmod>2017-10-18T01:20:59+01:00</lastmod>
+    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tutorial/hooks.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
   </url>
   
   <url>
@@ -1137,7 +1137,7 @@
   
   <url>
     <loc>/tags/adl-bridging.html</loc>
-    <lastmod>2019-01-24T01:15:16+00:00</lastmod>
+    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1149,7 +1149,7 @@
   
   <url>
     <loc>/tags/backtrace.html</loc>
-    <lastmod>2017-12-13T09:28:03+00:00</lastmod>
+    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1171,14 +1171,14 @@
   </url>
   
   <url>
-    <loc>/categories/constructors.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <loc>/tags/constructors.html</loc>
+    <lastmod>2017-12-13T09:28:03+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/constructors.html</loc>
-    <lastmod>2017-12-13T09:28:03+00:00</lastmod>
+    <loc>/categories/constructors.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1261,7 +1261,7 @@
   
   <url>
     <loc>/tags/hooks.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
     <priority>0</priority>
   </url>
   
