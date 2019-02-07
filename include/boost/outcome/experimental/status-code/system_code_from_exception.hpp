@@ -33,8 +33,9 @@ DEALINGS IN THE SOFTWARE.
 
 #include "system_code.hpp"
 
-#include <exception>  // for exception_ptr
-#include <stdexcept>  // for the exception types
+#include <exception>     // for exception_ptr
+#include <stdexcept>     // for the exception types
+#include <system_error>  // for std::system_error
 
 BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
