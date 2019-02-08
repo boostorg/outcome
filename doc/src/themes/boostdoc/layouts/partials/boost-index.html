@@ -1,14 +1,16 @@
 <div class="toc">
 <p><b>Table of Contents</b></p>
 <dl class="toc">
-
-{{- if eq .Site.Params.ordersectionsby "title"}}
-  {{- range .Site.Home.Sections.ByTitle}}
-  {{- template "section-tree-nav" dict "sect" .context "currentnode" .context "count" 1 "tocdepth" .toc_depth}}
-  {{- end}}
-{{- else}}
-  {{- range .Site.Home.Sections.ByWeight}}
-  {{- template "section-tree-nav" dict "sect" .context "currentnode" .context "count" 1 "tocdepth" .toc_depth}}
+{{- $tocdepth := .toc_depth }}
+{{- with .context }}
+  {{- if eq .Site.Params.ordersectionsby "title"}}
+    {{- range .Site.Home.Sections.ByTitle}}
+    {{- template "section-tree-nav" dict "sect" . "currentnode" . "count" 1 "tocdepth" $tocdepth}}
+    {{- end}}
+  {{- else}}
+    {{- range .Site.Home.Sections.ByWeight}}
+    {{- template "section-tree-nav" dict "sect" . "currentnode" . "count" 1 "tocdepth" $tocdepth}}
+    {{- end}}
   {{- end}}
 {{- end}}
 
