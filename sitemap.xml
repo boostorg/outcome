@@ -224,7 +224,7 @@
   
   <url>
     <loc>/faq.html</loc>
-    <lastmod>2019-02-12T14:02:37+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
@@ -844,202 +844,202 @@
   
   <url>
     <loc>/reference/types/basic_outcome/assume_value_lvalue.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/assume_value_lvalue.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/assume_value_lvalue_const.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/assume_value_lvalue_const.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/assume_value_rvalue.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/assume_value_rvalue.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/assume_value_rvalue_const.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/assume_value_rvalue_const.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/value_lvalue.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/value_lvalue.html</loc>
-    <lastmod>2019-01-19T01:27:54+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/value_lvalue_const.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/value_lvalue_const.html</loc>
-    <lastmod>2019-01-19T01:27:54+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/value_rvalue.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/value_rvalue.html</loc>
-    <lastmod>2019-01-19T01:27:54+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/value_rvalue_const.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/value_rvalue_const.html</loc>
-    <lastmod>2019-01-19T01:27:54+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/assume_error_lvalue.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/assume_error_lvalue.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/assume_error_lvalue_const.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/assume_error_lvalue_const.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/assume_error_rvalue.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/assume_error_rvalue.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/assume_error_rvalue_const.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/assume_error_rvalue_const.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/error_lvalue.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/error_lvalue.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/error_lvalue_const.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/error_lvalue_const.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/error_rvalue.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/error_rvalue.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/error_rvalue_const.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/error_rvalue_const.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/assume_exception_lvalue.html</loc>
-    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/assume_exception_lvalue_const.html</loc>
-    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/assume_exception_rvalue_const.html</loc>
-    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/assume_exception_rvalue.html</loc>
-    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/exception_lvalue.html</loc>
-    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/exception_lvalue_const.html</loc>
-    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/exception_rvalue.html</loc>
-    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/exception_rvalue_const.html</loc>
-    <lastmod>2019-02-01T15:52:57+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
   
   <url>
@@ -1381,7 +1381,7 @@
   
   <url>
     <loc>/categories/observers.html</loc>
-    <lastmod>2019-01-19T01:27:54+00:00</lastmod>
+    <lastmod>2019-02-12T16:36:24+00:00</lastmod>
     <priority>0</priority>
   </url>
   

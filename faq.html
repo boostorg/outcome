@@ -74,7 +74,8 @@ C macro API for standard Outcome, but we can for <a href="./experimental/c-api.h
 
 <p>Right now, no. Though the data layout shown above is not expected to change.</p>
 
-<p>Outcome&rsquo;s ABI and API will be formally fixed as <strong>the</strong> v2 interface approximatelyoneone year after its first Boost release. Thereafter the
+<p>Outcome&rsquo;s ABI and API will be formally fixed as <strong>the</strong> v2 interface approximately
+one year after its first Boost release. Thereafter the
 <a href="https://lvc.github.io/abi-compliance-checker/">ABI compliance checker</a>
 will be run per-commit to ensure Outcome&rsquo;s ABI and API remains stable.</p>
 
@@ -123,7 +124,8 @@ can have as few dependencies as:</p>
 </ol>
 
 <p>These, apart from <code>&lt;iosfwd&gt;</code>, tend to be very low build time impact in most standard
-library implementations.</p>
+library implementations. If you include only <code>&lt;basic_result.hpp&gt;</code>, and manually configure
+<code>basic_result&lt;&gt;</code> by hand, compile time impact will be minimised.</p>
 
 <p>(See reference documentation for <a href="./reference/types/basic_result.html" class="api-reference">basic_result&lt;T, E, NoValuePolicy&gt;</a> for more detail.</p>
 
@@ -406,7 +408,7 @@ interoperate with code using Outcome.</p></li>
 
 
 
-        </div><p><small>Last revised: February 12, 2019 at 14:02:37 UTC</small></p>
+        </div><p><small>Last revised: February 12, 2019 at 16:36:24 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./reference/functions/try_throw_std_exception_from_error.html"><img src="./images/prev.png" alt="Prev"></a>
