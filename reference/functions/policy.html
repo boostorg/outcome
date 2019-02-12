@@ -38,6 +38,8 @@
 <ol class="children children-li"><li>
 	<a href="../../reference/functions/policy/basic_outcome_failure_exception_from_error.html" ><code>auto basic_outcome_failure_exception_from_error(const EC &amp;)</code></a>
 <p>ADL discovered free function synthesising an exception type from an error type, used by the <code>.failure()</code> observers.</p><li>
+	<a href="../../reference/functions/policy/error_code.html" ><code>decltype(auto) error_code(T &amp;&amp;)</code></a>
+<p>Extracts a <code>boost::system::error_code</code> or <code>std::error_code</code> from the input via ADL discovery of a suitable <code>make_error_code(T)</code> function.</p><li>
 	<a href="../../reference/functions/policy/exception_ptr.html" ><code>decltype(auto) exception_ptr(T &amp;&amp;)</code></a>
 <p>Extracts a <code>boost::exception_ptr</code> or <code>std::exception_ptr</code> from the input via ADL discovery of a suitable <code>make_exception_ptr(T)</code> function.</p><li>
 	<a href="../../reference/functions/policy/outcome_throw_as_system_error_with_payload_boost_enum.html" ><code>void outcome_throw_as_system_error_with_payload(BoostErrorCodeEnum &amp;&amp;)</code></a>

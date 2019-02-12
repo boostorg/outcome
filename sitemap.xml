@@ -4,7 +4,7 @@
   
   <url>
     <loc>/requirements.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <lastmod>2019-02-11T15:13:33+00:00</lastmod>
   </url>
   
   <url>
@@ -13,8 +13,13 @@
   </url>
   
   <url>
-    <loc>/tutorial/interop/problem.html</loc>
-    <lastmod>2017-11-16T21:31:08+00:00</lastmod>
+    <loc>/tutorial/essential/before.html</loc>
+    <lastmod>2019-02-09T14:45:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorial/advanced/interop/problem.html</loc>
+    <lastmod>2019-02-09T15:18:26+00:00</lastmod>
   </url>
   
   <url>
@@ -23,8 +28,8 @@
   </url>
   
   <url>
-    <loc>/tutorial/interop/value-or-error.html</loc>
-    <lastmod>2018-01-17T23:35:00+00:00</lastmod>
+    <loc>/tutorial/advanced/interop/value-or-error.html</loc>
+    <lastmod>2019-02-11T17:14:51+00:00</lastmod>
   </url>
   
   <url>
@@ -33,8 +38,8 @@
   </url>
   
   <url>
-    <loc>/tutorial/no-value/custom.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <loc>/tutorial/essential/no-value/custom.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -48,13 +53,18 @@
   </url>
   
   <url>
+    <loc>/tutorial/essential.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/motivation/exceptions.html</loc>
     <lastmod>2019-02-07T11:21:20-05:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/hooks/keeping_state.html</loc>
-    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
+    <loc>/tutorial/advanced/hooks/keeping_state.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -68,13 +78,13 @@
   </url>
   
   <url>
-    <loc>/tutorial/payload/copy_file.html</loc>
-    <lastmod>2017-12-12T23:11:22+00:00</lastmod>
+    <loc>/tutorial/advanced/payload/copy_file.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/interop/httplib.html</loc>
-    <lastmod>2017-11-16T21:31:08+00:00</lastmod>
+    <loc>/tutorial/advanced/interop/httplib.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -83,13 +93,18 @@
   </url>
   
   <url>
-    <loc>/tutorial/constructors/two-phase-init.html</loc>
-    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
+    <loc>/tutorial/advanced/constructors/two-phase-init.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/result.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <loc>/tutorial/essential/result.html</loc>
+    <lastmod>2019-02-09T14:45:47+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/recipes.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -98,18 +113,18 @@
   </url>
   
   <url>
-    <loc>/tutorial/interop/tidylib.html</loc>
-    <lastmod>2017-11-16T21:31:08+00:00</lastmod>
+    <loc>/tutorial/advanced/interop/tidylib.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/constructors/file_handle.html</loc>
-    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
+    <loc>/tutorial/advanced/constructors/file_handle.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/hooks/adl_bridging.html</loc>
-    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
+    <loc>/tutorial/advanced/hooks/adl_bridging.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -118,8 +133,13 @@
   </url>
   
   <url>
-    <loc>/tutorial/no-value/builtin.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <loc>/tutorial/advanced.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorial/essential/no-value/builtin.html</loc>
+    <lastmod>2019-02-09T15:18:26+00:00</lastmod>
   </url>
   
   <url>
@@ -133,8 +153,8 @@
   </url>
   
   <url>
-    <loc>/tutorial/result/inspecting.html</loc>
-    <lastmod>2018-02-01T15:03:27+01:00</lastmod>
+    <loc>/tutorial/essential/result/inspecting.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -143,8 +163,8 @@
   </url>
   
   <url>
-    <loc>/tutorial/interop/filelib.html</loc>
-    <lastmod>2017-11-16T21:31:08+00:00</lastmod>
+    <loc>/tutorial/advanced/interop/filelib.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -153,8 +173,8 @@
   </url>
   
   <url>
-    <loc>/tutorial/payload/copy_file2.html</loc>
-    <lastmod>2017-12-12T23:11:22+00:00</lastmod>
+    <loc>/tutorial/advanced/payload/copy_file2.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -163,8 +183,8 @@
   </url>
   
   <url>
-    <loc>/tutorial/outcome.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <loc>/tutorial/essential/outcome.html</loc>
+    <lastmod>2019-02-11T17:43:30+00:00</lastmod>
   </url>
   
   <url>
@@ -173,18 +193,18 @@
   </url>
   
   <url>
-    <loc>/tutorial/no-value.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <loc>/tutorial/essential/no-value.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/interop/app.html</loc>
-    <lastmod>2017-11-16T21:31:08+00:00</lastmod>
+    <loc>/tutorial/advanced/interop/app.html</loc>
+    <lastmod>2019-02-11T17:14:51+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/payload/copy_file3.html</loc>
-    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
+    <loc>/tutorial/advanced/payload/copy_file3.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -193,8 +213,8 @@
   </url>
   
   <url>
-    <loc>/tutorial/payload.html</loc>
-    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
+    <loc>/tutorial/advanced/payload.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -204,12 +224,12 @@
   
   <url>
     <loc>/faq.html</loc>
-    <lastmod>2019-02-05T17:14:18+00:00</lastmod>
+    <lastmod>2019-02-12T14:02:37+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/hooks/hook_result.html</loc>
-    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
+    <loc>/tutorial/advanced/hooks/hook_result.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -218,23 +238,23 @@
   </url>
   
   <url>
-    <loc>/tutorial/outcome/inspecting.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <loc>/tutorial/essential/outcome/inspecting.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/interop/app-map-httplib1.html</loc>
-    <lastmod>2017-11-16T21:31:08+00:00</lastmod>
+    <loc>/tutorial/advanced/interop/app-map-httplib1.html</loc>
+    <lastmod>2019-02-11T13:38:04+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/constructors/static-constructor.html</loc>
-    <lastmod>2017-10-24T15:42:27+01:00</lastmod>
+    <loc>/tutorial/advanced/constructors/static-constructor.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/result/try.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <loc>/tutorial/essential/result/try.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -248,23 +268,23 @@
   </url>
   
   <url>
-    <loc>/tutorial/interop/app-map-httplib2.html</loc>
-    <lastmod>2018-01-17T23:35:00+00:00</lastmod>
+    <loc>/tutorial/advanced/interop/app-map-httplib2.html</loc>
+    <lastmod>2019-02-11T13:38:04+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/hooks/poke_exception.html</loc>
-    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
+    <loc>/tutorial/advanced/hooks/poke_exception.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/interop/app-map-filelib.html</loc>
-    <lastmod>2017-11-16T21:31:08+00:00</lastmod>
+    <loc>/tutorial/advanced/interop/app-map-filelib.html</loc>
+    <lastmod>2019-02-11T13:38:04+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/constructors/metaprogrammg1.html</loc>
-    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
+    <loc>/tutorial/advanced/constructors/metaprogrammg1.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -298,13 +318,13 @@
   </url>
   
   <url>
-    <loc>/tutorial/interop/app-map-tidylib.html</loc>
-    <lastmod>2017-11-16T21:31:08+00:00</lastmod>
+    <loc>/tutorial/advanced/interop/app-map-tidylib.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/constructors.html</loc>
-    <lastmod>2017-12-13T09:28:03+00:00</lastmod>
+    <loc>/tutorial/advanced/constructors.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -313,18 +333,18 @@
   </url>
   
   <url>
-    <loc>/tutorial/hooks/hook_outcome.html</loc>
-    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
+    <loc>/tutorial/advanced/hooks/hook_outcome.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/hooks.html</loc>
-    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
+    <loc>/tutorial/advanced/hooks.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/interop/app-go.html</loc>
-    <lastmod>2017-11-16T21:31:08+00:00</lastmod>
+    <loc>/tutorial/advanced/interop/app-go.html</loc>
+    <lastmod>2019-02-11T13:38:04+00:00</lastmod>
   </url>
   
   <url>
@@ -343,13 +363,13 @@
   </url>
   
   <url>
-    <loc>/tutorial/constructors/metaprogrammg2.html</loc>
-    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
+    <loc>/tutorial/advanced/constructors/metaprogrammg2.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
-    <loc>/tutorial/interop/conclusion.html</loc>
-    <lastmod>2017-11-16T21:31:08+00:00</lastmod>
+    <loc>/tutorial/advanced/interop/conclusion.html</loc>
+    <lastmod>2019-02-11T13:38:04+00:00</lastmod>
   </url>
   
   <url>
@@ -358,8 +378,8 @@
   </url>
   
   <url>
-    <loc>/tutorial/constructors/metaprogrammg3.html</loc>
-    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
+    <loc>/tutorial/advanced/constructors/metaprogrammg3.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -388,8 +408,13 @@
   </url>
   
   <url>
-    <loc>/tutorial/interop.html</loc>
-    <lastmod>2017-12-13T09:28:03+00:00</lastmod>
+    <loc>/tutorial/essential/conventions.html</loc>
+    <lastmod>2019-02-09T15:18:26+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorial/advanced/interop.html</loc>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
   
   <url>
@@ -404,7 +429,7 @@
   
   <url>
     <loc>/history.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <lastmod>2019-02-11T17:43:30+00:00</lastmod>
   </url>
   
   <url>
@@ -1131,13 +1156,24 @@
   </url>
   
   <url>
+    <loc>/recipes/asio-integration.html</loc>
+    <lastmod>2019-02-11T16:25:39+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/credits.html</loc>
     <lastmod>2019-01-25T23:04:27+00:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/adl-bridging.html</loc>
-    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/asio.html</loc>
+    <lastmod>2019-02-11T16:25:39+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1149,7 +1185,13 @@
   
   <url>
     <loc>/tags/backtrace.html</loc>
-    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/best-practice.html</loc>
+    <lastmod>2019-02-09T15:18:26+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1172,13 +1214,19 @@
   
   <url>
     <loc>/tags/constructors.html</loc>
-    <lastmod>2017-12-13T09:28:03+00:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/constructors.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/conventions.html</loc>
+    <lastmod>2019-02-09T15:18:26+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1202,7 +1250,7 @@
   
   <url>
     <loc>/tags/default-actions.html</loc>
-    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1226,19 +1274,19 @@
   
   <url>
     <loc>/tags/dual-api.html</loc>
-    <lastmod>2017-12-12T23:11:22+00:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/error.html</loc>
-    <lastmod>2018-02-01T15:03:27+01:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/exception.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1250,7 +1298,7 @@
   
   <url>
     <loc>/tags/has_error_code.html</loc>
-    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1261,7 +1309,13 @@
   
   <url>
     <loc>/tags/hooks.html</loc>
-    <lastmod>2019-02-07T14:30:22+00:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/idioms.html</loc>
+    <lastmod>2019-02-09T15:18:26+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1279,7 +1333,7 @@
   
   <url>
     <loc>/tags/make_error_code.html</loc>
-    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1303,13 +1357,19 @@
   
   <url>
     <loc>/tags/namespace.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <lastmod>2019-02-09T14:45:47+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/networking-ts.html</loc>
+    <lastmod>2019-02-11T16:25:39+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/nodiscard.html</loc>
-    <lastmod>2018-02-01T15:03:27+01:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1333,25 +1393,31 @@
   
   <url>
     <loc>/tags/outcome.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <lastmod>2019-02-11T17:43:30+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/payload.html</loc>
-    <lastmod>2019-02-06T16:50:01+00:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/playpen.html</loc>
+    <lastmod>2019-02-09T14:45:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/policies.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/result.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <lastmod>2019-02-09T14:45:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1369,25 +1435,25 @@
   
   <url>
     <loc>/tags.html</loc>
-    <lastmod>2017-12-13T09:28:03+00:00</lastmod>
+    <lastmod>2019-02-09T15:18:26+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/try.html</loc>
-    <lastmod>2019-02-06T14:38:54+00:00</lastmod>
+    <lastmod>2019-02-09T14:45:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/value.html</loc>
-    <lastmod>2018-02-01T15:03:27+01:00</lastmod>
+    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/tags/value-or-error.html</loc>
-    <lastmod>2018-01-17T23:35:00+00:00</lastmod>
+    <lastmod>2019-02-11T17:14:51+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1539,6 +1605,11 @@
   <url>
     <loc>/reference/aliases/checked.html</loc>
     <lastmod>2019-01-24T01:15:16+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/policy/error_code.html</loc>
+    <lastmod>2019-02-11T15:13:33+00:00</lastmod>
   </url>
   
   <url>
