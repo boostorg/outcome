@@ -34,6 +34,7 @@ DEALINGS IN THE SOFTWARE.
 #include "config.hpp"
 
 #include "boost/exception_ptr.hpp"
+#include "boost/system/system_error.hpp"
 
 BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
@@ -62,8 +63,6 @@ BOOST_OUTCOME_V2_NAMESPACE_END
 
 #include "std_result.hpp"
 
-#include "boost/system/error_code.hpp"
-#include "boost/system/system_error.hpp"
 
 // ADL injection of outcome_throw_as_system_error_with_payload
 namespace boost
