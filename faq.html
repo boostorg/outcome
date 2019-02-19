@@ -49,6 +49,7 @@
 <dt><a href="#mid-tier-cpu-arm-cortex-a72">Mid tier CPU: ARM Cortex A72</a></dt>
 <dt><a href="#low-end-cpus-intel-silvermont-x64-and-arm-cortex-a53">Low end CPUs: Intel Silvermont x64 and ARM Cortex A53</a></dt>
 </dl></dd></dt>
+<dt><a href="#can-i-use-result-t-ec-across-dll-boundaries">Can I use <code>result&lt;T, EC&gt;</code> across DLL boundaries?</a></dt>
 <dt><a href="#why-is-implicit-default-construction-disabled">Why is implicit default construction disabled?</a></dt>
 <dt><a href="#how-far-away-from-the-proposed-std-expected-t-e-is-outcome-s-checked-t-e">How far away from the proposed <code>std::expected&lt;T, E&gt;</code> is Outcome&rsquo;s <code>checked&lt;T, E&gt;</code>?</a></dt>
 <dt><a href="#why-doesn-t-outcome-duplicate-std-expected-t-e-s-design">Why doesn&rsquo;t Outcome duplicate <code>std::expected&lt;T, E&gt;</code>&rsquo;s design?</a></dt>
@@ -293,6 +294,24 @@ table-based EH still delivers significant performance improvements for the succe
 code path. Unless determinism in failure is critically important, you should not
 use Outcome on in-order execution CPUs.</p>
 
+<h2 id="can-i-use-result-t-ec-across-dll-boundaries">Can I use <code>result&lt;T, EC&gt;</code> across DLL boundaries?</h2>
+
+<p>A known problem with uing DLLs (and to smaller extent shared libraries) is that globals
+objects may get duplicated: one instance in the executable and one in the DLL. This
+behavior is not incorrect according to the C++ Standard, as the Standard does not
+recognize the existence of DLLs or shared libraries. Therefore, the designs that
+depend on globals having unique address may become compromized when used in a program
+using DLLs.</p>
+
+<p>The class template <code>result&lt;T, EC&gt;</code> itself does not depend on the addresses of globals,
+thus it is safe for inter-DLL usage. However, one of the most likely candidate for <code>EC</code>
+&ndash; <code>std::error_code</code> &ndash; does depend on the addresses of globals. While some implementations
+of the Standard Library may (and do) implement a DLL-safe <code>error_code</code>, it is not guaranteed generally.</p>
+
+<p>In contrast, <code>boost::system::error_code</code>, since version 1.69 does offer an explicit guarantee
+that it does not depend on the addresses of globals. This can be seen in the specification of
+<code>error_category::operator==</code> in <a href="https://www.boost.org/doc/libs/1_69_0/libs/system/doc/html/system.html#ref_synopsis">Boost.System synopsis</a>.</p>
+
 <h2 id="why-is-implicit-default-construction-disabled">Why is implicit default construction disabled?</h2>
 
 <p>This was one of the more interesting points of discussion during the peer review of
@@ -493,7 +512,7 @@ interoperate with code using Outcome.</p></li>
 
 
 
-        </div><p><small>Last revised: February 18, 2019 at 00:10:14 UTC</small></p>
+        </div><p><small>Last revised: February 18, 2019 at 20:45:50 -1000</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./reference/functions/try_throw_std_exception_from_error.html"><img src="./images/prev.png" alt="Prev"></a>
