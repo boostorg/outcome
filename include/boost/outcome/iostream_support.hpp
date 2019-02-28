@@ -99,13 +99,8 @@ namespace detail
   inline std::string safe_message(const std::error_code &ec) { return " (" + ec.message() + ")"; }
 }  // namespace detail
 
-/*! Deserialise a result. Format is `status_unsigned [value][error]`. Spare storage is preserved.
-\tparam 3
-\exclude
-\tparam 4
-\exclude
-
-\requires That `R` and `S` implement `operator>>`.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 BOOST_OUTCOME_TEMPLATE(class R, class S, class P)
 BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(detail::lvalueref<std::istream>() >> detail::lvalueref<R>()), BOOST_OUTCOME_TEXPR(detail::lvalueref<std::istream>() >> detail::lvalueref<S>()))
@@ -118,14 +113,8 @@ inline std::istream &operator>>(std::istream &s, result<R, S, P> &v)
   }
   return s;
 }
-/*! Serialise a result. Format is `status_unsigned [value][error]`. Spare storage is preserved.
-If you are printing to a human readable destination, use `print()` instead.
-\tparam 3
-\exclude
-\tparam 4
-\exclude
-
-\requires That `R` and `S` implement `operator<<`.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 BOOST_OUTCOME_TEMPLATE(class R, class S, class P)
 BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(detail::lvalueref<std::ostream>() << detail::lvalueref<R>()), BOOST_OUTCOME_TEXPR(detail::lvalueref<std::ostream>() << detail::lvalueref<S>()))
@@ -138,8 +127,8 @@ inline std::ostream &operator<<(std::ostream &s, const result<R, S, P> &v)
   }
   return s;
 }
-/*! Debug print a result into a form suitable for human reading. Format is `value|error`. If the
-error type is `error_code`, appends `" (ec.message())"` afterwards.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 template <class R, class S, class P> inline std::string print(const detail::basic_result_final<R, S, P> &v)
 {
@@ -154,8 +143,8 @@ template <class R, class S, class P> inline std::string print(const detail::basi
   }
   return s.str();
 }
-/*! Debug print a result into a form suitable for human reading. Format is `(+void)|error`. If the
-error type is `error_code`, appends `" (ec.message())"` afterwards.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 template <class S, class P> inline std::string print(const detail::basic_result_final<void, S, P> &v)
 {
@@ -170,7 +159,8 @@ template <class S, class P> inline std::string print(const detail::basic_result_
   }
   return s.str();
 }
-/*! Debug print a result into a form suitable for human reading. Format is `value|(-void)`.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 template <class R, class P> inline std::string print(const detail::basic_result_final<R, void, P> &v)
 {
@@ -185,7 +175,8 @@ template <class R, class P> inline std::string print(const detail::basic_result_
   }
   return s.str();
 }
-/*! Debug print a result into a form suitable for human reading. Format is `(+void)|(-void)`.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 template <class P> inline std::string print(const detail::basic_result_final<void, void, P> &v)
 {
@@ -201,15 +192,8 @@ template <class P> inline std::string print(const detail::basic_result_final<voi
   return s.str();
 }
 
-/*! Deserialise an outcome. Format is `status_unsigned [value][error][exception]`. Spare storage is preserved.
-\tparam 4
-\exclude
-\tparam 5
-\exclude
-\tparam 6
-\exclude
-
-\requires That `R`, `S` and `P` implement `operator>>`.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 BOOST_OUTCOME_TEMPLATE(class R, class S, class P, class N)
 BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(detail::lvalueref<std::istream>() >> detail::lvalueref<R>()), BOOST_OUTCOME_TEXPR(detail::lvalueref<std::istream>() >> detail::lvalueref<S>()), BOOST_OUTCOME_TEXPR(detail::lvalueref<std::istream>() >> detail::lvalueref<P>()))
@@ -226,16 +210,8 @@ inline std::istream &operator>>(std::istream &s, outcome<R, S, P, N> &v)
   }
   return s;
 }
-/*! Serialise an outcome. Format is `status_unsigned [value][error][exception]`. Spare storage is preserved.
-If you are printing to a human readable destination, use `print()` instead.
-\tparam 4
-\exclude
-\tparam 5
-\exclude
-\tparam 6
-\exclude
-
-\requires That `R`, `S` and `P` implement `operator<<`.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 BOOST_OUTCOME_TEMPLATE(class R, class S, class P, class N)
 BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(detail::lvalueref<std::ostream>() << detail::lvalueref<R>()), BOOST_OUTCOME_TEXPR(detail::lvalueref<std::ostream>() << detail::lvalueref<S>()), BOOST_OUTCOME_TEXPR(detail::lvalueref<std::ostream>() << detail::lvalueref<P>()))
@@ -252,17 +228,8 @@ inline std::ostream &operator<<(std::ostream &s, const outcome<R, S, P, N> &v)
   }
   return s;
 }
-/*! Debug print an outcome into a form suitable for human reading. Format is one of:
-
-1. `value|error|exception`
-2. `{ error, exception }`
-
-If the error type is `error_code`, appends `" (ec.message())"` after the error.
-Exception type is printed as one of:
-
-1. `std::system_error code code(): what()`
-2. `std::exception: what()`
-3. `unknown exception`
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 template <class R, class S, class P, class N> inline std::string print(const outcome<R, S, P, N> &v)
 {

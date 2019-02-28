@@ -44,10 +44,8 @@ namespace std  // NOLINT
 
 BOOST_OUTCOME_V2_NAMESPACE_BEGIN
 
-/*! Customisation point for changing what the `BOOST_OUTCOME_TRY` macros
-do. This function defaults to returning `std::forward<T>(v).as_failure()`.
-\effects Extracts any state apart from value into a `failure_type`.
-\requires The input value to have a `.as_failure()` member function.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 BOOST_OUTCOME_TEMPLATE(class T)
 BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(std::declval<T>().as_failure()))
@@ -55,15 +53,15 @@ inline decltype(auto) try_operation_return_as(T &&v)
 {
   return static_cast<T &&>(v).as_failure();
 }
-/*! Customisation point for changing what the `BOOST_OUTCOME_TRY` macros do.
-\effects Returns by copy a `std::experimental::unexpected<E>` from an input `std::experimental::expected<T, E>`.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 template <class T, class E> inline auto try_operation_return_as(const std::experimental::expected<T, E> &v)
 {
   return std::experimental::unexpected<E>(v.error());
 }
-/*! Customisation point for changing what the `BOOST_OUTCOME_TRY` macros do.
-\effects Returns by move a `std::experimental::unexpected<E>` from an input `std::experimental::expected<T, E>`.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 template <class T, class E> inline auto try_operation_return_as(std::experimental::expected<T, E> &&v)
 {
@@ -81,28 +79,17 @@ namespace detail
 
 BOOST_OUTCOME_V2_NAMESPACE_END
 
-//! \exclude
 #define BOOST_OUTCOME_TRY_GLUE2(x, y) x##y
-//! \exclude
 #define BOOST_OUTCOME_TRY_GLUE(x, y) BOOST_OUTCOME_TRY_GLUE2(x, y)
-//! \exclude
 #define BOOST_OUTCOME_TRY_UNIQUE_NAME BOOST_OUTCOME_TRY_GLUE(_outcome_try_unique_name_temporary, __COUNTER__)
 
-//! \exclude
 #define BOOST_OUTCOME_TRY_RETURN_ARG_COUNT(_1_, _2_, _3_, _4_, _5_, _6_, _7_, _8_, count, ...) count
-//! \exclude
 #define BOOST_OUTCOME_TRY_EXPAND_ARGS(args) BOOST_OUTCOME_TRY_RETURN_ARG_COUNT args
-//! \exclude
 #define BOOST_OUTCOME_TRY_COUNT_ARGS_MAX8(...) BOOST_OUTCOME_TRY_EXPAND_ARGS((__VA_ARGS__, 8, 7, 6, 5, 4, 3, 2, 1, 0))
-//! \exclude
 #define BOOST_OUTCOME_TRY_OVERLOAD_MACRO2(name, count) name##count
-//! \exclude
 #define BOOST_OUTCOME_TRY_OVERLOAD_MACRO1(name, count) BOOST_OUTCOME_TRY_OVERLOAD_MACRO2(name, count)
-//! \exclude
 #define BOOST_OUTCOME_TRY_OVERLOAD_MACRO(name, count) BOOST_OUTCOME_TRY_OVERLOAD_MACRO1(name, count)
-//! \exclude
 #define BOOST_OUTCOME_TRY_OVERLOAD_GLUE(x, y) x y
-//! \exclude
 #define BOOST_OUTCOME_TRY_CALL_OVERLOAD(name, ...) BOOST_OUTCOME_TRY_OVERLOAD_GLUE(BOOST_OUTCOME_TRY_OVERLOAD_MACRO(name, BOOST_OUTCOME_TRY_COUNT_ARGS_MAX8(__VA_ARGS__)), (__VA_ARGS__))
 
 #if !defined(__clang__) && defined(__GNUC__) && __GNUC__ >= 8
@@ -110,12 +97,10 @@ BOOST_OUTCOME_V2_NAMESPACE_END
 #pragma GCC diagnostic ignored "-Wparentheses"
 #endif
 
-//! \exclude
 #define BOOST_OUTCOME_TRYV2(unique, ...)                                                                                                                                                                                                                                                                                             \
   auto && (unique) = (__VA_ARGS__);                                                                                                                                                                                                                                                                                            \
   if(!(unique).has_value())                                                                                                                                                                                                                                                                                                    \
   return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
-//! \exclude
 #define BOOST_OUTCOME_TRY2(unique, v, ...)                                                                                                                                                                                                                                                                                           \
   BOOST_OUTCOME_TRYV2(unique, __VA_ARGS__);                                                                                                                                                                                                                                                                                          \
   auto && (v) = BOOST_OUTCOME_V2_NAMESPACE::detail::try_extract_value(static_cast<decltype(unique) &&>(unique))
@@ -124,21 +109,15 @@ BOOST_OUTCOME_V2_NAMESPACE_END
 #pragma GCC diagnostic pop
 #endif
 
-/*! If the `outcome`/`result`/`std::experimental::expected` returned by expression ... is not valued, propagate any
-failure by immediately returning that failure state immediately
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 #define BOOST_OUTCOME_TRYV(...) BOOST_OUTCOME_TRYV2(BOOST_OUTCOME_TRY_UNIQUE_NAME, __VA_ARGS__)
 
 #if defined(__GNUC__) || defined(__clang__)
 
-/*! If the `outcome`/`result`/`std::experimental::expected` returned by expression ... is not valued, propagate any
-failure by immediately returning that failure state immediately, else become the
-unwrapped value as an expression. This makes `BOOST_OUTCOME_TRYX(expr)` an expression
-which can be used exactly like the `try` operator in other languages.
-
-\remarks This macro makes use of a proprietary extension in GCC and clang and is not
-portable. The macro is not made available on unsupported compilers,
-so you can test for its presence using `#ifdef BOOST_OUTCOME_TRYX`.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 #define BOOST_OUTCOME_TRYX(...)                                                                                                                                                                                                                                                                                                      \
   ({                                                                                                                                                                                                                                                                                                                           \
@@ -150,52 +129,21 @@ so you can test for its presence using `#ifdef BOOST_OUTCOME_TRYX`.
 })
 #endif
 
-/*! If the `outcome`/`result`/`std::experimental::expected` returned by expression ... is not valued, propagate any
-failure by immediately returning that failure immediately, else set *auto &&v* to the unwrapped value.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 #define BOOST_OUTCOME_TRYA(v, ...) BOOST_OUTCOME_TRY2(BOOST_OUTCOME_TRY_UNIQUE_NAME, v, __VA_ARGS__)
 
-//! \exclude
 #define BOOST_OUTCOME_TRY_INVOKE_TRY8(a, b, c, d, e, f, g, h) BOOST_OUTCOME_TRYA(a, b, c, d, e, f, g, h)
-//! \exclude
 #define BOOST_OUTCOME_TRY_INVOKE_TRY7(a, b, c, d, e, f, g) BOOST_OUTCOME_TRYA(a, b, c, d, e, f, g)
-//! \exclude
 #define BOOST_OUTCOME_TRY_INVOKE_TRY6(a, b, c, d, e, f) BOOST_OUTCOME_TRYA(a, b, c, d, e, f)
-//! \exclude
 #define BOOST_OUTCOME_TRY_INVOKE_TRY5(a, b, c, d, e) BOOST_OUTCOME_TRYA(a, b, c, d, e)
-//! \exclude
 #define BOOST_OUTCOME_TRY_INVOKE_TRY4(a, b, c, d) BOOST_OUTCOME_TRYA(a, b, c, d)
-//! \exclude
 #define BOOST_OUTCOME_TRY_INVOKE_TRY3(a, b, c) BOOST_OUTCOME_TRYA(a, b, c)
-//! \exclude
 #define BOOST_OUTCOME_TRY_INVOKE_TRY2(a, b) BOOST_OUTCOME_TRYA(a, b)
-//! \exclude
 #define BOOST_OUTCOME_TRY_INVOKE_TRY1(a) BOOST_OUTCOME_TRYV(a)
-/*! This uses C macro overloading to select between `BOOST_OUTCOME_TRYV(...)` and `BOOST_OUTCOME_TRYA(v, ...)`
-based on whether there is one or two or more arguments to the macro.
-
-It can surprise people as template parameters are not recognised by the C preprocessor. For example:
-
-```c++
-BOOST_OUTCOME_TRY(foo<int, long>());
-```
-
-Here the programmer obviously intends this to be an `BOOST_OUTCOME_TRYV(...)`, but the C macro overload
-mechanism will perceive this as setting the variable `foo<int,` to the result of the function call
-`long>()`. This will fail to compile.
-
-One solution is to simply wrap all function calls with brackets so the C preprocessor breaks
-them correctly e.g.
-
-```c++
-BOOST_OUTCOME_TRY((foo<int, long>()));
-BOOST_OUTCOME_TRY(foovalue, (foo<int, long>()));
-```
-
-This solution also avoids ever exceeding eight C macro input parameters, as overloading is
-only implemented up to eight parameters.
-
-The other solution is to call `BOOST_OUTCOME_TRYV` or `BOOST_OUTCOME_TRYA` directly as appropriate.
+/*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
 */
 #define BOOST_OUTCOME_TRY(...) BOOST_OUTCOME_TRY_CALL_OVERLOAD(BOOST_OUTCOME_TRY_INVOKE_TRY, __VA_ARGS__)
 

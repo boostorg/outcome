@@ -47,16 +47,12 @@ namespace detail
 
 }  // namespace detail
 
-//! Namespace for experimental features
 namespace experimental
 {
-  //! Import whole of system_error2
   using namespace BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE;
-  //! Also bring in success and failure free functions
   using BOOST_OUTCOME_V2_NAMESPACE::success;
   using BOOST_OUTCOME_V2_NAMESPACE::failure;
 
-  //! Namespace for policies
   namespace policy
   {
     using namespace BOOST_OUTCOME_V2_NAMESPACE::policy;
@@ -64,14 +60,9 @@ namespace experimental
     {
       static_assert(!std::is_same<T, T>::value, "policy::status_code_throw not specialised for these types, did you use status_result<T, status_code<DomainType>, E>?");
     };
-    /*!
-    */
     template <class T, class DomainType> struct status_code_throw<T, status_code<DomainType>, void> : base
     {
       using _base = base;
-      /*! Performs a wide check of state, used in the value() functions.
-      \effects TODO
-      */
       template <class Impl> static constexpr void wide_value_check(Impl &&self)
       {
         if(!base::_has_value(static_cast<Impl &&>(self)))
@@ -86,9 +77,6 @@ namespace experimental
           }
         }
       }
-      /*! Performs a wide check of state, used in the error() functions
-      \effects TODO
-      */
       template <class Impl> static constexpr void wide_error_check(Impl &&self) { _base::narrow_error_check(static_cast<Impl &&>(self)); }
     };
     template <class T, class DomainType> struct status_code_throw<T, errored_status_code<DomainType>, void> : status_code_throw<T, status_code<DomainType>, void>
@@ -97,8 +85,6 @@ namespace experimental
       using status_code_throw<T, status_code<DomainType>, void>::status_code_throw;
     };
 
-    /*! Default policy selector.
-    */
     template <class T, class EC>
     using default_status_result_policy = std::conditional_t<                            //
     std::is_void<EC>::value,                                                            //
@@ -109,8 +95,9 @@ namespace experimental
                        >>;
   }  // namespace policy
 
-  /*! TODO
-  */
+  /*! AWAITING HUGO JSON CONVERSION TOOL 
+SIGNATURE NOT RECOGNISED
+*/
   template <class R, class S = system_code, class NoValuePolicy = policy::default_status_result_policy<R, S>>  //
   using status_result = basic_result<R, S, NoValuePolicy>;
 
