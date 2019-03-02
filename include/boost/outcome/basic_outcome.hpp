@@ -146,41 +146,41 @@ namespace detail
   };
 }  // namespace detail
 
-/*! AWAITING HUGO JSON CONVERSION TOOL 
+/*! AWAITING HUGO JSON CONVERSION TOOL
 type alias template <class T> is_basic_outcome. Potential doc page: `is_basic_outcome<T>`
 */
 template <class T> using is_basic_outcome = detail::is_basic_outcome<std::decay_t<T>>;
-/*! AWAITING HUGO JSON CONVERSION TOOL 
+/*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
 template <class T> static constexpr bool is_basic_outcome_v = detail::is_basic_outcome<std::decay_t<T>>::value;
 
 namespace hooks
 {
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   template <class T, class... U> constexpr inline void hook_outcome_construction(T * /*unused*/, U &&... /*unused*/) noexcept {}
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   template <class T, class U> constexpr inline void hook_outcome_copy_construction(T * /*unused*/, U && /*unused*/) noexcept {}
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   template <class T, class U> constexpr inline void hook_outcome_move_construction(T * /*unused*/, U && /*unused*/) noexcept {}
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   template <class T, class U, class... Args> constexpr inline void hook_outcome_in_place_construction(T * /*unused*/, in_place_type_t<U> /*unused*/, Args &&... /*unused*/) noexcept {}
 
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   template <class R, class S, class P, class NoValuePolicy, class U> constexpr inline void override_outcome_exception(basic_outcome<R, S, P, NoValuePolicy> *o, U &&v) noexcept;
 }  // namespace hooks
 
-/*! AWAITING HUGO JSON CONVERSION TOOL 
+/*! AWAITING HUGO JSON CONVERSION TOOL
 type definition template <class R, class S, class P, class NoValuePolicy> basic_outcome. Potential doc page: `basic_outcome<T, EC, EP, NoValuePolicy>`
 */
 template <class R, class S, class P, class NoValuePolicy>                                                                            //
@@ -341,14 +341,14 @@ protected:
   detail::devoid<exception_type> _ptr;
 
 public:
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class Arg, class... Args)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED((!predicate::constructors_enabled && sizeof...(Args) >= 0)))
   basic_outcome(Arg && /*unused*/, Args &&... /*unused*/) = delete;  // NOLINT basic_outcome<> with any of the same type is NOT SUPPORTED, see docs!
 
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T)
@@ -356,7 +356,7 @@ SIGNATURE NOT RECOGNISED
                                    && (detail::is_implicitly_constructible<value_type, T> || detail::is_implicitly_constructible<error_type, T> || detail::is_implicitly_constructible<exception_type, T>) )))
   basic_outcome(T && /*unused*/, implicit_constructors_disabled_tag /*unused*/ = implicit_constructors_disabled_tag()) = delete;  // NOLINT Implicit constructors disabled, use explicit in_place_type<T>, success() or failure(). see docs!
 
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T)
@@ -368,7 +368,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_construction(this, static_cast<T &&>(t));
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T)
@@ -380,7 +380,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_construction(this, static_cast<T &&>(t));
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class ErrorCondEnum)
@@ -392,7 +392,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_construction(this, static_cast<ErrorCondEnum &&>(t));
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T)
@@ -405,7 +405,7 @@ SIGNATURE NOT RECOGNISED
     this->_state._status |= detail::status_have_exception;
     hook_outcome_construction(this, static_cast<T &&>(t));
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T, class U)
@@ -419,7 +419,7 @@ SIGNATURE NOT RECOGNISED
     hook_outcome_construction(this, static_cast<T &&>(a), static_cast<U &&>(b));
   }
 
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T)
@@ -430,7 +430,7 @@ SIGNATURE NOT RECOGNISED
   : basic_outcome{convert::value_or_error<basic_outcome, std::decay_t<T>>{}(static_cast<T &&>(o))}
   {
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T, class U, class V, class W)
@@ -442,7 +442,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_copy_construction(this, o);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T, class U, class V, class W)
@@ -454,7 +454,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_move_construction(this, static_cast<basic_outcome<T, U, V, W> &&>(o));
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T, class U, class V)
@@ -466,7 +466,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_copy_construction(this, o);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T, class U, class V)
@@ -480,7 +480,7 @@ SIGNATURE NOT RECOGNISED
   }
 
 
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class... Args)
@@ -492,7 +492,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_in_place_construction(this, in_place_type<value_type>, static_cast<Args &&>(args)...);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class U, class... Args)
@@ -504,7 +504,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_in_place_construction(this, in_place_type<value_type>, il, static_cast<Args &&>(args)...);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class... Args)
@@ -516,7 +516,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_in_place_construction(this, in_place_type<error_type>, static_cast<Args &&>(args)...);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class U, class... Args)
@@ -528,7 +528,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_in_place_construction(this, in_place_type<error_type>, il, static_cast<Args &&>(args)...);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class... Args)
@@ -541,7 +541,7 @@ SIGNATURE NOT RECOGNISED
     this->_state._status |= detail::status_have_exception;
     hook_outcome_in_place_construction(this, in_place_type<exception_type>, static_cast<Args &&>(args)...);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class U, class... Args)
@@ -554,7 +554,7 @@ SIGNATURE NOT RECOGNISED
     this->_state._status |= detail::status_have_exception;
     hook_outcome_in_place_construction(this, in_place_type<exception_type>, il, static_cast<Args &&>(args)...);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class A1, class A2, class... Args)
@@ -564,7 +564,7 @@ SIGNATURE NOT RECOGNISED
   {
   }
 
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   constexpr basic_outcome(const success_type<void> &o) noexcept(std::is_nothrow_default_constructible<value_type>::value)  // NOLINT
@@ -573,7 +573,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_copy_construction(this, o);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T)
@@ -584,7 +584,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_copy_construction(this, o);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T)
@@ -596,7 +596,7 @@ SIGNATURE NOT RECOGNISED
     hook_outcome_move_construction(this, static_cast<success_type<T> &&>(o));
   }
 
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T)
@@ -608,7 +608,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_copy_construction(this, o);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T)
@@ -621,7 +621,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_copy_construction(this, o);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T, class U)
@@ -642,7 +642,7 @@ SIGNATURE NOT RECOGNISED
     hook_outcome_copy_construction(this, o);
   }
 
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T)
@@ -654,7 +654,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_copy_construction(this, o);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T)
@@ -667,7 +667,7 @@ SIGNATURE NOT RECOGNISED
     using namespace hooks;
     hook_outcome_copy_construction(this, o);
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T, class U)
@@ -688,12 +688,12 @@ SIGNATURE NOT RECOGNISED
     hook_outcome_move_construction(this, static_cast<failure_type<T, U> &&>(o));
   }
 
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   using base::operator==;
   using base::operator!=;
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T, class U, class V, class W)
@@ -724,7 +724,7 @@ SIGNATURE NOT RECOGNISED
     }
     return false;
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T, class U)
@@ -748,7 +748,7 @@ SIGNATURE NOT RECOGNISED
     }
     return false;
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T, class U, class V, class W)
@@ -779,7 +779,7 @@ SIGNATURE NOT RECOGNISED
     }
     return true;
   }
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T, class U)
@@ -804,7 +804,7 @@ SIGNATURE NOT RECOGNISED
     return true;
   }
 
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   void swap(basic_outcome &o) noexcept(detail::is_nothrow_swappable<value_type>::value &&std::is_nothrow_move_constructible<value_type>::value    //
@@ -812,15 +812,16 @@ SIGNATURE NOT RECOGNISED
                                        &&detail::is_nothrow_swappable<exception_type>::value &&std::is_nothrow_move_constructible<exception_type>::value)
   {
     using std::swap;
+#ifndef BOOST_NO_EXCEPTIONS
     constexpr bool value_throws = !noexcept(this->_state.swap(o._state));
-    constexpr bool error_throws = !noexcept(swap(this->_ptr, o._ptr));
+    constexpr bool error_throws = !noexcept(swap(this->_error, o._error));
     constexpr bool exception_throws = !noexcept(swap(this->_ptr, o._ptr));
 #ifdef _MSC_VER
 #pragma warning(push)
 #pragma warning(disable : 4127)  // conditional expression is constant
 #endif
     // Do throwing swap first
-    if(value_throws && !error_throws && !exception_throws)
+    if((value_throws && !error_throws && !exception_throws) || (!value_throws && !error_throws && !exception_throws))
     {
       this->_state.swap(o._state);
       swap(this->_error, o._error);
@@ -840,16 +841,51 @@ SIGNATURE NOT RECOGNISED
     }
     else
     {
+      // Two or more can throw
       this->_state.swap(o._state);
-      swap(this->_error, o._error);
-      swap(this->_ptr, o._ptr);
+      bool exception_threw = false;
+      try
+      {
+        swap(this->_error, o._error);
+        exception_threw = true;
+        swap(this->_ptr, o._ptr);
+      }
+      catch(...)
+      {
+        // Prevent has_value() == has_error() or has_value() == has_exception()
+        auto check = [exception_threw](basic_outcome *t) {
+          if(t->has_value() && (t->has_error() || t->has_exception()))
+          {
+            t->_state._status &= ~(detail::status_have_error | detail::status_have_exception);
+          }
+          if(!t->has_value() && !(t->has_error() || t->has_exception()))
+          {
+            if(exception_threw)
+            {
+              t->_state._status |= detail::status_have_exception;
+            }
+            else
+            {
+              t->_state._status |= detail::status_have_error;
+            }
+          }
+        };
+        check(this);
+        check(&o);
+        throw;
+      }
     }
 #ifdef _MSC_VER
 #pragma warning(pop)
 #endif
+#else
+    this->_state.swap(o._state);
+    swap(this->_error, o._error);
+    swap(this->_ptr, o._ptr);
+#endif
   }
 
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   failure_type<error_type, exception_type> as_failure() const &
@@ -865,7 +901,7 @@ SIGNATURE NOT RECOGNISED
     return failure_type<error_type, exception_type>(in_place_type<error_type>, this->assume_error());
   }
 
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   failure_type<error_type, exception_type> as_failure() &&
@@ -882,7 +918,7 @@ SIGNATURE NOT RECOGNISED
   }
 };
 
-/*! AWAITING HUGO JSON CONVERSION TOOL 
+/*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
 BOOST_OUTCOME_TEMPLATE(class T, class U, class V,  //
@@ -893,7 +929,7 @@ noexcept(std::declval<basic_outcome<R, S, P, N>>() == std::declval<basic_result<
 {
   return b == a;
 }
-/*! AWAITING HUGO JSON CONVERSION TOOL 
+/*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
 BOOST_OUTCOME_TEMPLATE(class T, class U, class V,  //
@@ -904,7 +940,7 @@ noexcept(std::declval<basic_outcome<R, S, P, N>>() != std::declval<basic_result<
 {
   return b != a;
 }
-/*! AWAITING HUGO JSON CONVERSION TOOL 
+/*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
 template <class R, class S, class P, class N> inline void swap(basic_outcome<R, S, P, N> &a, basic_outcome<R, S, P, N> &b) noexcept(noexcept(a.swap(b)))
@@ -914,7 +950,7 @@ template <class R, class S, class P, class N> inline void swap(basic_outcome<R, 
 
 namespace hooks
 {
-  /*! AWAITING HUGO JSON CONVERSION TOOL 
+  /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   template <class R, class S, class P, class NoValuePolicy, class U> constexpr inline void override_outcome_exception(basic_outcome<R, S, P, NoValuePolicy> *o, U &&v) noexcept
