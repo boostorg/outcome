@@ -268,6 +268,11 @@
   </url>
   
   <url>
+    <loc>/reference/functions/iostream.html</loc>
+    <lastmod>2019-03-03T21:04:29+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tutorial/advanced/interop/app-map-httplib2.html</loc>
     <lastmod>2019-02-11T13:38:04+00:00</lastmod>
   </url>
@@ -1715,6 +1720,36 @@
   <url>
     <loc>/reference/functions/try_operation_return_as_expected.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/iostream/outcome_operator_in.html</loc>
+    <lastmod>2019-03-03T21:04:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/iostream/result_operator_in.html</loc>
+    <lastmod>2019-03-03T21:04:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/iostream/outcome_operator_out.html</loc>
+    <lastmod>2019-03-03T21:04:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/iostream/result_operator_out.html</loc>
+    <lastmod>2019-03-03T21:04:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/iostream/outcome_print.html</loc>
+    <lastmod>2019-03-03T21:04:29+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/iostream/result_print.html</loc>
+    <lastmod>2019-03-03T21:04:29+00:00</lastmod>
   </url>
   
   <url>
