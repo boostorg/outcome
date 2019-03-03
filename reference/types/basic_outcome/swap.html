@@ -40,10 +40,10 @@
 
 <p><em>Complexity</em>: Same as for the <code>swap()</code> implementations of the <code>value_type</code>, <code>error_type</code> and <code>exception_type</code>. The noexcept of underlying operations is propagated.</p>
 
-<p><em>Guarantees</em>: If an exception is thrown during the operation, the state of all three operands on entry is restored, if at least two of the underlying operations is marked <code>noexcept</code>.</p>
+<p><em>Guarantees</em>: If an exception is thrown during the operation, the state of all three operands on entry is guaranteed restored, if at least two of the underlying operations is marked <code>noexcept</code>. If one or zero is marked <code>noexcept</code>, an attempt is made to undo the partially completed operation. If that too fails, the flag bits are forced to something consistent such that there can be no simultaneously valued and errored/excepted state, or valueless and errorless/exceptionless.</p>
 
 
-        </div><p><small>Last revised: January 31, 2019 at 01:07:35 UTC</small></p>
+        </div><p><small>Last revised: March 03, 2019 at 00:11:47 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../../reference/types/basic_outcome/inequality_failure_type.html"><img src="../../../images/prev.png" alt="Prev"></a>

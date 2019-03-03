@@ -224,7 +224,7 @@
   
   <url>
     <loc>/faq.html</loc>
-    <lastmod>2019-02-27T20:54:41+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
@@ -454,42 +454,42 @@
   
   <url>
     <loc>/reference/types/basic_outcome/move_constructor.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/move_constructor.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/copy_constructor.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/copy_constructor.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/move_assignment.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/move_assignment.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/copy_assignment.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/copy_assignment.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
@@ -599,12 +599,12 @@
   
   <url>
     <loc>/reference/types/basic_outcome/explicit_valueorerror_converting_constructor.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/explicit_valueorerror_converting_constructor.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
@@ -614,12 +614,12 @@
   
   <url>
     <loc>/reference/types/basic_outcome/explicit_copy_converting_constructor.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/explicit_copy_converting_constructor.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
@@ -629,17 +629,17 @@
   
   <url>
     <loc>/reference/types/basic_outcome/explicit_move_converting_constructor.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/explicit_move_converting_constructor.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_outcome/explicit_result_copy_converting_constructor.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
@@ -649,7 +649,7 @@
   
   <url>
     <loc>/reference/types/basic_outcome/explicit_result_move_converting_constructor.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
@@ -1119,12 +1119,12 @@
   
   <url>
     <loc>/reference/types/basic_outcome/swap.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/swap.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
   
   <url>
@@ -1179,7 +1179,7 @@
   
   <url>
     <loc>/categories/assignment.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1197,7 +1197,7 @@
   
   <url>
     <loc>/categories.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1232,19 +1232,19 @@
   
   <url>
     <loc>/categories/converting-constructors.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/copy-assignment.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/copy-constructors.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1339,19 +1339,19 @@
   
   <url>
     <loc>/categories/modifiers.html</loc>
-    <lastmod>2019-01-20T16:02:33+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/move-assignment.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/move-constructors.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1387,7 +1387,7 @@
   
   <url>
     <loc>/categories/operators.html</loc>
-    <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
     <priority>0</priority>
   </url>
   
