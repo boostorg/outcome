@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>BOOST_OUTCOME_TRYV(expr)/BOOST_OUTCOME_TRY(expr) - Boost.Outcome documentation</title>
+<title>`BOOST_OUTCOME_TRYV(expr)/BOOST_OUTCOME_TRY(expr)` - Boost.Outcome documentation</title>
 <link rel="stylesheet" href="../../css/boost.css" type="text/css">
 <meta name="generator" content="Hugo 0.52 with Boostdoc theme">
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -43,7 +43,7 @@
 <p><em>Definition</em>: Firstly the expression&rsquo;s temporary is bound to a uniquely named, stack allocated, <code>auto &amp;&amp;</code>. If that reference&rsquo;s bound object&rsquo;s <code>.has_value()</code> is false, immediately execute <code>return try_operation_return_as(propagated unique reference);</code>, propagating the rvalue/lvalue/etc-ness of the original expression.</p>
 
 <p><a href="../../reference/converters/try_operation_return_as.html" class="api-reference">try_operation_return_as(expr)</a> is a customisation point, the default implementation of which returns a <a href="../../reference/functions/failure.html" class="api-reference">failure(T &amp;&amp;, ...)</a> for Outcome types, or an 
-<a href="https://wg21.link/P0323" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> P0323 std::unexpected&lt;E&gt;</a> for Expected types. See <a href="../../reference/functions/try_operation_return_as_t.html" class="api-reference">auto try_operation_return_as(T &amp;&amp;)</a> and <a href="../../reference/functions/try_operation_return_as_expected.html" class="api-reference">std::experimental::unexpected&lt;E&gt; try_operation_return_as(std::experimental::expected&lt;T, E&gt;)</a>.</p>
+<a href="https://wg21.link/P0323" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> P0323 <code>std::unexpected&lt;E&gt;</code></a> for Expected types. See <a href="../../reference/functions/try_operation_return_as_t.html" class="api-reference">auto try_operation_return_as(T &amp;&amp;)</a> and <a href="../../reference/functions/try_operation_return_as_expected.html" class="api-reference">std::experimental::unexpected&lt;E&gt; try_operation_return_as(std::experimental::expected&lt;T, E&gt;)</a>.</p>
 
 <p><em>Header</em>: <code>&lt;boost/outcome/try.hpp&gt;</code></p>
 
