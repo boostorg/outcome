@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>`bad_result_access_with` - Boost.Outcome documentation</title>
+<title>&lt;code&gt;bad_result_access_with&lt;EC&gt;&lt;/code&gt; - Boost.Outcome documentation</title>
 <link rel="stylesheet" href="../../css/boost.css" type="text/css">
 <meta name="generator" content="Hugo 0.52 with Boostdoc theme">
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -34,11 +34,11 @@
     <a accesskey="u" href="../../reference/types.html"><img src="../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../reference/types/bad_result_access.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>bad_result_access_with&lt;EC&gt;</code></h1></div></div></div>
-  <p>Exception type publicly inheriting from <a href="../../reference/types/bad_result_access.html" class="api-reference">bad_result_access</a>, and thus also 
+  <p>Exception type publicly inheriting from <a href="../../reference/types/bad_result_access.html" class="api-reference"><code>bad_result_access</code></a>, and thus also 
 <a href="https://en.cppreference.com/w/cpp/error/logic_error" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::logic_error</code></a>, indicating an incorrect observation of value occurred. The error value at the time of the exception throw is moved or copied into this type, and is available using the <code>.error()</code> observer which comes in lvalue ref, const lvalue ref, rvalue ref, and const rvalue ref overloads.</p>
 
 <p>The primary purpose of this exception type is to enable standing in for 
-<a href="https://wg21.link/P0323" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> P0323 <code>std::expected&lt;T, E&gt;</code></a>&rsquo;s <code>bad_expected_access&lt;E&gt;</code> which is thrown on incorrect wide value observation. This is why it is only ever <code>EC</code> which is thrown with <code>bad_result_access_with&lt;EC&gt;</code> on value observation only, and only when there is an error available. See the <a href="../../reference/policies/throw_bad_result_access.html" class="api-reference">throw_bad_result_access&lt;EC&gt;</a> policy for more information.</p>
+<a href="https://wg21.link/P0323" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> P0323 <code>std::expected&lt;T, E&gt;</code></a>&rsquo;s <code>bad_expected_access&lt;E&gt;</code> which is thrown on incorrect wide value observation. This is why it is only ever <code>EC</code> which is thrown with <code>bad_result_access_with&lt;EC&gt;</code> on value observation only, and only when there is an error available. See the <a href="../../reference/policies/throw_bad_result_access.html" class="api-reference"><code>throw_bad_result_access&lt;EC&gt;</code></a> policy for more information.</p>
 
 <p><em>Requires</em>: Nothing.</p>
 

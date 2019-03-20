@@ -39,10 +39,10 @@
 function <code>.value()</code> on object of type <code>outcome&lt;T&gt;</code> that did not contain a value,
 would cause an exception to be thrown according to some user-defined policy.</p>
 
-<p>Let us consider <code>result&lt;T&gt;</code> first. It is an alias to <a href="../../reference/types/basic_result.html" class="api-reference">basic_result&lt;T, E, NoValuePolicy&gt;</a>,
+<p>Let us consider <code>result&lt;T&gt;</code> first. It is an alias to <a href="../../reference/types/basic_result.html" class="api-reference"><code>basic_result&lt;T, E, NoValuePolicy&gt;</code></a>,
 where <code>E</code> is the type storing error information and defaulted to
 <code>std::error_code</code>/<code>boost::system::error_code</code>, and <code>NoValuePolicy</code>
-is a <em>no-value policy</em> defaulted to <a href="../../reference/aliases/default_policy.html" class="api-reference">default_policy&lt;T, EC, EP&gt;</a>.</p>
+is a <em>no-value policy</em> defaulted to <a href="../../reference/aliases/default_policy.html" class="api-reference"><code>default_policy&lt;T, EC, EP&gt;</code></a>.</p>
 
 <p>The semantics of <code>basic_result::value()</code> are:</p>
 
@@ -63,7 +63,7 @@ default policy (<code>policy::default_policy&lt;T, EC, void&gt;</code>) for <cod
 
 <div class="notices note" style="background: url('../../images/note.png') top left no-repeat padding-box padding-box;">
 <div class="notices heading">note</div>
-<div class="notices message"><p>Class templates <a href="../../reference/types/basic_result.html" class="api-reference">basic_result&lt;T, E, NoValuePolicy&gt;</a> and <a href="../../reference/types/basic_outcome.html" class="api-reference">basic_outcome&lt;T, EC, EP, NoValuePolicy&gt;</a>
+<div class="notices message"><p>Class templates <a href="../../reference/types/basic_result.html" class="api-reference"><code>basic_result&lt;T, E, NoValuePolicy&gt;</code></a> and <a href="../../reference/types/basic_outcome.html" class="api-reference"><code>basic_outcome&lt;T, EC, EP, NoValuePolicy&gt;</code></a>
 never use exceptions. Any exception-related logic is provided exclusively
 through no-value policies.</p>
 </div>
@@ -77,9 +77,9 @@ you want to use. Either create your own, or <a href="../../tutorial/essential/no
 <p>You can also use one of the two other predefined aliases for <code>basic_result&lt;&gt;</code>:</p>
 
 <ul>
-<li><a href="../../reference/aliases/unchecked.html" class="api-reference">unchecked&lt;T, E = varies&gt;</a>: it uses policy <a href="../../reference/policies/all_narrow.html" class="api-reference">all_narrow</a>, where any observation of a missing value or error is undefined behavior;</li>
-<li><a href="../../reference/aliases/checked.html" class="api-reference">checked&lt;T, E = varies&gt;</a>:
-it uses policy <a href="../../reference/policies/throw_bad_result_access.html" class="api-reference">throw_bad_result_access&lt;EC&gt;</a>, where any observation of a missing value or error throws <a href="../../reference/types/bad_result_access_with.html" class="api-reference">bad_result_access_with&lt;EC&gt;</a> or <a href="../../reference/types/bad_result_access.html" class="api-reference">bad_result_access</a>
+<li><a href="../../reference/aliases/unchecked.html" class="api-reference"><code>unchecked&lt;T, E = varies&gt;</code></a>: it uses policy <a href="../../reference/policies/all_narrow.html" class="api-reference"><code>all_narrow</code></a>, where any observation of a missing value or error is undefined behavior;</li>
+<li><a href="../../reference/aliases/checked.html" class="api-reference"><code>checked&lt;T, E = varies&gt;</code></a>:
+it uses policy <a href="../../reference/policies/throw_bad_result_access.html" class="api-reference"><code>throw_bad_result_access&lt;EC&gt;</code></a>, where any observation of a missing value or error throws <a href="../../reference/types/bad_result_access_with.html" class="api-reference"><code>bad_result_access_with&lt;EC&gt;</code></a> or <a href="../../reference/types/bad_result_access.html" class="api-reference"><code>bad_result_access</code></a>
 respectively.</li>
 </ul>
 <div class="footnotes">

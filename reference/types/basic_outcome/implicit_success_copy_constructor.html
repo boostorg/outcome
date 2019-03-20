@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>`basic_outcome(const success_type &amp;)` - Boost.Outcome documentation</title>
+<title>&lt;code&gt;basic_outcome(const success_type&lt;T&gt; &amp;)&lt;/code&gt; - Boost.Outcome documentation</title>
 <link rel="stylesheet" href="../../../css/boost.css" type="text/css">
 <meta name="generator" content="Hugo 0.52 with Boostdoc theme">
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -35,7 +35,7 @@
     <a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../../../reference/types/basic_outcome/implicit_success_move_constructor.html"><img src="../../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>basic_outcome(const success_type&lt;T&gt; &amp;)</code></h1></div></div></div>
   <p>Implicit value-from-success-type-sugar copy constructor used to disambiguate the construction of the value type.
-Note that if <code>T = void</code>, <code>value_type</code> will be default constructed.  Calls <a href="../../../reference/functions/hooks/hook_outcome_copy_construction.html" class="api-reference">void hook_outcome_copy_construction(T *, U &amp;&amp;) noexcept</a> with <code>this</code> and <code>const success_type&lt;T&gt; &amp;</code>.</p>
+Note that if <code>T = void</code>, <code>value_type</code> will be default constructed.  Calls <a href="../../../reference/functions/hooks/hook_outcome_copy_construction.html" class="api-reference"><code>void hook_outcome_copy_construction(T *, U &amp;&amp;) noexcept</code></a> with <code>this</code> and <code>const success_type&lt;T&gt; &amp;</code>.</p>
 
 <p><em>Requires</em>: <code>predicate::enable_compatible_conversion&lt;T, void, void&gt;</code> is true, or <code>T</code> is <code>void</code>.</p>
 
