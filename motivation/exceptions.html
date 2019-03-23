@@ -72,7 +72,7 @@ program binaries.</p>
 handler. Since nearly any function can throw an exception of any time, this is
 a dynamic memory allocation. The type of an exception is erased and a run-time type
 identification (RTTI) is required to asses the type of the active exception object.
-The worse time required for matching exceptions against handlers cannot be easily
+The worst case time required for matching exceptions against handlers cannot be easily
 predicted and therefore exceptions are not suitable for real-time or low-latency
 systems.</p>
 
@@ -93,7 +93,7 @@ switches to disable exceptions altogether (they refuse to compile a <code>throw<
 already compiled <code>throw</code>s into calls to <code>std::abort()</code>).</p>
 
 
-        </div><p><small>Last revised: February 07, 2019 at 11:21:20 -0500</small></p>
+        </div><p><small>Last revised: March 22, 2019 at 13:58:05 -0700</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../motivation.html"><img src="../images/prev.png" alt="Prev"></a>

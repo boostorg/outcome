@@ -66,7 +66,7 @@ The list is:</p>
 <span class="p">{</span>
   <span class="c1">// Tell the C++ 11 STL metaprogramming that enum ConversionErrc
 </span><span class="c1"></span>  <span class="c1">// is registered with the standard error code system
-</span><span class="c1"></span>  <span class="k">template</span> <span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">is_error_code_enum</span><span class="o">&lt;</span><span class="n">ConversionErrc</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n">std</span><span class="o">::</span><span class="n">true_type</span>
+</span><span class="c1"></span>  <span class="k">template</span> <span class="o">&lt;&gt;</span> <span class="k">struct</span> <span class="n">is_error_code_enum</span><span class="o">&lt;</span><span class="n">ConversionErrc</span><span class="o">&gt;</span> <span class="o">:</span> <span class="n">true_type</span>
   <span class="p">{</span>
   <span class="p">};</span>
 <span class="p">}</span>
@@ -89,7 +89,7 @@ The list is:</p>
       <span class="k">case</span> <span class="n">ConversionErrc</span><span class="o">::</span><span class="nl">EmptyString</span><span class="p">:</span>
         <span class="k">return</span> <span class="s">&#34;converting empty string&#34;</span><span class="p">;</span>
       <span class="k">case</span> <span class="n">ConversionErrc</span><span class="o">::</span><span class="nl">IllegalChar</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s">&#34;got non-digit chatr when converting to a number&#34;</span><span class="p">;</span>
+        <span class="k">return</span> <span class="s">&#34;got non-digit char when converting to a number&#34;</span><span class="p">;</span>
       <span class="k">case</span> <span class="n">ConversionErrc</span><span class="o">::</span><span class="nl">TooLong</span><span class="p">:</span>
         <span class="k">return</span> <span class="s">&#34;the number would not fit into memory&#34;</span><span class="p">;</span>
       <span class="k">default</span><span class="o">:</span>
