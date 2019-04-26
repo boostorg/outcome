@@ -110,11 +110,14 @@ and declares that the value of this <code>int</code> must never be negative. You
   <span class="c1">// normal program logic follows ...
 </span><span class="c1"></span><span class="p">}</span>
 </code></pre></div>
-<p>This instruction when hit, causes the program to exit abnormally, which means:
-* a debugger can be launched,
-* static analyzer can warn you if it can detect a program flow that reaches this
-  point,
-* UB-sanitizer can log error message when it hits it.</p>
+<p>This instruction when hit, causes the program to exit abnormally, which means:</p>
+
+<ul>
+<li>a debugger can be launched,</li>
+<li>static analyzer can warn you if it can detect a program flow that reaches this
+point,</li>
+<li>UB-sanitizer can log error message when it hits it.</li>
+</ul>
 
 <p>Another tool you could use is <code>__builtin_unreachable()</code>, also available in GCC
 and clang:</p>
@@ -142,7 +145,7 @@ expecting a non-negative value, but this <code>i</code> is actually <code>-1</co
 to pass <code>j</code> instead?&ldquo;.</p>
 
 
-        </div><p><small>Last revised: November 21, 2018 at 09:20:22 UTC</small></p>
+        </div><p><small>Last revised: April 26, 2019 at 17:43:41 &#43;0200</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../motivation/plug_error_code.html"><img src="../images/prev.png" alt="Prev"></a>
