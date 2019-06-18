@@ -34,7 +34,8 @@
     <a accesskey="u" href="../../../reference/types/basic_outcome.html"><img src="../../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../../../reference/types/basic_outcome/implicit_error_condition_converting_constructor.html"><img src="../../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>basic_outcome(S &amp;&amp;)</code></h1></div></div></div>
-  <p>Implicit <code>error_type</code> constructor. Calls <a href="../../../reference/functions/hooks/hook_outcome_construction.html" class="api-reference"><code>void hook_outcome_construction(T *, U &amp;&amp;) noexcept</code></a> with <code>this</code> and <code>S</code>.</p>
+  <p>Implicit <code>error_type</code> constructor. Calls <a href="../../../reference/functions/hooks/hook_outcome_construction.html" class="api-reference"><code>void hook_outcome_construction(T *, U &amp;&amp;) noexcept</code></a>
+ with <code>this</code> and <code>S</code>.</p>
 
 <p><em>Requires</em>: <code>predicate::enable_error_converting_constructor&lt;S&gt;</code> is true.</p>
 

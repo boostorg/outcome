@@ -61,13 +61,15 @@ slot in TLS storage and writes the current stack backtrace into it.</p>
 </code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/error_code_extended.cpp#L119" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
-<p>The only non-obvious part above is the call to <a href="../../../reference/functions/hooks/set_spare_storage.html" class="api-reference"><code>void set_spare_storage(basic_result|basic_outcome *, uint16_t) noexcept</code></a>.</p>
+<p>The only non-obvious part above is the call to <a href="../../../reference/functions/hooks/set_spare_storage.html" class="api-reference"><code>void set_spare_storage(basic_result|basic_outcome *, uint16_t) noexcept</code></a>
+.</p>
 
 <p>Both <code>result</code> and <code>outcome</code> keep their internal state metadata in a <code>uint32_t</code>,
 half of which is not used by Outcome. As it can be very useful to keep a small
 unique number attached to any particular <code>result</code> or <code>outcome</code> instance, we
 permit user code to set those sixteen bits to anything they feel like.
-The corresponding function to retrieve those sixteen bits is <a href="../../../reference/functions/hooks/spare_storage.html" class="api-reference"><code>uint16_t spare_storage(const basic_result|basic_outcome *) noexcept</code></a>.</p>
+The corresponding function to retrieve those sixteen bits is <a href="../../../reference/functions/hooks/spare_storage.html" class="api-reference"><code>uint16_t spare_storage(const basic_result|basic_outcome *) noexcept</code></a>
+.</p>
 
 <p>The state of the sixteen bits of spare storage are ignored during comparison operations.</p>
 

@@ -34,11 +34,14 @@
     <a accesskey="u" href="../../reference/functions.html"><img src="../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../reference/functions/success.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>auto failure(T &amp;&amp;, ...)</code></h1></div></div></div>
-  <p>Returns appropriate type sugar for constructing an unsuccessful result or outcome, usually <a href="../../reference/types/failure_type.html" class="api-reference"><code>failure_type&lt;EC, EP = void&gt;</code></a> with a decayed <code>T</code>.</p>
+  <p>Returns appropriate type sugar for constructing an unsuccessful result or outcome, usually <a href="../../reference/types/failure_type.html" class="api-reference"><code>failure_type&lt;EC, EP = void&gt;</code></a>
+ with a decayed <code>T</code>.</p>
 
 <p>Two default overloads are provided, one taking a single parameter returning <code>failure_type&lt;std::decay_t&lt;T&gt;&gt;</code>, the other taking two parameters returning <code>failure_type&lt;std::decay_t&lt;T&gt;, std::decay_t&lt;U&gt;&gt;</code>. Both overloads perfectly forward their inputs.</p>
 
-<p>Note that <code>failure()</code> overloads are permitted by Outcome to return something other than <code>failure_type</code>. For example, <code>basic_result</code>&rsquo;s <a href="../../reference/types/basic_result/as_failure_lvalue.html" class="api-reference"><code>auto as_failure() const &amp;</code></a> returns whatever type <code>failure()</code> returns, and <a href="../../reference/macros/try.html" class="api-reference"><code>BOOST_OUTCOME_TRY(var, expr)</code></a> by default returns for failure whatever <code>.as_failure()</code> returns. This can be useful to have <code>BOOST_OUTCOME_TRY(...}</code> propagate on failure something custom for some specific input <code>basic_result</code> or <code>basic_outcome</code>.</p>
+<p>Note that <code>failure()</code> overloads are permitted by Outcome to return something other than <code>failure_type</code>. For example, <code>basic_result</code>&rsquo;s <a href="../../reference/types/basic_result/as_failure_lvalue.html" class="api-reference"><code>auto as_failure() const &amp;</code></a>
+ returns whatever type <code>failure()</code> returns, and <a href="../../reference/macros/try.html" class="api-reference"><code>BOOST_OUTCOME_TRY(var, expr)</code></a>
+ by default returns for failure whatever <code>.as_failure()</code> returns. This can be useful to have <code>BOOST_OUTCOME_TRY(...}</code> propagate on failure something custom for some specific input <code>basic_result</code> or <code>basic_outcome</code>.</p>
 
 <p><em>Overridable</em>: By Argument Dependent Lookup (ADL).</p>
 

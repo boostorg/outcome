@@ -34,7 +34,10 @@
     <a accesskey="u" href="../../../reference/types/basic_outcome.html"><img src="../../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../../../reference/types/basic_outcome/as_failure_rvalue.html"><img src="../../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>failure_type&lt;error_type, exception_type&gt; as_failure() const &amp;</code></h1></div></div></div>
-  <p>Return the output from free function <a href="../../../reference/functions/failure.html" class="api-reference"><code>auto failure(T &amp;&amp;, ...)</code></a> containing a copy of any errored and/or excepted state. The error and/or exception state is accessed using <a href="../../../reference/types/basic_outcome/assume_error_lvalue_const.html" class="api-reference"><code>const error_type &amp;assume_error() const &amp; noexcept</code></a> and <a href="../../../reference/types/basic_outcome/assume_exception_lvalue_const.html" class="api-reference"><code>const exception_type &amp;assume_exception() const &amp; noexcept</code></a>.</p>
+  <p>Return the output from free function <a href="../../../reference/functions/failure.html" class="api-reference"><code>auto failure(T &amp;&amp;, ...)</code></a>
+ containing a copy of any errored and/or excepted state. The error and/or exception state is accessed using <a href="../../../reference/types/basic_outcome/assume_error_lvalue_const.html" class="api-reference"><code>const error_type &amp;assume_error() const &amp; noexcept</code></a>
+ and <a href="../../../reference/types/basic_outcome/assume_exception_lvalue_const.html" class="api-reference"><code>const exception_type &amp;assume_exception() const &amp; noexcept</code></a>
+.</p>
 
 <p><em>Requires</em>: Always available.</p>
 

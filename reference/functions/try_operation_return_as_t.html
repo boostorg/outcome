@@ -34,8 +34,10 @@
     <a accesskey="u" href="../../reference/functions.html"><img src="../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../reference/functions/error_from_exception.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>auto try_operation_return_as(T &amp;&amp;)</code></h1></div></div></div>
-  <p>This implementation of <a href="../../reference/converters/try_operation_return_as.html" class="api-reference"><code>try_operation_return_as(expr)</code></a> returns whatever the input type&rsquo;s <code>.as_failure()</code> member function returns.
-<code>basic_result</code> and <code>basic_outcome</code> provide such a member function, see <a href="../../reference/types/basic_result/as_failure_lvalue.html" class="api-reference"><code>auto as_failure() const &amp;</code></a>.</p>
+  <p>This implementation of <a href="../../reference/converters/try_operation_return_as.html" class="api-reference"><code>try_operation_return_as(expr)</code></a>
+ returns whatever the input type&rsquo;s <code>.as_failure()</code> member function returns.
+<code>basic_result</code> and <code>basic_outcome</code> provide such a member function, see <a href="../../reference/types/basic_result/as_failure_lvalue.html" class="api-reference"><code>auto as_failure() const &amp;</code></a>
+.</p>
 
 <p><em>Requires</em>: That the expression <code>std::declval&lt;T&gt;().as_failure()</code> is a valid expression.</p>
 

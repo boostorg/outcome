@@ -37,12 +37,15 @@
   <p>This function saves writing boilerplate by rethrowing <code>ep</code> within a <code>try</code>
 block, with a long sequence of <code>catch()</code> handlers, one for every standard
 C++ exception type which has a near or exact equivalent code in 
-<a href="https://en.cppreference.com/w/cpp/error/errc" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::errc</code></a>.</p>
+<a href="https://en.cppreference.com/w/cpp/error/errc" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::errc</code></a>
+.</p>
 
 <p>If matched, <code>ep</code> is set to a default constructed 
-<a href="https://en.cppreference.com/w/cpp/error/exception_ptr" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::exception_ptr</code></a>,
+<a href="https://en.cppreference.com/w/cpp/error/exception_ptr" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::exception_ptr</code></a>
+,
 and a 
-<a href="https://en.cppreference.com/w/cpp/error/error_code" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::error_code</code></a> is constructed using the ADL discovered free
+<a href="https://en.cppreference.com/w/cpp/error/error_code" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::error_code</code></a>
+ is constructed using the ADL discovered free
 function <code>make_error_code()</code> upon the <code>std::errc</code> enumeration value matching the
 thrown exception.</p>
 

@@ -34,7 +34,8 @@
     <a accesskey="u" href="../../../reference/types/basic_outcome.html"><img src="../../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../../../reference/types/basic_outcome/explicit_result_copy_converting_constructor.html"><img src="../../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>explicit basic_outcome(basic_outcome&lt;A, B, C, D&gt; &amp;&amp;)</code></h1></div></div></div>
-  <p>Explicit converting move constructor from compatible <code>basic_outcome</code>. Calls <a href="../../../reference/functions/hooks/hook_outcome_move_construction.html" class="api-reference"><code>void hook_outcome_move_construction(T *, U &amp;&amp;) noexcept</code></a> with <code>this</code> and the input.</p>
+  <p>Explicit converting move constructor from compatible <code>basic_outcome</code>. Calls <a href="../../../reference/functions/hooks/hook_outcome_move_construction.html" class="api-reference"><code>void hook_outcome_move_construction(T *, U &amp;&amp;) noexcept</code></a>
+ with <code>this</code> and the input.</p>
 
 <p><em>Requires</em>: <code>predicate::enable_compatible_conversion&lt;A, B, C, D&gt;</code> is true.</p>
 

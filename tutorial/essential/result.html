@@ -43,6 +43,7 @@ if it does we want to communicate the failure reason.</p>
 
 
 <p>Template alias <a href="../../reference/aliases/result.html" class="api-reference"><code>result&lt;T, E = varies, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a>
+
 has three template parameters, but the last two have default values. The first
 (<code>T</code>) represents the type of the object returned from the function upon success.
 The second (<code>EC</code>) is the type of object containing information about the reason
@@ -113,7 +114,9 @@ all implicit conversion is disabled, and you will need to use one of the tagged 
 
 <div class="notices note" style="background: url('../../images/note.png') top left no-repeat padding-box padding-box;">
 <div class="notices heading">note</div>
-<div class="notices message"><p>The functions <a href="../../reference/functions/failure.html" class="api-reference"><code>auto failure(T &amp;&amp;, &hellip;)</code></a> and <a href="../../reference/functions/success.html" class="api-reference"><code>auto success(T &amp;&amp;)</code></a> return special
+<div class="notices message"><p>The functions <a href="../../reference/functions/failure.html" class="api-reference"><code>auto failure(T &amp;&amp;, &hellip;)</code></a>
+ and <a href="../../reference/functions/success.html" class="api-reference"><code>auto success(T &amp;&amp;)</code></a>
+ return special
 types implicitly convertible to failed or successful <code>result</code> (and <code>outcome</code>).</p>
 </div>
 </div>

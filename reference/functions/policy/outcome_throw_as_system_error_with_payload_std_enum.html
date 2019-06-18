@@ -34,14 +34,18 @@
     <a accesskey="u" href="../../../reference/functions/policy.html"><img src="../../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../../../reference/functions/policy/outcome_throw_as_system_error_with_payload_boost_error_code.html"><img src="../../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>void outcome_throw_as_system_error_with_payload(ErrorCodeEnum &amp;&amp;)</code></h1></div></div></div>
-  <p>A specialisation of <code>outcome_throw_as_system_error_with_payload()</code> for types where <code>std::is_error_code_enum&lt;ErrorCodeEnum&gt;</code> or <code>std::is_error_condition_enum&lt;ErrorCodeEnum&gt;</code> is true. This executes <a href="../../../reference/macros/throw_exception.html" class="api-reference"><code>BOOST_OUTCOME_THROW_EXCEPTION(expr)</code></a> with a 
-<a href="https://en.cppreference.com/w/cpp/error/system_error" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::system_error</code></a> constructed from the result of the ADL discovered free function <code>make_error_code(ErrorCodeEnum)</code>.</p>
+  <p>A specialisation of <code>outcome_throw_as_system_error_with_payload()</code> for types where <code>std::is_error_code_enum&lt;ErrorCodeEnum&gt;</code> or <code>std::is_error_condition_enum&lt;ErrorCodeEnum&gt;</code> is true. This executes <a href="../../../reference/macros/throw_exception.html" class="api-reference"><code>BOOST_OUTCOME_THROW_EXCEPTION(expr)</code></a>
+ with a 
+<a href="https://en.cppreference.com/w/cpp/error/system_error" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::system_error</code></a>
+ constructed from the result of the ADL discovered free function <code>make_error_code(ErrorCodeEnum)</code>.</p>
 
 <p><em>Overridable</em>: Argument dependent lookup.</p>
 
 <p><em>Requires</em>: Either 
-<a href="https://en.cppreference.com/w/cpp/error/error_code/is_error_code_enum" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::is_error_code_enum&lt;T&gt;</code></a> or 
-<a href="https://en.cppreference.com/w/cpp/error/error_condition/is_error_condition_enum" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::is_error_condition_enum&lt;T&gt;</code></a> to be true for a decayed <code>ErrorCodeEnum</code>.</p>
+<a href="https://en.cppreference.com/w/cpp/error/error_code/is_error_code_enum" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::is_error_code_enum&lt;T&gt;</code></a>
+ or 
+<a href="https://en.cppreference.com/w/cpp/error/error_condition/is_error_condition_enum" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::is_error_condition_enum&lt;T&gt;</code></a>
+ to be true for a decayed <code>ErrorCodeEnum</code>.</p>
 
 <p><em>Namespace</em>: <code>std</code></p>
 

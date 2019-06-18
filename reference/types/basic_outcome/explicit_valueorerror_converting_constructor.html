@@ -34,9 +34,12 @@
     <a accesskey="u" href="../../../reference/types/basic_outcome.html"><img src="../../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../../../reference/types/basic_outcome/explicit_copy_converting_constructor.html"><img src="../../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>explicit basic_outcome(ValueOrError&lt;T, E&gt; &amp;&amp;)</code></h1></div></div></div>
-  <p>Explicit converting constructor from <a href="../../../reference/concepts/valueorerror.html" class="api-reference"><code>ValueOrError&lt;T, E&gt;</code></a> concept matching types. Delegates to the <code>basic_result</code> move constructor <a href="../../../reference/types/basic_outcome/explicit_result_move_converting_constructor.html" class="api-reference"><code>explicit basic_outcome(basic_result&lt;A, B, C&gt; &amp;&amp;)</code></a>.</p>
+  <p>Explicit converting constructor from <a href="../../../reference/concepts/valueorerror.html" class="api-reference"><code>ValueOrError&lt;T, E&gt;</code></a>
+ concept matching types. Delegates to the <code>basic_result</code> move constructor <a href="../../../reference/types/basic_outcome/explicit_result_move_converting_constructor.html" class="api-reference"><code>explicit basic_outcome(basic_result&lt;A, B, C&gt; &amp;&amp;)</code></a>
+.</p>
 
-<p><em>Requires</em>: <code>convert::</code><a href="../../../reference/converters/value_or_error.html" class="api-reference"><code>value_or_error&lt;T, U&gt;</code></a> has an available call operator, and if the input is a <code>basic_result</code> or <code>basic_outcome</code>, then <code>convert::value_or_error&lt;&gt;</code> has enabled those inputs for that <code>convert::value_or_error&lt;&gt;</code> specialisation.</p>
+<p><em>Requires</em>: <code>convert::</code><a href="../../../reference/converters/value_or_error.html" class="api-reference"><code>value_or_error&lt;T, U&gt;</code></a>
+ has an available call operator, and if the input is a <code>basic_result</code> or <code>basic_outcome</code>, then <code>convert::value_or_error&lt;&gt;</code> has enabled those inputs for that <code>convert::value_or_error&lt;&gt;</code> specialisation.</p>
 
 <p><em>Complexity</em>: Same as for the copy or move constructor from the input&rsquo;s <code>.value()</code> or <code>.error()</code> respectively. Constexpr, triviality and noexcept of underlying operations is propagated.</p>
 

@@ -34,7 +34,9 @@
     <a accesskey="u" href="../../../reference/types/basic_result.html"><img src="../../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../../../reference/types/bad_outcome_access.html"><img src="../../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>auto as_failure() &amp;&amp;</code></h1></div></div></div>
-  <p>Return the output from free function <a href="../../../reference/functions/failure.html" class="api-reference"><code>auto failure(T &amp;&amp;, ...)</code></a> containing a move from any errored state, thus leaving the result&rsquo;s error value in a moved-from state. Depending on the choice of <code>error_type</code>, this function may therefore be destructive. The error state is accessed using <a href="../../../reference/types/basic_outcome/assume_error_rvalue.html" class="api-reference"><code>error_type &amp;&amp;assume_error() &amp;&amp; noexcept</code></a>.</p>
+  <p>Return the output from free function <a href="../../../reference/functions/failure.html" class="api-reference"><code>auto failure(T &amp;&amp;, ...)</code></a>
+ containing a move from any errored state, thus leaving the result&rsquo;s error value in a moved-from state. Depending on the choice of <code>error_type</code>, this function may therefore be destructive. The error state is accessed using <a href="../../../reference/types/basic_outcome/assume_error_rvalue.html" class="api-reference"><code>error_type &amp;&amp;assume_error() &amp;&amp; noexcept</code></a>
+.</p>
 
 <p><em>Requires</em>: Always available.</p>
 

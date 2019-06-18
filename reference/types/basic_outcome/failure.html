@@ -37,13 +37,17 @@
   <p>Synthesising observer of the stored exception or error. If an exception is available,
 returns a copy of that directly. If an error is available, and not an exception, an
 ADL discovered free function <a href="../../../reference/functions/policy/basic_outcome_failure_exception_from_error.html" class="api-reference"><code>auto basic_outcome_failure_exception_from_error(const EC &amp;)</code></a>
+
 is invoked. Default overloads for this function are defined in Outcome for 
 <a href="https://en.cppreference.com/w/cpp/error/error_code" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::error_code</code></a>
+
 and <code>boost::system::error_code</code>, these return <code>std::make_exception_ptr(std::system_error(ec))</code>
 and <code>boost::copy_exception(boost::system::system_error(ec))</code> respectively.</p>
 
-<p><em>Requires</em>: Both the traits <a href="../../../reference/traits/is_error_code_available.html" class="api-reference"><code>is_error_code_available&lt;T&gt;</code></a> and
-<a href="../../../reference/traits/is_exception_ptr_available.html" class="api-reference"><code>is_exception_ptr_available&lt;T&gt;</code></a> are true.</p>
+<p><em>Requires</em>: Both the traits <a href="../../../reference/traits/is_error_code_available.html" class="api-reference"><code>is_error_code_available&lt;T&gt;</code></a>
+ and
+<a href="../../../reference/traits/is_exception_ptr_available.html" class="api-reference"><code>is_exception_ptr_available&lt;T&gt;</code></a>
+ are true.</p>
 
 <p><em>Complexity</em>: Depends on <code>basic_outcome_failure_exception_from_error(const EC &amp;)</code>.</p>
 

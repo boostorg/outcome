@@ -37,13 +37,21 @@
   <p>A type alias to a no-value policy selected based on traits matching of <code>T</code>, <code>EC</code> and <code>EP</code>. It is defined as follows:</p>
 
 <ol>
-<li><p>If <code>EC</code> and <code>EP</code> is <code>void</code>, choose <a href="../../reference/policies/terminate.html" class="api-reference"><code>terminate</code></a>.</p></li>
+<li><p>If <code>EC</code> and <code>EP</code> is <code>void</code>, choose <a href="../../reference/policies/terminate.html" class="api-reference"><code>terminate</code></a>
+.</p></li>
 
-<li><p>If <a href="../../reference/traits/is_error_code_available.html" class="api-reference"><code>is_error_code_available&lt;T&gt;</code></a> true for <code>EC</code>, choose <a href="../../reference/policies/error_code_throw_as_system_error_outcome.html" class="api-reference"><code>error_code_throw_as_system_error&lt;T, EC, EP&gt;</code></a> for <code>basic_outcome</code> or <a href="../../reference/policies/error_code_throw_as_system_error_result.html" class="api-reference"><code>error_code_throw_as_system_error&lt;T, EC, void&gt;</code></a> for <code>basic_result</code>.</p></li>
+<li><p>If <a href="../../reference/traits/is_error_code_available.html" class="api-reference"><code>is_error_code_available&lt;T&gt;</code></a>
+ true for <code>EC</code>, choose <a href="../../reference/policies/error_code_throw_as_system_error_outcome.html" class="api-reference"><code>error_code_throw_as_system_error&lt;T, EC, EP&gt;</code></a>
+ for <code>basic_outcome</code> or <a href="../../reference/policies/error_code_throw_as_system_error_result.html" class="api-reference"><code>error_code_throw_as_system_error&lt;T, EC, void&gt;</code></a>
+ for <code>basic_result</code>.</p></li>
 
-<li><p>If <a href="../../reference/traits/is_exception_ptr_available.html" class="api-reference"><code>is_exception_ptr_available&lt;T&gt;</code></a> true for <code>EC</code> or <code>EP</code>, choose <a href="../../reference/policies/exception_ptr_rethrow_outcome.html" class="api-reference"><code>exception_ptr_rethrow&lt;T, EC, EP&gt;</code></a> for <code>basic_outcome</code> or <a href="../../reference/policies/exception_ptr_rethrow_result.html" class="api-reference"><code>exception_ptr_rethrow&lt;T, EC, void&gt;</code></a> for <code>basic_result</code>.</p></li>
+<li><p>If <a href="../../reference/traits/is_exception_ptr_available.html" class="api-reference"><code>is_exception_ptr_available&lt;T&gt;</code></a>
+ true for <code>EC</code> or <code>EP</code>, choose <a href="../../reference/policies/exception_ptr_rethrow_outcome.html" class="api-reference"><code>exception_ptr_rethrow&lt;T, EC, EP&gt;</code></a>
+ for <code>basic_outcome</code> or <a href="../../reference/policies/exception_ptr_rethrow_result.html" class="api-reference"><code>exception_ptr_rethrow&lt;T, EC, void&gt;</code></a>
+ for <code>basic_result</code>.</p></li>
 
-<li><p>Else choose <a href="../../reference/policies/fail_to_compile_observers.html" class="api-reference"><code>fail_to_compile_observers</code></a>, which fails the build with a useful message.</p></li>
+<li><p>Else choose <a href="../../reference/policies/fail_to_compile_observers.html" class="api-reference"><code>fail_to_compile_observers</code></a>
+, which fails the build with a useful message.</p></li>
 </ol>
 
 <p><em>Namespace</em>: <code>BOOST_OUTCOME_V2_NAMESPACE::policy</code></p>

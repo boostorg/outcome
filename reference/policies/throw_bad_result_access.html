@@ -34,8 +34,10 @@
     <a accesskey="u" href="../../reference/policies.html"><img src="../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../reference/types.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>throw_bad_result_access&lt;EC&gt;</code></h1></div></div></div>
-  <p>Policy class defining that <a href="../../reference/types/bad_result_access_with.html" class="api-reference"><code>bad_result_access_with&lt;EC&gt;</code></a> should be thrown on incorrect wide value observation. The primary purpose of this policy is to enable standing in for 
-<a href="https://wg21.link/P0323" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> P0323 <code>std::expected&lt;T, E&gt;</code></a> which throws a <code>bad_expected_access&lt;E&gt;</code> on incorrect wide value observation. This is why it is only ever <code>EC</code> which is thrown with <code>bad_result_access_with&lt;EC&gt;</code> on value observation only, and only when there is an error available.</p>
+  <p>Policy class defining that <a href="../../reference/types/bad_result_access_with.html" class="api-reference"><code>bad_result_access_with&lt;EC&gt;</code></a>
+ should be thrown on incorrect wide value observation. The primary purpose of this policy is to enable standing in for 
+<a href="https://wg21.link/P0323" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> P0323 <code>std::expected&lt;T, E&gt;</code></a>
+ which throws a <code>bad_expected_access&lt;E&gt;</code> on incorrect wide value observation. This is why it is only ever <code>EC</code> which is thrown with <code>bad_result_access_with&lt;EC&gt;</code> on value observation only, and only when there is an error available.</p>
 
 <p>If used in <code>basic_outcome</code>, and the outcome is exceptioned and so no error is available, incorrect wide value observation performs instead:</p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">BOOST_OUTCOME_THROW_EXCEPTION</span><span class="p">(</span><span class="n">bad_result_access</span><span class="p">(</span><span class="s">&#34;no value&#34;</span><span class="p">));</span>
@@ -46,7 +48,8 @@
 <p>Incorrect wide exception observation performs:</p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">BOOST_OUTCOME_THROW_EXCEPTION</span><span class="p">(</span><span class="n">bad_outcome_access</span><span class="p">(</span><span class="s">&#34;no exception&#34;</span><span class="p">));</span>
 </code></pre></div>
-<p>Inherits publicly from <a href="../../reference/policies/base.html" class="api-reference"><code>base</code></a>, and its narrow value, error and exception observer policies are inherited from there.</p>
+<p>Inherits publicly from <a href="../../reference/policies/base.html" class="api-reference"><code>base</code></a>
+, and its narrow value, error and exception observer policies are inherited from there.</p>
 
 <p><em>Requires</em>: Nothing.</p>
 

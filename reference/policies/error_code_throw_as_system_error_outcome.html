@@ -34,7 +34,8 @@
     <a accesskey="u" href="../../reference/policies.html"><img src="../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../reference/policies/error_code_throw_as_system_error_result.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>error_code_throw_as_system_error&lt;T, EC, EP&gt;</code></h1></div></div></div>
-  <p><em>Note</em>: This policy class specialisation can only be used with <code>basic_outcome</code>, not <code>basic_result</code>. Use <a href="../../reference/policies/error_code_throw_as_system_error_result.html" class="api-reference"><code>error_code_throw_as_system_error&lt;T, EC, void&gt;</code></a> with <code>basic_result</code>.</p>
+  <p><em>Note</em>: This policy class specialisation can only be used with <code>basic_outcome</code>, not <code>basic_result</code>. Use <a href="../../reference/policies/error_code_throw_as_system_error_result.html" class="api-reference"><code>error_code_throw_as_system_error&lt;T, EC, void&gt;</code></a>
+ with <code>basic_result</code>.</p>
 
 <p>Policy class defining that on incorrect wide value observation, <code>EP</code> ought to be rethrown if possible, then the ADL discovered free function <code>outcome_throw_as_system_error_with_payload(impl.assume_error())</code> should be called. <a href="../../reference/functions/policy.html">Some precanned overloads of that function are listed here</a>.</p>
 
@@ -44,7 +45,8 @@
 <p>Incorrect wide exception observation performs:</p>
 <div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">BOOST_OUTCOME_THROW_EXCEPTION</span><span class="p">(</span><span class="n">bad_outcome_access</span><span class="p">(</span><span class="s">&#34;no exception&#34;</span><span class="p">));</span>
 </code></pre></div>
-<p>Inherits publicly from <a href="../../reference/policies/base.html" class="api-reference"><code>base</code></a>, and its narrow value, error and exception observer policies are inherited from there.</p>
+<p>Inherits publicly from <a href="../../reference/policies/base.html" class="api-reference"><code>base</code></a>
+, and its narrow value, error and exception observer policies are inherited from there.</p>
 
 <p><em>Requires</em>: Nothing.</p>
 

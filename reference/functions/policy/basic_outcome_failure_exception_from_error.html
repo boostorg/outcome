@@ -35,9 +35,11 @@
     <a accesskey="h" href="../../../index.html"><img src="../../../images/home.png" alt="Home"></a><a accesskey="n" href="../../../reference/functions/policy/error_code.html"><img src="../../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>auto basic_outcome_failure_exception_from_error(const EC &amp;)</code></h1></div></div></div>
   <p>Synthesises an exception type from an error type, used by the <a href="../../../reference/types/basic_outcome/failure.html" class="api-reference"><code>exception_type failure() const noexcept</code></a>
+
 observers. ADL discovered. Default
 overloads for this function are defined in Outcome for 
 <a href="https://en.cppreference.com/w/cpp/error/error_code" class="api-reference" target="_blank"><i class="fa fa-book" aria-hidden="true"></i> <code>std::error_code</code></a>
+
 and <code>boost::system::error_code</code>, these return <code>std::make_exception_ptr(std::system_error(ec))</code>
 and <code>boost::copy_exception(boost::system::system_error(ec))</code> respectively.</p>
 

@@ -34,16 +34,19 @@
     <a accesskey="u" href="../../reference/converters.html"><img src="../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../reference/converters/value_or_error.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>try_operation_return_as(expr)</code></h1></div></div></div>
-  <p>A customisable converter of <a href="../../reference/concepts/valueorerror.html" class="api-reference"><code>ValueOrError&lt;T, E&gt;</code></a> concept matching types to a returnable failure type.</p>
+  <p>A customisable converter of <a href="../../reference/concepts/valueorerror.html" class="api-reference"><code>ValueOrError&lt;T, E&gt;</code></a>
+ concept matching types to a returnable failure type.</p>
 
 <p><em>Overridable</em>: Argument dependent lookup.</p>
 
 <p><em>Default</em>: A number of implementations are provided by default:</p>
 
 <ol>
-<li><p><code>try_operation_return_as(T &amp;&amp;)</code> which requires <code>T</code> to provide an <code>.as_failure()</code> member function in order to be available. This is selected for all <code>basic_result</code> and <code>basic_outcome</code> types. See <a href="../../reference/functions/try_operation_return_as_t.html" class="api-reference"><code>auto try_operation_return_as(T &amp;&amp;)</code></a>.</p></li>
+<li><p><code>try_operation_return_as(T &amp;&amp;)</code> which requires <code>T</code> to provide an <code>.as_failure()</code> member function in order to be available. This is selected for all <code>basic_result</code> and <code>basic_outcome</code> types. See <a href="../../reference/functions/try_operation_return_as_t.html" class="api-reference"><code>auto try_operation_return_as(T &amp;&amp;)</code></a>
+.</p></li>
 
-<li><p>Copy and move editions of <code>try_operation_return_as(std::experimental::expected&lt;T, E&gt;)</code> which return a <code>std::experimental::unexpected&lt;E&gt;</code> for the input&rsquo;s <code>.error()</code> member function. See <a href="../../reference/functions/try_operation_return_as_expected.html" class="api-reference"><code>std::experimental::unexpected&lt;E&gt; try_operation_return_as(std::experimental::expected&lt;T, E&gt;)</code></a>.</p></li>
+<li><p>Copy and move editions of <code>try_operation_return_as(std::experimental::expected&lt;T, E&gt;)</code> which return a <code>std::experimental::unexpected&lt;E&gt;</code> for the input&rsquo;s <code>.error()</code> member function. See <a href="../../reference/functions/try_operation_return_as_expected.html" class="api-reference"><code>std::experimental::unexpected&lt;E&gt; try_operation_return_as(std::experimental::expected&lt;T, E&gt;)</code></a>
+.</p></li>
 </ol>
 
 <p><em>Namespace</em>: <code>BOOST_OUTCOME_V2_NAMESPACE</code></p>
