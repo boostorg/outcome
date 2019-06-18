@@ -39,7 +39,7 @@
 if it does we want to communicate the failure reason.</p>
 
 <div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">convert</span><span class="p">(</span><span class="k">const</span> <span class="n">std</span><span class="o">::</span><span class="n">string</span><span class="o">&amp;</span> <span class="n">str</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
-</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/using_result.cpp#L12" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/using_result.cpp#L42" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 <p>Template alias <a href="../../reference/aliases/result.html" class="api-reference"><code>result&lt;T, E = varies, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a>
@@ -71,7 +71,7 @@ thus if both <code>T</code> and <code>EC</code> are C-compatible, so will <code>
 
 <span class="c1">// all boilerplate necessary to plug ConversionErrc
 </span><span class="c1">// into std::error_code framework
-</span><span class="c1"></span></code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/using_result.cpp#L16" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+</span><span class="c1"></span></code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/using_result.cpp#L46" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 <p>Assume we have plugged it into <code>std::error_code</code> framework, as described in <a href="../../../motivation/plug_error_code">this section</a>.</p>
@@ -92,7 +92,7 @@ Now we can implement function <code>convert</code> as follows:</p>
 
   <span class="k">return</span> <span class="nf">atoi</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">c_str</span><span class="p">());</span>
 <span class="p">}</span>
-</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/using_result.cpp#L35" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/using_result.cpp#L65" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 <p><code>result&lt;T, EC&gt;</code> is convertible from any <code>T2</code> convertible to <code>T</code> as well as any <code>EC2</code> convertible to <code>EC</code>,
@@ -101,14 +101,14 @@ all implicit conversion is disabled, and you will need to use one of the tagged 
 
 <div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">r</span> <span class="p">{</span><span class="n">outcome</span><span class="o">::</span><span class="n">in_place_type</span><span class="o">&lt;</span><span class="n">std</span><span class="o">::</span><span class="n">error_code</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">ConversionErrc</span><span class="o">::</span><span class="n">EmptyString</span><span class="p">};</span>
 <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span> <span class="p">{</span><span class="n">outcome</span><span class="o">::</span><span class="n">in_place_type</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
-</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/using_result.cpp#L85" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/using_result.cpp#L115" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 <p>Or use helper functions:</p>
 
 <div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">r</span> <span class="o">=</span> <span class="n">outcome</span><span class="o">::</span><span class="n">failure</span><span class="p">(</span><span class="n">ConversionErrc</span><span class="o">::</span><span class="n">EmptyString</span><span class="p">);</span>
 <span class="n">outcome</span><span class="o">::</span><span class="n">result</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">s</span> <span class="o">=</span> <span class="n">outcome</span><span class="o">::</span><span class="n">success</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
-</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/using_result.cpp#L93" class="code-snippet-url" target="_blank">View this code on Github</a></div>
+</code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/using_result.cpp#L123" class="code-snippet-url" target="_blank">View this code on Github</a></div>
 
 
 <div class="notices note" style="background: url('../../images/note.png') top left no-repeat padding-box padding-box;">
