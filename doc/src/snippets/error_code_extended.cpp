@@ -1,5 +1,5 @@
 /* Example of how to extend result's error code with extra information
-(C) 2017-2019 Niall Douglas <http://www.nedproductions.biz/> (149 commits)
+(C) 2017-2019 Niall Douglas <http://www.nedproductions.biz/> (7 commits) and Andrzej Krzemieński <akrzemi1@gmail.com> (1 commit)
 
 
 Boost Software License - Version 1.0 - August 17th, 2003

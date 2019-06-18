@@ -1,5 +1,5 @@
 /* Documentation snippet
-(C) 2017-2019 Niall Douglas <http://www.nedproductions.biz/> (59 commits)
+(C) 2017-2019 Niall Douglas <http://www.nedproductions.biz/> (8 commits)
 File Created: Mar 2017
 
 
