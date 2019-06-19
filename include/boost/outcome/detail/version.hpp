@@ -1,5 +1,5 @@
-/* Unit testing for outcomes
-(C) 2013-2019 Niall Douglas <http://www.nedproductions.biz/> (5 commits)
+/* Sets Outcome version
+(C) 2017-2019 Niall Douglas <http://www.nedproductions.biz/> (4 commits)
 
 
 Boost Software License - Version 1.0 - August 17th, 2003
@@ -27,22 +27,16 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#include "../../include/boost/outcome/outcome.hpp"
-#include <boost/test/unit_test.hpp>
-#include <boost/test/unit_test_monitor.hpp>
+/*! AWAITING HUGO JSON CONVERSION TOOL */
+#define BOOST_OUTCOME_VERSION_MAJOR    2
+/*! AWAITING HUGO JSON CONVERSION TOOL */
+#define BOOST_OUTCOME_VERSION_MINOR    2
+/*! AWAITING HUGO JSON CONVERSION TOOL */
+#define BOOST_OUTCOME_VERSION_PATCH    0 
+/*! AWAITING HUGO JSON CONVERSION TOOL */
+#define BOOST_OUTCOME_VERSION_REVISION 0  // Revision version for cmake and DLL version stamping
 
-
-BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_swap, "Tests that the outcome swaps as intended")
-{
-  using namespace BOOST_OUTCOME_V2_NAMESPACE;
-  outcome<std::string> a("niall"), b("douglas");
-  BOOST_CHECK(a.value() == "niall");
-  BOOST_CHECK(b.value() == "douglas");
-  swap(a, b);
-  BOOST_CHECK(a.value() == "douglas");
-  BOOST_CHECK(b.value() == "niall");
-  a = boost::system::errc::not_enough_memory;
-  swap(a, b);
-  BOOST_CHECK(a.value() == "niall");
-  BOOST_CHECK(b.error() == boost::system::errc::not_enough_memory);
-}
+/*! AWAITING HUGO JSON CONVERSION TOOL */
+#ifndef BOOST_OUTCOME_DISABLE_ABI_PERMUTATION
+#define BOOST_OUTCOME_UNSTABLE_VERSION
+#endif

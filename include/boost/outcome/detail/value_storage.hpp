@@ -1,5 +1,5 @@
 /* Essentially an internal optional implementation :)
-(C) 2017-2019 Niall Douglas <http://www.nedproductions.biz/> (59 commits)
+(C) 2017-2019 Niall Douglas <http://www.nedproductions.biz/> (24 commits)
 File Created: June 2017
 
 

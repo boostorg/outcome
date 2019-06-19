@@ -1,5 +1,5 @@
-/* Unit testing for outcomes
-(C) 2013-2019 Niall Douglas <http://www.nedproductions.biz/> (5 commits)
+/* UPDATED BY SCRIPT
+(C) 2017-2019 Niall Douglas <http://www.nedproductions.biz/> (225 commits)
 
 
 Boost Software License - Version 1.0 - August 17th, 2003
@@ -27,22 +27,7 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#include "../../include/boost/outcome/outcome.hpp"
-#include <boost/test/unit_test.hpp>
-#include <boost/test/unit_test_monitor.hpp>
-
-
-BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_swap, "Tests that the outcome swaps as intended")
-{
-  using namespace BOOST_OUTCOME_V2_NAMESPACE;
-  outcome<std::string> a("niall"), b("douglas");
-  BOOST_CHECK(a.value() == "niall");
-  BOOST_CHECK(b.value() == "douglas");
-  swap(a, b);
-  BOOST_CHECK(a.value() == "douglas");
-  BOOST_CHECK(b.value() == "niall");
-  a = boost::system::errc::not_enough_memory;
-  swap(a, b);
-  BOOST_CHECK(a.value() == "niall");
-  BOOST_CHECK(b.error() == boost::system::errc::not_enough_memory);
-}
+// Note the second line of this file must ALWAYS be the git SHA, third line ALWAYS the git SHA update time
+#define BOOST_OUTCOME_PREVIOUS_COMMIT_REF f8bbb463a3a7f8e0e1ad2c74f8583d30b5fa54f1
+#define BOOST_OUTCOME_PREVIOUS_COMMIT_DATE "2019-06-18 10:00:57 +00:00"
+#define BOOST_OUTCOME_PREVIOUS_COMMIT_UNIQUE f8bbb463
