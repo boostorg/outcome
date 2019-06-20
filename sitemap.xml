@@ -4,7 +4,7 @@
   
   <url>
     <loc>/requirements.html</loc>
-    <lastmod>2019-02-11T15:13:33+00:00</lastmod>
+    <lastmod>2019-06-20T22:20:02+01:00</lastmod>
   </url>
   
   <url>
@@ -224,7 +224,7 @@
   
   <url>
     <loc>/faq.html</loc>
-    <lastmod>2019-06-19T10:14:28+01:00</lastmod>
+    <lastmod>2019-06-20T11:14:48+01:00</lastmod>
   </url>
   
   <url>
@@ -409,7 +409,7 @@
   
   <url>
     <loc>/changelog.html</loc>
-    <lastmod>2019-06-19T10:14:28+01:00</lastmod>
+    <lastmod>2019-06-20T11:14:48+01:00</lastmod>
   </url>
   
   <url>
@@ -1302,6 +1302,11 @@
   </url>
   
   <url>
+    <loc>/recipes/foreign-try.html</loc>
+    <lastmod>2019-06-20T22:20:02+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tags/has_error_code.html</loc>
     <lastmod>2019-02-08T22:18:08+00:00</lastmod>
     <priority>0</priority>
@@ -1499,17 +1504,17 @@
   
   <url>
     <loc>/reference/macros/try.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2019-06-20T11:14:48+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/tryv.html</loc>
-    <lastmod>2019-01-24T01:15:16+00:00</lastmod>
+    <lastmod>2019-06-20T11:14:48+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/tryx.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2019-06-20T11:14:48+01:00</lastmod>
   </url>
   
   <url>
@@ -1553,11 +1558,6 @@
   </url>
   
   <url>
-    <loc>/reference/functions/try_operation_return_as_t.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/reference/types/bad_outcome_access.html</loc>
     <lastmod>2019-01-25T01:51:37+00:00</lastmod>
   </url>
@@ -1585,6 +1585,11 @@
   <url>
     <loc>/reference/types/basic_result.html</loc>
     <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/try_operation_has_value.html</loc>
+    <lastmod>2019-06-20T11:14:48+01:00</lastmod>
   </url>
   
   <url>
@@ -1620,6 +1625,16 @@
   <url>
     <loc>/reference/functions/policy/exception_ptr.html</loc>
     <lastmod>2019-01-23T01:27:31+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/try_operation_extract_value.html</loc>
+    <lastmod>2019-06-20T11:14:48+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/try_operation_return_as.html</loc>
+    <lastmod>2019-06-20T11:14:48+01:00</lastmod>
   </url>
   
   <url>
@@ -1715,11 +1730,6 @@
   <url>
     <loc>/reference/functions/error_from_exception.html</loc>
     <lastmod>2019-02-01T23:42:52+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/functions/try_operation_return_as_expected.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
