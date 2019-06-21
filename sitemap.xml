@@ -409,7 +409,7 @@
   
   <url>
     <loc>/changelog.html</loc>
-    <lastmod>2019-06-20T11:14:48+01:00</lastmod>
+    <lastmod>2019-06-21T21:45:08+01:00</lastmod>
   </url>
   
   <url>
@@ -1303,7 +1303,7 @@
   
   <url>
     <loc>/recipes/foreign-try.html</loc>
-    <lastmod>2019-06-20T22:20:02+01:00</lastmod>
+    <lastmod>2019-06-21T21:45:08+01:00</lastmod>
   </url>
   
   <url>
@@ -1504,17 +1504,17 @@
   
   <url>
     <loc>/reference/macros/try.html</loc>
-    <lastmod>2019-06-20T11:14:48+01:00</lastmod>
+    <lastmod>2019-06-21T21:45:08+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/tryv.html</loc>
-    <lastmod>2019-06-20T11:14:48+01:00</lastmod>
+    <lastmod>2019-06-21T21:45:08+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/tryx.html</loc>
-    <lastmod>2019-06-20T11:14:48+01:00</lastmod>
+    <lastmod>2019-06-21T21:45:08+01:00</lastmod>
   </url>
   
   <url>
@@ -1795,11 +1795,6 @@
   <url>
     <loc>/reference/policies/throw_bad_result_access.html</loc>
     <lastmod>2019-01-23T01:27:31+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reference/converters/try_operation_return_as.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
   </url>
   
   <url>
