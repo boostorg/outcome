@@ -57,6 +57,7 @@ namespace detail
     constexpr bool has_value() const noexcept { return (this->_state._status & detail::status_have_value) != 0; }
     constexpr bool has_error() const noexcept { return (this->_state._status & detail::status_have_error) != 0; }
     constexpr bool has_exception() const noexcept { return (this->_state._status & detail::status_have_exception) != 0; }
+    constexpr bool has_lost_consistency() const noexcept { return (this->_state._status & detail::status_lost_consistency) != 0; }
     constexpr bool has_failure() const noexcept { return (this->_state._status & detail::status_have_error) != 0 || (this->_state._status & detail::status_have_exception) != 0; }
 
     BOOST_OUTCOME_TEMPLATE(class T, class U, class V)
