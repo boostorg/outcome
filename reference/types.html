@@ -244,6 +244,8 @@
 <p>Always returns false for <code>basic_result</code>. Constexpr, never throws.</p><li>
 	<a href="../reference/types/basic_result/has_failure.html" ><code>bool has_failure() const noexcept</code></a>
 <p>Returns true if there is either an error or an exception. Constexpr, never throws.</p><li>
+	<a href="../reference/types/basic_result/has_lost_consistency.html" ><code>bool has_lost_consistency() const noexcept</code></a>
+<p>Returns true if a preceding swap involving this object failed to preserve the strong guarantee. Constexpr, never throws.</p><li>
 	<a href="../reference/types/basic_result/assume_value_lvalue.html" ><code>value_type &amp;assume_value() &amp; noexcept</code></a>
 <p>Narrow contract lvalue reference observer of any value present. Constexpr propagating, never throws.</p><li>
 	<a href="../reference/types/basic_result/assume_value_lvalue_const.html" ><code>const value_type &amp;assume_value() const &amp; noexcept</code></a>
@@ -289,7 +291,7 @@
 	<a href="../reference/types/basic_result/inequality_failure_type.html" ><code>bool operator!=(const failure_type&lt;A, void&gt; &amp;) const</code></a>
 <p>Returns true if this result does not compare equal to the failure type sugar. Constexpr and noexcept propagating.</p><li>
 	<a href="../reference/types/basic_result/swap.html" ><code>void swap(basic_result &amp;)</code></a>
-<p>Swap one basic_result with another. Noexcept propagating.</p><li>
+<p>Swap one basic_result with another, with the strong guarantee. Noexcept propagating.</p><li>
 	<a href="../reference/types/basic_result/as_failure_lvalue.html" ><code>auto as_failure() const &amp;</code></a>
 <p>Return the output from free function <code>failure()</code> containing a copy of any errored state.</p><li>
 	<a href="../reference/types/basic_result/as_failure_rvalue.html" ><code>auto as_failure() &amp;&amp;</code></a>

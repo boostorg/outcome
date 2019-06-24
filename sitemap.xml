@@ -329,7 +329,7 @@
   
   <url>
     <loc>/tutorial/advanced/constructors.html</loc>
-    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+    <lastmod>2019-06-24T21:48:18+01:00</lastmod>
   </url>
   
   <url>
@@ -853,6 +853,11 @@
   </url>
   
   <url>
+    <loc>/reference/types/basic_result/has_lost_consistency.html</loc>
+    <lastmod>2019-06-23T16:48:29+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/basic_outcome/assume_value_lvalue.html</loc>
     <lastmod>2019-02-12T16:36:24+00:00</lastmod>
   </url>
@@ -1134,7 +1139,7 @@
   
   <url>
     <loc>/reference/types/basic_result/swap.html</loc>
-    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
+    <lastmod>2019-06-23T16:48:29+01:00</lastmod>
   </url>
   
   <url>
@@ -1224,7 +1229,7 @@
   
   <url>
     <loc>/tags/constructors.html</loc>
-    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+    <lastmod>2019-06-24T21:48:18+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1354,7 +1359,7 @@
   
   <url>
     <loc>/categories/modifiers.html</loc>
-    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
+    <lastmod>2019-06-23T16:48:29+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1905,6 +1910,11 @@
   <url>
     <loc>/reference/functions/hooks/set_spare_storage.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/functions/strong_swap.html</loc>
+    <lastmod>2019-06-24T21:09:37+01:00</lastmod>
   </url>
   
   <url>
