@@ -181,7 +181,7 @@
 	<a href="../reference/types/basic_outcome/inequality_failure_type.html" ><code>bool operator!=(const failure_type&lt;A, B&gt; &amp;) const</code></a>
 <p>Returns true if this outcome does not compare equal to the failure type sugar. Constexpr and noexcept propagating.</p><li>
 	<a href="../reference/types/basic_outcome/swap.html" ><code>void swap(basic_outcome &amp;)</code></a>
-<p>Swap one basic_outcome with another. Noexcept propagating.</p><li>
+<p>Swap one basic_outcome with another, with the strong guarantee. Noexcept propagating.</p><li>
 	<a href="../reference/types/basic_outcome/as_failure_lvalue.html" ><code>failure_type&lt;error_type, exception_type&gt; as_failure() const &amp;</code></a>
 <p>Return the output from free function <code>failure()</code> containing a copy of any errored and/or excepted state.</p><li>
 	<a href="../reference/types/basic_outcome/as_failure_rvalue.html" ><code>failure_type&lt;error_type, exception_type&gt; as_failure() &amp;&amp;</code></a>

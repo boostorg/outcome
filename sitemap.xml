@@ -414,7 +414,7 @@
   
   <url>
     <loc>/changelog.html</loc>
-    <lastmod>2019-06-22T21:22:42+01:00</lastmod>
+    <lastmod>2019-06-25T17:01:21+01:00</lastmod>
   </url>
   
   <url>
@@ -1134,12 +1134,12 @@
   
   <url>
     <loc>/reference/types/basic_outcome/swap.html</loc>
-    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
+    <lastmod>2019-06-25T17:01:21+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result/swap.html</loc>
-    <lastmod>2019-06-23T16:48:29+01:00</lastmod>
+    <lastmod>2019-06-25T17:01:21+01:00</lastmod>
   </url>
   
   <url>
@@ -1228,14 +1228,14 @@
   </url>
   
   <url>
-    <loc>/tags/constructors.html</loc>
-    <lastmod>2019-06-24T21:48:18+01:00</lastmod>
+    <loc>/categories/constructors.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/constructors.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <loc>/tags/constructors.html</loc>
+    <lastmod>2019-06-24T21:48:18+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1359,7 +1359,7 @@
   
   <url>
     <loc>/categories/modifiers.html</loc>
-    <lastmod>2019-06-23T16:48:29+01:00</lastmod>
+    <lastmod>2019-06-25T17:01:21+01:00</lastmod>
     <priority>0</priority>
   </url>
   
