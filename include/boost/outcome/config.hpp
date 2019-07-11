@@ -31,7 +31,7 @@ DEALINGS IN THE SOFTWARE.
 #ifndef BOOST_OUTCOME_V2_CONFIG_HPP
 #define BOOST_OUTCOME_V2_CONFIG_HPP
 
-#include "detail/version.hpp"
+#include "version.hpp"
 
 // Pull in detection of __MINGW64_VERSION_MAJOR
 #if defined(__MINGW32__) && !defined(DOXYGEN_IS_IN_THE_HOUSE)
