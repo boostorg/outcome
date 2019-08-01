@@ -38,7 +38,7 @@ BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 namespace convert
 {
 #if defined(__cpp_concepts)
-#if __GNUC__ < 7 && !defined(__clang__)
+#if !defined(_MSC_VER) && !defined(__clang__) && __GNUC__ < 7
 #define BOOST_OUTCOME_GCC6_CONCEPT_BOOL bool
 #else
 #define BOOST_OUTCOME_GCC6_CONCEPT_BOOL
