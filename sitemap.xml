@@ -1172,7 +1172,12 @@
   
   <url>
     <loc>/recipes/asio-integration.html</loc>
-    <lastmod>2019-02-13T21:00:49+00:00</lastmod>
+    <lastmod>2019-07-29T13:49:55-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/recipes/asio-integration-1-70.html</loc>
+    <lastmod>2019-07-29T13:49:55-04:00</lastmod>
   </url>
   
   <url>
@@ -1188,7 +1193,7 @@
   
   <url>
     <loc>/tags/asio.html</loc>
-    <lastmod>2019-02-13T21:00:49+00:00</lastmod>
+    <lastmod>2019-07-29T13:49:55-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1383,7 +1388,7 @@
   
   <url>
     <loc>/tags/networking-ts.html</loc>
-    <lastmod>2019-02-13T21:00:49+00:00</lastmod>
+    <lastmod>2019-07-29T13:49:55-04:00</lastmod>
     <priority>0</priority>
   </url>
   
