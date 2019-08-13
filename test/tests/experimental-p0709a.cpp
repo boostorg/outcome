@@ -27,7 +27,7 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#include "../../include/boost/outcome/experimental/status_result.hpp"
+#include <boost/outcome/experimental/status_result.hpp>
 
 #include <climits>  // for INT_MAX
 #include <cstdio>
