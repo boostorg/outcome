@@ -31,7 +31,7 @@ DEALINGS IN THE SOFTWARE.
 #pragma warning(disable : 4702)  // unreachable code
 #endif
 
-#include "../../include/boost/outcome/outcome.hpp"
+#include <boost/outcome/outcome.hpp>
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 

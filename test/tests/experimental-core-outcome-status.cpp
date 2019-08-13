@@ -27,7 +27,7 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#include "../../include/boost/outcome/experimental/status_outcome.hpp"
+#include <boost/outcome/experimental/status_outcome.hpp>
 
 #define BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND std
 template <class T, class S = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code, class P = BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::exception_ptr> using outcome = BOOST_OUTCOME_V2_NAMESPACE::experimental::status_outcome<T, S, P>;
