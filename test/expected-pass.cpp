@@ -20,8 +20,8 @@
 
 #include <utility>
 
-#include "../include/boost/outcome/iostream_support.hpp"
-#include "../include/boost/outcome/std_result.hpp"
+#include <boost/outcome/iostream_support.hpp>
+#include <boost/outcome/std_result.hpp>
 
 #define QUICKCPPLIB_BOOST_UNIT_TEST_CUSTOM_MAIN_DEFINED
 #include <boost/test/unit_test.hpp>
