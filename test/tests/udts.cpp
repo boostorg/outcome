@@ -32,8 +32,7 @@ DEALINGS IN THE SOFTWARE.
 #endif
 
 #include <boost/outcome/outcome.hpp>
-#include <boost/test/unit_test.hpp>
-#include <boost/test/unit_test_monitor.hpp>
+#include "quickcpplib/boost/test/unit_test.hpp"
 
 BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_udts, "Tests that the outcome works as intended with user-defined types")
 {

@@ -33,8 +33,7 @@ DEALINGS IN THE SOFTWARE.
 template <class T, class S = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code, class P = BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND::exception_ptr> using outcome = BOOST_OUTCOME_V2_NAMESPACE::experimental::status_outcome<T, S, P>;
 using BOOST_OUTCOME_V2_NAMESPACE::in_place_type;
 
-#include <boost/test/unit_test.hpp>
-#include <boost/test/unit_test_monitor.hpp>
+#include "quickcpplib/boost/test/unit_test.hpp"
 
 #include <iostream>
 

@@ -33,8 +33,7 @@ DEALINGS IN THE SOFTWARE.
 #else
 #include <boost/outcome/result.hpp>
 #endif
-#include <boost/test/unit_test.hpp>
-#include <boost/test/unit_test_monitor.hpp>
+#include "quickcpplib/boost/test/unit_test.hpp"
 
 #include <iostream>
 

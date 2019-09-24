@@ -28,8 +28,7 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include <boost/outcome/result.hpp>
-#include <boost/test/unit_test.hpp>
-#include <boost/test/unit_test_monitor.hpp>
+#include "quickcpplib/boost/test/unit_test.hpp"
 
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_71_outcome, "Implicit construction is over eager")
 {

@@ -30,8 +30,7 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/outcome/iostream_support.hpp>
 #include <boost/outcome/outcome.hpp>
 #include <boost/outcome/try.hpp>
-#include <boost/test/unit_test.hpp>
-#include <boost/test/unit_test_monitor.hpp>
+#include "quickcpplib/boost/test/unit_test.hpp"
 
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_64_outcome, "BOOST_OUTCOME_TRY on excepted outcome is propagating a null error rather than just an exception")
 {
