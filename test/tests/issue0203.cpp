@@ -29,8 +29,7 @@ DEALINGS IN THE SOFTWARE.
 
 #include <boost/outcome/std_result.hpp>
 #include <boost/outcome/try.hpp>
-#include <boost/test/unit_test.hpp>
-#include <boost/test/unit_test_monitor.hpp>
+#include "quickcpplib/boost/test/unit_test.hpp"
 
 namespace outcome = BOOST_OUTCOME_V2_NAMESPACE;
 

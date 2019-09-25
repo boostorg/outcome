@@ -24,8 +24,7 @@
 #include <boost/outcome/std_result.hpp>
 
 #define QUICKCPPLIB_BOOST_UNIT_TEST_CUSTOM_MAIN_DEFINED
-#include <boost/test/unit_test.hpp>
-#include <boost/test/unit_test_monitor.hpp>
+#include "quickcpplib/boost/test/unit_test.hpp"
 
 #define JASEL_NORETURN
 #ifndef BOOST_TEST

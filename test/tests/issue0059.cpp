@@ -29,8 +29,7 @@ DEALINGS IN THE SOFTWARE.
 
 #include <boost/outcome/result.hpp>
 #include <boost/outcome/try.hpp>
-#include <boost/test/unit_test.hpp>
-#include <boost/test/unit_test_monitor.hpp>
+#include "quickcpplib/boost/test/unit_test.hpp"
 
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_59, "result<NonMovable> supported?")
 {

@@ -28,8 +28,7 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include <boost/outcome/outcome.hpp>
-#include <boost/test/unit_test.hpp>
-#include <boost/test/unit_test_monitor.hpp>
+#include "quickcpplib/boost/test/unit_test.hpp"
 
 BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_containers, "Tests that outcome works as intended inside containers")
 {

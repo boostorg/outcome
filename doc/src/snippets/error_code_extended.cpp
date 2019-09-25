@@ -33,7 +33,7 @@ DEALINGS IN THE SOFTWARE.
 #include <iostream>
 
 #ifdef _WIN32
-#error This example can only compile on POSIX
+#include "quickcpplib/execinfo_win64.h"
 #else
 #include <execinfo.h>
 #endif
