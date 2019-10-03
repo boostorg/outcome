@@ -162,6 +162,14 @@ BOOST_OUTCOME_V2_NAMESPACE_END
   BOOST_OUTCOME_TRYV2(unique, __VA_ARGS__);                                                                                                                                                                                                                                                                                          \
   auto && (v) = BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
 
+#define BOOST_OUTCOME_CO_TRYV2(unique, ...)                                                                                                                                                                                                                                                                                             \
+  auto && (unique) = (__VA_ARGS__);                                                                                                                                                                                                                                                                                            \
+  if(!BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique))                                                                                                                                                                                                                                                                   \
+  co_return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
+#define BOOST_OUTCOME_CO_TRY2(unique, v, ...)                                                                                                                                                                                                                                                                                           \
+  BOOST_OUTCOME_CO_TRYV2(unique, __VA_ARGS__);                                                                                                                                                                                                                                                                                          \
+  auto && (v) = BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
+
 #if !defined(__clang__) && defined(__GNUC__) && __GNUC__ >= 8
 #pragma GCC diagnostic pop
 #endif
@@ -170,6 +178,11 @@ BOOST_OUTCOME_V2_NAMESPACE_END
 SIGNATURE NOT RECOGNISED
 */
 #define BOOST_OUTCOME_TRYV(...) BOOST_OUTCOME_TRYV2(BOOST_OUTCOME_TRY_UNIQUE_NAME, __VA_ARGS__)
+
+/*! AWAITING HUGO JSON CONVERSION TOOL
+SIGNATURE NOT RECOGNISED
+*/
+#define BOOST_OUTCOME_CO_TRYV(...) BOOST_OUTCOME_CO_TRYV2(BOOST_OUTCOME_TRY_UNIQUE_NAME, __VA_ARGS__)
 
 #if defined(__GNUC__) || defined(__clang__)
 
@@ -183,12 +196,28 @@ SIGNATURE NOT RECOGNISED
       return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(res) &&>(res));                                                                                                                                                                                                                                \
     BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(res) &&>(res));                                                                                                                                                                                                                                     \
   })
+
+/*! AWAITING HUGO JSON CONVERSION TOOL
+SIGNATURE NOT RECOGNISED
+*/
+#define BOOST_OUTCOME_CO_TRYX(...)                                                                                                                                                                                                                                                                                                      \
+  ({                                                                                                                                                                                                                                                                                                                           \
+    auto &&res = (__VA_ARGS__);                                                                                                                                                                                                                                                                                                \
+    if(!BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(res))                                                                                                                                                                                                                                                                    \
+      co_return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(res) &&>(res));                                                                                                                                                                                                                                \
+    BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(res) &&>(res));                                                                                                                                                                                                                                     \
+  })
 #endif
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
 #define BOOST_OUTCOME_TRYA(v, ...) BOOST_OUTCOME_TRY2(BOOST_OUTCOME_TRY_UNIQUE_NAME, v, __VA_ARGS__)
+
+/*! AWAITING HUGO JSON CONVERSION TOOL
+SIGNATURE NOT RECOGNISED
+*/
+#define BOOST_OUTCOME_CO_TRYA(v, ...) BOOST_OUTCOME_CO_TRY2(BOOST_OUTCOME_TRY_UNIQUE_NAME, v, __VA_ARGS__)
 
 #define BOOST_OUTCOME_TRY_INVOKE_TRY8(a, b, c, d, e, f, g, h) BOOST_OUTCOME_TRYA(a, b, c, d, e, f, g, h)
 #define BOOST_OUTCOME_TRY_INVOKE_TRY7(a, b, c, d, e, f, g) BOOST_OUTCOME_TRYA(a, b, c, d, e, f, g)
@@ -202,5 +231,18 @@ SIGNATURE NOT RECOGNISED
 SIGNATURE NOT RECOGNISED
 */
 #define BOOST_OUTCOME_TRY(...) BOOST_OUTCOME_TRY_CALL_OVERLOAD(BOOST_OUTCOME_TRY_INVOKE_TRY, __VA_ARGS__)
+
+#define BOOST_OUTCOME_CO_TRY_INVOKE_TRY8(a, b, c, d, e, f, g, h) BOOST_OUTCOME_CO_TRYA(a, b, c, d, e, f, g, h)
+#define BOOST_OUTCOME_CO_TRY_INVOKE_TRY7(a, b, c, d, e, f, g) BOOST_OUTCOME_CO_TRYA(a, b, c, d, e, f, g)
+#define BOOST_OUTCOME_CO_TRY_INVOKE_TRY6(a, b, c, d, e, f) BOOST_OUTCOME_CO_TRYA(a, b, c, d, e, f)
+#define BOOST_OUTCOME_CO_TRY_INVOKE_TRY5(a, b, c, d, e) BOOST_OUTCOME_CO_TRYA(a, b, c, d, e)
+#define BOOST_OUTCOME_CO_TRY_INVOKE_TRY4(a, b, c, d) BOOST_OUTCOME_CO_TRYA(a, b, c, d)
+#define BOOST_OUTCOME_CO_TRY_INVOKE_TRY3(a, b, c) BOOST_OUTCOME_CO_TRYA(a, b, c)
+#define BOOST_OUTCOME_CO_TRY_INVOKE_TRY2(a, b) BOOST_OUTCOME_CO_TRYA(a, b)
+#define BOOST_OUTCOME_CO_TRY_INVOKE_TRY1(a) BOOST_OUTCOME_CO_TRYV(a)
+/*! AWAITING HUGO JSON CONVERSION TOOL
+SIGNATURE NOT RECOGNISED
+*/
+#define BOOST_OUTCOME_CO_TRY(...) BOOST_OUTCOME_TRY_CALL_OVERLOAD(BOOST_OUTCOME_CO_TRY_INVOKE_TRY, __VA_ARGS__)
 
 #endif
