@@ -36,7 +36,7 @@ DEALINGS IN THE SOFTWARE.
 #include <atomic>
 #include <cassert>
 
-#ifdef __cpp_coroutines
+#if __cpp_coroutines
 #if __has_include(<coroutine>)
 #include <coroutine>
 BOOST_OUTCOME_V2_NAMESPACE_BEGIN
@@ -266,6 +266,9 @@ namespace awaitables
       {
         o._h = nullptr;
       }
+      awaitable(const awaitable &o) = delete;
+      awaitable &operator=(awaitable &&) = delete;  // as per P1056
+      awaitable &operator=(const awaitable &) = delete;
       ~awaitable()
       {
         if(_h)
