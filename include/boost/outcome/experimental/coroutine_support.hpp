@@ -28,37 +28,45 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-#ifndef BOOST_OUTCOME_COROUTINE_SUPPORT_HPP
-#define BOOST_OUTCOME_COROUTINE_SUPPORT_HPP
+#ifndef BOOST_OUTCOME_EXPERIMENTAL_COROUTINE_SUPPORT_HPP
+#define BOOST_OUTCOME_EXPERIMENTAL_COROUTINE_SUPPORT_HPP
 
-#include "config.hpp"
+#include "../config.hpp"
 
 #define BOOST_OUTCOME_COROUTINE_SUPPORT_NAMESPACE_BEGIN                                                                                                                                                                                                                                                                              \
-  BOOST_OUTCOME_V2_NAMESPACE_BEGIN namespace awaitables                                                                                                                                                                                                                                                                              \
-  {
+  BOOST_OUTCOME_V2_NAMESPACE_BEGIN namespace experimental                                                                                                                                                                                                                                                                            \
+  {                                                                                                                                                                                                                                                                                                                            \
+    namespace awaitables                                                                                                                                                                                                                                                                                                       \
+    {
 //
 #define BOOST_OUTCOME_COROUTINE_SUPPORT_NAMESPACE_EXPORT_BEGIN                                                                                                                                                                                                                                                                       \
-  BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN namespace awaitables                                                                                                                                                                                                                                                                       \
-  {
+  BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN namespace experimental                                                                                                                                                                                                                                                                     \
+  {                                                                                                                                                                                                                                                                                                                            \
+    namespace awaitables                                                                                                                                                                                                                                                                                                       \
+    {
 //
 #define BOOST_OUTCOME_COROUTINE_SUPPORT_NAMESPACE_END                                                                                                                                                                                                                                                                                \
+  }                                                                                                                                                                                                                                                                                                                            \
   }                                                                                                                                                                                                                                                                                                                            \
   BOOST_OUTCOME_V2_NAMESPACE_END
 
 #ifndef BOOST_NO_EXCEPTIONS
-#include "utils.hpp"
+#include "status-code/system_code_from_exception.hpp"
 BOOST_OUTCOME_V2_NAMESPACE_BEGIN
 namespace awaitables
 {
   namespace detail
   {
-    inline std::error_code error_from_exception(std::exception_ptr &&ep, std::error_code not_matched) noexcept { return BOOST_OUTCOME_V2_NAMESPACE::error_from_exception(static_cast<std::exception_ptr &&>(ep), not_matched); }
+    inline BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code error_from_exception(std::exception_ptr &&ep = std::current_exception(), BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code not_matched = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::generic_code(BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc::resource_unavailable_try_again)) noexcept
+    {
+      return BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code_from_exception(static_cast<std::exception_ptr &&>(ep), static_cast<BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code &&>(not_matched));
+    }
   }  // namespace detail
 }  // namespace awaitables
 BOOST_OUTCOME_V2_NAMESPACE_END
 #endif
 
-#include "detail/coroutine_support.ipp"
+#include "../detail/coroutine_support.ipp"
 
 #undef BOOST_OUTCOME_COROUTINE_SUPPORT_NAMESPACE_BEGIN
 #undef BOOST_OUTCOME_COROUTINE_SUPPORT_NAMESPACE_EXPORT_BEGIN
