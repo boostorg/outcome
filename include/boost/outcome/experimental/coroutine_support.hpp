@@ -57,6 +57,7 @@ namespace awaitables
 {
   namespace detail
   {
+    inline bool error_is_set(BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code &sc) noexcept { return sc.failure(); }
     inline BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code error_from_exception(std::exception_ptr &&ep = std::current_exception(), BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code not_matched = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::generic_code(BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc::resource_unavailable_try_again)) noexcept
     {
       return BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code_from_exception(static_cast<std::exception_ptr &&>(ep), static_cast<BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code &&>(not_matched));
