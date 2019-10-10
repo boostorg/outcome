@@ -39,6 +39,12 @@
 	<a href="./reference/macros.html" >Macros</a><ol><li>
 	<a href="./reference/macros/template.html" >Constrained template macros</a><li>
 	<a href="./reference/macros/version.html" >Version macros</a><li>
+	<a href="./reference/macros/co_try.html" ><code>BOOST_OUTCOME_CO_TRY(var, expr)</code></a>
+<p>Evaluate within a coroutine an expression which results in an understood type, assigning <code>T</code> to a variable called <code>var</code> if successful, immediately returning <code>try_operation_return_as(X)</code> from the calling function if unsuccessful.</p><li>
+	<a href="./reference/macros/co_tryv.html" ><code>BOOST_OUTCOME_CO_TRYV(expr)/BOOST_OUTCOME_CO_TRY(expr)</code></a>
+<p>Evaluate from within a coroutine an expression which results in an understood type, continuing execution if successful, immediately returning <code>try_operation_return_as(X)</code> from the calling function if unsuccessful.</p><li>
+	<a href="./reference/macros/co_tryx.html" ><code>BOOST_OUTCOME_CO_TRYX(expr)</code></a>
+<p>Evaluate from within a coroutine an expression which results in an understood type, emitting the <code>T</code> if successful, immediately returning <code>try_operation_return_as(X)</code> from the calling function if unsuccessful.</p><li>
 	<a href="./reference/macros/disable_execinfo.html" ><code>BOOST_OUTCOME_DISABLE_EXECINFO</code></a>
 <p>If defined, disables the use of the <code>&lt;execinfo.h&gt;</code> header (or the win32 emulation).</p><li>
 	<a href="./reference/macros/nodiscard.html" ><code>BOOST_OUTCOME_NODISCARD</code></a>
@@ -137,6 +143,10 @@
 <p>A type alias to a <code>std_checked&lt;T, E&gt;</code> (standalone edition) or <code>boost_checked&lt;T, E&gt;</code> (Boost edition).</p><li>
 	<a href="./reference/aliases/default_policy.html" ><code>default_policy&lt;T, EC, EP&gt;</code></a>
 <p>A type alias to a no-value policy selected based on traits matching of <code>T</code>, <code>EC</code> and <code>EP</code>.</p><li>
+	<a href="./reference/aliases/eager.html" ><code>eager&lt;T&gt;/atomic_eager&lt;T&gt;</code></a>
+<p>An eagerly evaluated coroutine awaitable with Outcome customisation.</p><li>
+	<a href="./reference/aliases/lazy.html" ><code>lazy&lt;T&gt;/atomic_lazy&lt;T&gt;</code></a>
+<p>A lazily evaluated coroutine awaitable with Outcome customisation.</p><li>
 	<a href="./reference/aliases/outcome.html" ><code>outcome&lt;T, EC = varies, EP = varies, NoValuePolicy = policy::default_policy&lt;T, EC, EP&gt;&gt;</code></a>
 <p>A type alias to a <code>std_outcome&lt;T, EC, EP, NoValuePolicy&gt;</code> (standalone edition) or <code>boost_outcome&lt;T, EC, EP, NoValuePolicy&gt;</code> (Boost edition).</p><li>
 	<a href="./reference/aliases/result.html" ><code>result&lt;T, E = varies, NoValuePolicy = policy::default_policy&lt;T, E, void&gt;&gt;</code></a>
