@@ -96,7 +96,7 @@ outcome::std_result<int> abc()
   return 5;
 }
 
-BOOST_OUTCOME_AUTO_TEST_CASE(issues_203_test, "enum convertible to error code works as designed")
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0203_test, "enum convertible to error code works as designed")
 {
   BOOST_CHECK(abc().value() == 5);
 }

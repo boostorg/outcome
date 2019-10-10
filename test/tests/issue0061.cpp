@@ -30,7 +30,7 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/outcome/outcome.hpp>
 #include "quickcpplib/boost/test/unit_test.hpp"
 
-BOOST_OUTCOME_AUTO_TEST_CASE(issues_61_result, "result<T1, E1> does not compare to incompatible result<T2, E2>")
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0061_result, "result<T1, E1> does not compare to incompatible result<T2, E2>")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   struct udt1
@@ -78,7 +78,7 @@ BOOST_OUTCOME_AUTO_TEST_CASE(issues_61_result, "result<T1, E1> does not compare 
   BOOST_CHECK(failure("foo") != b);
 }
 
-BOOST_OUTCOME_AUTO_TEST_CASE(issues_61_outcome, "outcome<T1, E1, P1> does not compare to incompatible outcome<T2, E2, P2>")
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0061_outcome, "outcome<T1, E1, P1> does not compare to incompatible outcome<T2, E2, P2>")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   struct udt1

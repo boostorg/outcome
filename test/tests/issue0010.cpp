@@ -30,7 +30,7 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/outcome/outcome.hpp>
 #include "quickcpplib/boost/test/unit_test.hpp"
 
-BOOST_OUTCOME_AUTO_TEST_CASE(issues_10, "Expected's operator->(), operator*() and .error() throw exceptions when they should not")
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0010_test, "Expected's operator->(), operator*() and .error() throw exceptions when they should not")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   const char *a = "hi", *b = "bye";
