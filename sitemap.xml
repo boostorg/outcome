@@ -414,7 +414,7 @@
   
   <url>
     <loc>/changelog.html</loc>
-    <lastmod>2019-10-04T15:58:37+01:00</lastmod>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
   </url>
   
   <url>
@@ -648,6 +648,26 @@
   </url>
   
   <url>
+    <loc>/reference/types/basic_result/explicit_make_error_code_copy_converting_constructor.html</loc>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/explicit_make_error_code_move_converting_constructor.html</loc>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/explicit_make_exception_ptr_copy_converting_constructor.html</loc>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/explicit_make_exception_ptr_move_converting_constructor.html</loc>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/basic_outcome/explicit_result_copy_converting_constructor.html</loc>
     <lastmod>2019-03-03T00:11:47+00:00</lastmod>
   </url>
@@ -665,6 +685,16 @@
   <url>
     <loc>/reference/policies/base/set_has_error_is_errno.html</loc>
     <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/explicit_result_make_error_code_copy_converting_constructor.html</loc>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/explicit_result_make_error_code_move_converting_constructor.html</loc>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
   </url>
   
   <url>
@@ -783,8 +813,38 @@
   </url>
   
   <url>
+    <loc>/reference/types/basic_outcome/implicit_failure_error_make_error_code_copy_constructor.html</loc>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/implicit_failure_make_error_code_copy_constructor.html</loc>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_outcome/implicit_failure_error_make_error_code_move_constructor.html</loc>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/implicit_failure_make_error_code_move_constructor.html</loc>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/implicit_failure_make_exception_ptr_copy_constructor.html</loc>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types/basic_outcome/implicit_failure_exception_copy_constructor.html</loc>
     <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/types/basic_result/implicit_failure_make_exception_ptr_move_constructor.html</loc>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
   </url>
   
   <url>
@@ -1252,7 +1312,7 @@
   
   <url>
     <loc>/categories/converting-constructors.html</loc>
-    <lastmod>2019-03-03T00:11:47+00:00</lastmod>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1609,12 +1669,12 @@
   
   <url>
     <loc>/reference/types/basic_outcome.html</loc>
-    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/types/basic_result.html</loc>
-    <lastmod>2019-01-31T01:07:35+00:00</lastmod>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
   </url>
   
   <url>
@@ -1724,7 +1784,7 @@
   
   <url>
     <loc>/reference/traits/is_error_code_available.html</loc>
-    <lastmod>2019-02-05T21:41:47+00:00</lastmod>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
   </url>
   
   <url>
@@ -1739,7 +1799,7 @@
   
   <url>
     <loc>/reference/traits/is_exception_ptr_available.html</loc>
-    <lastmod>2019-02-05T21:41:47+00:00</lastmod>
+    <lastmod>2019-10-10T18:14:56+01:00</lastmod>
   </url>
   
   <url>

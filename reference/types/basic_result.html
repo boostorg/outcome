@@ -181,6 +181,30 @@
 <li><code>B</code> is <code>void</code> OR <code>error_type</code> is explicitly constructible from <code>B</code>.</li>
 </ol></li>
 
+<li><p><code>predicate::enable_make_error_code_compatible_conversion&lt;A, B, C&gt;</code> is constexpr boolean true if:</p>
+
+<ol>
+<li><code>predicate::constructors_enabled</code> is true.</li>
+<li><code>basic_result&lt;A, B, C&gt;</code> is not this <code>basic_result</code> type.</li>
+<li>Trait <a href="../../reference/traits/is_error_type.html" class="api-reference"><code>is_error_type&lt;E&gt;</code></a>
+ is true for decayed <code>error_type</code>.</li>
+<li><code>predicate::enable_compatible_conversion&lt;A, B, C&gt;</code> is not true.</li>
+<li><code>A</code> is <code>void</code> OR <code>value_type</code> is explicitly constructible from <code>A</code>.</li>
+<li><code>error_type</code> is explicitly constructible from <code>make_error_code(B)</code>.</li>
+</ol></li>
+
+<li><p><code>predicate::enable_make_exception_ptr_compatible_conversion&lt;A, B, C&gt;</code> is constexpr boolean true if:</p>
+
+<ol>
+<li><code>predicate::constructors_enabled</code> is true.</li>
+<li><code>basic_result&lt;A, B, C&gt;</code> is not this <code>basic_result</code> type.</li>
+<li>Trait <a href="../../reference/traits/is_error_type.html" class="api-reference"><code>is_error_type&lt;E&gt;</code></a>
+ is true for decayed <code>error_type</code>.</li>
+<li><code>predicate::enable_compatible_conversion&lt;A, B, C&gt;</code> is not true.</li>
+<li><code>A</code> is <code>void</code> OR <code>value_type</code> is explicitly constructible from <code>A</code>.</li>
+<li><code>error_type</code> is explicitly constructible from <code>make_exception_ptr(B)</code>.</li>
+</ol></li>
+
 <li><p><code>predicate::enable_inplace_value_constructor&lt;Args...&gt;</code> is constexpr boolean true if:</p>
 
 <ol>
@@ -277,7 +301,15 @@
     <a href="../../reference/types/basic_result/explicit_copy_converting_constructor.html" ><code>explicit basic_result(const basic_result&lt;R, S, P&gt; &amp;)</code></a>
 <p>Explicit converting copy constructor from compatible <code>basic_result</code>. Available if <code>predicate::enable_compatible_conversion&lt;R, S, P&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
     <a href="../../reference/types/basic_result/explicit_move_converting_constructor.html" ><code>explicit basic_result(basic_result&lt;R, S, P&gt; &amp;&amp;)</code></a>
-<p>Explicit converting move constructor from compatible <code>basic_result</code>. Available if <code>predicate::enable_compatible_conversion&lt;R, S, P&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p></li></ol>
+<p>Explicit converting move constructor from compatible <code>basic_result</code>. Available if <code>predicate::enable_compatible_conversion&lt;R, S, P&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/explicit_make_error_code_copy_converting_constructor.html" ><code>explicit basic_result(const basic_result&lt;R, S, P&gt; &amp;)</code></a>
+<p>Explicit converting copy constructor from compatible <code>basic_result</code>. Available if <code>predicate::enable_make_error_code_compatible_conversion&lt;R, S, P&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/explicit_make_error_code_move_converting_constructor.html" ><code>explicit basic_result(basic_result&lt;R, S, P&gt; &amp;&amp;)</code></a>
+<p>Explicit converting move constructor from compatible <code>basic_result</code>. Available if <code>predicate::enable_make_error_code_compatible_conversion&lt;R, S, P&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/explicit_make_exception_ptr_copy_converting_constructor.html" ><code>explicit basic_result(const basic_result&lt;R, S, P&gt; &amp;)</code></a>
+<p>Explicit converting copy constructor from compatible <code>basic_result</code>. Available if <code>predicate::enable_make_exception_ptr_compatible_conversion&lt;R, S, P&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/explicit_make_exception_ptr_move_converting_constructor.html" ><code>explicit basic_result(basic_result&lt;R, S, P&gt; &amp;&amp;)</code></a>
+<p>Explicit converting move constructor from compatible <code>basic_result</code>. Available if <code>predicate::enable_make_exception_ptr_compatible_conversion&lt;R, S, P&gt;</code> is true. Constexpr, triviality and noexcept propagating.</p></li></ol>
 
 <h4 id="inplace-constructors">Inplace constructors</h4>
 
@@ -303,7 +335,15 @@
     <a href="../../reference/types/basic_result/implicit_failure_copy_constructor.html" ><code>basic_result(const failure_type&lt;T&gt; &amp;)</code></a>
 <p>Implicit error-from-failure-type-sugar copy constructor. Available if <code>predicate::enable_compatible_conversion&lt;void, T, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
     <a href="../../reference/types/basic_result/implicit_failure_move_constructor.html" ><code>basic_result(failure_type&lt;T&gt; &amp;&amp;)</code></a>
-<p>Implicit error-from-failure-type-sugar move constructor. Available if <code>predicate::enable_compatible_conversion&lt;void, T, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p></li></ol>
+<p>Implicit error-from-failure-type-sugar move constructor. Available if <code>predicate::enable_compatible_conversion&lt;void, T, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/implicit_failure_make_error_code_copy_constructor.html" ><code>basic_result(const failure_type&lt;T&gt; &amp;)</code></a>
+<p>Implicit error-from-failure-type-sugar copy constructor. Available if <code>predicate::enable_make_error_code_compatible_conversion&lt;void, T, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/implicit_failure_make_error_code_move_constructor.html" ><code>basic_result(failure_type&lt;T&gt; &amp;&amp;)</code></a>
+<p>Implicit error-from-failure-type-sugar move constructor. Available if <code>predicate::enable_make_error_code_compatible_conversion&lt;void, T, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/implicit_failure_make_exception_ptr_copy_constructor.html" ><code>basic_result(const failure_type&lt;T&gt; &amp;)</code></a>
+<p>Implicit error-from-failure-type-sugar copy constructor. Available if <code>predicate::enable_make_exception_ptr_compatible_conversion&lt;void, T, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p><li>
+    <a href="../../reference/types/basic_result/implicit_failure_make_exception_ptr_move_constructor.html" ><code>basic_result(failure_type&lt;T&gt; &amp;&amp;)</code></a>
+<p>Implicit error-from-failure-type-sugar move constructor. Available if <code>predicate::enable_make_exception_ptr_compatible_conversion&lt;void, T, void&gt;</code> is true, or <code>T</code> is <code>void</code>. Constexpr, triviality and noexcept propagating.</p></li></ol>
 
 <h4 id="observers">Observers</h4>
 
@@ -387,7 +427,7 @@
 
 
 
-        </div><p><small>Last revised: January 31, 2019 at 01:07:35 UTC</small></p>
+        </div><p><small>Last revised: October 10, 2019 at 18:14:56 &#43;0100</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../reference/types/basic_outcome/as_failure_rvalue.html"><img src="../../images/prev.png" alt="Prev"></a>
