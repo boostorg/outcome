@@ -28,14 +28,50 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include <boost/outcome/outcome.hpp>
+#include <boost/outcome/try.hpp>
 #include "quickcpplib/boost/test/unit_test.hpp"
 
-BOOST_OUTCOME_AUTO_TEST_CASE(issues_0189_test, "result<void, int>.value() compiles without tripping fail_to_compile_observers")
+namespace issues210
 {
   namespace outcome = BOOST_OUTCOME_V2_NAMESPACE;
-  static_assert(!outcome::trait::is_error_code_available<int>::value, "int is clearly not a source for make_error_code()");
-  static_assert(!outcome::trait::is_exception_ptr_available<int>::value, "int is clearly not a source for make_exception_ptr()");
-  //outcome::result<void, int> r(5);
-  //r.value();
-  BOOST_CHECK(true);
+
+  struct error
+  {
+    boost::system::error_code code;
+  };
+
+  // say that my custom error code type is error code compatible
+  inline boost::system::error_code make_error_code(error error) noexcept { return error.code; }
+
+  template <typename T> using custom_result = outcome::basic_result<T, error, outcome::policy::default_policy<T, error, void>>;
+
+  // source of custom result type with error code compatible error type
+  inline custom_result<int> funcA(int x) { return x; }
+
+  // Is the custom result type explicitly constructible to an ordinary result type?
+  inline outcome::result<int> funcB(int x) { return outcome::result<int>(funcA(x)); }
+
+  // Does the custom result type TRY-convert to an ordinary result type?
+  inline outcome::result<int> func1(int x)
+  {
+    BOOST_OUTCOME_TRY(y, funcA(x));
+    return funcB(y);
+  }
+
+  // Is the custom result type explicitly constructible to an ordinary outcome type?
+  inline outcome::outcome<int> funcC(int x) { return outcome::outcome<int>(funcA(x)); }
+
+  // Does the custom result type TRY-convert to an ordinary outcome type?
+  inline outcome::outcome<int> func2(int x)
+  {
+    BOOST_OUTCOME_TRY(y, funcA(x));
+    return funcC(y);
+  }
+}  // namespace issues210
+
+
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0210_test, "result<int, E> with error code compatible custom E does not TRY into a result<int, boost::system::error_code> function")
+{
+  BOOST_CHECK(issues210::func1(5).value() == 5);
+  BOOST_CHECK(issues210::func2(5).value() == 5);
 }

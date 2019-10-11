@@ -30,7 +30,7 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/outcome/outcome.hpp>
 #include "quickcpplib/boost/test/unit_test.hpp"
 
-BOOST_OUTCOME_AUTO_TEST_CASE(issues_12, "outcome's copy assignment gets instantiated even when type T cannot be copied")
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0012_test, "outcome's copy assignment gets instantiated even when type T cannot be copied")
 {
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   const char *s = "hi";

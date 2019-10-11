@@ -31,7 +31,7 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/outcome/try.hpp>
 #include "quickcpplib/boost/test/unit_test.hpp"
 
-BOOST_OUTCOME_AUTO_TEST_CASE(issues_9, "Alternative TRY macros?")
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0009_test, "Alternative TRY macros?")
 {
 #ifdef BOOST_OUTCOME_TRYX
   using namespace BOOST_OUTCOME_V2_NAMESPACE;

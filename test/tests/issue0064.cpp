@@ -32,7 +32,7 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/outcome/try.hpp>
 #include "quickcpplib/boost/test/unit_test.hpp"
 
-BOOST_OUTCOME_AUTO_TEST_CASE(issues_64_outcome, "BOOST_OUTCOME_TRY on excepted outcome is propagating a null error rather than just an exception")
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0064_outcome, "BOOST_OUTCOME_TRY on excepted outcome is propagating a null error rather than just an exception")
 {
 #ifndef BOOST_NO_EXCEPTIONS
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
