@@ -136,6 +136,12 @@ constexpr inline decltype(auto) try_operation_extract_value(T &&v, detail::value
 
 BOOST_OUTCOME_V2_NAMESPACE_END
 
+#if !defined(__clang__) && defined(__GNUC__) && __GNUC__ >= 8
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wparentheses"
+#endif
+
+
 #define BOOST_OUTCOME_TRY_GLUE2(x, y) x##y
 #define BOOST_OUTCOME_TRY_GLUE(x, y) BOOST_OUTCOME_TRY_GLUE2(x, y)
 #define BOOST_OUTCOME_TRY_UNIQUE_NAME BOOST_OUTCOME_TRY_GLUE(_outcome_try_unique_name_temporary, __COUNTER__)
@@ -157,14 +163,9 @@ BOOST_OUTCOME_V2_NAMESPACE_END
 #endif
 #endif
 
-#if !defined(__clang__) && defined(__GNUC__) && __GNUC__ >= 8
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wparentheses"
-#endif
-
 // Use if(!expr); else as some compilers assume else clauses are always unlikely
 #define BOOST_OUTCOME_TRYV2_SUCCESS_LIKELY(unique, ...)                                                                                                                                                                                                                                                                              \
-  auto && (unique) = (__VA_ARGS__);                                                                                                                                                                                                                                                                                            \
+  auto &&unique = (__VA_ARGS__);                                                                                                                                                                                                                                                                                               \
   if(BOOST_OUTCOME_TRY_LIKELY(BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique)))                                                                                                                                                                                                                                                \
     ;                                                                                                                                                                                                                                                                                                                          \
   else                                                                                                                                                                                                                                                                                                                         \
@@ -173,31 +174,29 @@ BOOST_OUTCOME_V2_NAMESPACE_END
   BOOST_OUTCOME_TRYV2_SUCCESS_LIKELY(unique, __VA_ARGS__);                                                                                                                                                                                                                                                                           \
   auto && (v) = BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
 #define BOOST_OUTCOME_TRYV2_FAILURE_LIKELY(unique, ...)                                                                                                                                                                                                                                                                              \
-  auto && (unique) = (__VA_ARGS__);                                                                                                                                                                                                                                                                                            \
+  auto &&unique = (__VA_ARGS__);                                                                                                                                                                                                                                                                                               \
   if(BOOST_OUTCOME_TRY_LIKELY(!BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique)))                                                                                                                                                                                                                                               \
   return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
 #define BOOST_OUTCOME_TRY2_FAILURE_LIKELY(unique, v, ...)                                                                                                                                                                                                                                                                            \
   BOOST_OUTCOME_TRYV2_FAILURE_LIKELY(unique, __VA_ARGS__);                                                                                                                                                                                                                                                                           \
   auto && (v) = BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
 
-#define BOOST_OUTCOME_CO_TRYV2_SUCCESS_LIKELY(unique, ...)                                                                                                                                                                                                                                                                                          \
-  auto && (unique) = (__VA_ARGS__);                                                                                                                                                                                                                                                                                            \
-  if(BOOST_OUTCOME_TRY_LIKELY(BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique))); else                                                                                                                                                                                                                                                                   \
-  co_return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
-#define BOOST_OUTCOME_CO_TRY2_SUCCESS_LIKELY(unique, v, ...)                                                                                                                                                                                                                                                                                        \
-  BOOST_OUTCOME_CO_TRYV2_SUCCESS_LIKELY(unique, __VA_ARGS__);                                                                                                                                                                                                                                                                                       \
+#define BOOST_OUTCOME_CO_TRYV2_SUCCESS_LIKELY(unique, ...)                                                                                                                                                                                                                                                                           \
+  auto &&unique = (__VA_ARGS__);                                                                                                                                                                                                                                                                                               \
+  if(BOOST_OUTCOME_TRY_LIKELY(BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique)))                                                                                                                                                                                                                                                \
+    ;                                                                                                                                                                                                                                                                                                                          \
+  else                                                                                                                                                                                                                                                                                                                         \
+    co_return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
+#define BOOST_OUTCOME_CO_TRY2_SUCCESS_LIKELY(unique, v, ...)                                                                                                                                                                                                                                                                         \
+  BOOST_OUTCOME_CO_TRYV2_SUCCESS_LIKELY(unique, __VA_ARGS__);                                                                                                                                                                                                                                                                        \
   auto && (v) = BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
 #define BOOST_OUTCOME_CO_TRYV2_FAILURE_LIKELY(unique, ...)                                                                                                                                                                                                                                                                           \
-  auto && (unique) = (__VA_ARGS__);                                                                                                                                                                                                                                                                                            \
-  if(BOOST_OUTCOME_TRY_LIKELY(!BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique)))                                                                                                                                                                                                                                                                   \
+  auto &&unique = (__VA_ARGS__);                                                                                                                                                                                                                                                                                               \
+  if(BOOST_OUTCOME_TRY_LIKELY(!BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique)))                                                                                                                                                                                                                                               \
   co_return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
 #define BOOST_OUTCOME_CO_TRY2_FAILURE_LIKELY(unique, v, ...)                                                                                                                                                                                                                                                                         \
   BOOST_OUTCOME_CO_TRYV2_FAILURE_LIKELY(unique, __VA_ARGS__);                                                                                                                                                                                                                                                                        \
   auto && (v) = BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
-
-#if !defined(__clang__) && defined(__GNUC__) && __GNUC__ >= 8
-#pragma GCC diagnostic pop
-#endif
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
@@ -322,5 +321,9 @@ SIGNATURE NOT RECOGNISED
 SIGNATURE NOT RECOGNISED
 */
 #define BOOST_OUTCOME_CO_TRY_FAILURE_LIKELY(...) BOOST_OUTCOME_TRY_CALL_OVERLOAD(BOOST_OUTCOME_CO_TRY_FAILURE_LIKELY_INVOKE_TRY, __VA_ARGS__)
+
+#if !defined(__clang__) && defined(__GNUC__) && __GNUC__ >= 8
+#pragma GCC diagnostic pop
+#endif
 
 #endif
