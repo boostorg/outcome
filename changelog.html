@@ -84,6 +84,13 @@ a local installation.</li>
 code containing C++ Concepts, and if it does, all cmake consumers of Outcome will enable
 C++ Concepts. Set the cmake variable <code>BOOST_OUTCOME_C_CONCEPTS_FLAGS</code> to an empty string to prevent
 auto detection and enabling of C++ Concepts support occurring.</dd>
+<dt><code>BOOST_OUTCOME_TRY</code> operation now hints to the compiler that operation will be successful</dt>
+<dd><a href="https://wg21.link/P1886">P1886 <em>Error speed benchmarking</em></a> showed that there is
+considerable gain in very small functions by hinting to the compiler whether the expression
+is expected to be successful or not. <code>BOOST_OUTCOME_TRY</code> previously did not hint to the compiler
+at all, but now it does. A new suite of macros <code>BOOST_OUTCOME_TRY_FAILURE_LIKELY</code> hint to the
+compiler that failure is expected. If you wish to return to the previously unhinted
+behaviour, define <code>BOOST_OUTCOME_TRY_LIKELY(expr)</code> to <code>(!!expr)</code>.</dd>
 <dt><a href="https://github.com/ned14/outcome/issues/199">#199</a></dt>
 <dd>Support for C++ Coroutines has been added. This comes in two parts, firstly there is
 now an <code>BOOST_OUTCOME_CO_TRY()</code> operation suitable for performing the <code>TRY</code> operation from
@@ -305,7 +312,7 @@ and Boost.Exception (these are <code>result.hpp</code> and <code>outcome.hpp</co
 
 
 
-        </div><p><small>Last revised: October 10, 2019 at 18:14:56 &#43;0100</small></p>
+        </div><p><small>Last revised: October 16, 2019 at 10:26:35 &#43;0100</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./videos.html"><img src="./images/prev.png" alt="Prev"></a>

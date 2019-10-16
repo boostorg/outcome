@@ -48,6 +48,9 @@
 
 <p>Default overloads for these customisation points are provided. See <a href="../../recipes/foreign-try.html">the recipe for supporting foreign input to <code>BOOST_OUTCOME_TRY</code></a>.</p>
 
+<p>Hints are given to the compiler that the expression will be successful. If you expect failure, you should use <a href="../../reference/macros/co_try_failure_likely.html" class="api-reference"><code>BOOST_OUTCOME_CO_TRY_FAILURE_LIKELY(var, expr)</code></a>
+ instead.</p>
+
 <p><em>Overridable</em>: Not overridable.</p>
 
 <p><em>Definition</em>: See <a href="../../reference/macros/co_tryv.html" class="api-reference"><code>BOOST_OUTCOME_CO_TRYV(expr)</code></a>
@@ -58,7 +61,7 @@
 <p><em>Header</em>: <code>&lt;boost/outcome/try.hpp&gt;</code></p>
 
 
-        </div><p><small>Last revised: October 03, 2019 at 18:35:31 &#43;0100</small></p>
+        </div><p><small>Last revised: October 16, 2019 at 10:26:35 &#43;0100</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../reference/macros/version.html"><img src="../../images/prev.png" alt="Prev"></a>
