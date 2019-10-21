@@ -28,7 +28,8 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include <boost/outcome/outcome.hpp>
-#include "quickcpplib/boost/test/unit_test.hpp"
+#include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
 #ifndef BOOST_NO_EXCEPTIONS
 #ifdef _MSC_VER

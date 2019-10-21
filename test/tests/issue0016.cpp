@@ -28,7 +28,8 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include <boost/outcome/outcome.hpp>
-#include "quickcpplib/boost/test/unit_test.hpp"
+#include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_0016_test, "Default constructor of T is sometimes compiled when T has no default constructor")
 {

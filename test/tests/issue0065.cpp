@@ -29,7 +29,8 @@ DEALINGS IN THE SOFTWARE.
 
 #include <boost/outcome/outcome.hpp>
 #include <boost/outcome/try.hpp>
-#include "quickcpplib/boost/test/unit_test.hpp"
+#include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_0065_outcome, "BOOST_OUTCOME_TRY does not preserve the exception_ptr")
 {

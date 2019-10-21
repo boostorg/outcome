@@ -29,7 +29,8 @@ DEALINGS IN THE SOFTWARE.
 
 #include <boost/outcome/result.hpp>
 #include <boost/outcome/try.hpp>
-#include "quickcpplib/boost/test/unit_test.hpp"
+#include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
 namespace issue0095
 {

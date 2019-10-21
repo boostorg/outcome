@@ -28,7 +28,8 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include <boost/outcome/outcome.hpp>
-#include "quickcpplib/boost/test/unit_test.hpp"
+#include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_0061_result, "result<T1, E1> does not compare to incompatible result<T2, E2>")
 {
