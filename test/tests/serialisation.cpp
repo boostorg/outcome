@@ -28,7 +28,8 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include <boost/outcome/iostream_support.hpp>
-#include "quickcpplib/boost/test/unit_test.hpp"
+#include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
 BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_serialisation, "Tests that the outcome serialises and deserialises as intended")
 {

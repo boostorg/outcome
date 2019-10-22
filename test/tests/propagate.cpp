@@ -29,7 +29,8 @@ DEALINGS IN THE SOFTWARE.
 
 #include <boost/outcome/outcome.hpp>
 #include <boost/outcome/try.hpp>
-#include "quickcpplib/boost/test/unit_test.hpp"
+#include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
 
 BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_propagate, "Tests that the outcome propagates errors between different editions of itself")
 {
