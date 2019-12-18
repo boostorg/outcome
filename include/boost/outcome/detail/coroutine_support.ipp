@@ -66,7 +66,6 @@ BOOST_OUTCOME_V2_NAMESPACE_END
 #endif
 #endif
 
-#ifdef BOOST_OUTCOME_FOUND_COROUTINE_HEADER
 BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 namespace awaitables
 {
@@ -112,6 +111,7 @@ namespace awaitables
       void store(T v, std::memory_order /*unused*/) { _v = v; }
     };
 
+#ifdef BOOST_OUTCOME_FOUND_COROUTINE_HEADER
     template <class Awaitable, bool suspend_initial, bool use_atomic, bool is_void> struct outcome_promise_type
     {
       using container_type = typename Awaitable::container_type;
@@ -298,13 +298,13 @@ namespace awaitables
         _h.resume();
       }
     };
+#endif
   }  // namespace detail
 
 }  // namespace awaitables
 
 BOOST_OUTCOME_V2_NAMESPACE_END
 
-#endif
 #endif
 
 #ifdef BOOST_OUTCOME_FOUND_COROUTINE_HEADER
