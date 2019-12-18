@@ -45,7 +45,6 @@ DEALINGS IN THE SOFTWARE.
 BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
 template <class R, class S, class P, class NoValuePolicy>                                                                            //
-BOOST_OUTCOME_REQUIRES(trait::type_can_be_used_in_basic_result<P> && (std::is_void<P>::value || std::is_default_constructible<P>::value))  //
 class basic_outcome;
 
 namespace detail
@@ -193,7 +192,6 @@ SIGNATURE NOT RECOGNISED
 type definition template <class R, class S, class P, class NoValuePolicy> basic_outcome. Potential doc page: `basic_outcome<T, EC, EP, NoValuePolicy>`
 */
 template <class R, class S, class P, class NoValuePolicy>                                                                            //
-BOOST_OUTCOME_REQUIRES(trait::type_can_be_used_in_basic_result<P> && (std::is_void<P>::value || std::is_default_constructible<P>::value))  //
 class BOOST_OUTCOME_NODISCARD basic_outcome
 #if defined(BOOST_OUTCOME_DOXYGEN_IS_IN_THE_HOUSE) || defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE)
     : public detail::basic_outcome_failure_observers<detail::basic_result_final<R, S, P, NoValuePolicy>, R, S, P, NoValuePolicy>,
@@ -208,7 +206,6 @@ class BOOST_OUTCOME_NODISCARD basic_outcome
   using base = detail::select_basic_outcome_failure_observers<detail::basic_outcome_exception_observers<detail::basic_result_final<R, S, NoValuePolicy>, R, S, P, NoValuePolicy>, R, S, P, NoValuePolicy>;
   friend struct policy::base;
   template <class T, class U, class V, class W>                                                                                        //
-  BOOST_OUTCOME_REQUIRES(trait::type_can_be_used_in_basic_result<V> && (std::is_void<V>::value || std::is_default_constructible<V>::value))  //
   friend class basic_outcome;
   template <class T, class U, class V, class W, class X> friend constexpr inline void hooks::override_outcome_exception(basic_outcome<T, U, V, W> *o, X &&v) noexcept;  // NOLINT
 
