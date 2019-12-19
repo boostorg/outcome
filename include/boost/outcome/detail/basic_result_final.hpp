@@ -1,5 +1,5 @@
 /* Finaliser for a very simple result type
-(C) 2017-2019 Niall Douglas <http://www.nedproductions.biz/> (5 commits)
+(C) 2017-2020 Niall Douglas <http://www.nedproductions.biz/> (5 commits)
 File Created: Oct 2017
 
 
