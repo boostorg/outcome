@@ -31,6 +31,61 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 
+/* Should be this:
+
+78 move constructor count = 2
+65 move assignment count = 3
+78 move assignment count = 1
+65 move constructor count = 2
+78 move assignment count = 0
+65 move assignment count = 1
+
+78 move constructor count = 1
+65 move assignment count = 2
+78 move assignment count = 0
+65 move assignment count = 1
+78 move assignment count = 0
+
+78 move constructor count = 2
+65 move assignment count = 3
+78 move assignment count = 1
+65 move constructor count = 2
+78 move assignment count = 0
+65 move assignment count = 1
+
+78 move constructor count = 1
+65 move assignment count = 2
+78 move assignment count = 0
+65 move assignment count = 1
+78 move assignment count = 0
+
+78 move constructor count = 2
+65 move assignment count = 3
+78 move assignment count = 1
+65 move constructor count = 2
+78 move assignment count = 0
+65 move assignment count = 1
+
+78 move constructor count = 1
+65 move assignment count = 2
+78 move assignment count = 0
+65 move assignment count = 1
+78 move assignment count = 0
+
+78 move constructor count = 2
+65 move assignment count = 3
+78 move assignment count = 1
+65 move constructor count = 2
+78 move assignment count = 0
+65 move assignment count = 1
+
+78 move constructor count = 1
+65 move assignment count = 2
+78 move assignment count = 0
+65 move assignment count = 1
+78 move assignment count = 0
+*/
+
 #ifndef BOOST_NO_EXCEPTIONS
 #ifdef _MSC_VER
 #pragma warning(push)
