@@ -66,6 +66,20 @@
 
 <h3 id="enhancements">Enhancements:</h3>
 
+<dl>
+<dt>Performance of Outcome-based code compiled by clang has been greatly improved</dt>
+<dd>The previous implementation of Outcome&rsquo;s status bitfield confused clang&rsquo;s
+optimiser, which caused low quality codegen. Unlike most codegen issues, this was
+noticeably in empirical benchmarks of real world code, as was shown by
+<a href="https://wg21.link/P1886">P1886 <em>Error speed benchmarking</em></a>.</dd>
+</dl>
+
+<p>The safe part of the <a href="https://github.com/ned14/outcome/tree/better_optimisation"><code>better_optimisation</code></a>
+Outcome v2.2.0 future branch was merged to Outcome v2.1.3 which includes a new
+status bitfield implementation. This appears to not confuse clang&rsquo;s optimiser,
+and clang 9 produces code which routinely beats GCC 9&rsquo;s code for various canned
+use cases.</p>
+
 <h3 id="bug-fixes">Bug fixes:</h3>
 
 <dl>
@@ -73,6 +87,10 @@
 <dd>Newer Concepts implementing compilers were unhappy with the early check for
 destructibility of <code>T</code> and <code>E</code>, so removed template constraints, falling back
 to static assert which runs later in the type instantiation sequence.</dd>
+<dt><a href="https://github.com/ned14/outcome/issues/215">#215</a></dt>
+<dd>For standalone Outcome, <code>CMAKE_TOOLCHAIN_FILE</code> is now passed through during
+dependency superbuild. This should solve build issues for some embedded toolchain
+users.</dd>
 </dl>
 
 <hr />
@@ -337,7 +355,7 @@ and Boost.Exception (these are <code>result.hpp</code> and <code>outcome.hpp</co
 
 
 
-        </div><p><small>Last revised: December 18, 2019 at 11:50:09 UTC</small></p>
+        </div><p><small>Last revised: February 03, 2020 at 11:32:11 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./videos.html"><img src="./images/prev.png" alt="Prev"></a>

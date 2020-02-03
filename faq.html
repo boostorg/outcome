@@ -271,6 +271,10 @@ of stack depth might be unwound. This is not a particularly realistic test, but 
 should at least give one an idea of the performance impact of returning Outcome&rsquo;s
 <code>result</code> or <code>outcome</code> over say returning a plain integer, or throwing an exception.</p>
 
+<p>The following figures are for Outcome v2.1.0 with GCC 7.4, clang 8.0 and Visual
+Studio 2017.9. Figures for newer Outcomes with newer compilers can be found at
+<a href="https://github.com/ned14/outcome/tree/develop/benchmark">https://github.com/ned14/outcome/tree/develop/benchmark</a>.</p>
+
 <h3 id="high-end-cpu-intel-skylake-x64">High end CPU: Intel Skylake x64</h3>
 
 <p>This is a high end CPU with very significant ability to cache, predict, parallelise
@@ -672,7 +676,7 @@ C++ 17 or 14 given how much of STL containers would break.</p>
 
 
 
-        </div><p><small>Last revised: November 15, 2019 at 15:43:29 UTC</small></p>
+        </div><p><small>Last revised: February 03, 2020 at 11:32:11 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./reference/functions/try_throw_std_exception_from_error.html"><img src="./images/prev.png" alt="Prev"></a>
