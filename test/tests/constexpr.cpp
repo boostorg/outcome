@@ -31,8 +31,8 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 
-#if __cplusplus >= 202000 || _HAS_CXX20
-// Match LiteralType, even on C++ 20 and later
+#if __cplusplus >= 201700 || _HAS_CXX17
+// Match LiteralType, even on C++ 17 and later
 template <class T> struct is_literal_type
 {
   static constexpr bool value =   //
