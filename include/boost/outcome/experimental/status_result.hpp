@@ -78,10 +78,12 @@ namespace detail
   {
     state._status.set_have_error_is_errno(true);
   }
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_NOT_POSIX
   template <class State> constexpr inline void _set_error_is_errno(State &state, const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::posix_code & /*unused*/)
   {
     state._status.set_have_error_is_errno(true);
   }
+#endif
   template <class State> constexpr inline void _set_error_is_errno(State &state, const BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::errc & /*unused*/)
   {
     state._status.set_have_error_is_errno(true);
