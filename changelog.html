@@ -68,17 +68,28 @@
 
 <dl>
 <dt>Performance of Outcome-based code compiled by clang has been greatly improved</dt>
-<dd>The previous implementation of Outcome&rsquo;s status bitfield confused clang&rsquo;s
+<dd><p>The previous implementation of Outcome&rsquo;s status bitfield confused clang&rsquo;s
 optimiser, which caused low quality codegen. Unlike most codegen issues, this was
 noticeably in empirical benchmarks of real world code, as was shown by
-<a href="https://wg21.link/P1886">P1886 <em>Error speed benchmarking</em></a>.</dd>
-</dl>
+<a href="https://wg21.link/P1886">P1886 <em>Error speed benchmarking</em></a>.</p>
 
 <p>The safe part of the <a href="https://github.com/ned14/outcome/tree/better_optimisation"><code>better_optimisation</code></a>
 Outcome v2.2.0 future branch was merged to Outcome v2.1.3 which includes a new
 status bitfield implementation. This appears to not confuse clang&rsquo;s optimiser,
 and clang 9 produces code which routinely beats GCC 9&rsquo;s code for various canned
-use cases.</p>
+use cases.</p></dd>
+<dt>Precompiled headers are automatically enabled on new enough cmake&rsquo;s for standalone Outcome</dt>
+<dd><p>If on cmake 3.16 or later, its new precompiled headers build support is used
+to tell consumers of the <code>outcome::hl</code> cmake target to precompile Outcome, <strong>if
+and only if</strong> <code>PROJECT_IS_DEPENDENCY</code> is false. <code>PROJECT_IS_DEPENDENCY</code> is set
+by Outcome&rsquo;s CMakeLists.txt if it detects that it was included using
+<code>add_subdirectory()</code>, so for the vast majority of Outcome end users, the use
+of precompiled headers will NOT be enabled.</p>
+
+<p>Exported targets do NOT request precompilation of headers, as it is
+assumed that importers of the Outcome cmake targets will configure their own
+precompiled headers which incorporate Outcome.</p></dd>
+</dl>
 
 <h3 id="bug-fixes">Bug fixes:</h3>
 
@@ -355,7 +366,7 @@ and Boost.Exception (these are <code>result.hpp</code> and <code>outcome.hpp</co
 
 
 
-        </div><p><small>Last revised: February 03, 2020 at 11:32:11 UTC</small></p>
+        </div><p><small>Last revised: February 25, 2020 at 11:15:13 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./videos.html"><img src="./images/prev.png" alt="Prev"></a>
