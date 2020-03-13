@@ -1,5 +1,5 @@
-/* UPDATED BY SCRIPT
-(C) 2017-2020 Niall Douglas <http://www.nedproductions.biz/> (225 commits)
+/* Unit testing for outcomes
+(C) 2013-2020 Niall Douglas <http://www.nedproductions.biz/> (1 commit)
 
 
 Boost Software License - Version 1.0 - August 17th, 2003
@@ -27,7 +27,29 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-// Note the second line of this file must ALWAYS be the git SHA, third line ALWAYS the git SHA update time
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_REF 8f8224166604a514f1ac466d8e98e9d7df784248
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_DATE "2020-03-11 10:51:29 +00:00"
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_UNIQUE 8f822416
+#include <boost/outcome/experimental/status_result.hpp>
+#include <boost/outcome/try.hpp>
+#include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
+
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_NOT_POSIX
+namespace issues220
+{
+  namespace outcome_e = BOOST_OUTCOME_V2_NAMESPACE::experimental;
+
+  template <class T, class E = outcome_e::error> using Result = outcome_e::status_result<T, E>;
+
+  template <class T> using PosixResult = outcome_e::status_result<T, outcome_e::posix_code>;
+
+  Result<int> convert(const PosixResult<int> &posix_result) { return Result<int>(posix_result); }
+}  // namespace issues220
+#endif
+
+
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0220_test, "ubsan reports reference binding to null pointer")
+{
+#ifndef BOOST_OUTCOME_SYSTEM_ERROR2_NOT_POSIX
+  using namespace issues220;
+  BOOST_CHECK(convert(PosixResult<int>(0)).value() == 0);
+#endif
+}
