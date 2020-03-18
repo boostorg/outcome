@@ -109,6 +109,10 @@ users.</dd>
 <dt><a href="https://github.com/ned14/outcome/issues/220">#220</a></dt>
 <dd>A false positive undefined behaviour sanitiser failure in some use cases of
 Experimental Outcome was worked around to avoid the failure message.</dd>
+<dt><a href="https://github.com/ned14/outcome/issues/221">#221</a></dt>
+<dd>Restored compatibility with x86 on Windows, which was failing with link errors.
+It was quite surprising that this bug was not reported sooner, but obviously
+almost nobody is using Outcome with x86 on Windows.</dd>
 </dl>
 
 <hr />
@@ -373,7 +377,7 @@ and Boost.Exception (these are <code>result.hpp</code> and <code>outcome.hpp</co
 
 
 
-        </div><p><small>Last revised: March 12, 2020 at 10:24:29 UTC</small></p>
+        </div><p><small>Last revised: March 18, 2020 at 10:43:40 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./videos.html"><img src="./images/prev.png" alt="Prev"></a>
