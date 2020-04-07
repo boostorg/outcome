@@ -48,6 +48,11 @@
   </url>
   
   <url>
+    <loc>/tutorial/essential/coroutines/try.html</loc>
+    <lastmod>2020-04-07T10:22:38+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/experimental/worked-example/preamble.html</loc>
     <lastmod>2019-01-26T23:38:56+00:00</lastmod>
   </url>
@@ -148,6 +153,11 @@
   </url>
   
   <url>
+    <loc>/tutorial/essential/coroutines/awaitables.html</loc>
+    <lastmod>2020-04-07T10:22:38+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/experimental/c-api/example.html</loc>
     <lastmod>2019-02-05T17:14:18+00:00</lastmod>
   </url>
@@ -213,6 +223,11 @@
   </url>
   
   <url>
+    <loc>/tutorial/essential/coroutines.html</loc>
+    <lastmod>2020-04-07T10:22:38+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/tutorial/advanced/payload.html</loc>
     <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
@@ -250,6 +265,11 @@
   <url>
     <loc>/tutorial/advanced/constructors/static-constructor.html</loc>
     <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorial/essential/coroutines/returning.html</loc>
+    <lastmod>2020-04-07T10:22:38+01:00</lastmod>
   </url>
   
   <url>
@@ -315,6 +335,11 @@
   <url>
     <loc>/videos.html</loc>
     <lastmod>2018-09-20T09:21:47+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tutorial/essential/coroutines/co_await.html</loc>
+    <lastmod>2020-04-07T10:22:38+01:00</lastmod>
   </url>
   
   <url>
@@ -419,7 +444,7 @@
   
   <url>
     <loc>/changelog.html</loc>
-    <lastmod>2020-03-18T10:43:40+00:00</lastmod>
+    <lastmod>2020-04-07T10:22:38+01:00</lastmod>
   </url>
   
   <url>
@@ -1269,6 +1294,12 @@
   </url>
   
   <url>
+    <loc>/tags/awaitables.html</loc>
+    <lastmod>2020-04-07T10:22:38+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/backtrace.html</loc>
     <lastmod>2019-02-08T22:18:08+00:00</lastmod>
     <priority>0</priority>
@@ -1283,6 +1314,12 @@
   <url>
     <loc>/categories.html</loc>
     <lastmod>2019-03-03T00:11:47+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/co_await.html</loc>
+    <lastmod>2020-04-07T10:22:38+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1334,6 +1371,12 @@
   </url>
   
   <url>
+    <loc>/tags/coroutines.html</loc>
+    <lastmod>2020-04-07T10:22:38+01:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/tags/default-actions.html</loc>
     <lastmod>2019-02-08T22:18:08+00:00</lastmod>
     <priority>0</priority>
@@ -1360,6 +1403,12 @@
   <url>
     <loc>/tags/dual-api.html</loc>
     <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/eager.html</loc>
+    <lastmod>2020-04-07T10:22:38+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1418,6 +1467,12 @@
   <url>
     <loc>/categories/inplace-constructors.html</loc>
     <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/lazy.html</loc>
+    <lastmod>2020-04-07T10:22:38+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1768,8 +1823,8 @@
   </url>
   
   <url>
-    <loc>/reference/aliases/eager.html</loc>
-    <lastmod>2019-10-04T15:58:37+01:00</lastmod>
+    <loc>/reference/types/awaitables/eager.html</loc>
+    <lastmod>2020-04-07T10:22:38+01:00</lastmod>
   </url>
   
   <url>
@@ -1848,8 +1903,8 @@
   </url>
   
   <url>
-    <loc>/reference/aliases/lazy.html</loc>
-    <lastmod>2019-10-04T15:58:37+01:00</lastmod>
+    <loc>/reference/types/awaitables/lazy.html</loc>
+    <lastmod>2020-04-07T10:22:38+01:00</lastmod>
   </url>
   
   <url>
