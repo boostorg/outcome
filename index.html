@@ -36,7 +36,74 @@
 
 <h1 id="outcome-2-1-library">Outcome 2.1 library</h1>
 
+<div>
+  <div class="author">
+    <h3 class="author"><span class="firstname">Niall</span> <span class="surname">Douglas</span></h3>
+  </div>
+</div>
+<div><p class="copyright">Copyright &#169; 2014-2020 Niall Douglas <a href="./credits.html">and others</a></p></div>
+<div><div class="legalnotice">
+<a name="outcome.legal"></a><p>
+        Distributed under the Boost Software License, Version 1.0. (See accompanying
+        file LICENSE_1_0.txt or copy at <a href="./LICENSE_1_0.txt" target="_top">http://www.boost.org/LICENSE_1_0.txt</a>)
+      </p>
+</div></div>
+<div class="toc">
+<p><b>Table of Contents</b></p>
+<dl class="toc">
+  <dt><span class="section"><a href="./requirements.html">Prerequisites</a></span></dt>
+  <dt><span class="section"><a href="./build.html">Build and install</a></span></dt>
+  <dt><span class="section"><a href="./motivation.html">Motivation</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./motivation/exceptions.html">Exceptions</a></span></dt>
+  <dt><span class="section"><a href="./motivation/errno.html">errno</a></span></dt>
+  <dt><span class="section"><a href="./motivation/error_codes.html">Error codes</a></span></dt>
+  <dt><span class="section"><a href="./motivation/std_error_code.html">std::error_code</a></span></dt>
+  <dt><span class="section"><a href="./motivation/plug_error_code.html">Plugging a library into std::error_code`</a></span></dt>
+  <dt><span class="section"><a href="./motivation/plug_error_code2.html">Plugging a library into boost::system::error_code</a></span></dt>
+  <dt><span class="section"><a href="./motivation/narrow_contract.html">Narrow contracts</a></span></dt>
+        </dl></dd>
+  <dt><span class="section"><a href="./tutorial.html">Tutorial</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./tutorial/essential.html">Essential</a></span></dt>
+  <dt><span class="section"><a href="./tutorial/advanced.html">Advanced</a></span></dt>
+        </dl></dd>
+  <dt><span class="section"><a href="./recipes.html">Recipes</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./recipes/asio-integration.html">ASIO/Networking TS : Boost &lt; 1.70</a></span></dt>
+  <dt><span class="section"><a href="./recipes/asio-integration-1-70.html">ASIO/Networking TS: Boost &gt;= 1.70</a></span></dt>
+  <dt><span class="section"><a href="./recipes/foreign-try.html">Extending <code>BOOST_OUTCOME_TRY</code></a></span></dt>
+        </dl></dd>
+  <dt><span class="section"><a href="./experimental.html">Experimental</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./experimental/advantages.html">The main advantages</a></span></dt>
+  <dt><span class="section"><a href="./experimental/map.html">Approximate map between error code designs</a></span></dt>
+  <dt><span class="section"><a href="./experimental/differences.html">Major differences</a></span></dt>
+  <dt><span class="section"><a href="./experimental/status_result.html"><code>status_result</code> and <code>status_outcome</code></a></span></dt>
+  <dt><span class="section"><a href="./experimental/worked-example.html">Worked example: Custom domain</a></span></dt>
+  <dt><span class="section"><a href="./experimental/outcome.html">Tying it all together</a></span></dt>
+  <dt><span class="section"><a href="./experimental/c-api.html">Using Outcome from C code</a></span></dt>
+        </dl></dd>
+  <dt><span class="section"><a href="./reference.html">API reference</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./reference/macros.html">Macros</a></span></dt>
+  <dt><span class="section"><a href="./reference/concepts.html">Concepts</a></span></dt>
+  <dt><span class="section"><a href="./reference/converters.html">Converters</a></span></dt>
+  <dt><span class="section"><a href="./reference/traits.html">Traits</a></span></dt>
+  <dt><span class="section"><a href="./reference/policies.html">Policies</a></span></dt>
+  <dt><span class="section"><a href="./reference/types.html">Types</a></span></dt>
+  <dt><span class="section"><a href="./reference/aliases.html">Aliases</a></span></dt>
+  <dt><span class="section"><a href="./reference/functions.html">Functions</a></span></dt>
+        </dl></dd>
+  <dt><span class="section"><a href="./faq.html">Frequently asked questions</a></span></dt>
+  <dt><span class="section"><a href="./videos.html">Videos</a></span></dt>
+  <dt><span class="section"><a href="./changelog.html">Changelog</a></span></dt>
+  <dt><span class="section"><a href="./history.html">History</a></span></dt>
 
+
+</dl>
+</div>
+<h2 class="title">Introduction</h2>
 
 <p>Outcome is a set of tools for reporting and handling function failures in contexts where <em>directly</em> using C++ exception handling is unsuitable. Such contexts include:</p>
 
