@@ -775,7 +775,7 @@ namespace detail
     {
     }
     template <class U>
-    static constexpr bool enable_converting_constructor = !std::is_same<std::decay_t<U>, value_type>::value && std::is_constructible<value_type, U>::value;
+    static constexpr bool enable_converting_constructor = !std::is_same<std::decay_t<U>, value_type>::value && detail::is_constructible<value_type, U>;
     BOOST_OUTCOME_TEMPLATE(class U)
     BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(enable_converting_constructor<U>))
     constexpr explicit value_storage_trivial(const value_storage_trivial<U> &o) noexcept(detail::is_nothrow_constructible<value_type, U>)
@@ -865,7 +865,7 @@ namespace detail
     {
     }
     template <class U>
-    static constexpr bool enable_converting_constructor = !std::is_same<std::decay_t<U>, value_type>::value && std::is_constructible<value_type, U>::value;
+    static constexpr bool enable_converting_constructor = !std::is_same<std::decay_t<U>, value_type>::value && detail::is_constructible<value_type, U>;
     BOOST_OUTCOME_TEMPLATE(class U)
     BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(enable_converting_constructor<U>))
     constexpr explicit value_storage_nontrivial(const value_storage_nontrivial<U> &o) noexcept(detail::is_nothrow_constructible<value_type, U>)
