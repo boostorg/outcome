@@ -35,7 +35,7 @@ DEALINGS IN THE SOFTWARE.
 #error <posix_code.hpp> is not includable when BOOST_OUTCOME_SYSTEM_ERROR2_NOT_POSIX is defined!
 #endif
 
-#include "generic_code.hpp"
+#include "quick_status_code_from_enum.hpp"
 
 #include <cstring>  // for strchr and strerror_r
 

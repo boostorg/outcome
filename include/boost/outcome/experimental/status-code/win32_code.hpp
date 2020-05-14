@@ -35,7 +35,7 @@ DEALINGS IN THE SOFTWARE.
 #error This file should only be included on Windows
 #endif
 
-#include "generic_code.hpp"
+#include "quick_status_code_from_enum.hpp"
 
 BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
