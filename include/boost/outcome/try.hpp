@@ -55,7 +55,7 @@ namespace detail
   struct value_overload
   {
   };
-  BOOST_OUTCOME_TEMPLATE(class T, class R = decltype(std::declval<T>().as_failure()))
+  BOOST_OUTCOME_TEMPLATE(class T, class R = decltype(static_cast<T &&>(std::declval<T>()).as_failure()))
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(BOOST_OUTCOME_V2_NAMESPACE::is_failure_type<R>))
   constexpr inline bool has_as_failure(int /*unused */) { return true; }
   template <class T> constexpr inline bool has_as_failure(...) { return false; }
