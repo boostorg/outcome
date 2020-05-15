@@ -127,13 +127,13 @@ namespace detail
     struct disable_inplace_value_error_constructor;
     template <class... Args>
     using choose_inplace_value_error_constructor = std::conditional_t<                                       //
-    std::is_constructible<value_type, Args...>::value && std::is_constructible<error_type, Args...>::value,  //
+    detail::is_constructible<value_type, Args...> && detail::is_constructible<error_type, Args...>,  //
     disable_inplace_value_error_constructor,                                                                 //
     std::conditional_t<                                                                                      //
-    std::is_constructible<value_type, Args...>::value,                                                       //
+    detail::is_constructible<value_type, Args...>,                                                       //
     value_type,                                                                                              //
     std::conditional_t<                                                                                      //
-    std::is_constructible<error_type, Args...>::value,                                                       //
+    detail::is_constructible<error_type, Args...>,                                                       //
     error_type,                                                                                              //
     disable_inplace_value_error_constructor>>>;
     template <class... Args>
@@ -331,14 +331,14 @@ protected:
     static constexpr bool enable_inplace_value_constructor =  //
     constructors_enabled                                      //
     && (std::is_void<value_type>::value                       //
-        || std::is_constructible<value_type, Args...>::value);
+        || detail::is_constructible<value_type, Args...>);
 
     // Predicate for the inplace construction of error to be available.
     template <class... Args>
     static constexpr bool enable_inplace_error_constructor =  //
     constructors_enabled                                      //
     && (std::is_void<error_type>::value                       //
-        || std::is_constructible<error_type, Args...>::value);
+        || detail::is_constructible<error_type, Args...>);
 
     // Predicate for the implicit converting inplace constructor to be available.
     template <class... Args>
@@ -393,7 +393,7 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TEMPLATE(class T)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_value_converting_constructor<T>))
   constexpr basic_result(T &&t, value_converting_constructor_tag /*unused*/ = value_converting_constructor_tag()) noexcept(
-  std::is_nothrow_constructible<value_type, T>::value)  // NOLINT
+  detail::is_nothrow_constructible<value_type, T>)  // NOLINT
       : base{in_place_type<typename base::value_type>, static_cast<T &&>(t)}
   {
     using namespace hooks;
@@ -405,7 +405,7 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TEMPLATE(class T)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_error_converting_constructor<T>))
   constexpr basic_result(T &&t, error_converting_constructor_tag /*unused*/ = error_converting_constructor_tag()) noexcept(
-  std::is_nothrow_constructible<error_type, T>::value)  // NOLINT
+  detail::is_nothrow_constructible<error_type, T>)  // NOLINT
       : base{in_place_type<typename base::error_type>, static_cast<T &&>(t)}
   {
     using namespace hooks;
@@ -444,7 +444,7 @@ SIGNATURE NOT RECOGNISED
   constexpr explicit basic_result(
   const basic_result<T, U, V> &o,
   explicit_compatible_copy_conversion_tag /*unused*/ =
-  explicit_compatible_copy_conversion_tag()) noexcept(std::is_nothrow_constructible<value_type, T>::value &&std::is_nothrow_constructible<error_type, U>::value)
+  explicit_compatible_copy_conversion_tag()) noexcept(detail::is_nothrow_constructible<value_type, T> &&detail::is_nothrow_constructible<error_type, U>)
       : base{typename base::compatible_conversion_tag(), o}
   {
     using namespace hooks;
@@ -458,7 +458,7 @@ SIGNATURE NOT RECOGNISED
   constexpr explicit basic_result(
   basic_result<T, U, V> &&o,
   explicit_compatible_move_conversion_tag /*unused*/ =
-  explicit_compatible_move_conversion_tag()) noexcept(std::is_nothrow_constructible<value_type, T>::value &&std::is_nothrow_constructible<error_type, U>::value)
+  explicit_compatible_move_conversion_tag()) noexcept(detail::is_nothrow_constructible<value_type, T> &&detail::is_nothrow_constructible<error_type, U>)
       : base{typename base::compatible_conversion_tag(), static_cast<basic_result<T, U, V> &&>(o)}
   {
     using namespace hooks;
@@ -471,7 +471,7 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_make_error_code_compatible_conversion<T, U, V>))
   constexpr explicit basic_result(const basic_result<T, U, V> &o,
                                   explicit_make_error_code_compatible_copy_conversion_tag /*unused*/ =
-                                  explicit_make_error_code_compatible_copy_conversion_tag()) noexcept(std::is_nothrow_constructible<value_type, T>::value
+                                  explicit_make_error_code_compatible_copy_conversion_tag()) noexcept(detail::is_nothrow_constructible<value_type, T>
                                                                                                       &&noexcept(make_error_code(std::declval<U>())))
       : base{typename base::make_error_code_compatible_conversion_tag(), o}
   {
@@ -485,7 +485,7 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_make_error_code_compatible_conversion<T, U, V>))
   constexpr explicit basic_result(basic_result<T, U, V> &&o,
                                   explicit_make_error_code_compatible_move_conversion_tag /*unused*/ =
-                                  explicit_make_error_code_compatible_move_conversion_tag()) noexcept(std::is_nothrow_constructible<value_type, T>::value
+                                  explicit_make_error_code_compatible_move_conversion_tag()) noexcept(detail::is_nothrow_constructible<value_type, T>
                                                                                                       &&noexcept(make_error_code(std::declval<U>())))
       : base{typename base::make_error_code_compatible_conversion_tag(), static_cast<basic_result<T, U, V> &&>(o)}
   {
@@ -499,7 +499,7 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_make_exception_ptr_compatible_conversion<T, U, V>))
   constexpr explicit basic_result(const basic_result<T, U, V> &o,
                                   explicit_make_exception_ptr_compatible_copy_conversion_tag /*unused*/ =
-                                  explicit_make_exception_ptr_compatible_copy_conversion_tag()) noexcept(std::is_nothrow_constructible<value_type, T>::value
+                                  explicit_make_exception_ptr_compatible_copy_conversion_tag()) noexcept(detail::is_nothrow_constructible<value_type, T>
                                                                                                          &&noexcept(make_exception_ptr(std::declval<U>())))
       : base{typename base::make_exception_ptr_compatible_conversion_tag(), o}
   {
@@ -513,7 +513,7 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_make_exception_ptr_compatible_conversion<T, U, V>))
   constexpr explicit basic_result(basic_result<T, U, V> &&o,
                                   explicit_make_exception_ptr_compatible_move_conversion_tag /*unused*/ =
-                                  explicit_make_exception_ptr_compatible_move_conversion_tag()) noexcept(std::is_nothrow_constructible<value_type, T>::value
+                                  explicit_make_exception_ptr_compatible_move_conversion_tag()) noexcept(detail::is_nothrow_constructible<value_type, T>
                                                                                                          &&noexcept(make_exception_ptr(std::declval<U>())))
       : base{typename base::make_exception_ptr_compatible_conversion_tag(), static_cast<basic_result<T, U, V> &&>(o)}
   {
@@ -526,7 +526,7 @@ SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class... Args)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_inplace_value_constructor<Args...>))
-  constexpr explicit basic_result(in_place_type_t<value_type_if_enabled> _, Args &&... args) noexcept(std::is_nothrow_constructible<value_type, Args...>::value)
+  constexpr explicit basic_result(in_place_type_t<value_type_if_enabled> _, Args &&... args) noexcept(detail::is_nothrow_constructible<value_type, Args...>)
       : base{_, static_cast<Args &&>(args)...}
   {
     using namespace hooks;
@@ -538,7 +538,7 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TEMPLATE(class U, class... Args)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_inplace_value_constructor<std::initializer_list<U>, Args...>))
   constexpr explicit basic_result(in_place_type_t<value_type_if_enabled> _, std::initializer_list<U> il,
-                                  Args &&... args) noexcept(std::is_nothrow_constructible<value_type, std::initializer_list<U>, Args...>::value)
+                                  Args &&... args) noexcept(detail::is_nothrow_constructible<value_type, std::initializer_list<U>, Args...>)
       : base{_, il, static_cast<Args &&>(args)...}
   {
     using namespace hooks;
@@ -549,7 +549,7 @@ SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class... Args)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_inplace_error_constructor<Args...>))
-  constexpr explicit basic_result(in_place_type_t<error_type_if_enabled> _, Args &&... args) noexcept(std::is_nothrow_constructible<error_type, Args...>::value)
+  constexpr explicit basic_result(in_place_type_t<error_type_if_enabled> _, Args &&... args) noexcept(detail::is_nothrow_constructible<error_type, Args...>)
       : base{_, static_cast<Args &&>(args)...}
   {
     using namespace hooks;
@@ -561,7 +561,7 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TEMPLATE(class U, class... Args)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_inplace_error_constructor<std::initializer_list<U>, Args...>))
   constexpr explicit basic_result(in_place_type_t<error_type_if_enabled> _, std::initializer_list<U> il,
-                                  Args &&... args) noexcept(std::is_nothrow_constructible<error_type, std::initializer_list<U>, Args...>::value)
+                                  Args &&... args) noexcept(detail::is_nothrow_constructible<error_type, std::initializer_list<U>, Args...>)
       : base{_, il, static_cast<Args &&>(args)...}
   {
     using namespace hooks;
@@ -598,7 +598,7 @@ SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_compatible_conversion<T, void, void>))
-  constexpr basic_result(const success_type<T> &o) noexcept(std::is_nothrow_constructible<value_type, T>::value)  // NOLINT
+  constexpr basic_result(const success_type<T> &o) noexcept(detail::is_nothrow_constructible<value_type, T>)  // NOLINT
       : base{in_place_type<value_type_if_enabled>, detail::extract_value_from_success<value_type>(o)}
   {
     using namespace hooks;
@@ -609,7 +609,7 @@ SIGNATURE NOT RECOGNISED
 */
   BOOST_OUTCOME_TEMPLATE(class T)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(!std::is_void<T>::value && predicate::template enable_compatible_conversion<T, void, void>))
-  constexpr basic_result(success_type<T> &&o) noexcept(std::is_nothrow_constructible<value_type, T>::value)  // NOLINT
+  constexpr basic_result(success_type<T> &&o) noexcept(detail::is_nothrow_constructible<value_type, T>)  // NOLINT
       : base{in_place_type<value_type_if_enabled>, detail::extract_value_from_success<value_type>(static_cast<success_type<T> &&>(o))}
   {
     using namespace hooks;
@@ -621,7 +621,7 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TEMPLATE(class T)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_compatible_conversion<void, T, void>))
   constexpr basic_result(const failure_type<T> &o, explicit_compatible_copy_conversion_tag /*unused*/ = explicit_compatible_copy_conversion_tag()) noexcept(
-  std::is_nothrow_constructible<error_type, T>::value)  // NOLINT
+  detail::is_nothrow_constructible<error_type, T>)  // NOLINT
       : base{in_place_type<error_type_if_enabled>, detail::extract_error_from_failure<error_type>(o)}
   {
     using namespace hooks;
@@ -633,7 +633,7 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TEMPLATE(class T)
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TPRED(predicate::template enable_compatible_conversion<void, T, void>))
   constexpr basic_result(failure_type<T> &&o, explicit_compatible_move_conversion_tag /*unused*/ = explicit_compatible_move_conversion_tag()) noexcept(
-  std::is_nothrow_constructible<error_type, T>::value)  // NOLINT
+  detail::is_nothrow_constructible<error_type, T>)  // NOLINT
       : base{in_place_type<error_type_if_enabled>, detail::extract_error_from_failure<error_type>(static_cast<failure_type<T> &&>(o))}
   {
     using namespace hooks;

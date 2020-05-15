@@ -31,7 +31,7 @@ DEALINGS IN THE SOFTWARE.
 #ifndef BOOST_OUTCOME_SYSTEM_ERROR2_ERRORED_STATUS_CODE_HPP
 #define BOOST_OUTCOME_SYSTEM_ERROR2_ERRORED_STATUS_CODE_HPP
 
-#include "generic_code.hpp"
+#include "quick_status_code_from_enum.hpp"
 #include "status_code_ptr.hpp"
 
 BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
