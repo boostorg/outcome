@@ -100,7 +100,18 @@ public:
                                     && std::is_constructible<errored_status_code, MakeStatusCodeResult>::value,  // ADLed status code is compatible
                                     bool>::type = true>
   errored_status_code(T &&v, Args &&... args) noexcept(noexcept(make_status_code(std::declval<T>(), std::declval<Args>()...)))  // NOLINT
-  : errored_status_code(make_status_code(static_cast<T &&>(v), static_cast<Args &&>(args)...))
+      : errored_status_code(make_status_code(static_cast<T &&>(v), static_cast<Args &&>(args)...))
+  {
+    _check();
+  }
+  //! Implicit construction from any `quick_status_code_from_enum<Enum>` enumerated type.
+  template <class Enum,                                                                                      //
+            class QuickStatusCodeType = typename quick_status_code_from_enum<Enum>::code_type,               // Enumeration has been activated
+            typename std::enable_if<std::is_constructible<errored_status_code, QuickStatusCodeType>::value,  // Its status code is compatible
+
+                                    bool>::type = true>
+  constexpr errored_status_code(Enum &&v) noexcept(std::is_nothrow_constructible<errored_status_code, QuickStatusCodeType>::value)  // NOLINT
+      : errored_status_code(QuickStatusCodeType(static_cast<Enum &&>(v)))
   {
     _check();
   }
@@ -199,12 +210,22 @@ public:
 
   /***** KEEP THESE IN SYNC WITH STATUS_CODE *****/
   //! Implicit copy construction from any other status code if its value type is trivially copyable and it would fit into our storage
-  template <class DomainType,                                                                              //
-            typename std::enable_if<!detail::is_erased_status_code<status_code<DomainType>>::value         //
-                                    && std::is_trivially_copyable<typename DomainType::value_type>::value  //
+  template <class DomainType,                                                                           //
+            typename std::enable_if<std::is_trivially_copyable<typename DomainType::value_type>::value  //
                                     && detail::type_erasure_is_safe<value_type, typename DomainType::value_type>::value,
                                     bool>::type = true>
-  errored_status_code(const status_code<DomainType> &v) noexcept : _base(v)  // NOLINT
+  errored_status_code(const status_code<DomainType> &v) noexcept
+      : _base(v)  // NOLINT
+  {
+    _check();
+  }
+  //! Implicit copy construction from any other status code if its value type is trivially copyable and it would fit into our storage
+  template <class DomainType,                                                                           //
+            typename std::enable_if<std::is_trivially_copyable<typename DomainType::value_type>::value  //
+                                    && detail::type_erasure_is_safe<value_type, typename DomainType::value_type>::value,
+                                    bool>::type = true>
+  errored_status_code(const errored_status_code<DomainType> &v) noexcept
+      : _base(static_cast<const status_code<DomainType> &>(v))  // NOLINT
   {
     _check();
   }
@@ -212,7 +233,17 @@ public:
   template <class DomainType,  //
             typename std::enable_if<detail::type_erasure_is_safe<value_type, typename DomainType::value_type>::value,
                                     bool>::type = true>
-  errored_status_code(status_code<DomainType> &&v) noexcept : _base(static_cast<status_code<DomainType> &&>(v))  // NOLINT
+  errored_status_code(status_code<DomainType> &&v) noexcept
+      : _base(static_cast<status_code<DomainType> &&>(v))  // NOLINT
+  {
+    _check();
+  }
+  //! Implicit move construction from any other status code if its value type is trivially copyable or move bitcopying and it would fit into our storage
+  template <class DomainType,  //
+            typename std::enable_if<detail::type_erasure_is_safe<value_type, typename DomainType::value_type>::value,
+                                    bool>::type = true>
+  errored_status_code(errored_status_code<DomainType> &&v) noexcept
+      : _base(static_cast<status_code<DomainType> &&>(v))  // NOLINT
   {
     _check();
   }
@@ -225,7 +256,18 @@ public:
                                     && std::is_constructible<errored_status_code, MakeStatusCodeResult>::value,  // ADLed status code is compatible
                                     bool>::type = true>
   errored_status_code(T &&v, Args &&... args) noexcept(noexcept(make_status_code(std::declval<T>(), std::declval<Args>()...)))  // NOLINT
-  : errored_status_code(make_status_code(static_cast<T &&>(v), static_cast<Args &&>(args)...))
+      : errored_status_code(make_status_code(static_cast<T &&>(v), static_cast<Args &&>(args)...))
+  {
+    _check();
+  }
+  //! Implicit construction from any `quick_status_code_from_enum<Enum>` enumerated type.
+  template <class Enum,                                                                                      //
+            class QuickStatusCodeType = typename quick_status_code_from_enum<Enum>::code_type,               // Enumeration has been activated
+            typename std::enable_if<std::is_constructible<errored_status_code, QuickStatusCodeType>::value,  // Its status code is compatible
+
+                                    bool>::type = true>
+  constexpr errored_status_code(Enum &&v) noexcept(std::is_nothrow_constructible<errored_status_code, QuickStatusCodeType>::value)  // NOLINT
+      : errored_status_code(QuickStatusCodeType(static_cast<Enum &&>(v)))
   {
     _check();
   }
@@ -276,8 +318,7 @@ template <class DomainType1, class DomainType2> inline bool operator!=(const err
 template <class DomainType1, class T,                                                                       //
           class MakeStatusCodeResult = typename detail::safe_get_make_status_code_result<const T &>::type,  // Safe ADL lookup of make_status_code(), returns void if not found
           typename std::enable_if<is_status_code<MakeStatusCodeResult>::value, bool>::type = true>          // ADL makes a status code
-inline bool
-operator==(const errored_status_code<DomainType1> &a, const T &b)
+inline bool operator==(const errored_status_code<DomainType1> &a, const T &b)
 {
   return a.equivalent(make_status_code(b));
 }
@@ -285,8 +326,7 @@ operator==(const errored_status_code<DomainType1> &a, const T &b)
 template <class T, class DomainType1,                                                                       //
           class MakeStatusCodeResult = typename detail::safe_get_make_status_code_result<const T &>::type,  // Safe ADL lookup of make_status_code(), returns void if not found
           typename std::enable_if<is_status_code<MakeStatusCodeResult>::value, bool>::type = true>          // ADL makes a status code
-inline bool
-operator==(const T &a, const errored_status_code<DomainType1> &b)
+inline bool operator==(const T &a, const errored_status_code<DomainType1> &b)
 {
   return b.equivalent(make_status_code(a));
 }
@@ -294,8 +334,7 @@ operator==(const T &a, const errored_status_code<DomainType1> &b)
 template <class DomainType1, class T,                                                                       //
           class MakeStatusCodeResult = typename detail::safe_get_make_status_code_result<const T &>::type,  // Safe ADL lookup of make_status_code(), returns void if not found
           typename std::enable_if<is_status_code<MakeStatusCodeResult>::value, bool>::type = true>          // ADL makes a status code
-inline bool
-operator!=(const errored_status_code<DomainType1> &a, const T &b)
+inline bool operator!=(const errored_status_code<DomainType1> &a, const T &b)
 {
   return !a.equivalent(make_status_code(b));
 }
@@ -303,8 +342,7 @@ operator!=(const errored_status_code<DomainType1> &a, const T &b)
 template <class T, class DomainType1,                                                                       //
           class MakeStatusCodeResult = typename detail::safe_get_make_status_code_result<const T &>::type,  // Safe ADL lookup of make_status_code(), returns void if not found
           typename std::enable_if<is_status_code<MakeStatusCodeResult>::value, bool>::type = true>          // ADL makes a status code
-inline bool
-operator!=(const T &a, const errored_status_code<DomainType1> &b)
+inline bool operator!=(const T &a, const errored_status_code<DomainType1> &b)
 {
   return !b.equivalent(make_status_code(a));
 }
