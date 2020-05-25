@@ -82,6 +82,37 @@ for details.</p>
 
 <h3 id="enhancements">Enhancements:</h3>
 
+<dl>
+<dt>BREAKING CHANGE <code>void</code> results and outcomes no longer default construct types during explicit construction</dt>
+<dd>Previously if you explicitly constructed a <code>result&lt;T&gt;</code> from a non-errored
+<code>result&lt;void&gt;</code>, it default constructed <code>T</code>. This was found to cause unhelpful
+surprise, so it has been disabled.</dd>
+<dt>New macro <code>BOOST_OUTCOME_ENABLE_LEGACY_SUPPORT_FOR</code></dt>
+<dd>The macro <a href="./reference/macros/enable_legacy_support_for.html" class="api-reference"><code>BOOST_OUTCOME_ENABLE_LEGACY_SUPPORT_FOR</code></a>
+ can be used to
+enable aliasing of older naming and features to newer naming and features when
+using a newer version of Outcome.</dd>
+<dt>Concepts now have snake case style naming instead of camel case style</dt>
+<dd>When Outcome was first implemented, it was thought that C++ 20 concepts were
+going to have camel case style. This was changed before the C++ 20 release, and
+Outcome&rsquo;s concepts have been renamed similarly. This won&rsquo;t break any code in
+Outcome v2.1, as compatibility aliases are provided. However code compiled
+against Outcome v2.2 will need to be upgraded, unless <code>BOOST_OUTCOME_ENABLE_LEGACY_SUPPORT_FOR</code>
+is set to <code>210</code> or lower.</dd>
+<dt>Concepts now live in <code>BOOST_OUTCOME_V2_NAMESPACE::concepts</code> namespace</dt>
+<dd>Previously concepts lived in the <code>convert</code> namespace, now they live in their
+own namespace.</dd>
+<dt>New concepts <a href="./reference/concepts/basic_result.html" class="api-reference"><code>basic_result&lt;T&gt;</code></a>
+ and <a href="./reference/concepts/basic_outcome.html" class="api-reference"><code>basic_outcome&lt;T&gt;</code></a>
+ added</dt>
+<dd>End users were finding an unhelpful gap in between <a href="./reference/traits/is_basic_result.html" class="api-reference"><code>is_basic_result&lt;T&gt;</code></a>
+
+and <a href="./reference/concepts/value_or_error.html" class="api-reference"><code>value_or_error&lt;T&gt;</code></a>
+ where they wanted a concept that matched
+types which were <code>basic_result</code>, but not exactly one of those. Concepts filling
+that gap were added.</dd>
+</dl>
+
 <h3 id="bug-fixes">Bug fixes:</h3>
 
 <dl>
@@ -414,7 +445,7 @@ and Boost.Exception (these are <code>result.hpp</code> and <code>outcome.hpp</co
 
 
 
-        </div><p><small>Last revised: May 14, 2020 at 12:00:27 &#43;0100</small></p>
+        </div><p><small>Last revised: May 24, 2020 at 12:48:39 &#43;0100</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./videos.html"><img src="./images/prev.png" alt="Prev"></a>
