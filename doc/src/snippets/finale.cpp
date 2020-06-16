@@ -34,7 +34,14 @@ DEALINGS IN THE SOFTWARE.
 #include "../../../include/boost/outcome/quickcpplib/include/quickcpplib/string_view.hpp"
 #endif
 #include <cstring>  // for memcpy
+
+#if __has_include(<filesystem>) && (__cplusplus >= 201700 || _HAS_CXX17)
+#include <filesystem>
+namespace filesystem = std::filesystem;
+#else
 #include <experimental/filesystem>
+namespace filesystem = std::experimental::filesystem;
+#endif
 
 //! [httplib]
 // This is some standalone library implementing high level HTTP
@@ -90,8 +97,8 @@ namespace httplib
 namespace filelib
 {
   using QUICKCPPLIB_NAMESPACE::string_view::string_view;
-  using std::experimental::filesystem::filesystem_error;
-  using std::experimental::filesystem::path;
+  using filesystem::filesystem_error;
+  using filesystem::path;
 }  // namespace filelib
 
 namespace app
