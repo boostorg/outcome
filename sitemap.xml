@@ -254,7 +254,7 @@
   
   <url>
     <loc>/tutorial/essential/outcome/inspecting.html</loc>
-    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+    <lastmod>2020-06-19T15:42:26+01:00</lastmod>
   </url>
   
   <url>
@@ -1335,14 +1335,14 @@
   </url>
   
   <url>
-    <loc>/tags/constructors.html</loc>
-    <lastmod>2019-06-24T21:48:18+01:00</lastmod>
+    <loc>/categories/constructors.html</loc>
+    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/constructors.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <loc>/tags/constructors.html</loc>
+    <lastmod>2019-06-24T21:48:18+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1420,7 +1420,7 @@
   
   <url>
     <loc>/tags/exception.html</loc>
-    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+    <lastmod>2020-06-19T15:42:26+01:00</lastmod>
     <priority>0</priority>
   </url>
   
