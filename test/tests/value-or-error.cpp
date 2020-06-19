@@ -55,9 +55,6 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_valueorerror, "Tests that outcome con
 
     struct local_basic_result1 : result<int>
     {
-      using _base = result<int>;
-      using _base::_base;
-      local_basic_result1() = default;
     };
     static_assert(concepts::value_or_none<local_basic_result1>, "");
     static_assert(concepts::value_or_error<local_basic_result1>, "");
@@ -71,11 +68,9 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_valueorerror, "Tests that outcome con
       using _base = result<int>;
       using value_type = _base::value_type;
       using error_type = _base::error_type;
-      using _base::_base;
       using _base::has_value;
       using _base::value;
       using _base::error;
-      local_basic_result2() = default;
     };
     static_assert(concepts::value_or_none<local_basic_result2>, "");
     static_assert(concepts::value_or_error<local_basic_result2>, "");
@@ -84,9 +79,6 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_valueorerror, "Tests that outcome con
 
     struct local_basic_outcome1 : outcome<int>
     {
-      using _base = outcome<int>;
-      using _base::_base;
-      local_basic_outcome1() = default;
     };
     static_assert(!std::is_convertible<outcome<int>, result<int>>::value, "");
     static_assert(!std::is_convertible<local_basic_outcome1, result<int>>::value, "");
@@ -102,11 +94,9 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_valueorerror, "Tests that outcome con
       using value_type = _base::value_type;
       using error_type = _base::error_type;
       using exception_type = _base::exception_type;
-      using _base::_base;
       using _base::error;
       using _base::has_value;
       using _base::value;
-      local_basic_outcome2() = default;
     };
     static_assert(concepts::value_or_none<local_basic_outcome2>, "");
     static_assert(concepts::value_or_error<local_basic_outcome2>, "");
