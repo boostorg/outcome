@@ -35,21 +35,21 @@ DEALINGS IN THE SOFTWARE.
 namespace std_filesystem = std::filesystem;
 #else
 #include <experimental/filesystem>
-namespace std_filesystem = std::filesystem;
+namespace std_filesystem = std::experimental::filesystem;
 #endif
 
 namespace outcome = BOOST_OUTCOME_V2_NAMESPACE;
 
 namespace filesystem
 {
-  using std::filesystem::path;
+  using std_filesystem::path;
   bool copy_file(const path &from, const path &to) { return false; }
   bool copy_file(const path &from, const path &to, std::error_code &ec) { return false; }
 }
 namespace filesystem2
 {
-  using std::filesystem::path;
-  using std::filesystem::filesystem_error;
+  using std_filesystem::path;
+  using std_filesystem::filesystem_error;
 }
 
 //! [filesystem_api_problem]
