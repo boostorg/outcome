@@ -1123,6 +1123,8 @@ SIGNATURE NOT RECOGNISED
 #endif
 };
 
+// C++ 20 operator rewriting should take care of these for us
+#if __cplusplus < 202000L
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
@@ -1145,6 +1147,7 @@ noexcept(std::declval<basic_outcome<R, S, P, N>>() != std::declval<basic_result<
 {
   return b != a;
 }
+#endif
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
