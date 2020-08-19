@@ -139,8 +139,8 @@ guaranteed and is C-compatible for <code>result&lt;T, E&gt;</code><sup class="fo
 <div class="notices heading">note</div>
 <div class="notices message"><p>Ben Craig&rsquo;s work on <a href="https://wg21.link/P1886">P1886 <em>Error speed benchmarking</em></a> has led to
 a <a href="https://github.com/ned14/outcome/tree/better_optimisation"><code>better_optimisation</code></a> branch intended
-to be merged end of 2020 as Outcome v2.2.0, after twelve months of testing. This branch has a number
-of major and breaking changes to Outcome v2:</p>
+to be merged end of 2020 as Outcome v2.2.0, after twelve months of testing, into Boost 1.76 onwards.
+This branch has a number of major and breaking changes to Outcome v2:</p>
 
 <ol>
 <li><p>A new trait <code>is_move_bitcopying&lt;T&gt;</code> is added, which opts types into a library-based emulation of
@@ -165,6 +165,15 @@ union storage for trivially copyable types is much easier than for non-TC types.
 as is. This allows <code>TRY</code> to initialise or assign. You can use the macro <code>OUTCOME21_TRY</code> if you
 want the pre-Outcome v2.2 behaviour. You may find the regular expression <code>_TRY\(([^(]*?),(.*?)\);</code> =&gt;
 <code>_TRY(auto &amp;&amp;\1,\2);</code> of use to you when upgrading code.</p></li>
+
+<li><p><a href="./tutorial/advanced/hooks.html">The ADL discovered event hooks</a> have been replaced
+with policy-specified event hooks instead. This is due to brittleness (where hooks would quietly
+self-disable if somebody changed something), compiler bugs (a difference in compiler settings causes
+the wrong hooks, or some but not all hooks, to get discovered), and end user difficulty in using
+them at all. The policy-specified event hooks can be told to default to ADL discovered hooks for
+backwards compatibility: set <a href="./reference/macros/enable_legacy_support_for.html" class="api-reference"><code>BOOST_OUTCOME_ENABLE_LEGACY_SUPPORT_FOR</code></a>
+to <code>210</code> or lower to
+enable emulation.</p></li>
 </ol>
 </div>
 </div>
@@ -222,7 +231,7 @@ is available in scope.</p>
 </div>
 
 
-        </div><p><small>Last revised: July 03, 2020 at 14:21:54 &#43;0100</small></p>
+        </div><p><small>Last revised: August 19, 2020 at 00:52:18 &#43;0100</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./history.html"><img src="./images/prev.png" alt="Prev"></a>
