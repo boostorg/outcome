@@ -374,7 +374,7 @@
   
   <url>
     <loc>/tutorial/advanced/hooks.html</loc>
-    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
@@ -444,7 +444,7 @@
   
   <url>
     <loc>/changelog.html</loc>
-    <lastmod>2020-08-19T00:52:18+01:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
@@ -800,6 +800,61 @@
   <url>
     <loc>/reference/types/basic_result/implicit_inplace_value_error_constructor.html</loc>
     <lastmod>2019-01-17T21:24:36+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/on_outcome_construction.html</loc>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/on_outcome_construction2.html</loc>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/on_outcome_copy_construction.html</loc>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/on_outcome_copy_construction2.html</loc>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/on_outcome_in_place_construction.html</loc>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/on_outcome_move_construction.html</loc>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/on_outcome_move_construction2.html</loc>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/on_result_construction.html</loc>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/on_result_copy_construction.html</loc>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/on_result_in_place_construction.html</loc>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/policies/base/on_result_move_construction.html</loc>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
@@ -1443,12 +1498,12 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-08-19T00:52:18+01:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
     <loc>/tags/hooks.html</loc>
-    <lastmod>2019-02-08T22:18:08+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1520,7 +1575,7 @@
   
   <url>
     <loc>/categories/observer-policies.html</loc>
-    <lastmod>2019-01-22T01:11:40+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -2014,67 +2069,67 @@
   
   <url>
     <loc>/reference/concepts/value_or_error.html</loc>
-    <lastmod>2020-05-24T12:48:39+01:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/concepts/value_or_none.html</loc>
-    <lastmod>2020-05-24T12:48:39+01:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/functions/hooks/hook_outcome_construction.html</loc>
-    <lastmod>2019-01-30T16:16:10+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/functions/hooks/hook_outcome_construction2.html</loc>
-    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/functions/hooks/hook_outcome_copy_construction.html</loc>
-    <lastmod>2019-01-30T16:16:10+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/functions/hooks/hook_outcome_copy_construction2.html</loc>
-    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/functions/hooks/hook_outcome_in_place_construction.html</loc>
-    <lastmod>2019-01-30T16:16:10+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/functions/hooks/hook_outcome_move_construction.html</loc>
-    <lastmod>2019-01-30T16:16:10+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/functions/hooks/hook_outcome_move_construction2.html</loc>
-    <lastmod>2019-02-01T23:42:52+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/functions/hooks/hook_result_construction.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/functions/hooks/hook_result_copy_construction.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/functions/hooks/hook_result_in_place_construction.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/functions/hooks/hook_result_move_construction.html</loc>
-    <lastmod>2019-01-21T18:00:41+00:00</lastmod>
+    <lastmod>2020-08-19T12:15:40+01:00</lastmod>
   </url>
   
   <url>
