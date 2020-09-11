@@ -86,32 +86,45 @@ namespace coroutines
 BOOST_OUTCOME_AUTO_TEST_CASE(works_result_coroutine, "Tests that results are eager and lazy awaitable")
 {
   using namespace coroutines;
-  auto eager_await = [](auto t) { return t.await_resume(); };
-  auto lazy_await = [](auto t) {
-    t.await_suspend({});
-    return t.await_resume();
+  auto ensure_coroutine_completed_immediately = [](auto t) {
+    BOOST_CHECK(t.await_ready());  // must have eagerly evaluated
+    return t.await_resume();       // fetch the value returned into the promise by the coroutine
+  };
+  auto ensure_coroutine_needs_resuming_once = [](auto t) {
+    BOOST_CHECK(!t.await_ready());  // must not have eagerly evaluated
+#if BOOST_OUTCOME_HAVE_NOOP_COROUTINE
+    t.await_suspend({}).resume();  // resume execution, which sets the promise
+#else
+    t.await_suspend({});  // resume execution, which sets the promise
+#endif
+    BOOST_CHECK(t.await_ready());  // must now be ready
+    return t.await_resume();       // fetch the value returned into the promise by the coroutine
   };
 
-  BOOST_CHECK(eager_await(eager_int(5)).value() == 6);
-  BOOST_CHECK(lazy_await(lazy_int(5)).value() == 6);
-  BOOST_CHECK(eager_await(eager_error()).error() == boost::system::errc::not_enough_memory);
-  BOOST_CHECK(lazy_await(lazy_error()).error() == boost::system::errc::not_enough_memory);
-  BOOST_CHECK(eager_await(eager_void()).error() == boost::system::errc::not_enough_memory);
-  BOOST_CHECK(lazy_await(lazy_void()).error() == boost::system::errc::not_enough_memory);
+  // eager_int never suspends, sets promise immediately, must be able to retrieve immediately
+  BOOST_CHECK(ensure_coroutine_completed_immediately(eager_int(5)).value() == 6);
+  // lazy_int suspends before execution, needs resuming to set the promise
+  BOOST_CHECK(ensure_coroutine_needs_resuming_once(lazy_int(5)).value() == 6);
+  BOOST_CHECK(ensure_coroutine_completed_immediately(eager_error()).error() == boost::system::errc::not_enough_memory);
+  BOOST_CHECK(ensure_coroutine_needs_resuming_once(lazy_error()).error() == boost::system::errc::not_enough_memory);
+  BOOST_CHECK(ensure_coroutine_completed_immediately(eager_void()).error() == boost::system::errc::not_enough_memory);
+  BOOST_CHECK(ensure_coroutine_needs_resuming_once(lazy_void()).error() == boost::system::errc::not_enough_memory);
 
-  BOOST_CHECK(eager_await(eager_coawait(eager_int, 5)).value() == "hi");
-  BOOST_CHECK(lazy_await(lazy_coawait(lazy_int, 5)).value() == "hi");
+  // co_await eager_int realises it has already completed, does not suspend.
+  BOOST_CHECK(ensure_coroutine_completed_immediately(eager_coawait(eager_int, 5)).value() == "hi");
+  // co_await lazy_int resumes the suspended coroutine.
+  BOOST_CHECK(ensure_coroutine_needs_resuming_once(lazy_coawait(lazy_int, 5)).value() == "hi");
 
 #ifndef BOOST_NO_EXCEPTIONS
   auto e = boost::copy_exception(custom_exception_type());
-  BOOST_CHECK_THROW(lazy_await(result_exception(e)).value(), custom_exception_type);
-  BOOST_CHECK_THROW(lazy_await(outcome_exception(e)).value(), custom_exception_type);
+  BOOST_CHECK_THROW(ensure_coroutine_needs_resuming_once(result_exception(e)).value(), custom_exception_type);
+  BOOST_CHECK_THROW(ensure_coroutine_needs_resuming_once(outcome_exception(e)).value(), custom_exception_type);
 #endif
 
-  BOOST_CHECK(eager_await(eager_int2(5)) == 6);
-  BOOST_CHECK(lazy_await(lazy_int2(5)) == 6);
-  eager_await(eager_void2());
-  lazy_await(lazy_void2());
+  BOOST_CHECK(ensure_coroutine_completed_immediately(eager_int2(5)) == 6);
+  BOOST_CHECK(ensure_coroutine_needs_resuming_once(lazy_int2(5)) == 6);
+  ensure_coroutine_completed_immediately(eager_void2());
+  ensure_coroutine_needs_resuming_once(lazy_void2());
 }
 #else
 int main(void)
