@@ -9,10 +9,9 @@ weight = 80
 {{% notice note %}}
 The v2.1 branch is expected to be retired end of 2020 with the Boost 1.75 release, with the v2.2 branch
 becoming the default for Boost 1.76 onwards. You can use the future v2.2 branch now using
-[`better_optimisation`](https://github.com/ned14/outcome/tree/better_optimisation),
-how to upgrade your code is described in [the v2.1 => v2.2 upgrade guide]({{% relref "/changelog/upgrade_v21_v22" %}}).
-This branch has a number of major breaking changes to Outcome v2.1, see
-[the list of v2.2 major changes]({{% relref "/changelog/v22" %}}).
+[`better_optimisation`](https://github.com/ned14/outcome/tree/better_optimisation).
+This branch has a number of major breaking changes to Outcome v2.1, see the front page
+for details.
 {{% /notice %}}
 
 ### Enhancements:
@@ -25,13 +24,7 @@ them at all. The policy-specified event hooks can be told to default to ADL disc
 backwards compatibility: set {{% api "BOOST_OUTCOME_ENABLE_LEGACY_SUPPORT_FOR" %}} to less than `220` to
 enable emulation.
 
-Improve configuring `BOOST_OUTCOME_GCC6_CONCEPT_BOOL`
-: Older GCCs had boolean based concepts syntax, whereas newer GCCs are standards conforming.
-However the precise logic of when to use legacy and conforming syntax was not well understood,
-which caused Outcome to fail to compile depending on what options you pass to GCC. The new logic
-always uses the legacy syntax if on GCC 8 or older, otherwise we use conforming syntax if and
-only if GCC is in C++ 20 mode or later. This hopefully will resolve the corner case build
-failures on GCC.
+    **TODO: Update docs to match new API.**
 
 ### Bug fixes:
 
@@ -92,6 +85,10 @@ the list of changes between Outcome v2.1 and v2.2.
 with the fixes to LLVM clang that fix `noexcept(std::is_constructible<T, void>)`
 failing to compile which I originally submitted years ago. So give up waiting on
 Apple to fix their clang, add a workaround to Outcome.
+
+Use of `void` in `T` or `E` caused `noexcept(false)`
+: Direct traits examination of `void` was causing nothrow detection to return false,
+fixed.
 
 Spare storage could not be used from within no-value policy classes
 : Due to an obvious brain fart when writing the code at the time, the spare storage

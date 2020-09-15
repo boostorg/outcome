@@ -55,7 +55,7 @@ namespace issues210
   // Does the custom result type TRY-convert to an ordinary result type?
   inline outcome::result<int> func1(int x)
   {
-    BOOST_OUTCOME_TRY(y, funcA(x));
+    BOOST_OUTCOME_TRY(auto &&y, funcA(x));
     return funcB(y);
   }
 
@@ -65,7 +65,7 @@ namespace issues210
   // Does the custom result type TRY-convert to an ordinary outcome type?
   inline outcome::outcome<int> func2(int x)
   {
-    BOOST_OUTCOME_TRY(y, funcA(x));
+    BOOST_OUTCOME_TRY(auto &&y, funcA(x));
     return funcC(y);
   }
 }  // namespace issues210
