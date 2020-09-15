@@ -48,7 +48,7 @@ namespace issue0095
   out::result<int, F> f() { return F{}; }
   out::result<int, E> e()
   {
-    BOOST_OUTCOME_TRY(i, (f()));
+    BOOST_OUTCOME_TRY(auto &&i, (f()));
     return i;
   }
 }  // namespace issue0095

@@ -47,7 +47,7 @@ BOOST_OUTCOME_AUTO_TEST_CASE(issues_0065_outcome, "BOOST_OUTCOME_TRY does not pr
         return boost::current_exception();
       }
     };
-    BOOST_OUTCOME_TRY(ans, (f()));
+    BOOST_OUTCOME_TRY(auto &&ans, (f()));
     return ans;
   };
   outcome<int> o = g();
