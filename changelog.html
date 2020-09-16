@@ -32,7 +32,7 @@
 <div id="boost-common-heading-doc-spacer"></div><div class="spirit-nav">
 <a accesskey="p" href="./videos.html"><img src="./images/prev.png" alt="Prev"></a>
     <a accesskey="u" href="./index.html"><img src="./images/up.png" alt="Up"></a>
-    <a accesskey="h" href="./index.html"><img src="./images/home.png" alt="Home"></a><a accesskey="n" href="./history.html"><img src="./images/next.png" alt="Next"></a></div><div id="content">
+    <a accesskey="h" href="./index.html"><img src="./images/home.png" alt="Home"></a><a accesskey="n" href="./changelog/upgrade_v21_v22.html"><img src="./images/next.png" alt="Next"></a></div><div id="content">
 
   <div class="titlepage"><div><div><h1 style="clear: both">Changelog</h1></div></div></div>
   <div class="toc"><dl class="toc">
@@ -78,9 +78,10 @@
 <div class="notices heading">note</div>
 <div class="notices message"><p>The v2.1 branch is expected to be retired end of 2020 with the Boost 1.75 release, with the v2.2 branch
 becoming the default for Boost 1.76 onwards. You can use the future v2.2 branch now using
-<a href="https://github.com/ned14/outcome/tree/better_optimisation"><code>better_optimisation</code></a>.
-This branch has a number of major breaking changes to Outcome v2.1, see the front page
-for details.</p>
+<a href="https://github.com/ned14/outcome/tree/better_optimisation"><code>better_optimisation</code></a>,
+how to upgrade your code is described in <a href="./changelog/upgrade_v21_v22.html">the v2.1 =&gt; v2.2 upgrade guide</a>.
+This branch has a number of major breaking changes to Outcome v2.1, see
+<a href="./changelog/v22.html">the list of v2.2 major changes</a>.</p>
 </div>
 </div>
 
@@ -89,15 +90,13 @@ for details.</p>
 
 <dl>
 <dt><a href="./tutorial/advanced/hooks.html">The ADL discovered event hooks</a> have been replaced with policy-specified event hooks instead</dt>
-<dd><p>This is due to brittleness (where hooks would quietly
+<dd>This is due to brittleness (where hooks would quietly
 self-disable if somebody changed something), compiler bugs (a difference in compiler settings causes
 the wrong hooks, or some but not all hooks, to get discovered), and end user difficulty in using
 them at all. The policy-specified event hooks can be told to default to ADL discovered hooks for
 backwards compatibility: set <a href="./reference/macros/enable_legacy_support_for.html" class="api-reference"><code>BOOST_OUTCOME_ENABLE_LEGACY_SUPPORT_FOR</code></a>
  to less than <code>220</code> to
-enable emulation.</p>
-
-<p><strong>TODO: Update docs to match new API.</strong></p></dd>
+enable emulation.</dd>
 </dl>
 
 <h3 id="bug-fixes">Bug fixes:</h3>
@@ -492,10 +491,10 @@ and Boost.Exception (these are <code>result.hpp</code> and <code>outcome.hpp</co
 
 
 
-        </div><p><small>Last revised: September 10, 2020 at 12:00:20 &#43;0100</small></p>
+        </div><p><small>Last revised: September 16, 2020 at 11:58:04 &#43;0100</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./videos.html"><img src="./images/prev.png" alt="Prev"></a>
     <a accesskey="u" href="./index.html"><img src="./images/up.png" alt="Up"></a>
-    <a accesskey="h" href="./index.html"><img src="./images/home.png" alt="Home"></a><a accesskey="n" href="./history.html"><img src="./images/next.png" alt="Next"></a></div></body>
+    <a accesskey="h" href="./index.html"><img src="./images/home.png" alt="Home"></a><a accesskey="n" href="./changelog/upgrade_v21_v22.html"><img src="./images/next.png" alt="Next"></a></div></body>
 </html>
