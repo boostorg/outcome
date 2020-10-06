@@ -97,6 +97,13 @@ them at all. The policy-specified event hooks can be told to default to ADL disc
 backwards compatibility: set <a href="./reference/macros/enable_legacy_support_for.html" class="api-reference"><code>BOOST_OUTCOME_ENABLE_LEGACY_SUPPORT_FOR</code></a>
  to less than <code>220</code> to
 enable emulation.</dd>
+<dt>Improve configuring <code>BOOST_OUTCOME_GCC6_CONCEPT_BOOL</code></dt>
+<dd>Older GCCs had boolean based concepts syntax, whereas newer GCCs are standards conforming.
+However the precise logic of when to use legacy and conforming syntax was not well understood,
+which caused Outcome to fail to compile depending on what options you pass to GCC. The new logic
+always uses the legacy syntax if on GCC 8 or older, otherwise we use conforming syntax if and
+only if GCC is in C++ 20 mode or later. This hopefully will resolve the corner case build
+failures on GCC.</dd>
 </dl>
 
 <h3 id="bug-fixes">Bug fixes:</h3>
@@ -491,7 +498,7 @@ and Boost.Exception (these are <code>result.hpp</code> and <code>outcome.hpp</co
 
 
 
-        </div><p><small>Last revised: September 16, 2020 at 11:58:04 &#43;0100</small></p>
+        </div><p><small>Last revised: October 06, 2020 at 10:56:43 &#43;0100</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./videos.html"><img src="./images/prev.png" alt="Prev"></a>
