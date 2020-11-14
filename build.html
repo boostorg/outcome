@@ -136,19 +136,22 @@ git submodule update
 
 <h2 id="usage-as-a-stable-source-tarball">Usage as a stable source tarball</h2>
 
-<p>If you would prefer a single source tarball of the stable branch containing
-all the documentation, tests and sources, this can always be retrieved from:</p>
+<p>If you would prefer a single source tarball of the stable and develop branches
+known to have had all unit tests passing on all platforms, containing all the
+documentation, tests and sources, this can always be retrieved from:</p>
 
-<p><a href="https://dedi5.nedprod.com/static/files/outcome-v2.0-source-latest.tar.xz">https://dedi5.nedprod.com/static/files/outcome-v2.0-source-latest.tar.xz</a></p>
+<p><a href="https://github.com/ned14/outcome/releases">https://github.com/ned14/outcome/releases</a></p>
 
 <p>This tarball is automatically generated when Outcome fully compiles and passes
 all unit tests on all platforms tested by the CIs. This currently includes:</p>
 
 <ul>
-<li>Linux: GCC 6.5, clang 4.0.1</li>
-<li>MacOS: XCode 9</li>
-<li>Windows: VS2017.9</li>
+<li>Linux: GCC 7.5, clang 9, clang 11</li>
+<li>MacOS: XCode 12</li>
+<li>Windows: VS2019.7</li>
 </ul>
+
+<p>All unit tests are executed under the Address and Undefined Behaviour sanitisers.</p>
 
 <p>It should be emphasised that newer compilers are not tested, so there is
 an unlikely chance that the tarball may not work on a newer compiler.</p>
@@ -221,7 +224,7 @@ suite along with your own.</li>
 
 
 
-        </div><p><small>Last revised: March 12, 2020 at 10:35:42 UTC</small></p>
+        </div><p><small>Last revised: November 14, 2020 at 16:31:22 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./requirements.html"><img src="./images/prev.png" alt="Prev"></a>
