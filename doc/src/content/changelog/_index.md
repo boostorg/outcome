@@ -4,15 +4,51 @@ weight = 80
 +++
 
 ---
-## v2.1.4 ??? (Boost 1.74) [[release]](https://github.com/ned14/outcome/releases/tag/v2.1.4)
+## v2.1.5 ??? (Boost 1.75) [[release]](https://github.com/ned14/outcome/releases/tag/v2.1.5)
 
 {{% notice note %}}
-The v2.1 branch is expected to be retired end of 2020, with the v2.2 branch
-becoming the default. You can use the future v2.2 branch now using
-[`better_optimisation`](https://github.com/ned14/outcome/tree/better_optimisation).
-This branch has a number of major breaking changes to Outcome v2.1, see the front page
-for details.
+The v2.1 branch is expected to be retired end of 2020 with the Boost 1.75 release, with the v2.2 branch
+becoming the default for Boost 1.76 onwards. You can use the future v2.2 branch now using
+[`better_optimisation`](https://github.com/ned14/outcome/tree/better_optimisation),
+how to upgrade your code is described in [the v2.1 => v2.2 upgrade guide]({{% relref "/changelog/upgrade_v21_v22" %}}).
+This branch has a number of major breaking changes to Outcome v2.1, see
+[the list of v2.2 major changes]({{% relref "/changelog/v22" %}}).
 {{% /notice %}}
+
+### Enhancements:
+
+[The ADL discovered event hooks]({{% relref "/tutorial/advanced/hooks" %}}) have been replaced with policy-specified event hooks instead
+: This is due to brittleness (where hooks would quietly
+self-disable if somebody changed something), compiler bugs (a difference in compiler settings causes
+the wrong hooks, or some but not all hooks, to get discovered), and end user difficulty in using
+them at all. The policy-specified event hooks can be told to default to ADL discovered hooks for
+backwards compatibility: set {{% api "BOOST_OUTCOME_ENABLE_LEGACY_SUPPORT_FOR" %}} to less than `220` to
+enable emulation.
+
+Improve configuring `BOOST_OUTCOME_GCC6_CONCEPT_BOOL`
+: Older GCCs had boolean based concepts syntax, whereas newer GCCs are standards conforming.
+However the precise logic of when to use legacy and conforming syntax was not well understood,
+which caused Outcome to fail to compile depending on what options you pass to GCC. The new logic
+always uses the legacy syntax if on GCC 8 or older, otherwise we use conforming syntax if and
+only if GCC is in C++ 20 mode or later. This hopefully will resolve the corner case build
+failures on GCC.
+
+### Bug fixes:
+
+Boost.Outcome should now compile with `BOOST_NO_EXCEPTIONS` defined
+: Thanks to Emil, maintainer of Boost.Exception, making a change for me, Boost.Outcome
+should now compile with C++ exceptions globally disabled. You won't be able to use
+`boost::exception_ptr` as it can't be included if C++ exceptions are globally disabled.
+
+[#236](https://github.com/ned14/outcome/issues/236)
+: In the Coroutine support the `final_suspend()` was not `noexcept`, despite being required
+to be so in the C++ 20 standard. This has been fixed, but only if your compiler implements
+`noop_coroutine`. Additionally, if `noop_coroutine` is available, we use the much more
+efficient coroutine handle returning variant of `await_suspend()` which should significantly
+improve codegen and context switching performance.
+
+---
+## v2.1.4 14th August 2020 (Boost 1.74) [[release]](https://github.com/ned14/outcome/releases/tag/v2.1.4)
 
 ### Enhancements:
 
@@ -32,7 +68,7 @@ going to have camel case style. This was changed before the C++ 20 release, and
 Outcome's concepts have been renamed similarly. This won't break any code in
 Outcome v2.1, as compatibility aliases are provided. However code compiled
 against Outcome v2.2 will need to be upgraded, unless `BOOST_OUTCOME_ENABLE_LEGACY_SUPPORT_FOR`
-is set to `210` or lower.
+is set to less than `220`.
 
 Concepts now live in `BOOST_OUTCOME_V2_NAMESPACE::concepts` namespace
 : Previously concepts lived in the `convert` namespace, now they live in their
@@ -61,11 +97,6 @@ Spare storage could not be used from within no-value policy classes
 : Due to an obvious brain fart when writing the code at the time, the spare storage
 APIs had the wrong prototype which prevented them working from within policy classes.
 Sorry.
-
-Boost.Outcome should now compile with `BOOST_NO_EXCEPTIONS` defined
-: Thanks to Emil, maintainer of Boost.Exception, making a change for me, Boost.Outcome
-should now compile with C++ exceptions globally disabled. You won't be able to use
-`boost::exception_ptr` as it can't be included if C++ exceptions are globally disabled.
 
 ---
 ## v2.1.3 29th April 2020 (Boost 1.73) [[release]](https://github.com/ned14/outcome/releases/tag/v2.1.3)
