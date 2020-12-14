@@ -55,7 +55,7 @@ namespace old
 //! [def_h]
 auto old::h() noexcept -> outcome::outcome<int>
 {
-  BOOST_OUTCOME_TRY(auto &&i, (g()));             // #1
+  BOOST_OUTCOME_TRY(auto i, (g()));             // #1
     
   try {
     return i + f();

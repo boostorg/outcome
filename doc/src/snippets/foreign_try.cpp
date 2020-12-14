@@ -94,7 +94,7 @@ ForeignExpected<int> old_code(int a)  // old code
 
 outcome::result<int> new_code(int a)  // new code
 {
-  BOOST_OUTCOME_TRY(auto &&x, old_code(a));
+  BOOST_OUTCOME_TRY(auto x, old_code(a));
   return x;
 }
 //! [functions]
