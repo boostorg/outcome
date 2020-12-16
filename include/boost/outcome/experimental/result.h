@@ -33,12 +33,15 @@ DEALINGS IN THE SOFTWARE.
 
 #include <stdint.h>  // for intptr_t
 
-#define BOOST_OUTCOME_C_DECLARE_RESULT(ident, R, S)                                                                                                                                                                                                                                                                                        \
-  struct cxx_result_##ident                                                                                                                                                                                                                                                                                                    \
-  {                                                                                                                                                                                                                                                                                                                            \
-    R value;                                                                                                                                                                                                                                                                                                                   \
-    unsigned flags;                                                                                                                                                                                                                                                                                                            \
-    S error;                                                                                                                                                                                                                                                                                                                   \
+#define BOOST_OUTCOME_C_DECLARE_RESULT(ident, R, S)                                                                                                                        \
+  struct cxx_result_##ident                                                                                                                                    \
+  {                                                                                                                                                            \
+    union                                                                                                                                                      \
+    {                                                                                                                                                          \
+      R value;                                                                                                                                                 \
+      S error;                                                                                                                                                 \
+    };                                                                                                                                                         \
+    unsigned flags;                                                                                                                                            \
   }
 
 #define BOOST_OUTCOME_C_RESULT(ident) struct cxx_result_##ident
@@ -53,11 +56,11 @@ DEALINGS IN THE SOFTWARE.
 
 /***************************** <system_error2> support ******************************/
 
-#define BOOST_OUTCOME_C_DECLARE_STATUS_CODE(ident, value_type)                                                                                                                                                                                                                                                                             \
-  struct cxx_status_code_##ident                                                                                                                                                                                                                                                                                               \
-  {                                                                                                                                                                                                                                                                                                                            \
-    void *domain;                                                                                                                                                                                                                                                                                                              \
-    value_type value;                                                                                                                                                                                                                                                                                                          \
+#define BOOST_OUTCOME_C_DECLARE_STATUS_CODE(ident, value_type)                                                                                                             \
+  struct cxx_status_code_##ident                                                                                                                               \
+  {                                                                                                                                                            \
+    void *domain;                                                                                                                                              \
+    value_type value;                                                                                                                                          \
   };
 
 #define BOOST_OUTCOME_C_STATUS_CODE(ident) struct cxx_status_code_##ident
