@@ -1,5 +1,5 @@
 /* Example of Outcome used with constructors
-(C) 2017-2020 Niall Douglas <http://www.nedproductions.biz/> (5 commits)
+(C) 2017-2021 Niall Douglas <http://www.nedproductions.biz/> (5 commits)
 
 
 Boost Software License - Version 1.0 - August 17th, 2003

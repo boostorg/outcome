@@ -1,5 +1,5 @@
 /* Documentation snippet
-(C) 2017-2020 Niall Douglas <http://www.nedproductions.biz/> (5 commits) and Andrzej Krzemienski <akrzemi1@gmail.com> (1 commit)
+(C) 2017-2021 Niall Douglas <http://www.nedproductions.biz/> (5 commits) and Andrzej Krzemienski <akrzemi1@gmail.com> (1 commit)
 File Created: Mar 2017
 
 
