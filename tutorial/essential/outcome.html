@@ -80,7 +80,7 @@ and be able to rethrow it in <code>Layer3</code>.</p>
 
 <div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">auto</span> <span class="n">old</span><span class="o">::</span><span class="n">h</span><span class="p">()</span> <span class="k">noexcept</span> <span class="o">-&gt;</span> <span class="n">outcome</span><span class="o">::</span><span class="n">outcome</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span>
 <span class="p">{</span>
-  <span class="n">BOOST_OUTCOME_TRY</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">g</span><span class="p">()));</span>             <span class="c1">// #1
+  <span class="n">BOOST_OUTCOME_TRY</span><span class="p">(</span><span class="k">auto</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">g</span><span class="p">()));</span>             <span class="c1">// #1
 </span><span class="c1"></span>    
   <span class="k">try</span> <span class="p">{</span>
     <span class="k">return</span> <span class="n">i</span> <span class="o">+</span> <span class="n">f</span><span class="p">();</span>
