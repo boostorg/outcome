@@ -79,6 +79,47 @@ namespace detail
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(std::declval<T>().value()))
   constexpr inline bool has_value(int /*unused */) { return true; }
   template <class T> constexpr inline bool has_value(...) { return false; }
+
+  // prvalues go to rvalues to avoid extra copy/move as lifetime is extended for us
+  template <class T> struct try_unique_storage
+  {
+    using type = T &&;
+  };
+  // glvalues pass through
+  template <class T> struct try_unique_storage<T &>
+  {
+    using type = T &;
+  };
+  template <class T> struct try_unique_storage<const T &>
+  {
+    using type = const T &;
+  };
+  template <class T> struct try_unique_storage<volatile T &>
+  {
+    using type = volatile T &;
+  };
+  template <class T> struct try_unique_storage<const volatile T &>
+  {
+    using type = const volatile T &;
+  };
+  // xvalues go to values to extend lifetime
+  template <class T> struct try_unique_storage<T &&>
+  {
+    using type = T;
+  };
+  template <class T> struct try_unique_storage<const T &&>
+  {
+    using type = const T;
+  };
+  template <class T> struct try_unique_storage<volatile T &&>
+  {
+    using type = volatile T;
+  };
+  template <class T> struct try_unique_storage<const volatile T &&>
+  {
+    using type = const volatile T;
+  };
+  template <class T> using try_unique_storage_t = typename try_unique_storage<T>::type;
 }  // namespace detail
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -170,7 +211,7 @@ BOOST_OUTCOME_V2_NAMESPACE_END
 
 // Use if(!expr); else as some compilers assume else clauses are always unlikely
 #define BOOST_OUTCOME_TRYV2_SUCCESS_LIKELY(unique, ...)                                                                                                              \
-  auto &&unique = (__VA_ARGS__);                                                                                                                               \
+  BOOST_OUTCOME_V2_NAMESPACE::detail::try_unique_storage_t<decltype(__VA_ARGS__)> unique = (__VA_ARGS__);                                                               \
   if(BOOST_OUTCOME_TRY_LIKELY(BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique)))                                                                                \
     ;                                                                                                                                                          \
   else                                                                                                                                                         \
@@ -179,7 +220,7 @@ BOOST_OUTCOME_V2_NAMESPACE_END
   BOOST_OUTCOME_TRYV2_SUCCESS_LIKELY(unique, __VA_ARGS__);                                                                                                           \
   v = BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
 #define BOOST_OUTCOME_TRYV2_FAILURE_LIKELY(unique, ...)                                                                                                              \
-  auto &&unique = (__VA_ARGS__);                                                                                                                               \
+  BOOST_OUTCOME_V2_NAMESPACE::detail::try_unique_storage_t<decltype(__VA_ARGS__)> unique = (__VA_ARGS__);                                                            \
   if(BOOST_OUTCOME_TRY_LIKELY(!BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique)))                                                                               \
   return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
 #define BOOST_OUTCOME_TRY2_FAILURE_LIKELY(unique, v, ...)                                                                                                            \
@@ -187,7 +228,7 @@ BOOST_OUTCOME_V2_NAMESPACE_END
   v = BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
 
 #define BOOST_OUTCOME_CO_TRYV2_SUCCESS_LIKELY(unique, ...)                                                                                                           \
-  auto &&unique = (__VA_ARGS__);                                                                                                                               \
+  BOOST_OUTCOME_V2_NAMESPACE::detail::try_unique_storage_t<decltype(__VA_ARGS__)> unique = (__VA_ARGS__);                                                            \
   if(BOOST_OUTCOME_TRY_LIKELY(BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique)))                                                                                \
     ;                                                                                                                                                          \
   else                                                                                                                                                         \
@@ -196,7 +237,7 @@ BOOST_OUTCOME_V2_NAMESPACE_END
   BOOST_OUTCOME_CO_TRYV2_SUCCESS_LIKELY(unique, __VA_ARGS__);                                                                                                        \
   v = BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
 #define BOOST_OUTCOME_CO_TRYV2_FAILURE_LIKELY(unique, ...)                                                                                                           \
-  auto &&unique = (__VA_ARGS__);                                                                                                                               \
+  BOOST_OUTCOME_V2_NAMESPACE::detail::try_unique_storage_t<decltype(__VA_ARGS__)> unique = (__VA_ARGS__);                                                            \
   if(BOOST_OUTCOME_TRY_LIKELY(!BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique)))                                                                               \
   co_return BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
 #define BOOST_OUTCOME_CO_TRY2_FAILURE_LIKELY(unique, v, ...)                                                                                                         \
@@ -225,7 +266,7 @@ SIGNATURE NOT RECOGNISED
 
 #define BOOST_OUTCOME_TRYX2(unique, retstmt, ...)                                                                                                                    \
   ({                                                                                                                                                           \
-    auto &&unique = (__VA_ARGS__);                                                                                                                             \
+  BOOST_OUTCOME_V2_NAMESPACE::detail::try_unique_storage_t<decltype(__VA_ARGS__)> unique = (__VA_ARGS__);                                                          \
     if(BOOST_OUTCOME_TRY_LIKELY(BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique)))                                                                              \
       ;                                                                                                                                                        \
     else                                                                                                                                                       \
