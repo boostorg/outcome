@@ -191,21 +191,21 @@ BOOST_OUTCOME_AUTO_TEST_CASE(issues_0244_test, "TRY/TRYX has dangling reference 
   check("TRYV rvalue passthrough", []() -> outcome::result<int> {
     auto &&x = outcome::result<Immovable>(outcome::in_place_type<Immovable>, 5);
     // Normally an xvalue input triggers value unique, which would fail to compile here
-    BOOST_OUTCOME_TRYV_(auto &&, x);
+    BOOST_OUTCOME_TRYV2(auto &&, x);
     return 5;
   });
 
   // Force use of lvalue refs for unique and bound value
   check("TRYV prvalue as lvalue passthrough", []() -> outcome::result<int> {
     outcome::result<Immovable> i(outcome::in_place_type<Immovable>, 5);
-    BOOST_OUTCOME_TRYV_(auto &, i);
+    BOOST_OUTCOME_TRYV2(auto &, i);
     return 5;
   });
 
   // Force use of rvalue refs for unique and bound value
   check("TRYV prvalue as rvalue passthrough", []() -> outcome::result<int> {
     outcome::result<Immovable> i(outcome::in_place_type<Immovable>, 5);
-    BOOST_OUTCOME_TRYV_(auto &, i);
+    BOOST_OUTCOME_TRYV2(auto &, i);
     return 5;
   });
 }
