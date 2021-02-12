@@ -79,64 +79,6 @@ namespace detail
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(std::declval<T>().value()))
   constexpr inline bool has_value(int /*unused */) { return true; }
   template <class T> constexpr inline bool has_value(...) { return false; }
-
-  // prvalues go to rvalues to avoid extra copy/move as lifetime is extended for us
-  template <class T> struct try_unique_storage
-  {
-    using type = T &&;
-  };
-  // void passes through
-  template <> struct try_unique_storage<void>
-  {
-    using type = void;
-  };
-  template <> struct try_unique_storage<const void>
-  {
-    using type = const void;
-  };
-  template <> struct try_unique_storage<volatile void>
-  {
-    using type = volatile void;
-  };
-  template <> struct try_unique_storage<const volatile void>
-  {
-    using type = const volatile void;
-  };
-  // glvalues go to values to extend lifetime
-  template <class T> struct try_unique_storage<T &>
-  {
-    using type = T;
-  };
-  template <class T> struct try_unique_storage<const T &>
-  {
-    using type = const T;
-  };
-  template <class T> struct try_unique_storage<volatile T &>
-  {
-    using type = volatile T;
-  };
-  template <class T> struct try_unique_storage<const volatile T &>
-  {
-    using type = const volatile T;
-  };
-  // xvalues go to values to extend lifetime
-  template <class T> struct try_unique_storage<T &&>
-  {
-    using type = T;
-  };
-  template <class T> struct try_unique_storage<const T &&>
-  {
-    using type = const T;
-  };
-  template <class T> struct try_unique_storage<volatile T &&>
-  {
-    using type = volatile T;
-  };
-  template <class T> struct try_unique_storage<const volatile T &&>
-  {
-    using type = const volatile T;
-  };
-  template <class T> using try_unique_storage_t = typename try_unique_storage<T>::type;
 }  // namespace detail
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -239,7 +181,7 @@ BOOST_OUTCOME_V2_NAMESPACE_END
 #endif
 
 #define BOOST_OUTCOME_TRYV2_UNIQUE_STORAGE_UNPACK(...) __VA_ARGS__
-#define BOOST_OUTCOME_TRYV2_UNIQUE_STORAGE_DEDUCE3(unique, ...) ::BOOST_OUTCOME_V2_NAMESPACE::detail::try_unique_storage_t<decltype(__VA_ARGS__)> unique = (__VA_ARGS__)
+#define BOOST_OUTCOME_TRYV2_UNIQUE_STORAGE_DEDUCE3(unique, ...) auto unique = (__VA_ARGS__)
 #define BOOST_OUTCOME_TRYV2_UNIQUE_STORAGE_DEDUCE2(x) x
 #define BOOST_OUTCOME_TRYV2_UNIQUE_STORAGE_DEDUCE(unique, x, ...) BOOST_OUTCOME_TRYV2_UNIQUE_STORAGE_DEDUCE2(BOOST_OUTCOME_TRYV2_UNIQUE_STORAGE_DEDUCE3(unique, __VA_ARGS__))
 #define BOOST_OUTCOME_TRYV2_UNIQUE_STORAGE_SPECIFIED3(unique, x, y, ...) x unique = (__VA_ARGS__)
@@ -255,22 +197,22 @@ BOOST_OUTCOME_V2_NAMESPACE_END
 // Use if(!expr); else as some compilers assume else clauses are always unlikely
 #define BOOST_OUTCOME_TRYV2_SUCCESS_LIKELY(unique, retstmt, spec, ...)                                                                                               \
   BOOST_OUTCOME_TRYV2_UNIQUE_STORAGE(unique, spec, __VA_ARGS__);                                                                                                     \
-  BOOST_OUTCOME_TRY_LIKELY_IF(BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique));                                                                                \
-  else retstmt BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
+  BOOST_OUTCOME_TRY_LIKELY_IF(::BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique));                                                                                \
+  else retstmt ::BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
 #define BOOST_OUTCOME_TRYV3_FAILURE_LIKELY(unique, retstmt, spec, ...)                                                                                               \
   BOOST_OUTCOME_TRYV2_UNIQUE_STORAGE(unique, spec, __VA_ARGS__);                                                                                                     \
   BOOST_OUTCOME_TRY_LIKELY_IF(!BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique))                                                                                \
-  retstmt BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
+  retstmt ::BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
 
 #define BOOST_OUTCOME_TRY2_VAR_SECOND2(x, var) var
 #define BOOST_OUTCOME_TRY2_VAR_SECOND3(x, y, ...) x y
 #define BOOST_OUTCOME_TRY2_VAR(spec) _OUTCOME_TRY_CALL_OVERLOAD(BOOST_OUTCOME_TRY2_VAR_SECOND, BOOST_OUTCOME_TRYV2_UNIQUE_STORAGE_UNPACK spec, spec)
 #define BOOST_OUTCOME_TRY2_SUCCESS_LIKELY(unique, retstmt, var, ...)                                                                                                 \
   BOOST_OUTCOME_TRYV2_SUCCESS_LIKELY(unique, retstmt, var, __VA_ARGS__);                                                                                             \
-  BOOST_OUTCOME_TRY2_VAR(var) = BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
+  BOOST_OUTCOME_TRY2_VAR(var) = ::BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
 #define BOOST_OUTCOME_TRY2_FAILURE_LIKELY(unique, retstmt, var, ...)                                                                                                 \
   BOOST_OUTCOME_TRYV3_FAILURE_LIKELY(unique, retstmt, var, __VA_ARGS__);                                                                                             \
-  BOOST_OUTCOME_TRY2_VAR(var) = BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
+  BOOST_OUTCOME_TRY2_VAR(var) = ::BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
@@ -314,7 +256,7 @@ SIGNATURE NOT RECOGNISED
 #define BOOST_OUTCOME_TRYX2(unique, retstmt, ...)                                                                                                                    \
   ({                                                                                                                                                           \
     BOOST_OUTCOME_TRYV2_SUCCESS_LIKELY(unique, retstmt, deduce, __VA_ARGS__);                                                                                        \
-    BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique));                                                               \
+    ::BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique));                                                               \
   })
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -409,20 +351,20 @@ SIGNATURE NOT RECOGNISED
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-#define OUTCOME21_TRYA(v, ...) BOOST_OUTCOME_TRY2_SUCCESS_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, auto &&v, __VA_ARGS__)
+#define OUTCOME21_TRYA(v, ...) BOOST_OUTCOME_TRY2_SUCCESS_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, return, deduce, auto &&v, __VA_ARGS__)
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-#define OUTCOME21_TRYA_FAILURE_LIKELY(v, ...) BOOST_OUTCOME_TRY2_FAILURE_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, auto &&v, __VA_ARGS__)
+#define OUTCOME21_TRYA_FAILURE_LIKELY(v, ...) BOOST_OUTCOME_TRY2_FAILURE_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, return, deduce, auto &&v, __VA_ARGS__)
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-#define OUTCOME21_CO_TRYA(v, ...) BOOST_OUTCOME_CO_TRY2_SUCCESS_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, auto &&v, __VA_ARGS__)
+#define OUTCOME21_CO_TRYA(v, ...) BOOST_OUTCOME_TRY2_FAILURE_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, co_return, deduce, auto &&v, __VA_ARGS__)
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-#define OUTCOME21_CO_TRYA_FAILURE_LIKELY(v, ...) BOOST_OUTCOME_CO_TRY2_FAILURE_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, auto &&v, __VA_ARGS__)
+#define OUTCOME21_CO_TRYA_FAILURE_LIKELY(v, ...) BOOST_OUTCOME_TRY2_FAILURE_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, co_retrn, deduce, auto &&v, __VA_ARGS__)
 
 
 #define OUTCOME21_TRY_INVOKE_TRY8(a, b, c, d, e, f, g, h) OUTCOME21_TRYA(a, b, c, d, e, f, g, h)
