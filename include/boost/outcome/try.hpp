@@ -257,7 +257,7 @@ BOOST_OUTCOME_V2_NAMESPACE_END
   BOOST_OUTCOME_TRYV2_UNIQUE_STORAGE(unique, spec, __VA_ARGS__);                                                                                                     \
   BOOST_OUTCOME_TRY_LIKELY_IF(BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique));                                                                                \
   else retstmt BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
-#define BOOST_OUTCOME_TRYV2_FAILURE_LIKELY(unique, retstmt, spec, ...)                                                                                               \
+#define BOOST_OUTCOME_TRYV3_FAILURE_LIKELY(unique, retstmt, spec, ...)                                                                                               \
   BOOST_OUTCOME_TRYV2_UNIQUE_STORAGE(unique, spec, __VA_ARGS__);                                                                                                     \
   BOOST_OUTCOME_TRY_LIKELY_IF(!BOOST_OUTCOME_V2_NAMESPACE::try_operation_has_value(unique))                                                                                \
   retstmt BOOST_OUTCOME_V2_NAMESPACE::try_operation_return_as(static_cast<decltype(unique) &&>(unique))
@@ -269,7 +269,7 @@ BOOST_OUTCOME_V2_NAMESPACE_END
   BOOST_OUTCOME_TRYV2_SUCCESS_LIKELY(unique, retstmt, var, __VA_ARGS__);                                                                                             \
   BOOST_OUTCOME_TRY2_VAR(var) = BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
 #define BOOST_OUTCOME_TRY2_FAILURE_LIKELY(unique, retstmt, var, ...)                                                                                                 \
-  BOOST_OUTCOME_TRYV2_FAILURE_LIKELY(unique, retstmt, var, __VA_ARGS__);                                                                                             \
+  BOOST_OUTCOME_TRYV3_FAILURE_LIKELY(unique, retstmt, var, __VA_ARGS__);                                                                                             \
   BOOST_OUTCOME_TRY2_VAR(var) = BOOST_OUTCOME_V2_NAMESPACE::try_operation_extract_value(static_cast<decltype(unique) &&>(unique))
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -279,7 +279,7 @@ SIGNATURE NOT RECOGNISED
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-#define BOOST_OUTCOME_TRYV_FAILURE_LIKELY(...) BOOST_OUTCOME_TRYV2_FAILURE_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, return, deduce, __VA_ARGS__)
+#define BOOST_OUTCOME_TRYV_FAILURE_LIKELY(...) BOOST_OUTCOME_TRYV3_FAILURE_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, return, deduce, __VA_ARGS__)
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
@@ -288,25 +288,25 @@ SIGNATURE NOT RECOGNISED
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-#define BOOST_OUTCOME_CO_TRYV_FAILURE_LIKELY(...) BOOST_OUTCOME_TRYV2_FAILURE_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, co_return, deduce, __VA_ARGS__)
+#define BOOST_OUTCOME_CO_TRYV_FAILURE_LIKELY(...) BOOST_OUTCOME_TRYV3_FAILURE_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, co_return, deduce, __VA_ARGS__)
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-#define BOOST_OUTCOME_TRYV_(s, ...) BOOST_OUTCOME_TRYV2_SUCCESS_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, return, (s,), __VA_ARGS__)
+#define BOOST_OUTCOME_TRYV2(s, ...) BOOST_OUTCOME_TRYV2_SUCCESS_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, return, (s,), __VA_ARGS__)
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-#define BOOST_OUTCOME_TRYV__FAILURE_LIKELY(s, ...) BOOST_OUTCOME_TRYV2_FAILURE_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, return, (s,), __VA_ARGS__)
+#define BOOST_OUTCOME_TRYV2_FAILURE_LIKELY(s, ...) BOOST_OUTCOME_TRYV3_FAILURE_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, return, (s,), __VA_ARGS__)
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-#define BOOST_OUTCOME_CO_TRYV_(s, ...) BOOST_OUTCOME_TRYV2_SUCCESS_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, co_return, (s,), __VA_ARGS__)
+#define BOOST_OUTCOME_CO_TRYV2(s, ...) BOOST_OUTCOME_TRYV2_SUCCESS_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, co_return, (s,), __VA_ARGS__)
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-#define BOOST_OUTCOME_CO_TRYV_FAILURE_LIKELY_(s, ...) BOOST_OUTCOME_TRYV2_FAILURE_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, co_return, s(,), __VA_ARGS__)
+#define BOOST_OUTCOME_CO_TRYV2_FAILURE_LIKELY(s, ...) BOOST_OUTCOME_TRYV3_FAILURE_LIKELY(BOOST_OUTCOME_TRY_UNIQUE_NAME, co_return, s(,), __VA_ARGS__)
 
 
 #if defined(__GNUC__) || defined(__clang__)
