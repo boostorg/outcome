@@ -30,7 +30,7 @@
   </div>
 </div>
 <div id="boost-common-heading-doc-spacer"></div><div class="spirit-nav">
-<a accesskey="p" href="../../reference/macros/tryv.html"><img src="../../images/prev.png" alt="Prev"></a>
+<a accesskey="p" href="../../reference/macros/tryv2_failure_likely.html"><img src="../../images/prev.png" alt="Prev"></a>
     <a accesskey="u" href="../../reference/macros.html"><img src="../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../reference/macros/tryx.html"><img src="../../images/next.png" alt="Next"></a></div><div id="content">
   <div class="titlepage"><div><div><h1 style="clear: both"><code>BOOST_OUTCOME_TRYV_FAILURE_LIKELY(expr)/BOOST_OUTCOME_TRY_FAILURE_LIKELY(expr)</code></h1></div></div></div>
@@ -54,6 +54,8 @@
 <p>Hints are given to the compiler that the expression will be unsuccessful. If you expect success, you should use <a href="../../reference/macros/tryv.html" class="api-reference"><code>BOOST_OUTCOME_TRYV(expr)</code></a>
  instead.</p>
 
+<p>An internal temporary to hold the value of the expression is created, which generally invokes a copy/move. <a href="../../tutorial/essential/result/try_ref.html">If you wish to never copy/move, you can tell this macro to create the internal temporary as a reference instead.</a></p>
+
 <p><em>Overridable</em>: Not overridable.</p>
 
 <p><em>Definition</em>: Firstly the expression&rsquo;s temporary is bound to a uniquely named, stack allocated, <code>auto &amp;&amp;</code>. If that reference&rsquo;s bound object&rsquo;s <code>try_operation_has_value()</code> is false, immediately execute <code>return try_operation_return_as(propagated unique reference);</code>, propagating the rvalue/lvalue/etc-ness of the original expression.</p>
@@ -61,10 +63,10 @@
 <p><em>Header</em>: <code>&lt;boost/outcome/try.hpp&gt;</code></p>
 
 
-        </div><p><small>Last revised: October 16, 2019 at 10:26:35 &#43;0100</small></p>
+        </div><p><small>Last revised: February 12, 2021 at 20:25:43 UTC</small></p>
 <hr>
 <div class="spirit-nav">
-<a accesskey="p" href="../../reference/macros/tryv.html"><img src="../../images/prev.png" alt="Prev"></a>
+<a accesskey="p" href="../../reference/macros/tryv2_failure_likely.html"><img src="../../images/prev.png" alt="Prev"></a>
     <a accesskey="u" href="../../reference/macros.html"><img src="../../images/up.png" alt="Up"></a>
     <a accesskey="h" href="../../index.html"><img src="../../images/home.png" alt="Home"></a><a accesskey="n" href="../../reference/macros/tryx.html"><img src="../../images/next.png" alt="Next"></a></div></body>
 </html>

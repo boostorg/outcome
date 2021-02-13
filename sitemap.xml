@@ -184,7 +184,7 @@
   
   <url>
     <loc>/changelog/upgrade_v21_v22.html</loc>
-    <lastmod>2020-09-16T11:58:04+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
@@ -279,7 +279,7 @@
   
   <url>
     <loc>/tutorial/essential/result/try.html</loc>
-    <lastmod>2020-12-15T12:22:39+00:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
@@ -294,7 +294,7 @@
   
   <url>
     <loc>/changelog/v22.html</loc>
-    <lastmod>2020-09-16T11:58:04+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
@@ -403,6 +403,11 @@
   </url>
   
   <url>
+    <loc>/tutorial/essential/result/try_ref.html</loc>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/types.html</loc>
     <lastmod>2018-12-13T21:10:19+00:00</lastmod>
   </url>
@@ -454,7 +459,7 @@
   
   <url>
     <loc>/changelog.html</loc>
-    <lastmod>2021-02-12T18:57:24+00:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
@@ -1400,14 +1405,14 @@
   </url>
   
   <url>
-    <loc>/tags/constructors.html</loc>
-    <lastmod>2019-06-24T21:48:18+01:00</lastmod>
+    <loc>/categories/constructors.html</loc>
+    <lastmod>2020-12-17T11:27:06+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/constructors.html</loc>
-    <lastmod>2020-12-17T11:27:06+00:00</lastmod>
+    <loc>/tags/constructors.html</loc>
+    <lastmod>2019-06-24T21:48:18+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1508,7 +1513,7 @@
   
   <url>
     <loc>/</loc>
-    <lastmod>2020-12-17T11:27:06+00:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
@@ -1674,32 +1679,42 @@
   
   <url>
     <loc>/reference/macros/co_try.html</loc>
-    <lastmod>2020-06-01T12:18:26+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/co_tryv.html</loc>
-    <lastmod>2019-10-16T10:26:35+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/macros/co_tryv2.html</loc>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/macros/co_tryv2_failure_likely.html</loc>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/co_tryv_failure_likely.html</loc>
-    <lastmod>2019-10-16T10:26:35+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/co_tryx.html</loc>
-    <lastmod>2019-10-16T10:26:35+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/co_tryx_failure_likely.html</loc>
-    <lastmod>2019-10-16T10:26:35+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/co_try_failure_likely.html</loc>
-    <lastmod>2020-06-01T12:18:26+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
@@ -1739,32 +1754,42 @@
   
   <url>
     <loc>/reference/macros/try.html</loc>
-    <lastmod>2020-06-01T12:18:26+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/tryv.html</loc>
-    <lastmod>2019-10-16T10:26:35+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/macros/tryv2.html</loc>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reference/macros/tryv2_failure_likely.html</loc>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/tryv_failure_likely.html</loc>
-    <lastmod>2019-10-16T10:26:35+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/tryx.html</loc>
-    <lastmod>2019-10-16T10:26:35+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/tryx_failure_likely.html</loc>
-    <lastmod>2019-10-16T10:26:35+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>
     <loc>/reference/macros/try_failure_likely.html</loc>
-    <lastmod>2020-06-01T12:18:26+01:00</lastmod>
+    <lastmod>2021-02-12T20:25:43+00:00</lastmod>
   </url>
   
   <url>

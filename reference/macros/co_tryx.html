@@ -51,6 +51,8 @@
 <p>Hints are given to the compiler that the expression will be successful. If you expect failure, you should use <a href="../../reference/macros/co_tryx_failure_likely.html" class="api-reference"><code>BOOST_OUTCOME_CO_TRYX_FAILURE_LIKELY(expr)</code></a>
  instead.</p>
 
+<p>An internal temporary to hold the value of the expression is created, which generally invokes a copy/move. <a href="../../tutorial/essential/result/try_ref.html">If you wish to never copy/move, you can tell this macro to create the internal temporary as a reference instead.</a></p>
+
 <p><em>Availability</em>: GCC and clang only. Use <code>#ifdef BOOST_OUTCOME_CO_TRYX</code> to determine if available.</p>
 
 <p><em>Overridable</em>: Not overridable.</p>
@@ -66,7 +68,7 @@
 <p><em>Header</em>: <code>&lt;boost/outcome/try.hpp&gt;</code></p>
 
 
-        </div><p><small>Last revised: October 16, 2019 at 10:26:35 &#43;0100</small></p>
+        </div><p><small>Last revised: February 12, 2021 at 20:25:43 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../../reference/macros/co_tryv_failure_likely.html"><img src="../../images/prev.png" alt="Prev"></a>
