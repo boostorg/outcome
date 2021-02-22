@@ -28,7 +28,7 @@ DEALINGS IN THE SOFTWARE.
 */
 
 #include <boost/outcome/coroutine_support.hpp>
-#include <boost/outcome/outcome.hpp>
+#include <boost/outcome.hpp>
 #include <boost/outcome/try.hpp>
 
 #if BOOST_OUTCOME_FOUND_COROUTINE_HEADER
