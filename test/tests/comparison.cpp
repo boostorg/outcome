@@ -32,7 +32,7 @@ DEALINGS IN THE SOFTWARE.
 #pragma warning(disable : 4244)  // conversion from int to short
 #endif
 
-#include <boost/outcome/outcome.hpp>
+#include <boost/outcome.hpp>
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 

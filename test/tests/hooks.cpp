@@ -30,7 +30,7 @@ DEALINGS IN THE SOFTWARE.
 #define _CRT_SECURE_NO_WARNINGS
 #define BOOST_OUTCOME_ENABLE_LEGACY_SUPPORT_FOR 210  // legacy ADL hooks support
 
-#include <boost/outcome/outcome.hpp>
+#include <boost/outcome.hpp>
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 
