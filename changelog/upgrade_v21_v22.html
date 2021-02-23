@@ -48,14 +48,27 @@ and all Outcome v2.1 code shall need to be upgraded to work with v2.2.</p>
 files in a directory tree and replacing them &ndash; most IDEs such as Visual Studio
 have such a tool with GUI, on POSIX a shell script such as this ought to work:</p>
 
-<pre><code>find /path/to/project -type f -name &quot;*.hpp&quot; | xargs sed -i &quot;s/_TRY\(([^(]*?),(.*?)\);/_TRY(auto &amp;&amp;\1,\2);/g&quot;
-find /path/to/project -type f -name &quot;*.cpp&quot; | xargs sed -i &quot;s/_TRY\(([^(]*?),(.*?)\);/_TRY(auto &amp;&amp;\1,\2);/g&quot;
+<pre><code>find /path/to/project -type f -name &quot;*.hpp&quot; | xargs sed -i &quot;s/_TRY\(([^(]*?),(.*?)\);/_TRY((auto &amp;&amp;, \1),\2);/g&quot;
+find /path/to/project -type f -name &quot;*.cpp&quot; | xargs sed -i &quot;s/_TRY\(([^(]*?),(.*?)\);/_TRY((auto &amp;&amp;, \1),\2);/g&quot;
+find /path/to/project -type f -name &quot;*.hpp&quot; | xargs sed -i &quot;s/_TRY\(([^(]*?)\);/_TRYV2(auto &amp;&amp;, \1);/g&quot;
+find /path/to/project -type f -name &quot;*.cpp&quot; | xargs sed -i &quot;s/_TRY\(([^(]*?)\);/_TRYV2(auto &amp;&amp;, \1);/g&quot;
 </code></pre>
 
-<p>The transformation needed is the regular expression <code>_TRY\(([^(]*?),(.*?)\);</code> =&gt;
-<code>_TRY(auto &amp;&amp;\1,\2);</code>. This is because in Outcome v2.2 onwards, <code>BOOST_OUTCOME_TRY(var, expr)</code>
+<p>The transformation needed are the regular expressions <code>_TRY\(([^(]*?),(.*?)\);</code> =&gt;
+<code>_TRY((auto &amp;&amp;, \1),\2);</code> and <code>TRY\(([^(]*?)\);</code> =&gt; <code>_TRYV2(auto &amp;&amp;, \1);</code>.
+This is because in Outcome v2.2 onwards, <code>BOOST_OUTCOME_TRY(var, expr)</code>
 no longer implicitly declares the variable created as <code>auto&amp;&amp;</code> on your behalf,
-now you must specify the storage of the variable.</p>
+now you must specify the storage of the variable. It also declares the internal
+uniquely named temporary as a value rather than as a reference, the initial
+brackets overrides this to force the use of a rvalue reference for the internal
+uniquely named temporary instead.</p>
+
+<p>This makes use of Outcome&rsquo;s <a href="../tutorial/essential/result/try_ref.html">new TRY syntax</a>
+to tell the TRY operation to use references rather than values for the internal
+uniquely named temporary, thus avoiding any copies and moves. The only way to
+override the storage of the internal uniquely named temporary for non-value
+outputting TRY is via the new <code>BOOST_OUTCOME_TRYV2()</code> which takes the storage specifier
+you desire as its first parameter.</p>
 
 <p>The principle advantage of this change is that you can now assign to
 existing variables the successful results of expressions, instead of being
@@ -63,20 +76,14 @@ forced to TRY into a new variable, and move that variable into the destination
 you intended. Also, because you can now specify storage, you can now assign
 the result of a TRYied operation into static or thread local storage.</p></li>
 
-<li><p>If your code uses non-copyable and non-movable types within its <code>result&lt;T&gt;</code>
-and <code>outcome&lt;T&gt;</code> types, performing a TRY operation upon them will no longer compile.
-To fix this, rewrite as follows:</p>
-
-<ul>
-<li><code>BOOST_OUTCOME_TRY(auto &amp;&amp;v, expr)</code> =&gt; <code>BOOST_OUTCOME_TRY((auto &amp;&amp;, v), expr)</code></li>
-<li><code>BOOST_OUTCOME_TRY(expr)</code> =&gt; <code>BOOST_OUTCOME_TRYV2(auto &amp;&amp;, expr)</code></li>
-<li><code>BOOST_OUTCOME_TRYV(expr)</code> =&gt; <code>BOOST_OUTCOME_TRYV2(auto &amp;&amp;, expr)</code>
-<br /></li>
-</ul>
-
-<p>This makes use of Outcome&rsquo;s <a href="../tutorial/essential/result/try_ref.html">new TRY syntax</a>
-to tell the TRY operation to use references rather than values for the internal
-uniquely named temporary, thus avoiding any copies and moves.</p></li>
+<li><p>The find regex and replace rule above is to preserve exact semantics with
+Outcome v2.1 whereby the internal uniquely named temporary and the variable for
+the value are both rvalue references. If you&rsquo;re feeling like more work, it is
+safer if you convert as many <code>BOOST_OUTCOME_TRY((auto &amp;&amp;, v), expr)</code> to
+<code>BOOST_OUTCOME_TRY(auto &amp;&amp;v, expr)</code> as possible. This will mean that TRY &lsquo;consumes&rsquo;
+<code>expr</code> i.e. moves it into the internal uniquely named temporary, if expr is
+an rvalue reference. Usually this does not affect existing code, but occasionally
+it can, generally a bit of code reordering will fix it.</p></li>
 
 <li><p>If your code uses <a href="../tutorial/advanced/hooks.html">the ADL discovered event hooks</a>
 to intercept when <code>basic_result</code> and <code>basic_outcome</code> is constructed, copies or
@@ -114,7 +121,7 @@ using Outcome after you upgrade to v2.2.</p></li>
 </ol>
 
 
-        </div><p><small>Last revised: February 12, 2021 at 20:25:43 UTC</small></p>
+        </div><p><small>Last revised: February 23, 2021 at 17:37:27 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="../changelog.html"><img src="../images/prev.png" alt="Prev"></a>
