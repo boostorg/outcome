@@ -697,6 +697,7 @@ SIGNATURE NOT RECOGNISED
   constexpr basic_outcome(const success_type<void> &o) noexcept(std::is_nothrow_default_constructible<value_type>::value)  // NOLINT
       : base{in_place_type<typename base::_value_type>}
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_outcome_copy_construction(this, o);
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -707,6 +708,7 @@ SIGNATURE NOT RECOGNISED
   constexpr basic_outcome(const success_type<T> &o) noexcept(detail::is_nothrow_constructible<value_type, T>)  // NOLINT
       : base{in_place_type<typename base::_value_type>, detail::extract_value_from_success<value_type>(o)}
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_outcome_copy_construction(this, o);
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -717,6 +719,7 @@ SIGNATURE NOT RECOGNISED
   constexpr basic_outcome(success_type<T> &&o) noexcept(detail::is_nothrow_constructible<value_type, T>)  // NOLINT
       : base{in_place_type<typename base::_value_type>, detail::extract_value_from_success<value_type>(static_cast<success_type<T> &&>(o))}
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_outcome_move_construction(this, static_cast<success_type<T> &&>(o));
   }
 
@@ -730,6 +733,7 @@ SIGNATURE NOT RECOGNISED
       : base{in_place_type<typename base::_error_type>, detail::extract_error_from_failure<error_type>(o)}
       , _ptr()
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_outcome_copy_construction(this, o);
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -743,6 +747,7 @@ SIGNATURE NOT RECOGNISED
       , _ptr(detail::extract_exception_from_failure<exception_type>(o))
   {
     this->_state._status.set_have_exception(true);
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_outcome_copy_construction(this, o);
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -756,6 +761,7 @@ SIGNATURE NOT RECOGNISED
       : base{in_place_type<typename base::_error_type>, make_error_code(detail::extract_error_from_failure<error_type>(o))}
       , _ptr()
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_outcome_copy_construction(this, o);
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -776,6 +782,7 @@ SIGNATURE NOT RECOGNISED
     {
       this->_state._status.set_have_exception(true);
     }
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_outcome_copy_construction(this, o);
   }
 
@@ -789,6 +796,7 @@ SIGNATURE NOT RECOGNISED
       : base{in_place_type<typename base::_error_type>, detail::extract_error_from_failure<error_type>(static_cast<failure_type<T> &&>(o))}
       , _ptr()
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_outcome_copy_construction(this, o);
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -802,6 +810,7 @@ SIGNATURE NOT RECOGNISED
       , _ptr(detail::extract_exception_from_failure<exception_type>(static_cast<failure_type<T> &&>(o)))
   {
     this->_state._status.set_have_exception(true);
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_outcome_copy_construction(this, o);
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -815,6 +824,7 @@ SIGNATURE NOT RECOGNISED
       : base{in_place_type<typename base::_error_type>, make_error_code(detail::extract_error_from_failure<error_type>(static_cast<failure_type<T> &&>(o)))}
       , _ptr()
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_outcome_copy_construction(this, o);
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -835,6 +845,7 @@ SIGNATURE NOT RECOGNISED
     {
       this->_state._status.set_have_exception(true);
     }
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_outcome_move_construction(this, static_cast<failure_type<T, U> &&>(o));
   }
 
@@ -850,10 +861,10 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(std::declval<detail::devoid<value_type>>() == std::declval<detail::devoid<T>>()),  //
                     BOOST_OUTCOME_TEXPR(std::declval<detail::devoid<error_type>>() == std::declval<detail::devoid<U>>()),  //
                     BOOST_OUTCOME_TEXPR(std::declval<detail::devoid<exception_type>>() == std::declval<detail::devoid<V>>()))
-  constexpr bool operator==(const basic_outcome<T, U, V, W> &o) const noexcept(                 //
-  noexcept(std::declval<detail::devoid<value_type>>() == std::declval<detail::devoid<T>>())     //
-  && noexcept(std::declval<detail::devoid<error_type>>() == std::declval<detail::devoid<U>>())  //
-  && noexcept(std::declval<detail::devoid<exception_type>>() == std::declval<detail::devoid<V>>()))
+  constexpr bool operator==(const basic_outcome<T, U, V, W> &o) const noexcept(                //
+  noexcept(std::declval<detail::devoid<value_type>>() == std::declval<detail::devoid<T>>())    //
+  &&noexcept(std::declval<detail::devoid<error_type>>() == std::declval<detail::devoid<U>>())  //
+  &&noexcept(std::declval<detail::devoid<exception_type>>() == std::declval<detail::devoid<V>>()))
   {
     if(this->_state._status.have_value() && o._state._status.have_value())
     {
@@ -881,7 +892,7 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(std::declval<error_type>() == std::declval<T>()),  //
                     BOOST_OUTCOME_TEXPR(std::declval<exception_type>() == std::declval<U>()))
   constexpr bool operator==(const failure_type<T, U> &o) const noexcept(  //
-  noexcept(std::declval<error_type>() == std::declval<T>()) && noexcept(std::declval<exception_type>() == std::declval<U>()))
+  noexcept(std::declval<error_type>() == std::declval<T>()) &&noexcept(std::declval<exception_type>() == std::declval<U>()))
   {
     if(this->_state._status.have_error() && o._state._status.have_error()  //
        && this->_state._status.have_exception() && o._state._status.have_exception())
@@ -905,10 +916,10 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(std::declval<detail::devoid<value_type>>() != std::declval<detail::devoid<T>>()),  //
                     BOOST_OUTCOME_TEXPR(std::declval<detail::devoid<error_type>>() != std::declval<detail::devoid<U>>()),  //
                     BOOST_OUTCOME_TEXPR(std::declval<detail::devoid<exception_type>>() != std::declval<detail::devoid<V>>()))
-  constexpr bool operator!=(const basic_outcome<T, U, V, W> &o) const noexcept(                 //
-  noexcept(std::declval<detail::devoid<value_type>>() != std::declval<detail::devoid<T>>())     //
-  && noexcept(std::declval<detail::devoid<error_type>>() != std::declval<detail::devoid<U>>())  //
-  && noexcept(std::declval<detail::devoid<exception_type>>() != std::declval<detail::devoid<V>>()))
+  constexpr bool operator!=(const basic_outcome<T, U, V, W> &o) const noexcept(                //
+  noexcept(std::declval<detail::devoid<value_type>>() != std::declval<detail::devoid<T>>())    //
+  &&noexcept(std::declval<detail::devoid<error_type>>() != std::declval<detail::devoid<U>>())  //
+  &&noexcept(std::declval<detail::devoid<exception_type>>() != std::declval<detail::devoid<V>>()))
   {
     if(this->_state._status.have_value() && o._state._status.have_value())
     {
@@ -936,7 +947,7 @@ SIGNATURE NOT RECOGNISED
   BOOST_OUTCOME_TREQUIRES(BOOST_OUTCOME_TEXPR(std::declval<error_type>() != std::declval<T>()),  //
                     BOOST_OUTCOME_TEXPR(std::declval<exception_type>() != std::declval<U>()))
   constexpr bool operator!=(const failure_type<T, U> &o) const noexcept(  //
-  noexcept(std::declval<error_type>() == std::declval<T>()) && noexcept(std::declval<exception_type>() == std::declval<U>()))
+  noexcept(std::declval<error_type>() == std::declval<T>()) &&noexcept(std::declval<exception_type>() == std::declval<U>()))
   {
     if(this->_state._status.have_error() && o._state._status.have_error()  //
        && this->_state._status.have_exception() && o._state._status.have_exception())
@@ -1045,13 +1056,13 @@ SIGNATURE NOT RECOGNISED
   {
     if(this->has_error() && this->has_exception())
     {
-      return failure_type<error_type, exception_type>(this->assume_error(), this->assume_exception());
+      return failure_type<error_type, exception_type>(this->assume_error(), this->assume_exception(), hooks::spare_storage(this));
     }
     if(this->has_exception())
     {
-      return failure_type<error_type, exception_type>(in_place_type<exception_type>, this->assume_exception());
+      return failure_type<error_type, exception_type>(in_place_type<exception_type>, this->assume_exception(), hooks::spare_storage(this));
     }
-    return failure_type<error_type, exception_type>(in_place_type<error_type>, this->assume_error());
+    return failure_type<error_type, exception_type>(in_place_type<error_type>, this->assume_error(), hooks::spare_storage(this));
   }
 
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -1062,13 +1073,14 @@ SIGNATURE NOT RECOGNISED
     this->_state._status.set_have_moved_from(true);
     if(this->has_error() && this->has_exception())
     {
-      return failure_type<error_type, exception_type>(static_cast<S &&>(this->assume_error()), static_cast<P &&>(this->assume_exception()));
+      return failure_type<error_type, exception_type>(static_cast<S &&>(this->assume_error()), static_cast<P &&>(this->assume_exception()),
+                                                      hooks::spare_storage(this));
     }
     if(this->has_exception())
     {
-      return failure_type<error_type, exception_type>(in_place_type<exception_type>, static_cast<P &&>(this->assume_exception()));
+      return failure_type<error_type, exception_type>(in_place_type<exception_type>, static_cast<P &&>(this->assume_exception()), hooks::spare_storage(this));
     }
-    return failure_type<error_type, exception_type>(in_place_type<error_type>, static_cast<S &&>(this->assume_error()));
+    return failure_type<error_type, exception_type>(in_place_type<error_type>, static_cast<S &&>(this->assume_error()), hooks::spare_storage(this));
   }
 
 #ifdef __APPLE__

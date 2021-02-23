@@ -589,6 +589,7 @@ SIGNATURE NOT RECOGNISED
   constexpr basic_result(const success_type<void> &o) noexcept(std::is_nothrow_default_constructible<value_type>::value)  // NOLINT
       : base{in_place_type<value_type_if_enabled>}
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_result_copy_construction(this, o);
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -599,6 +600,7 @@ SIGNATURE NOT RECOGNISED
   constexpr basic_result(const success_type<T> &o) noexcept(detail::is_nothrow_constructible<value_type, T>)  // NOLINT
       : base{in_place_type<value_type_if_enabled>, detail::extract_value_from_success<value_type>(o)}
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_result_copy_construction(this, o);
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -609,6 +611,7 @@ SIGNATURE NOT RECOGNISED
   constexpr basic_result(success_type<T> &&o) noexcept(detail::is_nothrow_constructible<value_type, T>)  // NOLINT
       : base{in_place_type<value_type_if_enabled>, detail::extract_value_from_success<value_type>(static_cast<success_type<T> &&>(o))}
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_result_move_construction(this, static_cast<success_type<T> &&>(o));
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -620,6 +623,7 @@ SIGNATURE NOT RECOGNISED
   detail::is_nothrow_constructible<error_type, T>)  // NOLINT
       : base{in_place_type<error_type_if_enabled>, detail::extract_error_from_failure<error_type>(o)}
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_result_copy_construction(this, o);
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -631,6 +635,7 @@ SIGNATURE NOT RECOGNISED
   detail::is_nothrow_constructible<error_type, T>)  // NOLINT
       : base{in_place_type<error_type_if_enabled>, detail::extract_error_from_failure<error_type>(static_cast<failure_type<T> &&>(o))}
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_result_move_construction(this, static_cast<failure_type<T> &&>(o));
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -643,6 +648,7 @@ SIGNATURE NOT RECOGNISED
                          explicit_make_error_code_compatible_copy_conversion_tag()) noexcept(noexcept(make_error_code(std::declval<T>())))  // NOLINT
       : base{in_place_type<error_type_if_enabled>, make_error_code(detail::extract_error_from_failure<error_type>(o))}
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_result_copy_construction(this, o);
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -655,6 +661,7 @@ SIGNATURE NOT RECOGNISED
                          explicit_make_error_code_compatible_move_conversion_tag()) noexcept(noexcept(make_error_code(std::declval<T>())))  // NOLINT
       : base{in_place_type<error_type_if_enabled>, make_error_code(detail::extract_error_from_failure<error_type>(static_cast<failure_type<T> &&>(o)))}
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_result_move_construction(this, static_cast<failure_type<T> &&>(o));
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -667,6 +674,7 @@ SIGNATURE NOT RECOGNISED
                          explicit_make_exception_ptr_compatible_copy_conversion_tag()) noexcept(noexcept(make_exception_ptr(std::declval<T>())))  // NOLINT
       : base{in_place_type<error_type_if_enabled>, make_exception_ptr(detail::extract_error_from_failure<error_type>(o))}
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_result_copy_construction(this, o);
   }
   /*! AWAITING HUGO JSON CONVERSION TOOL
@@ -679,6 +687,7 @@ SIGNATURE NOT RECOGNISED
                          explicit_make_exception_ptr_compatible_move_conversion_tag()) noexcept(noexcept(make_exception_ptr(std::declval<T>())))  // NOLINT
       : base{in_place_type<error_type_if_enabled>, make_exception_ptr(detail::extract_error_from_failure<error_type>(static_cast<failure_type<T> &&>(o)))}
   {
+    hooks::set_spare_storage(this, o.spare_storage());
     no_value_policy_type::on_result_move_construction(this, static_cast<failure_type<T> &&>(o));
   }
 
@@ -694,14 +703,14 @@ SIGNATURE NOT RECOGNISED
   /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-  auto as_failure() const & { return failure(this->assume_error()); }
+  auto as_failure() const & { return failure(this->assume_error(), hooks::spare_storage(this)); }
   /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
   auto as_failure() &&
   {
     this->_state._status.set_have_moved_from(true);
-    return failure(static_cast<basic_result &&>(*this).assume_error());
+    return failure(static_cast<basic_result &&>(*this).assume_error(), hooks::spare_storage(this));
   }
 
 #ifdef __APPLE__
