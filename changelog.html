@@ -174,6 +174,10 @@ specify unique storage, there is a new <code>BOOST_OUTCOME_TRYV2(refspec, expr)<
 <p>My thanks to KamilCuk from <a href="https://stackoverflow.com/questions/66069152/token-detection-within-a-c-preprocessor-macro-argument">https://stackoverflow.com/questions/66069152/token-detection-within-a-c-preprocessor-macro-argument</a>
 for all their help in designing the new overloaded TRY syntax. My thanks also to vasama for reporting this
 issue and working through how best to fix it with me.</p></dd>
+<dt><a href="https://github.com/ned14/outcome/issues/249">#249</a></dt>
+<dd><p>The preprocessor logic for choosing when to use <code>bool</code> with <code>concept</code> on GCC was yet again refactored.
+This should fix those choices of GCC configuration which caused failure due to the wrong combination
+being chosen.</p></dd>
 </dl>
 
 <hr />
@@ -595,7 +599,7 @@ and Boost.Exception (these are <code>result.hpp</code> and <code>outcome.hpp</co
 
 
 
-        </div><p><small>Last revised: February 23, 2021 at 17:37:27 UTC</small></p>
+        </div><p><small>Last revised: March 29, 2021 at 14:58:28 &#43;0100</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./videos.html"><img src="./images/prev.png" alt="Prev"></a>
