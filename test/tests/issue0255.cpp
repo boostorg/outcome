@@ -1,5 +1,5 @@
-/* UPDATED BY SCRIPT
-(C) 2017-2021 Niall Douglas <http://www.nedproductions.biz/> (225 commits)
+/* Unit testing for outcomes
+(C) 2013-2021 Niall Douglas <http://www.nedproductions.biz/> (1 commit)
 
 
 Boost Software License - Version 1.0 - August 17th, 2003
@@ -27,7 +27,25 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-// Note the second line of this file must ALWAYS be the git SHA, third line ALWAYS the git SHA update time
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_REF a2d37fa9840de0791dce73f0a944da830b8e6e99
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_DATE "2021-09-22 10:11:15 +00:00"
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_UNIQUE a2d37fa9
+#include <boost/outcome/experimental/status_result.hpp>
+
+#include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
+
+#if __cplusplus >= 202000L || _HAS_CXX20
+
+namespace issues255
+{
+  namespace outcome_e = BOOST_OUTCOME_V2_NAMESPACE::experimental;
+
+  static_assert(outcome_e::traits::is_move_bitcopying<outcome_e::error>::value, "outcome_e::error is not move bitcopying!");
+
+  constexpr outcome_e::status_result<int> test() { return outcome_e::success(42); }
+}
+
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0255_test, "status_result<int> not usable from constexpr in C++ 20")
+{
+  BOOST_CHECK(issues255::test().value() == 42);
+}
+
+#endif
