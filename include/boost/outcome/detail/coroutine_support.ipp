@@ -41,7 +41,7 @@ DEALINGS IN THE SOFTWARE.
 #if __cpp_impl_coroutine || (defined(_MSC_VER) && __cpp_coroutines) || (defined(__clang__) && __cpp_coroutines)
 #ifndef BOOST_OUTCOME_HAVE_NOOP_COROUTINE
 #if defined(__has_builtin)
-#if __has_builtin(__builtin_coro_noop)
+#if __has_builtin(__builtin_coro_noop) || (!defined(__clang__) && __GNUC >= 10)
 #define BOOST_OUTCOME_HAVE_NOOP_COROUTINE 1
 #endif
 #endif
