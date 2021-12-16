@@ -53,6 +53,12 @@
 <dl class="toc">
   <dt><span class="section"><a href="./requirements.html">Prerequisites</a></span></dt>
   <dt><span class="section"><a href="./build.html">Build and install</a></span></dt>
+  <dt><span class="section"><a href="./alternatives.html">Review of Outcome Alternatives</a></span></dt>
+        <dd><dl>
+  <dt><span class="section"><a href="./alternatives/exceptions.html">C++ exception throws</a></span></dt>
+  <dt><span class="section"><a href="./alternatives/error_code.html">C++ error codes</a></span></dt>
+  <dt><span class="section"><a href="./alternatives/expected.html">C++ expected</a></span></dt>
+        </dl></dd>
   <dt><span class="section"><a href="./motivation.html">Motivation</a></span></dt>
         <dd><dl>
   <dt><span class="section"><a href="./motivation/exceptions.html">Exceptions</a></span></dt>
@@ -63,6 +69,7 @@
   <dt><span class="section"><a href="./motivation/plug_error_code2.html">Plugging a library into <code>boost::system::error_code</code></a></span></dt>
   <dt><span class="section"><a href="./motivation/narrow_contract.html">Narrow contracts</a></span></dt>
         </dl></dd>
+  <dt><span class="section"><a href="./abi-stability.html">Future ABI stability guarantees</a></span></dt>
   <dt><span class="section"><a href="./tutorial.html">Tutorial</a></span></dt>
         <dd><dl>
   <dt><span class="section"><a href="./tutorial/essential.html">Essential</a></span></dt>
@@ -111,9 +118,9 @@
 
 <div class="notices note" style="background: url('images/note.png') top left no-repeat padding-box padding-box;">
 <div class="notices heading">note</div>
-<div class="notices message"><p>At the end of December 2020, Outcome v2.2 replaced v2.1 in develop branch. This is a breaking
-change and all Outcome v2.1 code will need to be upgraded using <a href="./changelog/upgrade_v21_v22.html">the v2.1 =&gt; v2.2 upgrade guide</a>. See also
-<a href="./changelog/v22.html">the list of v2.2 major changes</a>.</p>
+<div class="notices message"><p>At the end of December 2021, Standalone Outcome
+<a href="./abi-stability.html">went guaranteed future ABI stable</a>.
+From v2.2.3 onwards, you get ABI compatibilty guarantees across Outcome releases.</p>
 </div>
 </div>
 
@@ -206,7 +213,7 @@ is available in scope.</p>
 </div>
 
 
-        </div><p><small>Last revised: February 12, 2021 at 20:25:43 UTC</small></p>
+        </div><p><small>Last revised: December 15, 2021 at 11:47:12 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./history.html"><img src="./images/prev.png" alt="Prev"></a>

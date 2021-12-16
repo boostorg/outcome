@@ -38,10 +38,11 @@
   <div class="toc"><dl class="toc">
 <dt>
 <dd><dl>
-<dt><a href="#the-genesis-of-outcome-v1">The genesis of Outcome v1</a></dt>
-<dt><a href="#outcome-v2">Outcome v2</a></dt>
-<dt><a href="#outcome-v2-1">Outcome v2.1</a></dt>
-<dt><a href="#outcome-v2-2">Outcome v2.2</a></dt>
+<dt><a href="#the-genesis-of-outcome-v1-2014-2017">The genesis of Outcome v1 (2014 - 2017)</a></dt>
+<dt><a href="#outcome-v2-2018">Outcome v2 (2018)</a></dt>
+<dt><a href="#outcome-v2-1-2019-2020">Outcome v2.1 (2019 - 2020)</a></dt>
+<dt><a href="#outcome-v2-2-2021">Outcome v2.2 (2021)</a></dt>
+<dt><a href="#outcome-v2-2-3-2022">Outcome v2.2.3 (2022)</a></dt>
 </dl></dd></dt>
 </dl>
   </div>
@@ -54,7 +55,7 @@ faulty due to his aging memory.</p>
 
 <center><img src="./history/graph.png"></center>
 
-<h2 id="the-genesis-of-outcome-v1">The genesis of Outcome v1</h2>
+<h2 id="the-genesis-of-outcome-v1-2014-2017">The genesis of Outcome v1 (2014 - 2017)</h2>
 
 <p>The git repo began life as a &ldquo;Boost.Spinlock&rdquo; in June 2014 hived out of Boost.AFIO v1 where it had existed
 for some time as an internal library. In October 2014 I added in the original prototype
@@ -113,7 +114,7 @@ in May 2017 which turned into one of the longest and most detailed peer reviews 
 done in recent years, with over 800 pieces of review feedback submitted. It was by consensus
 rejected, <a href="https://lists.boost.org/boost-announce/2017/06/0510.php">with substantial feedback on what to do instead</a>.</p>
 
-<h2 id="outcome-v2">Outcome v2</h2>
+<h2 id="outcome-v2-2018">Outcome v2 (2018)</h2>
 
 <p>During the very lengthy peer review, roughly three groups of opinion emerged as to what
 a <code>value|error</code> transporting class ought to look like:</p>
@@ -150,7 +151,7 @@ available.</p>
 documentation. This took four months to write (same time as to write the library itself!),
 and in January 2018 Outcome had its second Boost peer review, which it passed!</p>
 
-<h2 id="outcome-v2-1">Outcome v2.1</h2>
+<h2 id="outcome-v2-1-2019-2020">Outcome v2.1 (2019 - 2020)</h2>
 
 <p>The changes requsted during the review of v2.0 were fairly modest: <code>result</code> and <code>outcome</code> would
 be renamed to <code>basic_result</code> and <code>basic_outcome</code>, and a clean separation of concerns between the
@@ -187,7 +188,7 @@ part before moving further. The covid pandemic then ceased face to face meetings
 deeply impacted WG21 productivity, so everything large which was not yet approved for
 entry into C++ 23 went on pause.</p>
 
-<h2 id="outcome-v2-2">Outcome v2.2</h2>
+<h2 id="outcome-v2-2-2021">Outcome v2.2 (2021)</h2>
 
 <p>Outcome was sufficiently popular, and widely known as the closest simulacrum of deterministic
 exceptions currently available in C++, that it was regularly benchmarked as such on an &lsquo;as if&rsquo;
@@ -212,9 +213,21 @@ emulation of <a href="https://wg21.link/P1029">P1029 <em>move = bitcopies</em></
 enhancement which can treat some move-only types as bags of bits. This very significantly
 improves the appearance in assembler of experimental Outcome based code.</p>
 
+<h2 id="outcome-v2-2-3-2022">Outcome v2.2.3 (2022)</h2>
+
+<p>Outcome v2.2 saw much popularity and very few issues reported after a year in the wild,
+so the decision was taken <a href="./abi-stability.html">to write the v2.2.3 Outcome ABI into stone</a> going forward.
+This is the guarantee that binaries compiled with the v2.2.3 release will link and work
+without issue with binaries compiled with any later version of Outcome.</p>
+
+<p>This pretty much draws a line under further significant development of Outcome &ndash; it
+has now effectively entered &lsquo;sustaining&rsquo;, as big multinationals would term it i.e.
+only small bug fixes and maintenance for future toolchains and languages etc would
+be expected going forth from now.</p>
 
 
-        </div><p><small>Last revised: September 16, 2020 at 11:58:04 &#43;0100</small></p>
+
+        </div><p><small>Last revised: December 16, 2021 at 11:42:04 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./changelog/v22.html"><img src="./images/prev.png" alt="Prev"></a>
