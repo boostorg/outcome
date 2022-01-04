@@ -39,7 +39,7 @@
   
   <url>
     <loc>/alternatives.html</loc>
-    <lastmod>2021-12-16T11:42:04+00:00</lastmod>
+    <lastmod>2022-01-04T12:13:55+00:00</lastmod>
   </url>
   
   <url>
@@ -55,11 +55,6 @@
   <url>
     <loc>/experimental/map.html</loc>
     <lastmod>2020-12-16T14:14:42+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/alternatives/exceptions.html</loc>
-    <lastmod>2021-12-16T11:42:04+00:00</lastmod>
   </url>
   
   <url>
@@ -123,6 +118,11 @@
   </url>
   
   <url>
+    <loc>/alternatives/exceptions.html</loc>
+    <lastmod>2022-01-04T12:13:55+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/recipes.html</loc>
     <lastmod>2019-02-08T22:18:08+00:00</lastmod>
   </url>
@@ -160,11 +160,6 @@
   <url>
     <loc>/tutorial/essential/no-value/builtin.html</loc>
     <lastmod>2019-02-09T15:18:26+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/alternatives/error_code.html</loc>
-    <lastmod>2021-12-16T11:42:04+00:00</lastmod>
   </url>
   
   <url>
@@ -223,6 +218,11 @@
   </url>
   
   <url>
+    <loc>/alternatives/error_code.html</loc>
+    <lastmod>2022-01-04T12:13:55+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/reference/converters.html</loc>
     <lastmod>2018-12-15T17:49:37+00:00</lastmod>
   </url>
@@ -240,11 +240,6 @@
   <url>
     <loc>/tutorial/advanced/payload/copy_file3.html</loc>
     <lastmod>2019-02-08T22:18:08+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/alternatives/expected.html</loc>
-    <lastmod>2021-12-16T11:42:04+00:00</lastmod>
   </url>
   
   <url>
@@ -318,6 +313,11 @@
   </url>
   
   <url>
+    <loc>/alternatives/expected.html</loc>
+    <lastmod>2022-01-04T12:13:55+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/changelog/v22.html</loc>
     <lastmod>2021-02-23T17:37:27+00:00</lastmod>
   </url>
@@ -340,6 +340,11 @@
   <url>
     <loc>/tutorial/advanced/interop/app-map-filelib.html</loc>
     <lastmod>2019-02-11T13:38:04+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/alternatives/outcome.html</loc>
+    <lastmod>2022-01-04T12:13:55+00:00</lastmod>
   </url>
   
   <url>
@@ -415,6 +420,11 @@
   <url>
     <loc>/tutorial/advanced/interop/app-go.html</loc>
     <lastmod>2020-12-15T12:22:39+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/alternatives/leaf.html</loc>
+    <lastmod>2022-01-04T12:13:55+00:00</lastmod>
   </url>
   
   <url>
@@ -1430,14 +1440,14 @@
   </url>
   
   <url>
-    <loc>/tags/constructors.html</loc>
-    <lastmod>2019-06-24T21:48:18+01:00</lastmod>
+    <loc>/categories/constructors.html</loc>
+    <lastmod>2020-12-17T11:27:06+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/constructors.html</loc>
-    <lastmod>2020-12-17T11:27:06+00:00</lastmod>
+    <loc>/tags/constructors.html</loc>
+    <lastmod>2019-06-24T21:48:18+01:00</lastmod>
     <priority>0</priority>
   </url>
   
