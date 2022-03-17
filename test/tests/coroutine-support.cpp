@@ -154,7 +154,9 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_coroutine_generator, "Tests that results can 
   using namespace coroutines;
   auto check_generator = [](auto t) -> BOOST_OUTCOME_V2_NAMESPACE::outcome<int>
   {
+#ifndef BOOST_NO_EXCEPTIONS
     try
+#endif
     {
       int count = 0, ret = 0;
       while(t)
@@ -174,11 +176,13 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_coroutine_generator, "Tests that results can 
       }
       return ret;
     }
+#ifndef BOOST_NO_EXCEPTIONS
     catch(...)
     {
       BOOST_CHECK(false);  // exception must be put into outcome, nothing must throw here
       throw;
     }
+#endif
   };
   BOOST_CHECK(check_generator(generator_int(5)).value() == 7);
   BOOST_CHECK(check_generator(generator_error(5)).error() == boost::system::errc::not_enough_memory);
