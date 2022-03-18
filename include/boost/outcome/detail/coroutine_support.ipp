@@ -305,9 +305,11 @@ namespace awaitables
     {
     }
 
-    template <class Cont, bool suspend_initial, bool use_atomic> struct BOOST_OUTCOME_NODISCARD awaitable
+    template <class Cont, class Executor, bool suspend_initial, bool use_atomic> struct BOOST_OUTCOME_NODISCARD awaitable
     {
       using container_type = Cont;
+      using value_type = Cont;
+      using executor_type = Executor;
       using promise_type = outcome_promise_type<awaitable, suspend_initial, use_atomic, std::is_void<container_type>::value>;
       coroutine_handle<promise_type> _h;
 
@@ -330,6 +332,7 @@ namespace awaitables
           : _h(coroutine_handle<promise_type>::from_promise(p))
       {
       }
+      bool valid() const noexcept { return _h != nullptr; }
       bool await_ready() noexcept { return _h.promise().result_set.load(std::memory_order_acquire); }
       container_type await_resume()
       {
@@ -355,14 +358,14 @@ namespace awaitables
 #endif
     };
 
-    template <class ContType, bool suspend_initial, bool use_atomic> class generator
+    template <class ContType, class Executor, bool suspend_initial, bool use_atomic> struct generator
     {
       using container_type = ContType;
-
-    public:
+      using value_type = ContType;
+      using executor_type = Executor;
       class promise_type
       {
-        friend class generator;
+        friend struct generator;
         using result_set_type = std::conditional_t<use_atomic, std::atomic<int8_t>, fake_atomic<int8_t>>;
         union
         {
@@ -496,12 +499,16 @@ namespace awaitables
           : _h(coroutine_handle<promise_type>::from_promise(p))
       {
       }
-      explicit operator bool()  // could throw
+      explicit operator bool() const  // could throw
+      {
+        return valid();
+      }
+      bool valid() const  // could throw
       {
         auto &p = _h.promise();
         if(p.result_set.load(std::memory_order_acquire) == 0)
         {
-          _h();
+          const_cast<generator *>(this)->_h();
         }
         return p.result_set.load(std::memory_order_acquire) >= 0;
       }
@@ -550,27 +557,27 @@ BOOST_OUTCOME_COROUTINE_SUPPORT_NAMESPACE_EXPORT_BEGIN
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-template <class T> using eager = BOOST_OUTCOME_V2_NAMESPACE::awaitables::detail::awaitable<T, false, false>;
+template <class T, class Executor = void> using eager = BOOST_OUTCOME_V2_NAMESPACE::awaitables::detail::awaitable<T, Executor, false, false>;
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-template <class T> using atomic_eager = BOOST_OUTCOME_V2_NAMESPACE::awaitables::detail::awaitable<T, false, true>;
+template <class T, class Executor = void> using atomic_eager = BOOST_OUTCOME_V2_NAMESPACE::awaitables::detail::awaitable<T, Executor, false, true>;
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-template <class T> using lazy = BOOST_OUTCOME_V2_NAMESPACE::awaitables::detail::awaitable<T, true, false>;
+template <class T, class Executor = void> using lazy = BOOST_OUTCOME_V2_NAMESPACE::awaitables::detail::awaitable<T, Executor, true, false>;
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-template <class T> using atomic_lazy = BOOST_OUTCOME_V2_NAMESPACE::awaitables::detail::awaitable<T, true, true>;
+template <class T, class Executor = void> using atomic_lazy = BOOST_OUTCOME_V2_NAMESPACE::awaitables::detail::awaitable<T, Executor, true, true>;
 
 /*! AWAITING HUGO JSON CONVERSION TOOL
 SIGNATURE NOT RECOGNISED
 */
-template <class T> using generator = BOOST_OUTCOME_V2_NAMESPACE::awaitables::detail::generator<T, true, false>;
+template <class T, class Executor = void> using generator = BOOST_OUTCOME_V2_NAMESPACE::awaitables::detail::generator<T, Executor, true, false>;
 
 BOOST_OUTCOME_COROUTINE_SUPPORT_NAMESPACE_END
 #endif
