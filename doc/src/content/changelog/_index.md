@@ -21,7 +21,7 @@ with third party software such as [ASIO](https://think-async.com/Asio/).
 - None.
 
 ---
-## v2.2.3 17th March 2022 (Boost 1.79) [[release]](https://github.com/ned14/outcome/releases/tag/v2.2.3)
+## v2.2.3 1st April 2022 (Boost 1.79) [[release]](https://github.com/ned14/outcome/releases/tag/v2.2.3)
 
 ### Enhancements:
 

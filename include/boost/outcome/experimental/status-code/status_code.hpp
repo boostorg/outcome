@@ -550,10 +550,7 @@ public:
       return {};
     }
     status_code x;
-    if(!this->_domain->_do_erased_copy(x, *this, this->_domain->payload_info()))
-    {
-      abort();  // should not be possible
-    }
+    this->_domain->_do_erased_copy(x, *this, sizeof(*this));
     return x;
   }
 
@@ -593,21 +590,6 @@ public:
   constexpr status_code(Enum &&v) noexcept(std::is_nothrow_constructible<status_code, QuickStatusCodeType>::value)  // NOLINT
       : status_code(QuickStatusCodeType(static_cast<Enum &&>(v)))
   {
-  }
-
-  //! Explicit copy construction from an unknown status code. Note that this will be empty if its value type is not trivially copyable or would not fit into our storage or the source domain's `_do_erased_copy()` refused the copy.
-  explicit BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 status_code(const status_code<void> &v)  // NOLINT
-      : _base(typename _base::_value_type_constructor{}, v._domain_ptr(), value_type{})
-  {
-    const auto info = this->_domain->payload_info();
-    if(info.total_size <= sizeof(*this))
-    {
-      if(this->_domain->_do_erased_copy(*this, v, info))
-      {
-        return;
-      }
-    }
-    this->_domain = nullptr;
   }
 
   /**** By rights ought to be removed in any formal standard ****/
