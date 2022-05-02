@@ -116,6 +116,11 @@ they provide a cloning function, so this convenience function both clones the st
 the spare storage so stack backtraces etc are also cloned.</p></li>
 
 <li><p>Add type constraints to <code>success()</code> and <code>failure()</code> to disable them if they aren&rsquo;t available.</p></li>
+
+<li><p>Work around a bug in GCC&rsquo;s C++ Coroutines implementation whereby one gets an ICE from <code>gimplify_expr</code>
+in any <code>BOOST_OUTCOME_CO_TRY</code> taking even a mildly complex expression, which obviously is a showstopper.
+The work around assigns the failure type to a stack temporary before <code>co_return</code>-ing that
+temporary. Thanks to RVO pre-17 and copy elision since, this should add no runtime overhead.</p></li>
 </ul>
 
 <h3 id="bug-fixes">Bug fixes:</h3>
@@ -705,7 +710,7 @@ and Boost.Exception (these are <code>result.hpp</code> and <code>outcome.hpp</co
 
 
 
-        </div><p><small>Last revised: April 19, 2022 at 19:23:14 &#43;0100</small></p>
+        </div><p><small>Last revised: May 02, 2022 at 17:59:08 &#43;0100</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./videos.html"><img src="./images/prev.png" alt="Prev"></a>
