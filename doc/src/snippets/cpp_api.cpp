@@ -30,7 +30,7 @@ DEALINGS IN THE SOFTWARE.
 #include <cstring>  // for memcpy
 #include <string>
 
-#include "../../../include/boost/outcome/experimental/status-code/system_code_from_exception.hpp"
+#include "../../../include/boost/outcome/experimental/status-code/status-code/system_code_from_exception.hpp"
 #include "../../../include/boost/outcome/experimental/status_result.hpp"
 
 //! [function]
