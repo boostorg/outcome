@@ -51,7 +51,11 @@ DEALINGS IN THE SOFTWARE.
   BOOST_OUTCOME_V2_NAMESPACE_END
 
 #ifndef BOOST_NO_EXCEPTIONS
+#if !BOOST_OUTCOME_USE_SYSTEM_STATUS_CODE && __has_include("status-code/status-code/system_code_from_exception.hpp")
 #include "status-code/status-code/system_code_from_exception.hpp"
+#else
+#include <status-code/system_code_from_exception.hpp>
+#endif
 BOOST_OUTCOME_V2_NAMESPACE_BEGIN
 namespace awaitables
 {
