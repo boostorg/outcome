@@ -144,7 +144,7 @@ public:
   Does not check if domains are equal.
   */
   BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class ErasedType)  //
-  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(detail::type_erasure_is_safe<ErasedType, value_type>::value))
+  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(detail::is_domain_type_erasable_to<erased<ErasedType>, value_type>::value))
   explicit errored_status_code(const status_code<erased<ErasedType>> &v) noexcept(std::is_nothrow_copy_constructible<value_type>::value)
       : errored_status_code(detail::erasure_cast<value_type>(v.value()))  // NOLINT
   {
@@ -210,18 +210,16 @@ public:
 
   /***** KEEP THESE IN SYNC WITH STATUS_CODE *****/
   //! Implicit copy construction from any other status code if its value type is trivially copyable and it would fit into our storage
-  BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class DomainType)                                                                        //
-  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(std::is_trivially_copyable<typename DomainType::value_type>::value  //
-                                              &&detail::type_erasure_is_safe<value_type, typename DomainType::value_type>::value))
+  BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class DomainType)  //
+  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(detail::is_domain_type_erasable_to<DomainType, value_type>::value))
   errored_status_code(const status_code<DomainType> &v) noexcept
       : _base(v)  // NOLINT
   {
     _check();
   }
   //! Implicit copy construction from any other status code if its value type is trivially copyable and it would fit into our storage
-  BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class DomainType)                                                                        //
-  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(std::is_trivially_copyable<typename DomainType::value_type>::value  //
-                                              &&detail::type_erasure_is_safe<value_type, typename DomainType::value_type>::value))
+  BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class DomainType)  //
+  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(detail::is_domain_type_erasable_to<DomainType, value_type>::value))
   errored_status_code(const errored_status_code<DomainType> &v) noexcept
       : _base(static_cast<const status_code<DomainType> &>(v))  // NOLINT
   {
@@ -229,7 +227,7 @@ public:
   }
   //! Implicit move construction from any other status code if its value type is trivially copyable or move bitcopying and it would fit into our storage
   BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class DomainType)  //
-  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(detail::type_erasure_is_safe<value_type, typename DomainType::value_type>::value))
+  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(detail::is_domain_type_erasable_to<DomainType, value_type>::value))
   errored_status_code(status_code<DomainType> &&v) noexcept
       : _base(static_cast<status_code<DomainType> &&>(v))  // NOLINT
   {
@@ -237,7 +235,7 @@ public:
   }
   //! Implicit move construction from any other status code if its value type is trivially copyable or move bitcopying and it would fit into our storage
   BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class DomainType)  //
-  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(detail::type_erasure_is_safe<value_type, typename DomainType::value_type>::value))
+  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(detail::is_domain_type_erasable_to<DomainType, value_type>::value))
   errored_status_code(errored_status_code<DomainType> &&v) noexcept
       : _base(static_cast<status_code<DomainType> &&>(v))  // NOLINT
   {
