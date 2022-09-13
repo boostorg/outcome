@@ -640,26 +640,57 @@ public:
   {
   }
 
-  //! Explicit copy construction from an unknown status code. Note that this will be empty if its value type is not trivially copyable or would not fit into our storage or the source domain's `_do_erased_copy()` refused the copy.
+#if defined(_CPPUNWIND) || defined(__EXCEPTIONS) || defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE)
+  //! Explicit copy construction from an unknown status code. Note that this will throw an exception if its value type is not trivially copyable or would not fit into our storage or the source domain's `_do_erased_copy()` refused the copy.
   explicit BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 status_code(const status_code<void> &v)  // NOLINT
       : _base(typename _base::_value_type_constructor{}, v._domain_ptr(), value_type{})
   {
-    const auto info = this->_domain->payload_info();
-    if(info.total_size <= sizeof(*this))
+    status_code_domain::payload_info_t info{sizeof(value_type), sizeof(status_code), alignof(status_code)};
+    if(this->_domain->_do_erased_copy(*this, v, info))
     {
+      return;
+    }
+    struct _ final : public std::exception
+    {
+      virtual const char *what() const noexcept override { return "status_code: source domain's erased copy function returned failure or refusal"; }
+    };
+    throw _{};
+  }
+#endif
+  //! Tagged copy construction from an unknown status code. Note that this will be empty if its value type is not trivially copyable or would not fit into our storage or the source domain's `_do_erased_copy()` refused the copy.
+  BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR20 status_code(std::nothrow_t, const status_code<void> &v) noexcept  // NOLINT
+      : _base(typename _base::_value_type_constructor{}, v._domain_ptr(), value_type{})
+  {
+#if defined(_CPPUNWIND) || defined(__EXCEPTIONS) || defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE)
+    try
+#endif
+    {
+      status_code_domain::payload_info_t info{sizeof(value_type), sizeof(status_code), alignof(status_code)};
       if(this->_domain->_do_erased_copy(*this, v, info))
       {
         return;
       }
+      this->_domain = nullptr;
     }
-    this->_domain = nullptr;
+#if defined(_CPPUNWIND) || defined(__EXCEPTIONS) || defined(BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE)
+    catch(...)
+    {
+      this->_domain = nullptr;
+    }
+#endif
   }
 
   /**** By rights ought to be removed in any formal standard ****/
   //! Reset the code to empty.
-  BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 void clear() noexcept { *this = status_code(); }
+  BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 void clear() noexcept
+  {
+    *this = status_code();
+  }
   //! Return the erased `value_type` by value.
-  constexpr value_type value() const noexcept { return this->_value; }
+  constexpr value_type value() const noexcept
+  {
+    return this->_value;
+  }
 };
 
 namespace traits
