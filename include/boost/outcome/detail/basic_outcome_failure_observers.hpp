@@ -33,6 +33,8 @@ DEALINGS IN THE SOFTWARE.
 
 #include "basic_result_storage.hpp"
 
+#include <exception>
+
 BOOST_OUTCOME_V2_NAMESPACE_EXPORT_BEGIN
 
 namespace detail
