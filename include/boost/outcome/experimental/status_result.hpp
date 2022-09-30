@@ -34,7 +34,9 @@ DEALINGS IN THE SOFTWARE.
 #include "../basic_result.hpp"
 #include "../policy/fail_to_compile_observers.hpp"
 
-#if !BOOST_OUTCOME_USE_SYSTEM_STATUS_CODE && __has_include("status-code/status-code/system_error2.hpp")
+#if __PCPP_ALWAYS_TRUE__
+#include "status-code/status-code/system_error2.hpp"
+#elif !BOOST_OUTCOME_USE_SYSTEM_STATUS_CODE && __has_include("status-code/status-code/system_error2.hpp")
 #include "status-code/status-code/system_error2.hpp"
 #else
 #include <status-code/system_error2.hpp>
