@@ -48,4 +48,11 @@ BOOST_OUTCOME_AUTO_TEST_CASE(issues_0255_test, "status_result<int> not usable fr
   BOOST_CHECK(issues255::test().value() == 42);
 }
 
+#else
+
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0255_test, "status_result<int> not usable from constexpr in C++ 20")
+{
+  BOOST_CHECK(true);
+}
+
 #endif
