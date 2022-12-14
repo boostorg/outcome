@@ -37,6 +37,7 @@ DEALINGS IN THE SOFTWARE.
 
 #include <atomic>
 #include <cassert>
+#include <exception>
 
 #if __cpp_impl_coroutine || (defined(_MSC_VER) && __cpp_coroutines) || (defined(__clang__) && __cpp_coroutines)
 #ifndef BOOST_OUTCOME_HAVE_NOOP_COROUTINE
