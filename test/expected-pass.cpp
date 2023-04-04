@@ -589,11 +589,14 @@ void expected_from_catch_block()
   }
   catch(...)
   {
+
+#if !BOOST_WORKAROUND( BOOST_MSVC, < 1930 )
     stde::exception_or<int> e(stde::make_unexpected(std::current_exception()));
 
     BOOST_TEST_THROWS(e.value(), std::exception);
     BOOST_TEST_EQ(e.has_value(), false);
     BOOST_TEST_EQ(static_cast<bool>(e), false);
+#endif
   }
 }
 
@@ -638,6 +641,7 @@ void expected_from_value_error_condition()
 
 void expected_from_error_error_condition()
 {
+#if !BOOST_WORKAROUND( BOOST_MSVC, < 1930 )
   // From stde::unexpected constructor.
   stde::expected<int, std::error_condition> e(stde::make_unexpected<std::error_condition>(std::make_error_condition(std::errc::invalid_argument)));
   auto error_from_except_check = [](const stde::bad_expected_access<std::error_condition> &except) { return std::errc(except.error().value()) == std::errc::invalid_argument; };
@@ -651,11 +655,13 @@ void expected_from_error_error_condition()
   }
   BOOST_TEST_EQ(e.has_value(), false);
   BOOST_TEST_EQ(static_cast<bool>(e), false);
+#endif
 }
 
 
 void expected_from_error_convertible()
 {
+#if !BOOST_WORKAROUND( BOOST_MSVC, < 1930 )
   {
     stde::expected<int, short> e1 = stde::make_unexpected<short>(1);
     stde::expected<int, long> e2(e1);
@@ -670,6 +676,7 @@ void expected_from_error_convertible()
     BOOST_TEST_EQ(static_cast<bool>(e2), false);
     BOOST_TEST_EQ(e2.error(), 1);
   }
+#endif
 }
 
 void except_valid_constexpr_int()
@@ -791,6 +798,7 @@ void expected_from_in_place_error()
 
 void expected_from_exception_catch()
 {
+#if !BOOST_WORKAROUND( BOOST_MSVC, < 1930 )
   // From catch block
   try
   {
@@ -804,6 +812,7 @@ void expected_from_exception_catch()
     BOOST_TEST_EQ(e.has_value(), false);
     BOOST_TEST_EQ(static_cast<bool>(e), false);
   }
+#endif
 }
 
 #if 0

@@ -87,6 +87,8 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_comparison, "Tests that the outcome c
     // BOOST_CHECK(e != f);
     BOOST_CHECK(f != g);
   }
+#if !(BOOST_WORKAROUND( BOOST_GCC_VERSION, >= 100000 ) && BOOST_WORKAROUND( BOOST_GCC_VERSION, < 110000 ))
+  // fatal error: template instantiation depth exceeds maximum of 5000
   // upconverting outcome comparison, so outcome<int>==result<int> etc
   {
     outcome<int> a(1);
@@ -97,6 +99,7 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_comparison, "Tests that the outcome c
     // BOOST_CHECK(a != e);
     // BOOST_CHECK(a != f);
   }
+#endif
   // Should I do outcome<int>(5) == 5? Unsure if it's wise
 #endif
 }

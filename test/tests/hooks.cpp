@@ -47,6 +47,8 @@ namespace hook_test
   {
     using boost::system::error_code::error_code;
     error_code() = default;
+    error_code(int) = delete;
+    error_code(std::string) = delete;
     error_code(boost::system::error_code ec)  // NOLINT
     : boost::system::error_code(ec)
     {
@@ -72,7 +74,7 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_result_hooks, "Tests that you can hook result
   using namespace hook_test;
   result<int> a(5);
   BOOST_CHECK(!strcmp(extended_error_info, "5"));  // NOLINT
-  result<std::string> b("niall");
+  result<std::string> b(std::string("niall"));
   BOOST_CHECK(!strcmp(extended_error_info, "niall"));  // NOLINT
 }
 
@@ -97,13 +99,14 @@ namespace hook_test
   }
 }  // namespace hook_test
 
+#if !BOOST_WORKAROUND( BOOST_MSVC, < 1930 )
 BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_hooks, "Tests that you can hook outcome's conversion from a result")
 {
   using namespace hook_test;
   outcome<int> a(result<int>(5));
   BOOST_REQUIRE(a.has_exception());  // NOLINT
   BOOST_CHECK(a.exception() == "5");
-  outcome<std::string> b(result<std::string>("niall"));
+  outcome<std::string> b(result<std::string>(std::string("niall")));
   BOOST_CHECK(b.exception() == "niall");
 
   // Make sure hook does not fire for any other kind of outcome copy or move, only when converting from our custom result only
@@ -113,3 +116,4 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_hooks, "Tests that you can hook outco
   outcome<int> e(BOOST_OUTCOME_V2_NAMESPACE::result<int>(5));
   BOOST_CHECK(!e.has_exception());
 }
+#endif
