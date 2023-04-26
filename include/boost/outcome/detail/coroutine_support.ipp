@@ -49,7 +49,7 @@ DEALINGS IN THE SOFTWARE.
 #endif
 #endif
 
-#if BOOST_OUTCOME_COROUTINE_HEADER_TYPE && (__cpp_impl_coroutine || (defined(_MSC_VER) && __cpp_coroutines) || (defined(__clang__) && __cpp_coroutines))
+#if BOOST_OUTCOME_COROUTINE_HEADER_TYPE && (__cpp_impl_coroutine || (defined(_MSC_VER) && __cpp_coroutines))
 #ifndef BOOST_OUTCOME_HAVE_NOOP_COROUTINE
 #if defined(__has_builtin)
 #if __has_builtin(__builtin_coro_noop) || (!defined(__clang__) && __GNUC__ >= 10)
