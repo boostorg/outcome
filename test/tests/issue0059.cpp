@@ -34,7 +34,7 @@ DEALINGS IN THE SOFTWARE.
 
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_0059_test, "result<NonMovable> supported?")
 {
-#if defined(_MSC_VER) || __cplusplus >= 201700
+#if (defined(_MSC_VER) && !defined(__clang__)) || __cplusplus >= 201700
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   struct udt
   {
