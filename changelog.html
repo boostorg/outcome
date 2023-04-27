@@ -118,6 +118,17 @@
 
 <h3 id="bug-fixes">Bug fixes:</h3>
 
+<p><a href="https://github.com/ned14/outcome/issues/273">#273</a>
+- Changes to other Boost libraries had caused Boost.Outcome&rsquo;s test suite to fail to compile for some
+compiler and C++ language configurations in recent releases. Thanks to work contributed by @alandefreitas
+and @pdimov, Boost.Outcome now CI tests a wide range of compilers and configurations and it
+is believed all those corner case issues have been fixed or worked around, for the compilers
+and configurations within that CI matrix.</p>
+
+<p>Standalone Outcome&rsquo;s test suite was never affected, as it did not have Boost changing underneath it.
+Nevertheless, a few of the compiler parse bug workarounds will have improved compatibility there
+too for atyical toolchain choices.</p>
+
 <hr />
 
 <h2 id="v2-2-6-24th-march-2023-boost-1-82-release-https-github-com-ned14-outcome-releases-tag-v2-2-6">v2.2.6 24th March 2023 (Boost 1.82) <a href="https://github.com/ned14/outcome/releases/tag/v2.2.6">[release]</a></h2>
@@ -752,7 +763,7 @@ and Boost.Exception (these are <code>result.hpp</code> and <code>outcome.hpp</co
 
 
 
-        </div><p><small>Last revised: April 18, 2023 at 20:57:50 &#43;0100</small></p>
+        </div><p><small>Last revised: April 27, 2023 at 13:49:22 &#43;0100</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./videos.html"><img src="./images/prev.png" alt="Prev"></a>
