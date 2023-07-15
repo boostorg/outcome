@@ -193,7 +193,7 @@ namespace detail
         }
         if(ret == nullptr && count < max_items)
         {
-          ret = new(std::addressof(items[count++].domain)) _boost_error_code_domain(category);
+          ret = new(BOOST_OUTCOME_SYSTEM_ERROR2_ADDRESS_OF(items[count++].domain)) _boost_error_code_domain(category);
         }
         unlock();
         return ret;
@@ -320,7 +320,7 @@ namespace boost
 {
   namespace system
   {
-    inline BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::status_code<BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::erased<int>> make_status_code(error_code c) noexcept
+    inline BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::erased_status_code<int> make_status_code(error_code c) noexcept
     {
       if(c.category() == detail::interop_category())
       {
