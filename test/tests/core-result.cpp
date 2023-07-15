@@ -27,6 +27,8 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
+#define BOOST_OUTCOME_USE_STD_ADDRESSOF 1
+
 #ifdef TESTING_WG21_EXPERIMENTAL_RESULT
 #include <boost/outcome/experimental/result.hpp>
 #define BOOST_OUTCOME_AUTO_TEST_CASE(...) BOOST_AUTO_TEST_CASE(__VA_ARGS__)
@@ -385,6 +387,8 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_result, "Tests that the result works as inten
     result<udt4> j3(j1);
     result<udt4> j4(std::move(j0));
     result<udt4> j5(std::move(j1));
+    (void) j3;
+    (void) j5;
     j2 = j0;
     j2 = j1;
     j2 = std::move(j0);
@@ -397,6 +401,8 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_result, "Tests that the result works as inten
     result<udt5> k3(k1);
     result<udt5> k4(std::move(k0));
     result<udt5> k5(std::move(k1));
+    (void) k3;
+    (void) k5;
     k2 = k0;
     k2 = k1;
     k2 = std::move(k0);
