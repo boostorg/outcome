@@ -1,5 +1,5 @@
-/* UPDATED BY SCRIPT
-(C) 2017-2023 Niall Douglas <http://www.nedproductions.biz/> (225 commits)
+/* Unit testing for outcomes
+(C) 2013-2023 Niall Douglas <http://www.nedproductions.biz/> (1 commit)
 
 
 Boost Software License - Version 1.0 - August 17th, 2003
@@ -27,7 +27,35 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-// Note the second line of this file must ALWAYS be the git SHA, third line ALWAYS the git SHA update time
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_REF 441e3164801151ae7671ea331a04b4a712f505e9
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_DATE "2023-10-31 21:54:05 +00:00"
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_UNIQUE 441e3164
+#include <boost/outcome/outcome.hpp>
+
+#include <boost/test/unit_test.hpp>
+#include <boost/test/unit_test_monitor.hpp>
+
+namespace
+{
+  namespace outcome = BOOST_OUTCOME_V2_NAMESPACE;
+
+  struct MovableError
+  {
+    MovableError() = default;
+    MovableError(MovableError &&) = default;
+    MovableError &operator=(MovableError &&) = default;
+  };
+
+  boost::system::error_code make_error_code(MovableError const &)
+  {
+    return {};
+  }
+  void outcome_throw_as_system_error_with_payload(MovableError) {}
+
+  template <typename T> using MyResult = outcome::result<T, MovableError>;
+}  // namespace
+
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0291_test, "move of a non-const available void Result fails to compile")
+{
+  MyResult<int> f(outcome::success());
+  MyResult<void> g(outcome::success());
+  std::move(f).value();
+  std::move(g).value();
+}
