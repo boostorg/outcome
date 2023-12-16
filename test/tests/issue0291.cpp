@@ -32,6 +32,8 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 
+#pragma clang diagnostic ignored "-Wunneeded-internal-declaration"
+
 namespace
 {
   namespace outcome = BOOST_OUTCOME_V2_NAMESPACE;
