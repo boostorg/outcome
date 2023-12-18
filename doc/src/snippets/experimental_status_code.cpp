@@ -34,7 +34,7 @@ DEALINGS IN THE SOFTWARE.
 #if !defined(__GNUC__) || __GNUC__ > 6  // GCC 6 chokes on this
 
 #include "../../../include/boost/outcome/experimental/status_result.hpp"
-#include "../../../include/boost/outcome/experimental//status-code/nested_status_code.hpp"
+#include "../../../include/boost/outcome/experimental/status-code/nested_status_code.hpp"
 
 /* Original note to WG21:
 
