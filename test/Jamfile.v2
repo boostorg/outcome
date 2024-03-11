@@ -9,8 +9,8 @@
 # See http://www.boost.org/libs/outcome for documentation.
 
 import testing ;
-import ../../config/checks/config : requires ;
-import ../../predef/tools/check/predef : check require : predef-check predef-require ;
+import config : requires ;
+import predef : check require : predef-check predef-require ;
 
 project
     : requirements
@@ -18,7 +18,7 @@ project
       [ predef-require "!BOOST_COMP_GNUC" or "BOOST_COMP_GNUC >= 6.0" ]
       [ predef-require "!BOOST_COMP_CLANG" or "BOOST_COMP_CLANG >= 4.0" ]
       <define>BOOST_TEST_MODULE=Outcome
-      <library>../../test/build//boost_unit_test_framework
+      <library>/boost/test//boost_unit_test_framework
     ;
 
 {
