@@ -1,5 +1,5 @@
 /* Proposed SG14 status_code
-(C) 2018-2023 Niall Douglas <http://www.nedproductions.biz/> (5 commits)
+(C) 2018-2024 Niall Douglas <http://www.nedproductions.biz/> (5 commits)
 File Created: Feb 2018
 
 
@@ -36,18 +36,18 @@ DEALINGS IN THE SOFTWARE.
 
 BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
 
-/*! An errored `system_code` which is always a failure. The closest equivalent to
-`std::error_code`, except it cannot be null and cannot be modified.
+/*! An errored `system_code` which must be a failure upon copy or move or
+non-default construction. The closest equivalent to `std::error_code`, except
+it cannot be modified.
 
 This refines `system_code` into an `error` object meeting the requirements of
 [P0709 Zero-overhead deterministic exceptions](https://wg21.link/P0709).
 
 Differences from `system_code`:
 
-- Always a failure (this is checked at construction, and if not the case,
-the program is terminated as this is a logic error)
-- No default construction.
-- No empty state possible.
+- Almost always a failure (this is checked at copy or move and non-default
+construction, and if not the case, the program is terminated as this is a logic
+error)
 - Is immutable.
 
 As with `system_code`, it remains guaranteed to be two CPU registers in size,
