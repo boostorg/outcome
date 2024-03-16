@@ -1,5 +1,5 @@
 /* Proposed SG14 status_code
-(C) 2018-2023 Niall Douglas <http://www.nedproductions.biz/> (5 commits)
+(C) 2018-2024 Niall Douglas <http://www.nedproductions.biz/> (5 commits)
 File Created: Feb 2018
 
 
@@ -39,6 +39,8 @@ DEALINGS IN THE SOFTWARE.
 #include "win32_code.hpp"
 
 #ifndef BOOST_OUTCOME_STANDARDESE_IS_IN_THE_HOUSE
+#include <stdio.h>  // needed by mingw for comdef.h to work
+
 #include <comdef.h>
 #endif
 
