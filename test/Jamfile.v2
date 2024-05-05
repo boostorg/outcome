@@ -9,7 +9,9 @@
 # See http://www.boost.org/libs/outcome for documentation.
 
 import testing ;
+import-search /boost/config/checks ;
 import config : requires ;
+import-search /boost/predef/tools/check ;
 import predef : check require : predef-check predef-require ;
 
 project
