@@ -161,6 +161,7 @@ extern "C"
 
 #define BOOST_OUTCOME_C_RESULT_STATUS_CODE(ident) struct cxx_result_status_code_##ident
 
+#define BOOST_OUTCOME_C_TO_RESULT_STATUS_CODE(ident, ...) to_##ident(__VA_ARGS__)
 #define BOOST_OUTCOME_C_MAKE_RESULT_STATUS_CODE_SUCCESS(ident, ...) outcome_make_result_##ident##_success(__VA_ARGS__)
 #define BOOST_OUTCOME_C_MAKE_RESULT_STATUS_CODE_FAILURE_POSIX(ident, ...) outcome_make_result_##ident##_failure_posix(__VA_ARGS__)
 #define BOOST_OUTCOME_C_MAKE_RESULT_STATUS_CODE_FAILURE_SYSTEM(ident, ...) outcome_make_result_##ident##_failure_system(__VA_ARGS__)
@@ -182,6 +183,7 @@ extern "C"
 #define BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM(ident, R) BOOST_OUTCOME_C_DECLARE_RESULT_STATUS_CODE(system_##ident, R, struct cxx_status_code_system)
 #define BOOST_OUTCOME_C_RESULT_SYSTEM(ident) BOOST_OUTCOME_C_RESULT_STATUS_CODE(system_##ident)
 
+#define BOOST_OUTCOME_C_TO_RESULT_SYSTEM_CODE(ident, ...) to_system_##ident(__VA_ARGS__)
 #define BOOST_OUTCOME_C_MAKE_RESULT_SYSTEM_SUCCESS(ident, ...) BOOST_OUTCOME_C_MAKE_RESULT_STATUS_CODE_SUCCESS(system_##ident, __VA_ARGS__)
 #define BOOST_OUTCOME_C_MAKE_RESULT_SYSTEM_FAILURE_POSIX(ident, ...) BOOST_OUTCOME_C_MAKE_RESULT_STATUS_CODE_FAILURE_POSIX(system_##ident, __VA_ARGS__)
 #define BOOST_OUTCOME_C_MAKE_RESULT_SYSTEM_FAILURE_SYSTEM(ident, ...) BOOST_OUTCOME_C_MAKE_RESULT_STATUS_CODE_FAILURE_SYSTEM(system_##ident, __VA_ARGS__)
