@@ -121,7 +121,7 @@ extern "C"
     pun.c = v;                                                                                                                                                 \
     return std::move(pun.cpp);                                                                                                                                 \
   }                                                                                                                                                            \
-  inline BOOST_OUTCOME_C_NODISCARD cxx_result_status_code_##ident to_##ident(BOOST_OUTCOME_V2_NAMESPACE::experimental::status_result<R> v)                                 \
+  BOOST_OUTCOME_C_NODISCARD inline cxx_result_status_code_##ident to_##ident(BOOST_OUTCOME_V2_NAMESPACE::experimental::status_result<R> v)                                 \
   {                                                                                                                                                            \
     union type_punner_t                                                                                                                                        \
     {                                                                                                                                                          \
@@ -148,20 +148,20 @@ extern "C"
     unsigned flags;                                                                                                                                            \
     S error;                                                                                                                                                   \
   };                                                                                                                                                           \
-  static BOOST_OUTCOME_C_INLINE BOOST_OUTCOME_C_NODISCARD struct cxx_result_status_code_##ident outcome_make_result_##ident##_success(R value)                             \
+  BOOST_OUTCOME_C_NODISCARD static BOOST_OUTCOME_C_INLINE struct cxx_result_status_code_##ident outcome_make_result_##ident##_success(R value)                             \
   {                                                                                                                                                            \
     struct cxx_result_status_code_##ident ret;                                                                                                                 \
     outcome_make_result_status_code_success((void *) &ret, sizeof(ret), offsetof(struct cxx_result_status_code_##ident, flags), (const void *) &value,         \
                                             sizeof(value));                                                                                                    \
     return ret;                                                                                                                                                \
   }                                                                                                                                                            \
-  static BOOST_OUTCOME_C_INLINE BOOST_OUTCOME_C_NODISCARD struct cxx_result_status_code_##ident outcome_make_result_##ident##_failure_posix(int errcode)                   \
+  BOOST_OUTCOME_C_NODISCARD static BOOST_OUTCOME_C_INLINE struct cxx_result_status_code_##ident outcome_make_result_##ident##_failure_posix(int errcode)                   \
   {                                                                                                                                                            \
     struct cxx_result_status_code_##ident ret;                                                                                                                 \
     outcome_make_result_status_code_failure_posix((void *) &ret, sizeof(ret), offsetof(struct cxx_result_status_code_##ident, flags), errcode);                \
     return ret;                                                                                                                                                \
   }                                                                                                                                                            \
-  static BOOST_OUTCOME_C_INLINE BOOST_OUTCOME_C_NODISCARD struct cxx_result_status_code_##ident outcome_make_result_##ident##_failure_system(intptr_t errcode)             \
+  BOOST_OUTCOME_C_NODISCARD static BOOST_OUTCOME_C_INLINE struct cxx_result_status_code_##ident outcome_make_result_##ident##_failure_system(intptr_t errcode)             \
   {                                                                                                                                                            \
     struct cxx_result_status_code_##ident ret;                                                                                                                 \
     outcome_make_result_status_code_failure_system((void *) &ret, sizeof(ret), offsetof(struct cxx_result_status_code_##ident, flags), errcode);               \
@@ -441,7 +441,7 @@ BOOST_OUTCOME_V2_NAMESPACE_END
     }                                                                                                                                                          \
   };                                                                                                                                                           \
   BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END                                                                                                                                  \
-  extern "C" BOOST_OUTCOME_C_WEAK BOOST_OUTCOME_C_NODISCARD struct cxx_result_status_code_system_##ident outcome_make_result_##ident##_failure_system_enum_##enum_name(    \
+  extern "C" BOOST_OUTCOME_C_NODISCARD BOOST_OUTCOME_C_WEAK struct cxx_result_status_code_system_##ident outcome_make_result_##ident##_failure_system_enum_##enum_name(    \
   enum enum_name v)                                                                                                                                            \
   {                                                                                                                                                            \
     return BOOST_OUTCOME_V2_NAMESPACE::experimental::detail::outcome_make_result_failure_system_enum<struct cxx_result_status_code_system_##ident>(v);               \
