@@ -31,24 +31,51 @@ DEALINGS IN THE SOFTWARE.
 #ifndef BOOST_OUTCOME_EXPERIMENTAL_RESULT_H
 #define BOOST_OUTCOME_EXPERIMENTAL_RESULT_H
 
+#include <assert.h>
 #include <stddef.h>  // for size_t
 #include <stdint.h>  // for intptr_t
 
 #include "../detail/try.h"
 
-#if __STDC_VERSION__ >= 199900L
-#define BOOST_OUTCOME_C_INLINE inline
+#ifndef BOOST_OUTCOME_C_WEAK
+#ifdef _MSC_VER
+#define BOOST_OUTCOME_C_WEAK inline
 #else
-#define BOOST_OUTCOME_C_INLINE
+#define BOOST_OUTCOME_C_WEAK __attribute__((weak))
+#endif
 #endif
 
+#ifndef BOOST_OUTCOME_C_MSVC_FORCE_EMIT
+#ifdef _MSC_VER
+#ifdef __cplusplus
+#define BOOST_OUTCOME_C_MSVC_FORCE_EMIT(x) extern "C" __declspec(selectany) void *x##_emit = x;
+#else
+#define BOOST_OUTCOME_C_MSVC_FORCE_EMIT(x) extern __declspec(selectany) void *x##_emit = x;
+#endif
+#else
+#define BOOST_OUTCOME_C_MSVC_FORCE_EMIT(x)
+#endif
+#endif
+
+
 #ifndef BOOST_OUTCOME_C_NODISCARD
-#if defined __STDC_VERSION__ && __STDC_VERSION__ >= 202000L
+#if __STDC_VERSION__ >= 202000L || __cplusplus >= 201700L
 #define BOOST_OUTCOME_C_NODISCARD [[nodiscard]]
+#ifdef __cplusplus
+#define BOOST_OUTCOME_C_NODISCARD_EXTERN_C extern "C" [[nodiscard]]
+#else
+#define BOOST_OUTCOME_C_NODISCARD_EXTERN_C [[nodiscard]] extern
+#endif
 #elif defined(__GNUC__) || defined(__clang__)
 #define BOOST_OUTCOME_C_NODISCARD __attribute__((warn_unused_result))
+#ifdef __cplusplus
+#define BOOST_OUTCOME_C_NODISCARD_EXTERN_C extern "C" __attribute__((warn_unused_result))
+#else
+#define BOOST_OUTCOME_C_NODISCARD_EXTERN_C extern __attribute__((warn_unused_result))
+#endif
 #else
 #define BOOST_OUTCOME_C_NODISCARD
+#define BOOST_OUTCOME_C_NODISCARD_EXTERN_C extern
 #endif
 #endif
 
@@ -90,9 +117,9 @@ extern "C"
 
 #define BOOST_OUTCOME_C_STATUS_CODE(ident) struct cxx_status_code_##ident
 
-  extern void outcome_make_result_status_code_success(void *out, size_t bytes, size_t offset, const void *toset, size_t tosetbytes);
-  extern void outcome_make_result_status_code_failure_posix(void *out, size_t bytes, size_t offset, int errcode);
-  extern void outcome_make_result_status_code_failure_system(void *out, size_t bytes, size_t offset, intptr_t errcode);
+  extern BOOST_OUTCOME_C_WEAK void outcome_make_result_status_code_success(void *out, size_t bytes, size_t offset, const void *toset, size_t tosetbytes);
+  extern BOOST_OUTCOME_C_WEAK void outcome_make_result_status_code_failure_posix(void *out, size_t bytes, size_t offset, int errcode);
+  extern BOOST_OUTCOME_C_WEAK void outcome_make_result_status_code_failure_system(void *out, size_t bytes, size_t offset, intptr_t errcode);
   extern int outcome_status_code_equal(const void *a, const void *b);
   extern int outcome_status_code_equal_generic(const void *a, int errcode);
   extern const char *outcome_status_code_message(const void *a);
@@ -148,26 +175,32 @@ extern "C"
     unsigned flags;                                                                                                                                            \
     S error;                                                                                                                                                   \
   };                                                                                                                                                           \
-  BOOST_OUTCOME_C_NODISCARD static BOOST_OUTCOME_C_INLINE struct cxx_result_status_code_##ident outcome_make_result_##ident##_success(R value)                             \
+  BOOST_OUTCOME_C_NODISCARD_EXTERN_C BOOST_OUTCOME_C_WEAK struct cxx_result_status_code_##ident outcome_make_result_##ident##_success(R value)                             \
   {                                                                                                                                                            \
     struct cxx_result_status_code_##ident ret;                                                                                                                 \
+    assert(outcome_make_result_status_code_success); /* If this fails, you need to compile this file at least once in C++. */                                  \
     outcome_make_result_status_code_success((void *) &ret, sizeof(ret), offsetof(struct cxx_result_status_code_##ident, flags), (const void *) &value,         \
                                             sizeof(value));                                                                                                    \
     return ret;                                                                                                                                                \
   }                                                                                                                                                            \
-  BOOST_OUTCOME_C_NODISCARD static BOOST_OUTCOME_C_INLINE struct cxx_result_status_code_##ident outcome_make_result_##ident##_failure_posix(int errcode)                   \
+  BOOST_OUTCOME_C_MSVC_FORCE_EMIT(outcome_make_result_##ident##_success)                                                                                             \
+  BOOST_OUTCOME_C_NODISCARD_EXTERN_C BOOST_OUTCOME_C_WEAK struct cxx_result_status_code_##ident outcome_make_result_##ident##_failure_posix(int errcode)                   \
   {                                                                                                                                                            \
     struct cxx_result_status_code_##ident ret;                                                                                                                 \
+    assert(outcome_make_result_status_code_failure_posix); /* If this fails, you need to compile this file at least once in C++. */                            \
     outcome_make_result_status_code_failure_posix((void *) &ret, sizeof(ret), offsetof(struct cxx_result_status_code_##ident, flags), errcode);                \
     return ret;                                                                                                                                                \
   }                                                                                                                                                            \
-  BOOST_OUTCOME_C_NODISCARD static BOOST_OUTCOME_C_INLINE struct cxx_result_status_code_##ident outcome_make_result_##ident##_failure_system(intptr_t errcode)             \
+  BOOST_OUTCOME_C_MSVC_FORCE_EMIT(outcome_make_result_##ident##_failure_posix)                                                                                       \
+  BOOST_OUTCOME_C_NODISCARD_EXTERN_C BOOST_OUTCOME_C_WEAK struct cxx_result_status_code_##ident outcome_make_result_##ident##_failure_system(intptr_t errcode)             \
   {                                                                                                                                                            \
     struct cxx_result_status_code_##ident ret;                                                                                                                 \
+    assert(outcome_make_result_status_code_failure_system); /* If this fails, you need to compile this file at least once in C++. */                           \
     outcome_make_result_status_code_failure_system((void *) &ret, sizeof(ret), offsetof(struct cxx_result_status_code_##ident, flags), errcode);               \
     return ret;                                                                                                                                                \
   }                                                                                                                                                            \
-  BOOST_OUTCOME_C_DECLARE_RESULT_STATUS_CODE_CXX(ident, R, S)
+  BOOST_OUTCOME_C_MSVC_FORCE_EMIT(outcome_make_result_##ident##_failure_system)                                                                                      \
+  BOOST_OUTCOME_C_DECLARE_RESULT_STATUS_CODE_CXX(ident, R, S);
 
 #define BOOST_OUTCOME_C_RESULT_STATUS_CODE(ident) struct cxx_result_status_code_##ident
 
@@ -239,7 +272,7 @@ extern "C"
 #ifndef __cplusplus
 // Declares the function in C, needs to occur at least once in a C++ source file to get implemented
 #define BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM_FROM_ENUM(ident, enum_name, uuid, ...)                                                                                       \
-  extern BOOST_OUTCOME_C_NODISCARD struct cxx_result_status_code_system_##ident outcome_make_result_##ident##_failure_system_enum_##enum_name(enum enum_name v);
+  BOOST_OUTCOME_C_NODISCARD_EXTERN_C struct cxx_result_status_code_system_##ident outcome_make_result_##ident##_failure_system_enum_##enum_name(enum enum_name v);
 #else
 }
 
@@ -257,22 +290,10 @@ extern "C"
 #include <algorithm>
 #include <cstring>
 
-#ifndef BOOST_OUTCOME_C_WEAK
-#ifdef _MSC_VER
-#define BOOST_OUTCOME_C_WEAK inline
-#else
-#define BOOST_OUTCOME_C_WEAK __attribute__((weak))
+#ifdef __GNUC__
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 #endif
-#endif
-
-#ifndef BOOST_OUTCOME_C_MSVC_FORCE_EMIT
-#ifdef _MSC_VER
-#define BOOST_OUTCOME_C_MSVC_FORCE_EMIT(x) extern "C" __declspec(selectany) void *x##_emit = x;
-#else
-#define BOOST_OUTCOME_C_MSVC_FORCE_EMIT(x)
-#endif
-#endif
-
 
 // You need to include this C header in at least one C++ source file to have these C helper functions be implemented
 extern "C" BOOST_OUTCOME_C_WEAK void outcome_make_result_status_code_success(void *out, size_t bytes, size_t offset, const void *toset, size_t tosetbytes)
@@ -422,8 +443,8 @@ namespace experimental
       memcpy((void *) ((char *) &ret + offset), (const void *) ((const char *) &pun.c + punoffset), tocopy);
       return ret;
     }
-  }
-}
+  }  // namespace detail
+}  // namespace experimental
 BOOST_OUTCOME_V2_NAMESPACE_END
 
 // Unique UUID for the enum PLEASE use https://www.random.org/cgi-bin/randbyte?nbytes=16&format=h
@@ -448,6 +469,9 @@ BOOST_OUTCOME_V2_NAMESPACE_END
   }                                                                                                                                                            \
   BOOST_OUTCOME_C_MSVC_FORCE_EMIT(outcome_make_result_##ident##_failure_system_enum_##enum_name)
 
+#ifdef __GNUC__
+#pragma GCC diagnostic pop
+#endif
 
 #endif
 
