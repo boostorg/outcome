@@ -200,7 +200,7 @@ extern "C"
     return ret;                                                                                                                                                \
   }                                                                                                                                                            \
   BOOST_OUTCOME_C_MSVC_FORCE_EMIT(outcome_make_result_##ident##_failure_system)                                                                                      \
-  BOOST_OUTCOME_C_DECLARE_RESULT_STATUS_CODE_CXX(ident, R, S);
+  BOOST_OUTCOME_C_DECLARE_RESULT_STATUS_CODE_CXX(ident, R, S)
 
 #define BOOST_OUTCOME_C_RESULT_STATUS_CODE(ident) struct cxx_result_status_code_##ident
 
@@ -290,7 +290,7 @@ extern "C"
 #include <algorithm>
 #include <cstring>
 
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Wmaybe-uninitialized"
 #endif
@@ -469,7 +469,7 @@ BOOST_OUTCOME_V2_NAMESPACE_END
   }                                                                                                                                                            \
   BOOST_OUTCOME_C_MSVC_FORCE_EMIT(outcome_make_result_##ident##_failure_system_enum_##enum_name)
 
-#ifdef __GNUC__
+#if defined(__GNUC__) && !defined(__clang__)
 #pragma GCC diagnostic pop
 #endif
 
