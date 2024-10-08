@@ -1,5 +1,5 @@
-/* UPDATED BY SCRIPT
-(C) 2017-2024 Niall Douglas <http://www.nedproductions.biz/> (225 commits)
+/* Link testing for outcomes
+(C) 2024 Niall Douglas <http://www.nedproductions.biz/> (6 commits)
 
 
 Boost Software License - Version 1.0 - August 17th, 2003
@@ -27,7 +27,55 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-// Note the second line of this file must ALWAYS be the git SHA, third line ALWAYS the git SHA update time
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_REF 2a8ff2b0ca37e4627b0d9919b653fee7d4cc6968
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_DATE "2024-09-04 14:48:43 +00:00"
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_UNIQUE 2a8ff2b0
+#ifndef BOOST_OUTCOME_TEST_LINK_EXPERIMENTAL_C_RESULT_H
+#define BOOST_OUTCOME_TEST_LINK_EXPERIMENTAL_C_RESULT_H
+
+#include <boost/outcome/experimental/result.h>
+
+#if MYLIB_SOURCE
+#ifdef _MSC_VER
+#define MYLIB_DECL __declspec(dllexport)
+#else
+#define MYLIB_DECL __attribute__((visibility("default")))
+#endif
+#else
+#define MYLIB_DECL
+#endif
+
+BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM(mylib, intptr_t);
+
+typedef BOOST_OUTCOME_C_RESULT_SYSTEM(mylib) mylib_result;
+
+static int is_result_ok(mylib_result r)
+{
+  return BOOST_OUTCOME_C_RESULT_HAS_VALUE(r);
+}
+
+static int is_result_failed(mylib_result r)
+{
+  return BOOST_OUTCOME_C_RESULT_HAS_ERROR(r);
+}
+
+static mylib_result make_success_result(intptr_t v)
+{
+  return BOOST_OUTCOME_C_MAKE_RESULT_SYSTEM_SUCCESS(mylib, v);
+}
+
+static mylib_result make_failure_result(int v)
+{
+  return BOOST_OUTCOME_C_MAKE_RESULT_SYSTEM_FAILURE_SYSTEM(mylib, v);
+}
+
+static int is_result_equivalent(mylib_result r, int errcode)
+{
+  return outcome_status_code_equal_generic(&r, errcode);
+}
+
+static const char *result_failure_message(mylib_result r)
+{
+  return outcome_status_code_message(&r);
+}
+
+extern MYLIB_DECL mylib_result test_function(int x);
+
+#endif
