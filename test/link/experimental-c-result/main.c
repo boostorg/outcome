@@ -1,5 +1,5 @@
-/* UPDATED BY SCRIPT
-(C) 2017-2024 Niall Douglas <http://www.nedproductions.biz/> (225 commits)
+/* Link testing for outcomes
+(C) 2024 Niall Douglas <http://www.nedproductions.biz/> (6 commits)
 
 
 Boost Software License - Version 1.0 - August 17th, 2003
@@ -27,7 +27,37 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
 DEALINGS IN THE SOFTWARE.
 */
 
-// Note the second line of this file must ALWAYS be the git SHA, third line ALWAYS the git SHA update time
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_REF 2a8ff2b0ca37e4627b0d9919b653fee7d4cc6968
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_DATE "2024-09-04 14:48:43 +00:00"
-#define BOOST_OUTCOME_PREVIOUS_COMMIT_UNIQUE 2a8ff2b0
+#include "lib.h"
+
+#include <errno.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(void)
+{
+  mylib_result r = test_function(5);
+  if(is_result_failed(r))
+  {
+    fprintf(stderr, "FATAL: test_function(5) failed with '%s'\n", result_failure_message(r));
+    abort();
+  }
+  if(r.value != 5)
+  {
+    fprintf(stderr, "FATAL: test_function(5) did not return 5\n");
+    abort();
+  }
+  r = test_function(-5);
+  if(!is_result_failed(r))
+  {
+    fprintf(stderr, "FATAL: test_function(-5) did not fail\n");
+    abort();
+  }
+  const char *msg = result_failure_message(r);
+  printf("test_function(-5) should fail with 'Invalid argument'\nIt failed with '%s'\n", msg);
+  if(0 != strcmp(msg, "Invalid argument"))
+  {
+    abort();
+  }
+  return 0;
+}
