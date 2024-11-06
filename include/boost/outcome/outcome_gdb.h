@@ -27,7 +27,7 @@
 #define BOOST_OUTCOME_INLINE_GDB_PRETTY_PRINTER_H
 
 #ifndef BOOST_OUTCOME_DISABLE_INLINE_GDB_PRETTY_PRINTERS
-#if defined(__ELF__)
+#if defined(__ELF__) && !defined(__ANDROID__)
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Woverlength-strings"
