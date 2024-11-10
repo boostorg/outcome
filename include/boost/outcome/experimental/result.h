@@ -82,8 +82,10 @@ DEALINGS IN THE SOFTWARE.
 #ifndef BOOST_OUTCOME_C_INLINE
 #if __STDC_VERSION__ >= 199900L || __cplusplus > 0
 #define BOOST_OUTCOME_C_INLINE inline
-#elif defined(__GNUC__) || defined(__clang__)
+#elif defined(__GNUC__) || defined(__clang__) || defined(_MSC_VER)
 #define BOOST_OUTCOME_C_INLINE __inline
+#else
+#define BOOST_OUTCOME_C_INLINE
 #endif
 #endif
 
