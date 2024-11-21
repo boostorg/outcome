@@ -129,9 +129,9 @@ extern "C"
 
   extern BOOST_OUTCOME_C_WEAK void outcome_make_result_status_code_failure_posix(void *out, size_t bytes, size_t offset, int errcode);
   extern BOOST_OUTCOME_C_WEAK void outcome_make_result_status_code_failure_system(void *out, size_t bytes, size_t offset, intptr_t errcode);
-  extern int outcome_status_code_equal(const void *a, const void *b);
-  extern int outcome_status_code_equal_generic(const void *a, int errcode);
-  extern const char *outcome_status_code_message(const void *a);
+  extern BOOST_OUTCOME_C_WEAK int outcome_status_code_equal(const void *a, const void *b);
+  extern BOOST_OUTCOME_C_WEAK int outcome_status_code_equal_generic(const void *a, int errcode);
+  extern BOOST_OUTCOME_C_WEAK const char *outcome_status_code_message(const void *a);
 
 
 #ifdef __cplusplus
@@ -194,7 +194,7 @@ extern "C"
   BOOST_OUTCOME_C_NODISCARD_EXTERN_C BOOST_OUTCOME_C_WEAK struct cxx_result_status_code_##ident outcome_make_result_##ident##_failure_posix(int errcode)                   \
   {                                                                                                                                                            \
     struct cxx_result_status_code_##ident ret;                                                                                                                 \
-    assert(outcome_make_result_status_code_failure_posix); /* If this fails, you need to compile this file at least once in C++. */                            \
+    assert(outcome_make_result_status_code_failure_posix!=NULL); /* If this fails, you need to compile this file at least once in C++. */                            \
     outcome_make_result_status_code_failure_posix((void *) &ret, sizeof(ret), offsetof(struct cxx_result_status_code_##ident, flags), errcode);                \
     return ret;                                                                                                                                                \
   }                                                                                                                                                            \
@@ -202,7 +202,7 @@ extern "C"
   BOOST_OUTCOME_C_NODISCARD_EXTERN_C BOOST_OUTCOME_C_WEAK struct cxx_result_status_code_##ident outcome_make_result_##ident##_failure_system(intptr_t errcode)             \
   {                                                                                                                                                            \
     struct cxx_result_status_code_##ident ret;                                                                                                                 \
-    assert(outcome_make_result_status_code_failure_system); /* If this fails, you need to compile this file at least once in C++. */                           \
+    assert(outcome_make_result_status_code_failure_system!=NULL); /* If this fails, you need to compile this file at least once in C++. */                           \
     outcome_make_result_status_code_failure_system((void *) &ret, sizeof(ret), offsetof(struct cxx_result_status_code_##ident, flags), errcode);               \
     return ret;                                                                                                                                                \
   }                                                                                                                                                            \
