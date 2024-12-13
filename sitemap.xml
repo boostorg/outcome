@@ -1470,14 +1470,14 @@
   </url>
   
   <url>
-    <loc>/categories/constructors.html</loc>
-    <lastmod>2020-12-17T11:27:06+00:00</lastmod>
+    <loc>/tags/constructors.html</loc>
+    <lastmod>2019-06-24T21:48:18+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/constructors.html</loc>
-    <lastmod>2019-06-24T21:48:18+01:00</lastmod>
+    <loc>/categories/constructors.html</loc>
+    <lastmod>2020-12-17T11:27:06+00:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -1699,6 +1699,17 @@
     <loc>/tags/result.html</loc>
     <lastmod>2021-02-23T17:37:27+00:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/rust.html</loc>
+    <lastmod>2024-12-13T19:14:59+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/recipes/rust.html</loc>
+    <lastmod>2024-12-13T19:14:59+00:00</lastmod>
   </url>
   
   <url>
