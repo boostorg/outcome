@@ -1,5 +1,5 @@
 /* UPDATED BY SCRIPT
-(C) 2017-2025 Niall Douglas <http://www.nedproductions.biz/> (225 commits)
+(C) 2017-2026 Niall Douglas <http://www.nedproductions.biz/> (225 commits)
 
 
 Boost Software License - Version 1.0 - August 17th, 2003
