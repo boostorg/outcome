@@ -478,6 +478,8 @@ BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class DomainType1, class T,  //
 BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(is_status_code<MakeStatusCodeResult>::value))  // ADL makes a status code
 BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 inline bool operator==(const status_code<DomainType1> &a, const T &b)
 {
+  static_assert(!is_status_code<typename std::decay<T>::type>::value,
+                "make_status_code() cannot consume status codes!");
   return a.equivalent(make_status_code(b));
 }
 //! True if the status code's are semantically equal via `equivalent()` to `make_status_code(T)`.
@@ -487,6 +489,8 @@ BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class T, class DomainType1,  //
 BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(is_status_code<MakeStatusCodeResult>::value))  // ADL makes a status code
 BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 inline bool operator==(const T &a, const status_code<DomainType1> &b)
 {
+  static_assert(!is_status_code<typename std::decay<T>::type>::value,
+                "make_status_code() cannot consume status codes!");
   return b.equivalent(make_status_code(a));
 }
 //! True if the status code's are not semantically equal via `equivalent()` to `make_status_code(T)`.
@@ -496,6 +500,8 @@ BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class DomainType1, class T,  //
 BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(is_status_code<MakeStatusCodeResult>::value))  // ADL makes a status code
 BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 inline bool operator!=(const status_code<DomainType1> &a, const T &b)
 {
+  static_assert(!is_status_code<typename std::decay<T>::type>::value,
+                "make_status_code() cannot consume status codes!");
   return !a.equivalent(make_status_code(b));
 }
 //! True if the status code's are semantically equal via `equivalent()` to `make_status_code(T)`.
@@ -505,6 +511,8 @@ BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class T, class DomainType1,  //
 BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(is_status_code<MakeStatusCodeResult>::value))  // ADL makes a status code
 BOOST_OUTCOME_SYSTEM_ERROR2_CONSTEXPR14 inline bool operator!=(const T &a, const status_code<DomainType1> &b)
 {
+  static_assert(!is_status_code<typename std::decay<T>::type>::value,
+                "make_status_code() cannot consume status codes!");
   return !b.equivalent(make_status_code(a));
 }
 //! True if the status code's are semantically equal via `equivalent()` to
