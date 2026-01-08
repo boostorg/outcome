@@ -93,21 +93,19 @@ public:
 
   /***** KEEP THESE IN SYNC WITH STATUS_CODE *****/
   //! Implicit construction from any type where an ADL discovered `make_status_code(T, Args ...)` returns a
-  //! `status_code`. Note that `make_status_code(status_code)` is illegal, hence the static assertion.
+  //! `status_code`.
   BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class T, class... Args,  //
                          class MakeStatusCodeResult = typename detail::safe_get_make_status_code_result<
                          T, Args...>::type)  // Safe ADL lookup of make_status_code(), returns void if not found
-  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(
-  !std::is_same<typename std::decay<T>::type, errored_status_code>::value       // not copy/move of self
-  && !std::is_same<typename std::decay<T>::type, in_place_t>::value             // not in_place_t
-  && is_status_code<MakeStatusCodeResult>::value                                // ADL makes a status code
-  && std::is_constructible<errored_status_code, MakeStatusCodeResult>::value))  // ADLed status code is compatible
+  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(
+  BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(!std::is_same<typename std::decay<T>::type, errored_status_code>::value  // not copy/move of self
+                      && !std::is_same<typename std::decay<T>::type, in_place_t>::value        // not in_place_t
+                      && is_status_code<MakeStatusCodeResult>::value                  // ADL makes a status code
+                      && std::is_constructible<_base, MakeStatusCodeResult>::value))  // ADLed status code is compatible
   errored_status_code(T &&v,
                       Args &&...args) noexcept(detail::safe_get_make_status_code_noexcept<T, Args...>::value)  // NOLINT
-      : errored_status_code(make_status_code(static_cast<T &&>(v), static_cast<Args &&>(args)...))
+      : _base(make_status_code(static_cast<T &&>(v), static_cast<Args &&>(args)...))
   {
-    static_assert(!is_status_code<typename std::decay<T>::type>::value,
-                  "make_status_code() cannot consume status codes!");
     _check();
   }
 
@@ -268,21 +266,19 @@ public:
     _check();
   }
   //! Implicit construction from any type where an ADL discovered `make_status_code(T, Args ...)` returns a
-  //! `status_code`. Note that `make_status_code(status_code)` is illegal, hence the static assertion.
+  //! `status_code`.
   BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class T, class... Args,  //
                          class MakeStatusCodeResult = typename detail::safe_get_make_status_code_result<
                          T, Args...>::type)  // Safe ADL lookup of make_status_code(), returns void if not found
-  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(
-  !std::is_same<typename std::decay<T>::type, errored_status_code>::value       // not copy/move of self
-  && !std::is_same<typename std::decay<T>::type, value_type>::value             // not copy/move of value type
-  && is_status_code<MakeStatusCodeResult>::value                                // ADL makes a status code
-  && std::is_constructible<errored_status_code, MakeStatusCodeResult>::value))  // ADLed status code is compatible
+  BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(
+  BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(!std::is_same<typename std::decay<T>::type, errored_status_code>::value  // not copy/move of self
+                      && !std::is_same<typename std::decay<T>::type, value_type>::value  // not copy/move of value type
+                      && is_status_code<MakeStatusCodeResult>::value                     // ADL makes a status code
+                      && std::is_constructible<_base, MakeStatusCodeResult>::value))  // ADLed status code is compatible
   errored_status_code(T &&v,
                       Args &&...args) noexcept(detail::safe_get_make_status_code_noexcept<T, Args...>::value)  // NOLINT
-      : errored_status_code(make_status_code(static_cast<T &&>(v), static_cast<Args &&>(args)...))
+      : _base(make_status_code(static_cast<T &&>(v), static_cast<Args &&>(args)...))
   {
-    static_assert(!is_status_code<typename std::decay<T>::type>::value,
-                  "make_status_code() cannot consume status codes!");
     _check();
   }
   //! Implicit construction from any `quick_status_code_from_enum<Enum>` enumerated type.
@@ -377,8 +373,6 @@ BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class DomainType1, class T,  //
 BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(is_status_code<MakeStatusCodeResult>::value))  // ADL makes a status code
 inline bool operator==(const errored_status_code<DomainType1> &a, const T &b)
 {
-  static_assert(!is_status_code<typename std::decay<T>::type>::value,
-                "make_status_code() cannot consume status codes!");
   return a.equivalent(make_status_code(b));
 }
 //! True if the status code's are semantically equal via `equivalent()` to `make_status_code(T)`.
@@ -388,8 +382,6 @@ BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class T, class DomainType1,  //
 BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(is_status_code<MakeStatusCodeResult>::value))  // ADL makes a status code
 inline bool operator==(const T &a, const errored_status_code<DomainType1> &b)
 {
-  static_assert(!is_status_code<typename std::decay<T>::type>::value,
-                "make_status_code() cannot consume status codes!");
   return b.equivalent(make_status_code(a));
 }
 //! True if the status code's are not semantically equal via `equivalent()` to `make_status_code(T)`.
@@ -399,8 +391,6 @@ BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class DomainType1, class T,  //
 BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(is_status_code<MakeStatusCodeResult>::value))  // ADL makes a status code
 inline bool operator!=(const errored_status_code<DomainType1> &a, const T &b)
 {
-  static_assert(!is_status_code<typename std::decay<T>::type>::value,
-                "make_status_code() cannot consume status codes!");
   return !a.equivalent(make_status_code(b));
 }
 //! True if the status code's are semantically equal via `equivalent()` to `make_status_code(T)`.
@@ -410,8 +400,6 @@ BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class T, class DomainType1,  //
 BOOST_OUTCOME_SYSTEM_ERROR2_TREQUIRES(BOOST_OUTCOME_SYSTEM_ERROR2_TPRED(is_status_code<MakeStatusCodeResult>::value))  // ADL makes a status code
 inline bool operator!=(const T &a, const errored_status_code<DomainType1> &b)
 {
-  static_assert(!is_status_code<typename std::decay<T>::type>::value,
-                "make_status_code() cannot consume status codes!");
   return !b.equivalent(make_status_code(a));
 }
 //! True if the status code's are semantically equal via `equivalent()` to

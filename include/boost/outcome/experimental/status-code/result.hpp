@@ -125,8 +125,7 @@ protected:
 #elif defined(__GNUC__) || defined(__clang__)
   __attribute__((noreturn))
 #endif
-  void
-  _ub()
+  void _ub()
   {
     assert(false);  // NOLINT
 #if defined(__GNUC__) || defined(__clang__)
@@ -218,7 +217,7 @@ public:
   }
 
   //! Implicit construction from any type where an ADL discovered `make_status_code(T, Args ...)` returns a
-  //! `status_code`. Note that `make_status_code(status_code)` is illegal, hence the static assertion.
+  //! `status_code`.
   BOOST_OUTCOME_SYSTEM_ERROR2_TEMPLATE(class U, class... Args,  //
                          class MakeStatusCodeResult = typename detail::safe_get_make_status_code_result<
                          U, Args...>::type)  // Safe ADL lookup of make_status_code(), returns void if not found
@@ -231,8 +230,6 @@ public:
                                                                              std::declval<Args>()...)))  // NOLINT
       : _base(std::in_place_index<0>, make_status_code(static_cast<U &&>(v), static_cast<Args &&>(args)...))
   {
-    static_assert(!is_status_code<typename std::decay<T>::type>::value,
-                  "make_status_code() cannot consume status codes!");
   }
 
   //! Swap with another result
