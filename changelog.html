@@ -182,6 +182,12 @@ I don&rsquo;t expect any further changes from that standards commitee.</p></li>
 
 <h3 id="bug-fixes">Bug fixes:</h3>
 
+<ul>
+<li>In Experimental.Outcome, the <code>make_status_code()</code> ADL customisation point in
+<code>status_code</code> kinda supported transforming between kinds of status code, but it
+also kinda didn&rsquo;t. Now it definitely does. This fix may cause corner case breakage.</li>
+</ul>
+
 <hr />
 
 <h2 id="v2-2-14-10th-december-2025-boost-1-90-release-https-github-com-ned14-outcome-releases-tag-v2-2-14">v2.2.14 10th December 2025 (Boost 1.90) <a href="https://github.com/ned14/outcome/releases/tag/v2.2.14">[release]</a></h2>
@@ -988,7 +994,7 @@ and Boost.Exception (these are <code>result.hpp</code> and <code>outcome.hpp</co
 
 
 
-        </div><p><small>Last revised: November 03, 2025 at 16:45:15 UTC</small></p>
+        </div><p><small>Last revised: January 08, 2026 at 18:51:10 UTC</small></p>
 <hr>
 <div class="spirit-nav">
 <a accesskey="p" href="./videos.html"><img src="./images/prev.png" alt="Prev"></a>
