@@ -478,7 +478,11 @@ BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_END
 #endif
 #endif
 #if !BOOST_OUTCOME_SYSTEM_ERROR2_AVOID_STDIO_INCLUDE
+#if defined(_MSC_VER)
+#include <io.h>  // for write
+#else
 #include <unistd.h>  // for write
+#endif
 #endif
 
 BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE_BEGIN
