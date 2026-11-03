@@ -36,9 +36,13 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 
+// The body only builds under the condition below. Guarding INSIDE the case left the
+// configurations that do not satisfy it registering a case with zero assertions, which
+// CTest recorded as PASSED (reviewer P0 r1:T6). Guard the whole case instead and let
+// those configurations report SKIPPED.
+#if !defined(__APPLE__) || defined(__cpp_exceptions)
 BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_comparison, "Tests that the outcome can compare to compatible outcomes")
 {
-#if !defined(__APPLE__) || defined(__cpp_exceptions)
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   auto p = boost::copy_exception(std::runtime_error("hi"));
   // value comparison
@@ -98,5 +102,20 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_comparison, "Tests that the outcome c
     // BOOST_CHECK(a != f);
   }
   // Should I do outcome<int>(5) == 5? Unsure if it's wise
-#endif
 }
+#else
+#include "skip_test.hpp"
+
+BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_comparison, "Tests that the outcome can compare to compatible outcomes")
+// Two arguments, not three: BOOST_OUTCOME_AUTO_TEST_CASE forwards to
+// BOOST_AUTO_TEST_CASE, which takes a name and a description and no more. The
+// skip reason used to be passed as a third argument here, which no compiler
+// accepts ("too many arguments provided to function-like macro invocation"),
+// so this branch could not be built anywhere - and the exceptions-disabled
+// duplicate of this file is the only thing that ever builds it on Apple, which
+// is where the macOS job failed. The reason lives in the SKIP_TEST_IF_DISABLED
+// message below, as it does in the ten other files which skip the same way.
+{
+  SKIP_TEST_IF_DISABLED("test/tests/comparison.cpp does not build in this configuration");
+}
+#endif

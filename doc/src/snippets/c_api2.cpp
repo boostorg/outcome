@@ -37,7 +37,7 @@ DEALINGS IN THE SOFTWARE.
 
 //! [preamble]
 // Declare to C a Result with a happy value of intptr_t
-BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM(result_int, intptr_t)
+BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM(result_int, intptr_t);
 
 // Save oneself typing out BOOST_OUTCOME_C_RESULT_SYSTEM(result_int) all the time
 typedef BOOST_OUTCOME_C_RESULT_SYSTEM(result_int) result;

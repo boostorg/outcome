@@ -31,9 +31,13 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 
+// The body only builds under the condition below. Guarding INSIDE the case left the
+// configurations that do not satisfy it registering a case with zero assertions, which
+// CTest recorded as PASSED (reviewer P0 r1:T6). Guard the whole case instead and let
+// those configurations report SKIPPED.
+#if !defined(__APPLE__) || defined(__cpp_exceptions)
 BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_serialisation, "Tests that the outcome serialises and deserialises as intended")
 {
-#if !defined(__APPLE__) || defined(__cpp_exceptions)
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   outcome<std::string> a("niall"), b(boost::system::error_code(5, boost::system::generic_category())), c(boost::copy_exception(std::ios_base::failure("A test failure message")));
   std::cout << "a contains " << print(a) << " and b contains " << print(b) << " and c contains " << print(c) << std::endl;
@@ -45,5 +49,15 @@ BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_serialisation, "Tests that the outcom
   outcome<int, std::string, long> e(failure(""));
   ss >> e;
   BOOST_CHECK(d == e);
-#endif
 }
+#else
+#include "skip_test.hpp"
+
+BOOST_OUTCOME_AUTO_TEST_CASE(works_outcome_serialisation, "Tests that the outcome serialises and deserialises as intended")
+// Two arguments: BOOST_AUTO_TEST_CASE takes a name and a description only, so
+// the third (skip reason) argument this used to carry made the branch
+// unbuildable. See the same fix in comparison.cpp.
+{
+  SKIP_TEST_IF_DISABLED("test/tests/serialisation.cpp does not build in this configuration");
+}
+#endif

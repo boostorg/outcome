@@ -32,9 +32,13 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 
+// The body only builds under the condition below. Guarding INSIDE the case left the
+// configurations that do not satisfy it registering a case with zero assertions, which
+// CTest recorded as PASSED (reviewer P0 r1:T6). Guard the whole case instead and let
+// those configurations report SKIPPED.
+#ifdef BOOST_OUTCOME_TRYX
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_0009_test, "Alternative TRY macros?")
 {
-#ifdef BOOST_OUTCOME_TRYX
 #pragma GCC diagnostic ignored "-Wpedantic"
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   struct udt  // NOLINT
@@ -49,6 +53,22 @@ BOOST_OUTCOME_AUTO_TEST_CASE(issues_0009_test, "Alternative TRY macros?")
     auto g = [] { return result<int>(5); };
     return udt(BOOST_OUTCOME_TRYX(g()));
   };
-  (void) f();
-#endif
+  // This case started life as a compile-only test ("does BOOST_OUTCOME_TRYX work inside
+  // a lambda?"), so its body contained NO assertion: the binary printed
+  // "1 passed" while checking nothing, which is indistinguishable from a real
+  // pass (P0 r1:T6). Assert the observable outcome.
+  auto r = f();
+  BOOST_CHECK(r.has_value());
+  BOOST_CHECK(!r.has_error());
 }
+#else
+#include "skip_test.hpp"
+
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0009_test, "Alternative TRY macros?")
+// Two arguments: BOOST_AUTO_TEST_CASE takes a name and a description only, so
+// the third (skip reason) argument this used to carry made the branch
+// unbuildable. See the same fix in comparison.cpp.
+{
+  SKIP_TEST_IF_DISABLED("test/tests/issue0009.cpp does not build in this configuration");
+}
+#endif

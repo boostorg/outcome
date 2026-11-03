@@ -32,9 +32,13 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 
+// The body only compiles with exceptions enabled. Guarding INSIDE the case left the
+// -noexcept duplicate registering a case with zero assertions that CTest recorded as
+// PASSED (reviewer P0 r1:T-1). Guard the whole case and let the duplicate report
+// SKIPPED via the marker.
+#ifndef BOOST_NO_EXCEPTIONS
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_0065_outcome, "BOOST_OUTCOME_TRY does not preserve the exception_ptr")
 {
-#ifndef BOOST_NO_EXCEPTIONS
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   auto g = []() -> outcome<int> {
     auto f = []() -> outcome<int> {
@@ -62,5 +66,12 @@ BOOST_OUTCOME_AUTO_TEST_CASE(issues_0065_outcome, "BOOST_OUTCOME_TRY does not pr
   {
     BOOST_CHECK(!strcmp(e.what(), "XXX"));
   }
-#endif
 }
+#else
+#include "skip_test.hpp"
+
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0065_outcome, "Skipped: issue0065 needs exceptions")
+{
+  SKIP_TEST_IF_DISABLED("test/tests/issue0065.cpp needs exceptions");
+}
+#endif
