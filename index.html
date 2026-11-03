@@ -205,7 +205,7 @@ is available in scope.</p>
 
 <p>Equivalent to the C++ API: <code>BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM(ident, T)</code> declares the C type, thereafter <code>BOOST_OUTCOME_C_RESULT_SYSTEM(ident)</code> refers to it. You use it in the function&rsquo;s return type:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM</span><span class="p">(</span><span class="n">result_string</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM</span><span class="p">(</span><span class="n">result_string</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">);</span>
 
 <span class="n">BOOST_OUTCOME_C_RESULT_SYSTEM</span><span class="p">(</span><span class="n">result_string</span><span class="p">)</span> <span class="n">data_from_file</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">path</span><span class="p">);</span>
 </code></pre></div><a href="https://github.com/boostorg/outcome/tree/master/doc/src/snippets/intro_c_example.cpp#L40" class="code-snippet-url" target="_blank">View this code on Github</a></div>
@@ -223,7 +223,7 @@ is available in scope.</p>
 
 <p>Or, if this function is called in another function that also returns <code>BOOST_OUTCOME_C_RESULT_SYSTEM(ident)</code>, you can use a dedicated control statement:</p>
 
-<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM</span><span class="p">(</span><span class="n">result_int</span><span class="p">,</span> <span class="kt">int</span><span class="p">)</span>
+<div class="code-snippet"><div class="highlight"><pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM</span><span class="p">(</span><span class="n">result_int</span><span class="p">,</span> <span class="kt">int</span><span class="p">);</span>
 
 <span class="n">BOOST_OUTCOME_C_RESULT_SYSTEM</span><span class="p">(</span><span class="n">result_int</span><span class="p">)</span> <span class="n">process</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">content</span><span class="p">);</span>
 
