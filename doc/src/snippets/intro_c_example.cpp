@@ -37,7 +37,7 @@ void use_string(const char *foo)
 }
 
 //! [signature]
-BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM(result_string, const char *)
+BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM(result_string, const char *);
 
 BOOST_OUTCOME_C_RESULT_SYSTEM(result_string) data_from_file(const char *path);
 //! [signature]
@@ -54,7 +54,7 @@ int main()
 }
 
 //! [implementation]
-BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM(result_int, int)
+BOOST_OUTCOME_C_DECLARE_RESULT_SYSTEM(result_int, int);
 
 BOOST_OUTCOME_C_RESULT_SYSTEM(result_int) process(const char *content);
 

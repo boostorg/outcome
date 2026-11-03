@@ -29,6 +29,8 @@ DEALINGS IN THE SOFTWARE.
 
 #define BOOST_OUTCOME_SYSTEM_ERROR2_FATAL(msg) abort()
 
+#include "../ndebug.h"
+
 #include <boost/outcome/experimental/status_outcome.hpp>
 
 #define BOOST_OUTCOME_PREVENT_CONVERSION_WORKAROUND std

@@ -29,6 +29,8 @@ DEALINGS IN THE SOFTWARE.
 
 #define BOOST_OUTCOME_SYSTEM_ERROR2_FATAL(msg) abort()
 
+#include "../ndebug.h"
+
 #include <boost/outcome/experimental/status_result.hpp>
 
 template <class T, class S = BOOST_OUTCOME_SYSTEM_ERROR2_NAMESPACE::system_code,

@@ -32,9 +32,13 @@ DEALINGS IN THE SOFTWARE.
 #include <boost/test/unit_test.hpp>
 #include <boost/test/unit_test_monitor.hpp>
 
+// The body only builds under the condition below. Guarding INSIDE the case left the
+// configurations that do not satisfy it registering a case with zero assertions, which
+// CTest recorded as PASSED (reviewer P0 r1:T6). Guard the whole case instead and let
+// those configurations report SKIPPED.
+#if (defined(_MSC_VER) && !defined(__clang__)) || __cplusplus >= 201700
 BOOST_OUTCOME_AUTO_TEST_CASE(issues_0059_test, "result<NonMovable> supported?")
 {
-#if (defined(_MSC_VER) && !defined(__clang__)) || __cplusplus >= 201700
   using namespace BOOST_OUTCOME_V2_NAMESPACE;
   struct udt
   {
@@ -56,5 +60,12 @@ BOOST_OUTCOME_AUTO_TEST_CASE(issues_0059_test, "result<NonMovable> supported?")
     return success();
   };
   (void) f();
-#endif
 }
+#else
+#include "skip_test.hpp"
+
+BOOST_OUTCOME_AUTO_TEST_CASE(issues_0059_test, "result<NonMovable> supported?")
+{
+  SKIP_TEST_IF_DISABLED("test/tests/issue0059.cpp does not build in this configuration");
+}
+#endif
